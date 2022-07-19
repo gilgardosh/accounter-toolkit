@@ -1,0 +1,26 @@
+{
+  "name": "accounter-toolkit",
+  "private": true,
+  "workspaces": [
+  ],
+  "type": "module",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
+    "prettier": "prettier --ignore-path .gitignore --write --list-different ."
+  },
+  "devDependencies": {
+    "@theguild/eslint-config": "0.0.1",
+    "@theguild/prettier-config": "0.0.1",
+    "@types/node": "18.0.0",
+    "concurrently": "7.2.2",
+    "eslint": "8.19.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "prettier": "2.7.1",
+    "prettier-plugin-sql": "0.8.3",
+    "typescript": "4.7.4"
+  },
+  "engines": {
+    "node": "18.6.0"
+  },
+  "license": "MIT"
+}
