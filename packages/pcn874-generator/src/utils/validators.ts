@@ -116,7 +116,7 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     case EntryType.SALE_ZERO_OR_EXEMPT: {
       if (transaction.totalVat && transaction.totalVat !== 0) {
         console.error(
-          `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`,
+          `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
         );
         transaction.totalVat = 0;
       }
@@ -129,7 +129,7 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     case EntryType.SALE_UNIDENTIFIED_CUSTOMER: {
       if (transaction.vatId && transaction.vatId !== '000000000') {
         console.debug(
-          `Transactions of entry type "SALE_UNIDENTIFIED_CUSTOMER" should not include vatId, received "${transaction.vatId}".`,
+          `Transactions of entry type "SALE_UNIDENTIFIED_CUSTOMER" should not include vatId, received "${transaction.vatId}".`
         );
       }
       break;
@@ -137,12 +137,12 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     case EntryType.SALE_UNIDENTIFIED_ZERO_OR_EXEMPT: {
       if (transaction.vatId && transaction.vatId !== '000000000') {
         console.debug(
-          `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" should not include vatId, received "${transaction.vatId}".`,
+          `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" should not include vatId, received "${transaction.vatId}".`
         );
 
         if (transaction.totalVat && transaction.totalVat !== 0) {
           console.error(
-            `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`,
+            `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
           );
           transaction.totalVat = 0;
         }
@@ -153,7 +153,7 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
       transaction.vatId = transaction.vatId || '999999999';
       if (transaction.totalVat && transaction.totalVat !== 0) {
         throw new Error(
-          `Transactions of entry type "SALE_EXPORT" should not include totalVat, received "${transaction.totalVat}"`,
+          `Transactions of entry type "SALE_EXPORT" should not include totalVat, received "${transaction.totalVat}"`
         );
       }
       break;
@@ -161,14 +161,14 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     case EntryType.INPUT_PETTY_CASH: {
       if (transaction.vatId && transaction.vatId !== '000000000') {
         console.debug(
-          `Transactions of entry type "INPUT_PETTY_CASH" should not include vatId, received "${transaction.vatId}".`,
+          `Transactions of entry type "INPUT_PETTY_CASH" should not include vatId, received "${transaction.vatId}".`
         );
       }
 
       const invoicesNum = transaction.refNumber ? parseInt(transaction.refNumber) : 0;
       if (isNaN(invoicesNum) || invoicesNum === 0) {
         throw new Error(
-          `On transactions of entry type "INPUT_PETTY_CASH", refNumber should reflect the number of invoices in the entry (hence > 0), received "${transaction.refNumber}"`,
+          `On transactions of entry type "INPUT_PETTY_CASH", refNumber should reflect the number of invoices in the entry (hence > 0), received "${transaction.refNumber}"`
         );
       }
       break;
@@ -176,7 +176,7 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     case EntryType.INPUT_IMPORT: {
       if (transaction.refNumber && transaction.refNumber !== '000000000') {
         console.debug(
-          `Transactions of entry type "INPUT_IMPORT" should not include refNumber, received "${transaction.refNumber}".`,
+          `Transactions of entry type "INPUT_IMPORT" should not include refNumber, received "${transaction.refNumber}".`
         );
       }
       break;
