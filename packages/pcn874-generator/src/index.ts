@@ -1,13 +1,12 @@
-import { Header, Transaction } from './types';
-import { footerBuilder, headerBuilder, transactionBuilder } from './utils/index.js';
-import { headerHandler, transactionHandler } from './utils/dataHandlers.js';
+import type { Header, Options, Transaction } from './types';
+import { footerBuilder, headerBuilder, headerHandler, transactionBuilder, transactionHandler } from './utils/index.js';
 
-const pcnGenerator = (header: Header, transactions: Transaction[]): string => {
+export const pcnGenerator = (header: Header, transactions: Transaction[], options: Options = {}): string => {
   let textFile = '';
 
   // handle header
   try {
-    header = headerHandler(header);
+    header = headerHandler(header, options);
   } catch (e) {
     throw new Error(`Header validation error: ${(e as Error).message}`);
   }
@@ -17,7 +16,7 @@ const pcnGenerator = (header: Header, transactions: Transaction[]): string => {
   for (let i = 0; i < transactions.length; i++) {
     let transaction = transactions[i];
     try {
-      transaction = transactionHandler(transaction);
+      transaction = transactionHandler(transaction, options);
     } catch (e) {
       throw new Error(`Transaction index ${i} validation error: ${(e as Error).message}`);
     }
@@ -29,5 +28,3 @@ const pcnGenerator = (header: Header, transactions: Transaction[]): string => {
 
   return textFile;
 };
-
-export default pcnGenerator;

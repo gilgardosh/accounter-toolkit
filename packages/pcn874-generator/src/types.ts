@@ -317,3 +317,11 @@ export interface Transaction {
   //  */
   // extraSpace: string;
 }
+
+export interface Options {
+  /**
+   * defines if generator will throw error on minor/auto-fixable issue
+   * default: false
+   */
+  strict?: boolean;
+}
