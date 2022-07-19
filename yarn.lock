@@ -2025,13 +2025,13 @@ prettier-plugin-sh@^0.11.0:
   dependencies:
     mvdan-sh "^0.10.1"
 
-prettier-plugin-sql@0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-sql/-/prettier-plugin-sql-0.8.3.tgz#5a0d5cb3892c7b53e3362fbd9ec5afd121e95071"
-  integrity sha512-e9W/ANtOdqicLMbKdQ7OT6pfgoVYyHTtbYQphnuorXRVzOpAfpFS3HMBgkl+RC9pEboOwEPS3FHUD6cHzhrdUQ==
+prettier-plugin-sql@0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sql/-/prettier-plugin-sql-0.9.0.tgz#acc3a19911fc08ff73e86565237851289a7f2d75"
+  integrity sha512-lS6uq+PN49WXHKguU2CjN6vr3Vhr0OYPJtHiZ54MfRMoT/Cl5ahEjZNZo79OVp3RrOKc0V9lvRPS1/Cedr8uiA==
   dependencies:
     node-sql-parser "^4.3.0"
-    sql-formatter "^7.0.3"
+    sql-formatter "^8.0.1"
 
 prettier@2.7.1:
   version "2.7.1"
@@ -2316,10 +2316,10 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.11.tgz#50c0d8c40a14ec1bf449bae69a0ea4685a9d9f95"
   integrity sha512-Ctl2BrFiM0X3MANYgj3CkygxhRmr9mi6xhejbdO960nF6EDJApTYpn0BQnDKlnNBULKiCN1n3w9EBkHK8ZWg+g==
 
-sql-formatter@^7.0.3:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/sql-formatter/-/sql-formatter-7.0.4.tgz#496e985b625d45798a8a344711206f6486f4dda4"
-  integrity sha512-1rnwJuY9UuuzbEKUeE0jmDxJusnoHUnS7Ufxm972bgZkRjrFVH5JuMjmlzNvxQox0+F45pa0fNjfgIyq6iMVNg==
+sql-formatter@^8.0.1:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/sql-formatter/-/sql-formatter-8.2.0.tgz#2b664f02bb6b7bb6fcad1346e850b8f583303469"
+  integrity sha512-5hQOSOk8jfhPkNgUmpm+9Fn2aaLWcf4vKL/dIvUN5q9rsamKHSyN/gL79xpkETNOyL+Zv5BMQfA7z9Rmz/DJJg==
   dependencies:
     argparse "^2.0.1"
 
