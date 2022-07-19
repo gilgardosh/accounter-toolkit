@@ -2,6 +2,7 @@
   "name": "accounter-toolkit",
   "private": true,
   "workspaces": [
+    "packages/*"
   ],
   "type": "module",
   "scripts": {
