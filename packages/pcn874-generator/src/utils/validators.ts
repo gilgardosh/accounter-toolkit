@@ -1,4 +1,5 @@
-import { EntryType, Header, Transaction } from '../types';
+import type { Header, Options, Transaction } from '../types';
+import { EntryType } from '../types';
 
 const onlyDigitsValidator = (value: string): boolean => {
   return !!value && /^\d+$/.test(value);
@@ -105,7 +106,7 @@ export const headerValidator = (header: Header): Header => {
   return header;
 };
 
-export const transactionValidator = (transaction: Transaction): Transaction => {
+export const transactionValidator = (transaction: Transaction, options: Options): Transaction => {
   switch (transaction.entryType) {
     case EntryType.SALE_REGULAR: {
       if (transaction.invoiceSum <= 5000) {
@@ -115,9 +116,11 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
     }
     case EntryType.SALE_ZERO_OR_EXEMPT: {
       if (transaction.totalVat && transaction.totalVat !== 0) {
-        console.error(
-          `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
-        );
+        if (options.strict) {
+          throw new Error(
+            `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
+          );
+        }
         transaction.totalVat = 0;
       }
 
@@ -127,25 +130,27 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
       break;
     }
     case EntryType.SALE_UNIDENTIFIED_CUSTOMER: {
-      if (transaction.vatId && transaction.vatId !== '000000000') {
-        console.debug(
+      if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
+        throw new Error(
           `Transactions of entry type "SALE_UNIDENTIFIED_CUSTOMER" should not include vatId, received "${transaction.vatId}".`
         );
       }
       break;
     }
     case EntryType.SALE_UNIDENTIFIED_ZERO_OR_EXEMPT: {
-      if (transaction.vatId && transaction.vatId !== '000000000') {
-        console.debug(
+      if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
+        throw new Error(
           `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" should not include vatId, received "${transaction.vatId}".`
         );
+      }
 
-        if (transaction.totalVat && transaction.totalVat !== 0) {
-          console.error(
+      if (transaction.totalVat && transaction.totalVat !== 0) {
+        if (options.strict) {
+          throw new Error(
             `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
           );
-          transaction.totalVat = 0;
         }
+        transaction.totalVat = 0;
       }
       break;
     }
@@ -159,8 +164,8 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
       break;
     }
     case EntryType.INPUT_PETTY_CASH: {
-      if (transaction.vatId && transaction.vatId !== '000000000') {
-        console.debug(
+      if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
+        throw new Error(
           `Transactions of entry type "INPUT_PETTY_CASH" should not include vatId, received "${transaction.vatId}".`
         );
       }
@@ -174,8 +179,8 @@ export const transactionValidator = (transaction: Transaction): Transaction => {
       break;
     }
     case EntryType.INPUT_IMPORT: {
-      if (transaction.refNumber && transaction.refNumber !== '000000000') {
-        console.debug(
+      if (transaction.refNumber && transaction.refNumber !== '000000000' && options.strict) {
+        throw new Error(
           `Transactions of entry type "INPUT_IMPORT" should not include refNumber, received "${transaction.refNumber}".`
         );
       }
