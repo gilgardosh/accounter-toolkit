@@ -24,7 +24,7 @@ sources:
           mode: bare
           compositions:
             - resolver: Query.getExpenses
-              composer: src/resolvers/getExpensesResolver
+              composer: src/resolvers/get-expenses-resolver
 serve:
   browser: false
 

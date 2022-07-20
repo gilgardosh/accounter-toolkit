@@ -7,10 +7,10 @@ const testRun = async () => {
   if (!data.getExpenses?.expenses) {
     throw new Error(data.getExpenses?.description);
   }
-  console.log(data.getExpenses.expenses.map((e) => e.provider + ' - ' + e.file_name));
+  console.log(data.getExpenses.expenses.map(e => e?.provider + ' - ' + e?.file_name));
 };
 
-testRun().catch((e) => {
+testRun().catch(e => {
   console.error(e);
   process.exit(1);
 });

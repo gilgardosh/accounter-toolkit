@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Graphql server for wrapping payper API",
   "scripts": {
-    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
     "prebuild": "yarn lint && yarn generate",
     "build": "tsc",
     "postbuild": "yarn copy-files",
