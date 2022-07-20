@@ -2,7 +2,6 @@
   "name": "@accounter-toolkit/payper-mesh",
   "version": "0.0.0",
   "description": "Graphql server for wrapping payper API",
-  "type": "module",
   "scripts": {
     "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
     "prebuild": "yarn lint && yarn generate",
