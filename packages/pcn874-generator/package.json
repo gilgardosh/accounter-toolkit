@@ -11,13 +11,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gilgardosh/pcn874-generator.git",
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
     "repository": "packages/pcn874-generator"
   },
   "bugs": {
-    "url": "https://github.com/gilgardosh/pcn874-generator/issues"
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
   },
-  "homepage": "https://github.com/gilgardosh/pcn874-generator#readme",
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/pcn874-generator#readme",
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
