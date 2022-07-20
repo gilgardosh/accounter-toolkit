@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/payper-mesh",
-  "version": "0.0.10",
+  "version": "0.0.0",
   "description": "Graphql server for wrapping payper API",
   "type": "module",
   "scripts": {
