@@ -1,6 +1,6 @@
 import { ElementHandle, Page } from 'puppeteer';
 
-import type { Logger } from './types';
+import type { Logger } from './types.js';
 
 export const getSelectOptions = async (
   page: Page,

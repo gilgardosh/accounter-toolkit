@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer';
+import type { Page } from 'puppeteer';
 
 import { newPageByMonth, newPageByYear } from '../utils/browser-util.js';
 import { getReportDetails, getReportExpansionTitle } from '../utils/evaluation-functions.js';

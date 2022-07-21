@@ -4,7 +4,7 @@ import { createRequire } from 'module';
 import { getEnvCredentials, updateCredentials } from './handlers/login-handler.js';
 import { homePageHandler } from './handlers/main-page-handler.js';
 import { validateSchema } from './utils/schema-validator.js';
-import { Config, Report, UserCredentials } from './utils/types.js';
+import type { Config, Report, UserCredentials } from './utils/types.js';
 
 dotenv.config();
 

@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer';
+import type { Page } from 'puppeteer';
 
 import { newPageByYear } from '../utils/browser-util.js';
 import { getReportsTable } from '../utils/evaluation-functions.js';

@@ -1,9 +1,9 @@
-import { Page } from 'puppeteer';
+import type { Page } from 'puppeteer';
 
 import { newHomePage } from '../utils/browser-util.js';
 import { parseDate } from '../utils/dates.js';
 import { getSelectOptions, waitForSelectorPlus } from '../utils/page-util.js';
-import { Config, Report } from '../utils/types.js';
+import type { Config, Report } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { YearHandler } from './year-handler.js';
 

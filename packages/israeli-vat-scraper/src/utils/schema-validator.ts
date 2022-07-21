@@ -1,6 +1,6 @@
 import Ajv, { ErrorObject } from 'ajv';
 
-import { Report } from './types.js';
+import type { Report } from './types.js';
 
 export const validateSchema = async (
   jsonSchema: Record<string, unknown>,
