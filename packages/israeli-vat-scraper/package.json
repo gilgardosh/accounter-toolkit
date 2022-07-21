@@ -27,6 +27,7 @@
     "lint:fix": "eslint . --fix",
     "prebuild": "yarn lint:fix",
     "build": "tsc",
+    "test": "ts-node ./dev-tests/e2e.ts",
     "prepublish": "yarn build"
   },
   "engines": {
