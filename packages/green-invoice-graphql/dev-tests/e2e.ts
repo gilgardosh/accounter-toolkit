@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import fs from 'fs';
 import { lookup } from 'mime-types';
 
-import { init } from '../src';
+import { init } from '..';
 
 config();
 
@@ -32,7 +32,7 @@ const testRun = async () => {
   console.log(JSON.stringify(data));
 
   /* get expense by id */
-  const data2 = await app.sdk.getExpense_query({ id: 'dbfb61b2-579c-42d0-b1ba-a3637e20eb6c' });
+  const data2 = await app.sdk.getExpense_query({ id: 'dbfb61b2-579c-42d0-b1ba-a3637e20eb6c', input: { id: 'dbfb61b2-579c-42d0-b1ba-a3637e20eb6c' } });
   console.log(data2);
 
   /* search drafts */

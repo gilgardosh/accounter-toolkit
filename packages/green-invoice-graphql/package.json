@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/gilgardosh/green-invoice-graphql#readme",
   "scripts": {
-    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
-    "prebuild": "yarn lint && yarn generate",
+    "prebuild": "yarn generate",
     "build": "tsc",
     "postbuild": "yarn copy-files",
     "copy-files": "cp -a .mesh/ dist/.mesh/",
@@ -31,20 +30,21 @@
     "mesh:serve": "mesh serve",
     "mesh:build": "mesh build",
     "generate": "yarn mesh:build",
-    "dev": "ts-node ./src/index.ts",
+    "dev": "ts-node ./index.ts",
     "start": "node ./dist",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.66.0",
-    "@graphql-mesh/json-schema": "0.27.0",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.37",
-    "graphql": "16.3.0",
+    "@graphql-mesh/cli": "0.75.1",
+    "@graphql-mesh/json-schema": "0.30.3",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.69",
+    "graphql": "16.5.0",
     "node-fetch": "2.6.6",
     "path": "0.12.7"
   },
   "devDependencies": {
     "@types/node-fetch": "2.6.1",
+    "dotenv": "16.0.1",
     "mime-types": "2.1.35",
     "ts-node": "10.7.0"
   },
