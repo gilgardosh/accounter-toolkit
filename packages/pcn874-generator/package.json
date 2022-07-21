@@ -38,7 +38,8 @@
     "pcn",
     "pcn874",
     "accountancy",
-    "accountant"
+    "accountant",
+    "accounter"
   ],
   "publishConfig": {
     "directory": "dist",

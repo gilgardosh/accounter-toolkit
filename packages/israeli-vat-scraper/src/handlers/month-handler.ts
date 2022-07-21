@@ -1,13 +1,13 @@
 import { Page } from 'puppeteer';
 
-import { newPageByMonth, newPageByYear } from '../utils/browserUtil.js';
-import { getReportDetails, getReportExpansionTitle } from '../utils/evaluationFunctions.js';
-import { waitAndClick, waitForSelectorPlus } from '../utils/pageUtil.js';
+import { newPageByMonth, newPageByYear } from '../utils/browser-util.js';
+import { getReportDetails, getReportExpansionTitle } from '../utils/evaluation-functions.js';
+import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, Report, ReportDetails, ReportExpansion } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
-import { MonthFixesHandler } from './monthFixesHandler.js';
-import { MonthInputsHandler } from './monthInputsHandler.js';
-import { MonthSalesHandler } from './monthSalesHandler.js';
+import { UserPrompt } from '../utils/user-prompt.js';
+import { MonthFixesHandler } from './month-fixes-handler.js';
+import { MonthInputsHandler } from './month-inputs-handler.js';
+import { MonthSalesHandler } from './month-sales-handler.js';
 
 export class MonthHandler {
   private config: Config;

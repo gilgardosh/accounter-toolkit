@@ -1,11 +1,11 @@
 import { Page } from 'puppeteer';
 
-import { newPageByMonth } from '../utils/browserUtil.js';
-import { getReportExpansionInputs } from '../utils/evaluationFunctions.js';
-import { waitAndClick, waitForSelectorPlus } from '../utils/pageUtil.js';
+import { newPageByMonth } from '../utils/browser-util.js';
+import { getReportExpansionInputs } from '../utils/evaluation-functions.js';
+import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, ReportInputs } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
-import { monthExpansionRecordsHandler } from './monthExpansionRecordsHandler.js';
+import { UserPrompt } from '../utils/user-prompt.js';
+import { monthExpansionRecordsHandler } from './month-expansion-records-handler.js';
 
 const INPUTS_BUTTON_SELECTOR = '#ContentUsersPage_TabMenu1_LinkButton0';
 

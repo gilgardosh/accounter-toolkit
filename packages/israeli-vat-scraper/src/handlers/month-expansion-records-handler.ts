@@ -1,10 +1,10 @@
 import { Page } from 'puppeteer';
 
-import { newPageByMonth } from '../utils/browserUtil.js';
-import { getReportExpansionInputRecordDetails, getReportExpansionInputRecords } from '../utils/evaluationFunctions.js';
-import { waitAndClick, waitForSelectorPlus } from '../utils/pageUtil.js';
+import { newPageByMonth } from '../utils/browser-util.js';
+import { getReportExpansionInputRecordDetails, getReportExpansionInputRecords } from '../utils/evaluation-functions.js';
+import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, ReportInputRecord, ReportInputRecordDetails } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
+import { UserPrompt } from '../utils/user-prompt.js';
 
 export class monthExpansionRecordsHandler {
   private config: Config;

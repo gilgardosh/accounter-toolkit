@@ -1,11 +1,11 @@
 import { Page } from 'puppeteer';
 
-import { newHomePage } from '../utils/browserUtil.js';
+import { newHomePage } from '../utils/browser-util.js';
 import { parseDate } from '../utils/dates.js';
-import { getSelectOptions, waitForSelectorPlus } from '../utils/pageUtil.js';
+import { getSelectOptions, waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, Report } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
-import { YearHandler } from './yearHandler.js';
+import { UserPrompt } from '../utils/user-prompt.js';
+import { YearHandler } from './year-handler.js';
 
 export const homePageHandler = async (config: Config): Promise<Report[]> => {
   let page: Page | null = null;

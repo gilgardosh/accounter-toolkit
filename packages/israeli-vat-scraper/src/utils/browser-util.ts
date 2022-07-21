@@ -1,7 +1,7 @@
 import puppeteer, { Page } from 'puppeteer';
 
-import { login } from '../handlers/loginHandler.js';
-import { waitAndClick, waitForSelectorPlus } from './pageUtil.js';
+import { login } from '../handlers/login-handler.js';
+import { waitAndClick, waitForSelectorPlus } from './page-util.js';
 
 const nevigateYearToMonth = async (page: Page, monthIndex: number): Promise<void> => {
   try {

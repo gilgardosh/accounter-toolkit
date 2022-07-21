@@ -1,10 +1,10 @@
 import { Page } from 'puppeteer';
 
-import { newPageByMonth } from '../utils/browserUtil.js';
-import { getReportExpansionFixes } from '../utils/evaluationFunctions.js';
-import { waitForSelectorPlus } from '../utils/pageUtil.js';
+import { newPageByMonth } from '../utils/browser-util.js';
+import { getReportExpansionFixes } from '../utils/evaluation-functions.js';
+import { waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, ReportFixedInvoice } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
+import { UserPrompt } from '../utils/user-prompt.js';
 
 export class MonthFixesHandler {
   private config: Config;

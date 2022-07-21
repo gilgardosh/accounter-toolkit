@@ -1,11 +1,11 @@
 import { Page } from 'puppeteer';
 
-import { newPageByYear } from '../utils/browserUtil.js';
-import { getReportsTable } from '../utils/evaluationFunctions.js';
-import { waitForSelectorPlus } from '../utils/pageUtil.js';
+import { newPageByYear } from '../utils/browser-util.js';
+import { getReportsTable } from '../utils/evaluation-functions.js';
+import { waitForSelectorPlus } from '../utils/page-util.js';
 import { Config, Report } from '../utils/types.js';
-import { UserPrompt } from '../utils/userPrompt.js';
-import { MonthHandler } from './monthHandler.js';
+import { UserPrompt } from '../utils/user-prompt.js';
+import { MonthHandler } from './month-handler.js';
 
 export class YearHandler {
   private config: Config;

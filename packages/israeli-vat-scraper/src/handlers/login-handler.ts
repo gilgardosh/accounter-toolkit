@@ -1,6 +1,6 @@
 import { Page } from 'puppeteer';
 
-import { waitForSelectorPlus } from '../utils/pageUtil.js';
+import { waitForSelectorPlus } from '../utils/page-util.js';
 import { UserCredentials } from '../utils/types.js';
 
 const _creds: UserCredentials = {
