@@ -2,12 +2,13 @@ import puppeteer, { Page } from 'puppeteer';
 
 import { login } from '../handlers/login-handler.js';
 import { waitAndClick, waitForSelectorPlus } from './page-util.js';
+import type { Logger } from './types.js';
 
-const nevigateYearToMonth = async (page: Page, monthIndex: number): Promise<void> => {
+const nevigateYearToMonth = async (page: Page, monthIndex: number, logger: Logger): Promise<void> => {
   try {
     const selector = `#dgDuchot > tbody > tr:nth-child(${monthIndex + 2}) > td:nth-child(1) > a`;
 
-    await waitAndClick(page, selector);
+    await waitAndClick(page, selector, logger);
 
     return;
   } catch (e) {
@@ -15,11 +16,16 @@ const nevigateYearToMonth = async (page: Page, monthIndex: number): Promise<void
   }
 };
 
-export const newPageByMonth = async (showBrowser: boolean, year: string, monthIndex: number): Promise<Page> => {
+export const newPageByMonth = async (
+  showBrowser: boolean,
+  year: string,
+  monthIndex: number,
+  logger: Logger
+): Promise<Page> => {
   try {
-    const page = await newPageByYear(showBrowser, year);
+    const page = await newPageByYear(showBrowser, year, logger);
 
-    await nevigateYearToMonth(page, monthIndex);
+    await nevigateYearToMonth(page, monthIndex, logger);
 
     return page;
   } catch (e) {
@@ -27,9 +33,9 @@ export const newPageByMonth = async (showBrowser: boolean, year: string, monthIn
   }
 };
 
-export const navigateHomeToYear = async (page: Page, year: string): Promise<void> => {
+export const navigateHomeToYear = async (page: Page, year: string, logger: Logger): Promise<void> => {
   try {
-    await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa');
+    await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', logger);
 
     await page.select('#ContentUsersPage_DdlTkufa', year);
 
@@ -39,11 +45,11 @@ export const navigateHomeToYear = async (page: Page, year: string): Promise<void
   }
 };
 
-export const newPageByYear = async (showBrowser: boolean, year: string): Promise<Page> => {
+export const newPageByYear = async (showBrowser: boolean, year: string, logger: Logger): Promise<Page> => {
   try {
-    const page = await newHomePage(showBrowser);
+    const page = await newHomePage(showBrowser, logger);
 
-    await navigateHomeToYear(page, year);
+    await navigateHomeToYear(page, year, logger);
 
     return page;
   } catch (e) {
@@ -51,7 +57,7 @@ export const newPageByYear = async (showBrowser: boolean, year: string): Promise
   }
 };
 
-export const newHomePage = async (showBrowser: boolean): Promise<Page> => {
+export const newHomePage = async (showBrowser: boolean, logger: Logger): Promise<Page> => {
   try {
     const browser = await puppeteer.launch({
       headless: !showBrowser,
@@ -61,7 +67,7 @@ export const newHomePage = async (showBrowser: boolean): Promise<Page> => {
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36'
     );
 
-    await login(page);
+    await login(page, logger);
 
     await page.goto('https://www.misim.gov.il/emdvhmfrt/wViewDuchot.aspx', {
       waitUntil: ['networkidle2', 'domcontentloaded'],

@@ -1,5 +1,7 @@
 import { ElementHandle, Page } from 'puppeteer';
 
+import type { Logger } from './types';
+
 export const getSelectOptions = async (
   page: Page,
   selector: string
@@ -27,24 +29,28 @@ export const sleep = (ms: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-export const waitAndClick = async (page: Page, selector: string): Promise<void> => {
-  const button = await waitForSelectorPlus(page, selector);
+export const waitAndClick = async (page: Page, selector: string, logger: Logger): Promise<void> => {
+  const button = await waitForSelectorPlus(page, selector, logger);
   if (!button) {
-    console.error(`Error finding button by selector ${selector}`);
+    logger.error(`Error finding button by selector ${selector}`);
     return;
   }
   await button.click();
   return;
 };
 
-export const waitForSelectorPlus = async (page: Page, selector: string): Promise<ElementHandle<Element> | null> => {
+export const waitForSelectorPlus = async (
+  page: Page,
+  selector: string,
+  logger: Logger
+): Promise<ElementHandle<Element> | null> => {
   return await page
     .waitForSelector(selector)
     .then(element => {
       return element;
     })
     .catch(async () => {
-      console.debug(`Activating safety net for selector ${selector}`);
+      logger.debug(`Activating safety net for selector ${selector}`);
       await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] });
       return await page.waitForSelector(selector);
     });

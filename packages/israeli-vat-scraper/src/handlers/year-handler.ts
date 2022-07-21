@@ -3,7 +3,7 @@ import { Page } from 'puppeteer';
 import { newPageByYear } from '../utils/browser-util.js';
 import { getReportsTable } from '../utils/evaluation-functions.js';
 import { waitForSelectorPlus } from '../utils/page-util.js';
-import { Config, Report } from '../utils/types.js';
+import type { Config, Logger, Report } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { MonthHandler } from './month-handler.js';
 
@@ -21,14 +21,14 @@ export class YearHandler {
     this.months = months;
   }
 
-  public handle = async (): Promise<Report[]> => {
+  public handle = async (logger: Logger): Promise<Report[]> => {
     try {
-      this.prompt.update(this.location, 'Scraping');
+      this.prompt.update(this.location, 'Scraping', logger);
 
-      const baseYearTable = await this.getReportTable();
+      const baseYearTable = await this.getReportTable(logger);
 
       if (!baseYearTable || baseYearTable.length === 0) {
-        this.prompt.update(this.location, 'Done - No data found');
+        this.prompt.update(this.location, 'Done - No data found', logger);
         return [];
       }
 
@@ -41,7 +41,7 @@ export class YearHandler {
           .map(async item => {
             const monthHandler = new MonthHandler(this.config, this.prompt, this.location, item[0], item[1]);
 
-            return monthHandler.handle().then(res => res || item[0]);
+            return monthHandler.handle(logger).then(res => res || item[0]);
           })
       )
         .then(reportsList => reportsList.filter(report => report))
@@ -49,20 +49,20 @@ export class YearHandler {
           reports.push(...(reportsList as unknown as Report[]));
         });
 
-      this.prompt.update(this.location, 'Done');
+      this.prompt.update(this.location, 'Done', logger);
       return reports;
     } catch (e) {
       this.page?.browser().close();
-      this.prompt.addError(this.location, (e as Error)?.message || e);
+      this.prompt.addError(this.location, (e as Error)?.message || e, logger);
       return [];
     }
   };
 
-  private getReportTable = async (): Promise<Report[]> => {
+  private getReportTable = async (logger: Logger): Promise<Report[]> => {
     try {
-      this.page = await newPageByYear(this.config.visibleBrowser, this.location[0]);
+      this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
 
-      await waitForSelectorPlus(this.page, '#ContentUsersPage_TblDuhot');
+      await waitForSelectorPlus(this.page, '#ContentUsersPage_TblDuhot', logger);
 
       const tableElement = await this.page.$('#dgDuchot');
 

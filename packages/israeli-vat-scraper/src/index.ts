@@ -15,9 +15,13 @@ const defaultConfig: Config = {
   validate: true,
   printErrors: true,
   years: undefined,
+  logger: console,
 };
 
-export const vatScraper = async (credentials?: UserCredentials, userConfig: Partial<Config> = {}): Promise<Report[]> => {
+export const vatScraper = async (
+  credentials?: UserCredentials,
+  userConfig: Partial<Config> = {}
+): Promise<Report[]> => {
   try {
     updateCredentials(credentials || getEnvCredentials());
     const config = { ...defaultConfig, ...userConfig };
@@ -28,7 +32,7 @@ export const vatScraper = async (credentials?: UserCredentials, userConfig: Part
       const requireFile = createRequire(import.meta.url); // construct the require method
       const schema = requireFile('./vatSchema.json'); // use the require method
       const validation = await validateSchema(schema, reports);
-      console.log(validation);
+      config.logger.log(validation);
     }
 
     return reports;

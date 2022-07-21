@@ -1,3 +1,5 @@
+import type { Logger } from './types';
+
 type PromprTree = Record<string, [string, PromprTree]>;
 
 export class UserPrompt {
@@ -7,7 +9,7 @@ export class UserPrompt {
     return;
   }
 
-  public update = (location: string[], status: string): void => {
+  public update = (location: string[], status: string, logger: Logger): void => {
     let current = this._status;
     for (let i = 0; i < location.length; i++) {
       if (!current[location[i]]) {
@@ -22,11 +24,11 @@ export class UserPrompt {
       }
       current = current[location[i]][1];
     }
-    this.doLog();
+    this.doLog(logger);
     return;
   };
 
-  public doLog = (): void => {
+  public doLog = (logger: Logger): void => {
     let message = '';
     const recursivePrint = (data: PromprTree, prefix: string): void => {
       const keys = Object.keys(data);
@@ -40,18 +42,18 @@ export class UserPrompt {
     };
 
     recursivePrint(this._status, '');
-    console.clear();
-    console.log(message);
+    logger.clear();
+    logger.log(message);
   };
 
-  public addError = (location: string[], error: any): void => {
-    this.update(location, 'Error');
+  public addError = (location: string[], error: any, logger: Logger): void => {
+    this.update(location, 'Error', logger);
     this.errors.push([location.join('-'), error]);
   };
 
-  public printErrors = (): void => {
+  public printErrors = (logger: Logger): void => {
     this.errors.sort((a, b) => (a[0] > b[0] ? 1 : b[0] > a[0] ? -1 : 0));
 
-    console.error(this.errors.map(e => `${e[0]}: ${JSON.stringify(e[1], null, '  ')}`));
+    logger.error(this.errors.map(e => `${e[0]}: ${JSON.stringify(e[1], null, '  ')}`));
   };
 }

@@ -384,6 +384,10 @@ export interface Config {
    * default is null (no limitation, fetch all).
    */
   years?: (number | [number, number[]])[];
+  /**
+   * Logger
+   */
+  logger: Logger;
 }
 
 export interface UserCredentials {
@@ -391,3 +395,5 @@ export interface UserCredentials {
   userCode: string;
   userPass: string;
 }
+
+export type Logger = Console;

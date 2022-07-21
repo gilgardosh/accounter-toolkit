@@ -12,10 +12,10 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
   try {
     const prompt = new UserPrompt();
 
-    page = await newHomePage(config.visibleBrowser);
-    console.log('Logged in');
+    page = await newHomePage(config.visibleBrowser, config.logger);
+    config.logger.log('Logged in');
 
-    await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa');
+    await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', config.logger);
     const taxYears = await getSelectOptions(page, 'select#ContentUsersPage_DdlTkufa > option');
 
     const reports: Report[] = [];
@@ -38,7 +38,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
           const months = years[numYear]?.length ? years[numYear] : null;
 
           const reportsYearHandler = new YearHandler(config, prompt, [year.value], months);
-          return await reportsYearHandler.handle();
+          return await reportsYearHandler.handle(config.logger);
         }
         return [];
       })
@@ -58,7 +58,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
     );
 
     if (config.printErrors) {
-      prompt.printErrors();
+      prompt.printErrors(config.logger);
     }
 
     return reports;

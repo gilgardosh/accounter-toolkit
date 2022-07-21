@@ -3,7 +3,7 @@ import { Page } from 'puppeteer';
 import { newPageByMonth } from '../utils/browser-util.js';
 import { getReportExpansionSales } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
-import { Config, ReportSales } from '../utils/types.js';
+import type { Config, Logger, ReportSales } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { monthExpansionRecordsHandler } from './month-expansion-records-handler.js';
 
@@ -23,14 +23,14 @@ export class MonthSalesHandler {
     this.index = index;
   }
 
-  public handle = async (): Promise<ReportSales | undefined> => {
-    this.prompt.update(this.location, 'Fetching...');
+  public handle = async (logger: Logger): Promise<ReportSales | undefined> => {
+    this.prompt.update(this.location, 'Fetching...', logger);
     try {
-      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index);
+      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index, logger);
 
-      await waitAndClick(this.page, SALES_BUTTON_SELECTOR);
+      await waitAndClick(this.page, SALES_BUTTON_SELECTOR, logger);
 
-      const salesTable = await waitForSelectorPlus(this.page, '#tblSikum');
+      const salesTable = await waitForSelectorPlus(this.page, '#tblSikum', logger);
       const salesData = await this.page.evaluate(getReportExpansionSales, salesTable);
 
       // get income records
@@ -72,7 +72,7 @@ export class MonthSalesHandler {
               index,
               secondaryIndex
             );
-            salesData[key as keyof ReportSales].received.records = await recordsHandler.handle();
+            salesData[key as keyof ReportSales].received.records = await recordsHandler.handle(logger);
             [];
           }
         }
@@ -111,17 +111,17 @@ export class MonthSalesHandler {
               index,
               secondaryIndex
             );
-            salesData[key as keyof ReportSales].incorrect.records = await recordsHandler.handle();
+            salesData[key as keyof ReportSales].incorrect.records = await recordsHandler.handle(logger);
             [];
           }
         }
       }
 
       this.page.browser().close();
-      this.prompt.update(this.location, 'Done');
+      this.prompt.update(this.location, 'Done', logger);
       return salesData;
     } catch (e) {
-      this.prompt.addError(this.location, (e as Error)?.message || e);
+      this.prompt.addError(this.location, (e as Error)?.message || e, logger);
       this.page?.browser().close();
       return;
     }
