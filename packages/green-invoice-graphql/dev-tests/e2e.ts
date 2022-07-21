@@ -46,7 +46,7 @@ const testRun = async () => {
   console.log(JSON.stringify(data3));
 };
 
-testRun().catch((e) => {
+testRun().catch(e => {
   console.error(e);
   process.exit(1);
 });

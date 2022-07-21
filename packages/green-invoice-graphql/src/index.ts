@@ -12,7 +12,7 @@ export const init = async (id: string, secret: string): Promise<{ sdk: Sdk }> =>
     body: JSON.stringify(authParams),
     headers: { 'Content-Type': 'application/json' },
   })
-    .then((res) => res.json())
+    .then(res => res.json())
     .then((res: { token: string }) => res.token);
 
   process.env.GREEN_INVOICE_AUTH_TOKEN = greenInvoiceToken;
