@@ -14,12 +14,7 @@ export class YearHandler {
   private months: number[] | null = null;
   private page: Page | null = null;
 
-  constructor(
-    config: Config,
-    prompt: UserPrompt,
-    location: string[],
-    months: number[] | null = null
-  ) {
+  constructor(config: Config, prompt: UserPrompt, location: string[], months: number[] | null = null) {
     this.config = config;
     this.prompt = prompt;
     this.location = location;
@@ -42,25 +37,15 @@ export class YearHandler {
       await Promise.all(
         baseYearTable
           .map((report: Report, i: number): [Report, number] => [report, i])
-          .filter(
-            (item) =>
-              !this.months ||
-              this.months.includes(parseInt(item[0].reportMonth.substr(0, 2)))
-          )
-          .map(async (item) => {
-            const monthHandler = new MonthHandler(
-              this.config,
-              this.prompt,
-              this.location,
-              item[0],
-              item[1]
-            );
+          .filter(item => !this.months || this.months.includes(parseInt(item[0].reportMonth.substr(0, 2))))
+          .map(async item => {
+            const monthHandler = new MonthHandler(this.config, this.prompt, this.location, item[0], item[1]);
 
-            return monthHandler.handle().then((res) => res || item[0]);
+            return monthHandler.handle().then(res => res || item[0]);
           })
       )
-        .then((reportsList) => reportsList.filter((report) => report))
-        .then((reportsList) => {
+        .then(reportsList => reportsList.filter(report => report))
+        .then(reportsList => {
           reports.push(...(reportsList as unknown as Report[]));
         });
 
@@ -75,10 +60,7 @@ export class YearHandler {
 
   private getReportTable = async (): Promise<Report[]> => {
     try {
-      this.page = await newPageByYear(
-        this.config.visibleBrowser,
-        this.location[0]
-      );
+      this.page = await newPageByYear(this.config.visibleBrowser, this.location[0]);
 
       await waitForSelectorPlus(this.page, '#ContentUsersPage_TblDuhot');
 
@@ -88,10 +70,7 @@ export class YearHandler {
         return [];
       }
 
-      const table: Report[] = await this.page.evaluate(
-        getReportsTable,
-        tableElement
-      );
+      const table: Report[] = await this.page.evaluate(getReportsTable, tableElement);
 
       this.page.browser().close();
 

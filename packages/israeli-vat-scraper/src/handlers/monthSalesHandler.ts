@@ -16,12 +16,7 @@ export class MonthSalesHandler {
   private index: number;
   private page: Page | null = null;
 
-  constructor(
-    config: Config,
-    prompt: UserPrompt,
-    location: string[],
-    index: number
-  ) {
+  constructor(config: Config, prompt: UserPrompt, location: string[], index: number) {
     this.config = config;
     this.prompt = prompt;
     this.location = [...location, 'Sales'];
@@ -31,19 +26,12 @@ export class MonthSalesHandler {
   public handle = async (): Promise<ReportSales | undefined> => {
     this.prompt.update(this.location, 'Fetching...');
     try {
-      this.page = await newPageByMonth(
-        this.config.visibleBrowser,
-        this.location[0],
-        this.index
-      );
+      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index);
 
       await waitAndClick(this.page, SALES_BUTTON_SELECTOR);
 
       const salesTable = await waitForSelectorPlus(this.page, '#tblSikum');
-      const salesData = await this.page.evaluate(
-        getReportExpansionSales,
-        salesTable
-      );
+      const salesData = await this.page.evaluate(getReportExpansionSales, salesTable);
 
       // get income records
       for (const key in salesData) {
@@ -84,8 +72,7 @@ export class MonthSalesHandler {
               index,
               secondaryIndex
             );
-            salesData[key as keyof ReportSales].received.records =
-              await recordsHandler.handle();
+            salesData[key as keyof ReportSales].received.records = await recordsHandler.handle();
             [];
           }
         }
@@ -124,8 +111,7 @@ export class MonthSalesHandler {
               index,
               secondaryIndex
             );
-            salesData[key as keyof ReportSales].incorrect.records =
-              await recordsHandler.handle();
+            salesData[key as keyof ReportSales].incorrect.records = await recordsHandler.handle();
             [];
           }
         }

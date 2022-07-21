@@ -3,14 +3,9 @@ import puppeteer, { Page } from 'puppeteer';
 import { login } from '../handlers/loginHandler.js';
 import { waitAndClick, waitForSelectorPlus } from './pageUtil.js';
 
-const nevigateYearToMonth = async (
-  page: Page,
-  monthIndex: number
-): Promise<void> => {
+const nevigateYearToMonth = async (page: Page, monthIndex: number): Promise<void> => {
   try {
-    const selector = `#dgDuchot > tbody > tr:nth-child(${
-      monthIndex + 2
-    }) > td:nth-child(1) > a`;
+    const selector = `#dgDuchot > tbody > tr:nth-child(${monthIndex + 2}) > td:nth-child(1) > a`;
 
     await waitAndClick(page, selector);
 
@@ -20,11 +15,7 @@ const nevigateYearToMonth = async (
   }
 };
 
-export const newPageByMonth = async (
-  showBrowser: boolean,
-  year: string,
-  monthIndex: number
-): Promise<Page> => {
+export const newPageByMonth = async (showBrowser: boolean, year: string, monthIndex: number): Promise<Page> => {
   try {
     const page = await newPageByYear(showBrowser, year);
 
@@ -36,10 +27,7 @@ export const newPageByMonth = async (
   }
 };
 
-export const navigateHomeToYear = async (
-  page: Page,
-  year: string
-): Promise<void> => {
+export const navigateHomeToYear = async (page: Page, year: string): Promise<void> => {
   try {
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa');
 
@@ -51,10 +39,7 @@ export const navigateHomeToYear = async (
   }
 };
 
-export const newPageByYear = async (
-  showBrowser: boolean,
-  year: string
-): Promise<Page> => {
+export const newPageByYear = async (showBrowser: boolean, year: string): Promise<Page> => {
   try {
     const page = await newHomePage(showBrowser);
 

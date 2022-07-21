@@ -9,10 +9,10 @@ export const getSelectOptions = async (
     value: string;
   }[]
 > => {
-  const options = await page.evaluate((optionSelector) => {
+  const options = await page.evaluate(optionSelector => {
     return Array.from(document.querySelectorAll(optionSelector))
-      .filter((o) => o.value)
-      .map((o) => {
+      .filter(o => o.value)
+      .map(o => {
         return {
           name: o.text,
           value: o.value,
@@ -24,13 +24,10 @@ export const getSelectOptions = async (
 };
 
 export const sleep = (ms: number): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-export const waitAndClick = async (
-  page: Page,
-  selector: string
-): Promise<void> => {
+export const waitAndClick = async (page: Page, selector: string): Promise<void> => {
   const button = await waitForSelectorPlus(page, selector);
   if (!button) {
     console.error(`Error finding button by selector ${selector}`);
@@ -40,13 +37,10 @@ export const waitAndClick = async (
   return;
 };
 
-export const waitForSelectorPlus = async (
-  page: Page,
-  selector: string
-): Promise<ElementHandle<Element> | null> => {
+export const waitForSelectorPlus = async (page: Page, selector: string): Promise<ElementHandle<Element> | null> => {
   return await page
     .waitForSelector(selector)
-    .then((element) => {
+    .then(element => {
       return element;
     })
     .catch(async () => {

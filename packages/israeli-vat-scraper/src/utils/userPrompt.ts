@@ -32,7 +32,7 @@ export class UserPrompt {
       const keys = Object.keys(data);
       if (keys.length > 0) {
         keys.sort((a, b) => (a > b ? 1 : -1));
-        keys.forEach((key) => {
+        keys.forEach(key => {
           message += `${prefix}${key}: ${data[key][0]}\n`;
           recursivePrint(data[key][1], prefix + '  ');
         });
@@ -52,8 +52,6 @@ export class UserPrompt {
   public printErrors = (): void => {
     this.errors.sort((a, b) => (a[0] > b[0] ? 1 : b[0] > a[0] ? -1 : 0));
 
-    console.error(
-      this.errors.map((e) => `${e[0]}: ${JSON.stringify(e[1], null, '  ')}`)
-    );
+    console.error(this.errors.map(e => `${e[0]}: ${JSON.stringify(e[1], null, '  ')}`));
   };
 }

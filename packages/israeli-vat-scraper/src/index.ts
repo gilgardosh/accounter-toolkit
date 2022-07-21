@@ -1,10 +1,7 @@
 import dotenv from 'dotenv';
 import { createRequire } from 'module';
 
-import {
-  getEnvCredentials,
-  updateCredentials,
-} from './handlers/loginHandler.js';
+import { getEnvCredentials, updateCredentials } from './handlers/loginHandler.js';
 import { homePageHandler } from './handlers/mainPageHandler.js';
 import { validateSchema } from './utils/schemaValidator.js';
 import { Config, Report, UserCredentials } from './utils/types.js';
@@ -20,10 +17,7 @@ const defaultConfig: Config = {
   years: undefined,
 };
 
-const vatScraper = async (
-  credentials?: UserCredentials,
-  userConfig: Partial<Config> = {}
-): Promise<Report[]> => {
+const vatScraper = async (credentials?: UserCredentials, userConfig: Partial<Config> = {}): Promise<Report[]> => {
   try {
     updateCredentials(credentials || getEnvCredentials());
     const config = { ...defaultConfig, ...userConfig };

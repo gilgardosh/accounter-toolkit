@@ -5,15 +5,7 @@
     "type": "object",
     "additionalProperties": false,
     "description": "VAT data object",
-    "required": [
-      "reportMonth",
-      "reportType",
-      "corectness",
-      "totalVat",
-      "generationDate",
-      "route",
-      "isFixed"
-    ],
+    "required": ["reportMonth", "reportType", "corectness", "totalVat", "generationDate", "route", "isFixed"],
     "properties": {
       "reportMonth": {
         "type": "string",
@@ -192,16 +184,10 @@
             ],
             "properties": {
               "regularInput": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "תשומה רגילה" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "תשומה רגילה" }]
               },
               "pettyCash": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "קופה קטנה" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "קופה קטנה" }]
               },
               "selfInvoiceInput": {
                 "allOf": [
@@ -210,28 +196,16 @@
                 ]
               },
               "importList": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "רשימון יבוא" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "רשימון יבוא" }]
               },
               "rashapSupplier": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "ספק רשפ" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "ספק רשפ" }]
               },
               "otherDocument": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "מסמך אחר" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "מסמך אחר" }]
               },
               "total": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "סהכ" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "סהכ" }]
               }
             }
           },
@@ -252,16 +226,10 @@
             ],
             "properties": {
               "regularSaleRecognized": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "עסקה רגילה - מזוהה" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "עסקה רגילה - מזוהה" }]
               },
               "zeroSaleRecognized": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "עסקה אפס - מזוהה" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "עסקה אפס - מזוהה" }]
               },
               "regularSaleUnrecognized": {
                 "allOf": [
@@ -270,40 +238,22 @@
                 ]
               },
               "zeroSaleUnrecognized": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "עסקה אפס - לא מזוהה" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "עסקה אפס - לא מזוהה" }]
               },
               "selfInvoiceSale": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "חשבונית עצמית (עסקה)" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "חשבונית עצמית (עסקה)" }]
               },
               "listExport": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "רשימון יצוא" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "רשימון יצוא" }]
               },
               "servicesExport": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "יצוא שירותים" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "יצוא שירותים" }]
               },
               "rashapClient": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "לקוח רשפ" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "לקוח רשפ" }]
               },
               "total": {
-                "allOf": [
-                  { "$ref": "#/definitions/ReportRecordCategories" },
-                  { "description": "סהכ" }
-                ]
+                "allOf": [{ "$ref": "#/definitions/ReportRecordCategories" }, { "description": "סהכ" }]
               }
             }
           },
@@ -362,22 +312,13 @@
       "required": ["received", "incorrect", "total"],
       "properties": {
         "received": {
-          "allOf": [
-            { "$ref": "#/definitions/ReportRecordColumns" },
-            { "description": "נתקבל (100%)" }
-          ]
+          "allOf": [{ "$ref": "#/definitions/ReportRecordColumns" }, { "description": "נתקבל (100%)" }]
         },
         "incorrect": {
-          "allOf": [
-            { "$ref": "#/definitions/ReportRecordColumns" },
-            { "description": "שגוי" }
-          ]
+          "allOf": [{ "$ref": "#/definitions/ReportRecordColumns" }, { "description": "שגוי" }]
         },
         "total": {
-          "allOf": [
-            { "$ref": "#/definitions/ReportRecordColumns" },
-            { "description": "סיכום" }
-          ]
+          "allOf": [{ "$ref": "#/definitions/ReportRecordColumns" }, { "description": "סיכום" }]
         }
       }
     },

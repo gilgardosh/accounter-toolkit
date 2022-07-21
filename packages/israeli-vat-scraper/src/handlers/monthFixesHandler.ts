@@ -13,12 +13,7 @@ export class MonthFixesHandler {
   private index: number;
   private page: Page | null = null;
 
-  constructor(
-    config: Config,
-    prompt: UserPrompt,
-    location: string[],
-    index: number
-  ) {
+  constructor(config: Config, prompt: UserPrompt, location: string[], index: number) {
     this.config = config;
     this.prompt = prompt;
     this.location = [...location, 'Fixes'];
@@ -28,17 +23,11 @@ export class MonthFixesHandler {
   public handle = async (): Promise<ReportFixedInvoice[] | undefined> => {
     this.prompt.update(this.location, 'Fetching...');
     try {
-      this.page = await newPageByMonth(
-        this.config.visibleBrowser,
-        this.location[0],
-        this.index
-      );
+      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index);
 
-      const button = await this.page
-        .waitForSelector('#ContentUsersPage_lnkHeshboniotBeforeTikun')
-        .catch(() => {
-          return;
-        });
+      const button = await this.page.waitForSelector('#ContentUsersPage_lnkHeshboniotBeforeTikun').catch(() => {
+        return;
+      });
 
       if (!button) {
         this.prompt.update(this.location, 'Done - no data found');
@@ -48,14 +37,8 @@ export class MonthFixesHandler {
       await button.click();
 
       // get fixes
-      const fixesTable = await waitForSelectorPlus(
-        this.page,
-        '#ContentUsersPage_DgIskNosfu'
-      );
-      const fixes = await this.page.evaluate(
-        getReportExpansionFixes,
-        fixesTable
-      );
+      const fixesTable = await waitForSelectorPlus(this.page, '#ContentUsersPage_DgIskNosfu');
+      const fixes = await this.page.evaluate(getReportExpansionFixes, fixesTable);
 
       this.page.browser().close();
 

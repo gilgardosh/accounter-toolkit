@@ -16,16 +16,13 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
     console.log('Logged in');
 
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa');
-    const taxYears = await getSelectOptions(
-      page,
-      'select#ContentUsersPage_DdlTkufa > option'
-    );
+    const taxYears = await getSelectOptions(page, 'select#ContentUsersPage_DdlTkufa > option');
 
     const reports: Report[] = [];
 
     const years: Record<number, number[]> = {};
     if (config.years) {
-      config.years.forEach((item) => {
+      config.years.forEach(item => {
         if (typeof item === 'number') {
           years[item] = [];
         } else {
@@ -35,23 +32,18 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
     }
 
     await Promise.all(
-      taxYears.map(async (year) => {
+      taxYears.map(async year => {
         const numYear = parseInt(year.value);
         if (!years || years[numYear]) {
           const months = years[numYear]?.length ? years[numYear] : null;
 
-          const reportsYearHandler = new YearHandler(
-            config,
-            prompt,
-            [year.value],
-            months
-          );
+          const reportsYearHandler = new YearHandler(config, prompt, [year.value], months);
           return await reportsYearHandler.handle();
         }
         return [];
       })
-    ).then((reportsLists) => {
-      reportsLists.forEach((list) => {
+    ).then(reportsLists => {
+      reportsLists.forEach(list => {
         reports.push(...list);
       });
     });

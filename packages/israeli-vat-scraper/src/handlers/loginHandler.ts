@@ -30,20 +30,11 @@ export const login = async (page: Page): Promise<void> => {
     });
     await waitForSelectorPlus(page, '#LogonMaam1_EmTwbCtlLogonMaam_BtnSubmit');
 
-    await page.type(
-      '#LogonMaam1_EmTwbCtlLogonMaam_TxtMisOsek',
-      _creds.vatNumber
-    );
+    await page.type('#LogonMaam1_EmTwbCtlLogonMaam_TxtMisOsek', _creds.vatNumber);
 
-    await page.type(
-      '#LogonMaam1_EmTwbCtlLogonMaam_TxtKodUser',
-      _creds.userCode
-    );
+    await page.type('#LogonMaam1_EmTwbCtlLogonMaam_TxtKodUser', _creds.userCode);
 
-    await page.type(
-      '#LogonMaam1_EmTwbCtlLogonMaam_TxtPassword',
-      _creds.userPass
-    );
+    await page.type('#LogonMaam1_EmTwbCtlLogonMaam_TxtPassword', _creds.userPass);
 
     await page.click('#LogonMaam1_EmTwbCtlLogonMaam_BtnSubmit');
 
