@@ -1,0 +1,60 @@
+{
+  "name": "@accounter-toolkit/green-invoice-graphql",
+  "version": "0.0.0",
+  "description": "Graphql server for wrapping payper API",
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilgardosh/green-invoice-graphql.git"
+  },
+  "author": "Gil Gardosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/green-invoice-graphql/issues"
+  },
+  "homepage": "https://github.com/gilgardosh/green-invoice-graphql#readme",
+  "scripts": {
+    "prebuild": "yarn generate",
+    "build": "tsc",
+    "postbuild": "yarn copy-files",
+    "copy-files": "cp -a .mesh/ dist/.mesh/",
+    "prepublish": "yarn build",
+    "mesh:serve": "mesh serve",
+    "mesh:build": "mesh build",
+    "generate": "yarn mesh:build",
+    "dev": "ts-node ./index.ts",
+    "start": "node ./dist",
+    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "0.75.1",
+    "@graphql-mesh/json-schema": "0.30.3",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.69",
+    "graphql": "16.5.0",
+    "node-fetch": "2.6.6",
+    "path": "0.12.7"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "2.6.1",
+    "dotenv": "16.0.1",
+    "mime-types": "2.1.35",
+    "ts-node": "10.7.0"
+  },
+  "keywords": [
+    "green invoice",
+    "greeninvoice",
+    "accountancy",
+    "accountant",
+    "accounter",
+    "graphql",
+    "mesh"
+  ]
+}

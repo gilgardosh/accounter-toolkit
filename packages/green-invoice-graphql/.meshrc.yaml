@@ -1,0 +1,60 @@
+sources:
+  - name: GreenInvoice
+    handler:
+      jsonSchema:
+        baseUrl: 'https://api.greeninvoice.co.il/api/v1'
+        operationHeaders:
+          Authorization: Bearer {env.GREEN_INVOICE_AUTH_TOKEN}
+          Content-Type: application/json
+        operations:
+          - type: Mutation
+            field: addExpense
+            path: /expenses
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseResponse
+
+          - type: Query
+            field: getExpense
+            path: /expenses/{args.id}
+            method: GET
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseResponse
+
+          - type: Query
+            field: updateExpense
+            path: /expenses/{args.id}
+            method: PUT
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/updateExpenseRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/updateExpenseResponse
+
+          - type: Query
+            field: searchExpenses
+            path: /expenses/search
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpensesRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpensesResponse
+
+          - type: Mutation
+            field: addExpenseDraftByFile
+            path: /expenses/file
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
+
+          - type: Query
+            field: searchExpenseDrafts
+            path: /expenses/drafts/search
+            method: POST
+            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsRequest
+            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
+
+serve:
+  browser: false
+
+sdk:
+  generateOperations:
+    selectionSetDepth: 2
+
+require:
+  - ts-node/register/transpile-only
