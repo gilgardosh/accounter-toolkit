@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "ajv": "8.11.0",
-    "dotenv": "16.0.0",
+    "dotenv": "16.0.1",
     "puppeteer": "13.5.1"
   },
   "devDependencies": {
-    "@types/puppeteer": "5.4.5",
-    "ts-node": "10.7.0"
+    "@types/puppeteer": "5.4.6",
+    "ts-node": "10.9.1"
   },
   "keywords": [
     "israel",

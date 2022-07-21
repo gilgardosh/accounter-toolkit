@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 import { createRequire } from 'module';
 
 import { getEnvCredentials, updateCredentials } from './handlers/login-handler.js';
@@ -6,7 +6,7 @@ import { homePageHandler } from './handlers/main-page-handler.js';
 import { validateSchema } from './utils/schema-validator.js';
 import type { Config, Report, UserCredentials } from './utils/types.js';
 
-dotenv.config();
+config();
 
 const defaultConfig: Config = {
   visibleBrowser: false,
