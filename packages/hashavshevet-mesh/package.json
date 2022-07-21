@@ -1,0 +1,61 @@
+{
+  "name": "@accounter-toolkit/hashavshevet-mesh",
+  "version": "0.0.0",
+  "description": "Graphql server for wrapping Hashavshevet API",
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
+    "repository": "packages/hashavshevet-mesh"
+  },
+  "bugs": {
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
+  },
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/hashavshevet-mesh#readme",
+  "author": "Gil Gardosh <gilgardosh@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "prebuild": "yarn lint && yarn generate",
+    "build": "tsc",
+    "postbuild": "yarn copy-files",
+    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
+    "prepublish": "yarn build",
+    "mesh:serve": "mesh serve",
+    "mesh:build": "mesh build",
+    "generate": "yarn mesh:build",
+    "dev": "ts-node ./index.ts",
+    "start": "node ./dist",
+    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
+  },
+  "engines": {
+    "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "0.75.1",
+    "@graphql-mesh/json-schema": "0.30.3",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.69",
+    "graphql": "16.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "16.0.1",
+    "ts-node": "10.7.0"
+  },
+  "keywords": [
+    "hashavshevet",
+    "accountancy",
+    "accountant",
+    "accounter",
+    "graphql",
+    "mesh"
+  ],
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  }
+}
