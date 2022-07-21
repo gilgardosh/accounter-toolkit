@@ -13,7 +13,7 @@
     "generate": "yarn mesh:build",
     "dev": "ts-node ./index.ts",
     "start": "node ./dist",
-    "test": "ts-node ./dev-tests/e2e.ts"
+    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },
   "main": "dist/index.js",
   "exports": "./dist/index.js",
@@ -39,7 +39,6 @@
     "@graphql-mesh/cli": "0.75.1",
     "@graphql-mesh/json-schema": "0.30.3",
     "@graphql-mesh/transform-resolvers-composition": "0.12.69",
-    "dotenv": "16.0.1",
     "graphql": "16.5.0",
     "path": "0.12.7"
   },
