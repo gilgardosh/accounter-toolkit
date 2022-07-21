@@ -5,5 +5,5 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
   },
-  ignorePatterns: ["**/dev-tests/"],
+  ignorePatterns: ['**/dev-tests/'],
 };
