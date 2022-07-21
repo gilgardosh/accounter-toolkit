@@ -1,7 +1,7 @@
 {
-  "name": "@accounter-toolkit/pcn874-generator",
+  "name": "@accounter-toolkit/israeli-vat-scraper",
   "version": "0.0.0",
-  "description": "Fully typed application that generates PCN874 text file",
+  "description": "Scraper app for fetching Israeli VAT data",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
@@ -12,31 +12,39 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gilgardosh/accounter-toolkit.git",
-    "repository": "packages/pcn874-generator"
+    "repository": "packages/israeli-vat-scraper"
   },
   "bugs": {
     "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
   },
-  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/pcn874-generator#readme",
-  "author": "Gil Gardosh <gilgardosh@gmail.com>",
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/israeli-vat-scraper#readme",
+  "author": "gilgardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
-    "prebuild": "yarn lint",
-    "build": "tsc",
-    "prepublish": "yarn build",
+    "start": "tsc && node dist/index.js",
     "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
-    "start": "node ./dist"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prebuild": "yarn lint:fix",
+    "build": "tsc",
+    "test": "ts-node ./dev-tests/e2e.ts",
+    "prepublish": "yarn build"
   },
   "engines": {
     "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
   },
+  "dependencies": {
+    "ajv": "8.11.0",
+    "dotenv": "16.0.1",
+    "puppeteer": "13.5.1"
+  },
   "devDependencies": {
+    "@types/puppeteer": "5.4.6",
     "ts-node": "10.9.1"
   },
   "keywords": [
-    "pcn",
-    "pcn874",
+    "israel",
+    "vat",
     "accountancy",
     "accountant",
     "accounter"
