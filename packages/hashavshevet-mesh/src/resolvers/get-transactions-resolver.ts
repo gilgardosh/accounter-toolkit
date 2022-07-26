@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { getTransactionsResponse, queryInput_getTransactions_Input } from '../../.mesh';
-import { transactionsDataFile } from './dataFiles';
+import { transactionsDataFile } from './data-files';
 
 const handleTransactionsFilterParameters = (args: queryInput_getTransactions_Input = {}) => {
   const parametersArray = [

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { getRecordsResponse, Resolvers, RecordType, getTransactionsResponse, Transaction } from '../../.mesh';
+import { getRecordsResponse, getTransactionsResponse, RecordType, Resolvers, Transaction } from '../../.mesh';
 
 const resolvers: Resolvers = {
   RecordType: {

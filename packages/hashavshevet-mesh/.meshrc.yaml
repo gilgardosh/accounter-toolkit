@@ -107,17 +107,17 @@ sources:
           mode: bare
           compositions:
             - resolver: Query.getRecords
-              composer: src/resolvers/getRecordsResolver
+              composer: src/resolvers/get-records-resolver
             - resolver: Query.getTransactions
-              composer: src/resolvers/getTransactionsResolver
+              composer: src/resolvers/get-transactions-resolver
             - resolver: Query.getBatch
-              composer: src/resolvers/getBatchResolver
+              composer: src/resolvers/get-batch-resolver
             - resolver: Query.getAccounts
-              composer: src/resolvers/getAccountsResolver
+              composer: src/resolvers/get-accounts-resolver
             - resolver: Query.getBankPageRecords
-              composer: src/resolvers/getBankPageRecordsResolver
+              composer: src/resolvers/get-bank-page-records-resolver
             - resolver: Mutation.importAccounts
-              composer: src/resolvers/importAccountsResolver
+              composer: src/resolvers/import-accounts-resolver
 serve:
   browser: false
 

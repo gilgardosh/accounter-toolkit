@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { getAccountsResponse, queryInput_getAccounts_Input } from '../../.mesh';
-import { accountsDataFile } from './dataFiles';
+import { accountsDataFile } from './data-files';
 
 const handleAccountsParameters = (args: queryInput_getAccounts_Input = {}) => {
   const parametersArray = [

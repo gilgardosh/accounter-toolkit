@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { getBankPageRecordsResponse, queryInput_getBankPageRecords_Input } from '../../.mesh';
-import { bankPageRecordsDataFile } from './dataFiles';
+import { bankPageRecordsDataFile } from './data-files';
 
 const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_Input = {}) => {
   const parametersArray = [

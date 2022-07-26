@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { getBatchResponse, queryInput_getBatch_Input } from '../../.mesh';
-import { batchDataFile } from './dataFiles';
+import { batchDataFile } from './data-files';
 
 const handleBatchParameters = (args: queryInput_getBatch_Input = {}) => {
   const parametersArray = [

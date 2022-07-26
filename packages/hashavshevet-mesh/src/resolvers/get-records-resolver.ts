@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { getRecordsResponse, queryInput_getRecords_Input } from '../../.mesh';
-import { recordsDataFile } from './dataFiles';
+import { recordsDataFile } from './data-files';
 
 const handleRecordsFilterParameters = (args: queryInput_getRecords_Input = {}) => {
   const parametersArray = [
