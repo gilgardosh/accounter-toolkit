@@ -1,4 +1,4 @@
-export interface Report {
+export interface ReportCommon {
   /**
    * תקופת הדיווח
    */
@@ -27,6 +27,9 @@ export interface Report {
    * האם תוקן
    */
   isFixed: boolean;
+}
+
+export interface Report extends ReportCommon {
   /**
    * פרטים נוספים
    */

@@ -3,7 +3,7 @@ import type { Page } from 'puppeteer';
 import { newPageByYear } from '../utils/browser-util.js';
 import { getReportsTable } from '../utils/evaluation-functions.js';
 import { waitForSelectorPlus } from '../utils/page-util.js';
-import type { Config, Logger, Report } from '../utils/types.js';
+import type { Config, Logger, Report, ReportCommon } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { MonthHandler } from './month-handler.js';
 
@@ -25,9 +25,9 @@ export class YearHandler {
     try {
       this.prompt.update(this.location, 'Scraping', logger);
 
-      const baseYearTable = await this.getReportTable(logger);
+      const baseYearReports = await this.getBasicReport(logger);
 
-      if (!baseYearTable || baseYearTable.length === 0) {
+      if (!baseYearReports || baseYearReports.length === 0) {
         this.prompt.update(this.location, 'Done - No data found', logger);
         return [];
       }
@@ -35,13 +35,13 @@ export class YearHandler {
       const reports: Report[] = [];
 
       await Promise.all(
-        baseYearTable
-          .map((report: Report, i: number): [Report, number] => [report, i])
-          .filter(item => !this.months || this.months.includes(parseInt(item[0].reportMonth.substr(0, 2))))
+        baseYearReports
+          .map((report, index): { info: ReportCommon; index: number } => ({ info: report, index }))
+          .filter(item => !this.months || this.months.includes(parseInt(item.info.reportMonth.substring(0, 2))))
           .map(async item => {
-            const monthHandler = new MonthHandler(this.config, this.prompt, this.location, item[0], item[1]);
+            const monthHandler = new MonthHandler(this.config, this.prompt, this.location, item.info, item.index);
 
-            return monthHandler.handle(logger).then(res => res || item[0]);
+            return monthHandler.handle(logger).then(res => res || item.info);
           })
       )
         .then(reportsList => reportsList.filter(report => report))
@@ -58,23 +58,17 @@ export class YearHandler {
     }
   };
 
-  private getReportTable = async (logger: Logger): Promise<Report[]> => {
+  private getBasicReport = async (logger: Logger): Promise<ReportCommon[]> => {
     try {
       this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
 
       await waitForSelectorPlus(this.page, '#ContentUsersPage_TblDuhot', logger);
 
-      const tableElement = await this.page.$('#dgDuchot');
-
-      if (!tableElement) {
-        return [];
-      }
-
-      const table: Report[] = await this.page.evaluate(getReportsTable, tableElement);
+      const reports = await this.page.$eval('#dgDuchot', getReportsTable);
 
       this.page.browser().close();
 
-      return table;
+      return reports;
     } catch (e) {
       this.page?.browser().close();
       throw new Error(`getReportsTable - ${(e as Error)?.message || e}`);

@@ -31,7 +31,7 @@ export class MonthInputsHandler {
       await waitAndClick(this.page, INPUTS_BUTTON_SELECTOR, logger);
 
       const inputsTable = await waitForSelectorPlus(this.page, '#tblSikum', logger);
-      const inputsData = await this.page.evaluate(getReportExpansionInputs, inputsTable);
+      const inputsData = await inputsTable?.evaluate(getReportExpansionInputs);
 
       // gt income records
       for (const key in inputsData) {

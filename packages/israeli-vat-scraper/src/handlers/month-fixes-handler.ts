@@ -38,7 +38,7 @@ export class MonthFixesHandler {
 
       // get fixes
       const fixesTable = await waitForSelectorPlus(this.page, '#ContentUsersPage_DgIskNosfu', logger);
-      const fixes = await this.page.evaluate(getReportExpansionFixes, fixesTable);
+      const fixes = (await fixesTable?.evaluate(getReportExpansionFixes)) ?? [];
 
       this.page.browser().close();
 

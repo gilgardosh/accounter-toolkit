@@ -3,7 +3,7 @@ import type { Page } from 'puppeteer';
 import { newPageByMonth, newPageByYear } from '../utils/browser-util.js';
 import { getReportDetails, getReportExpansionTitle } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
-import type { Config, Logger, Report, ReportDetails, ReportExpansion } from '../utils/types.js';
+import type { Config, Logger, Report, ReportCommon, ReportDetails, ReportExpansion } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { MonthFixesHandler } from './month-fixes-handler.js';
 import { MonthInputsHandler } from './month-inputs-handler.js';
@@ -17,10 +17,17 @@ export class MonthHandler {
   private index: number;
   private page: Page | null = null;
 
-  constructor(config: Config, prompt: UserPrompt, location: string[], report: Report, index: number, page?: Page) {
+  constructor(
+    config: Config,
+    prompt: UserPrompt,
+    location: string[],
+    report: ReportCommon,
+    index: number,
+    page?: Page
+  ) {
     this.config = config;
     this.prompt = prompt;
-    this.location = [...location, report.reportMonth.substr(0, 2)];
+    this.location = [...location, report.reportMonth.substring(0, 2)];
     this.report = report;
     this.index = index;
     this.page = page || null;
@@ -51,7 +58,7 @@ export class MonthHandler {
     }
   };
 
-  private getReportAdditionalDetails = async (logger: Logger): Promise<ReportDetails> => {
+  private getReportAdditionalDetails = async (logger: Logger): Promise<ReportDetails | undefined> => {
     if (!this.page) {
       this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
     }
@@ -67,7 +74,7 @@ export class MonthHandler {
       logger
     );
 
-    const additionalDetails: ReportDetails = await this.page.evaluate(getReportDetails, detailsTable);
+    const additionalDetails = await detailsTable?.evaluate(getReportDetails);
 
     this.page.browser().close();
 
@@ -134,16 +141,16 @@ export class MonthHandler {
       );
       if (!titleTable) {
         this.prompt.addError(location, 'Error fetching title', logger);
-        return;
+        return undefined;
       }
 
-      const reportExpansion: ReportExpansion = await page.evaluate(getReportExpansionTitle, titleTable);
+      const reportExpansion = await titleTable.evaluate(getReportExpansionTitle);
 
       this.prompt.update(location, 'Done', logger);
       return reportExpansion;
     } catch (e) {
       this.prompt.addError(location, (e as Error)?.message || e, logger);
-      return;
+      return undefined;
     }
   };
 }
