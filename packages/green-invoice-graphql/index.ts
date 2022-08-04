@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 import { getMeshSDK, Sdk } from './.mesh';
 
 export const init = async (id: string, secret: string): Promise<{ sdk: Sdk }> => {

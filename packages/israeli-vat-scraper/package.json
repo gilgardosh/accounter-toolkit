@@ -21,13 +21,14 @@
   "author": "gilgardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node dist/index.js",
-    "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
+    "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
+    "start": "tsc && node --experimental-json-modules dist/index.js",
+    "prestart": "yarn build",
+    "build": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prebuild": "yarn lint:fix",
-    "build": "tsc",
-    "test": "ts-node ./dev-tests/e2e.ts",
+    "test": "node dist/dev-tests/e2e.js",
     "prepublish": "yarn build"
   },
   "engines": {
@@ -36,11 +37,12 @@
   "dependencies": {
     "ajv": "8.11.0",
     "dotenv": "16.0.1",
-    "puppeteer": "13.7.0"
+    "puppeteer": "15.5.0"
   },
   "devDependencies": {
     "@types/puppeteer": "5.4.6",
-    "ts-node": "10.9.1"
+    "nodemon": "2.0.19",
+    "pino-pretty": "8.1.0"
   },
   "keywords": [
     "israel",

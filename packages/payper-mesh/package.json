@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "dotenv": "16.0.1",
-    "ts-node": "10.7.0"
+    "ts-node": "10.9.1"
   },
   "keywords": [
     "payper",
