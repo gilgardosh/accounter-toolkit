@@ -35,9 +35,9 @@
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.75.4",
-    "@graphql-mesh/json-schema": "0.30.5",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.71",
+    "@graphql-mesh/cli": "0.75.5",
+    "@graphql-mesh/json-schema": "0.30.6",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.72",
     "graphql": "16.5.0",
     "path": "0.12.7"
   },
