@@ -7,8 +7,9 @@ import type { Config, Logger, ReportInputs } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { monthExpansionRecordsHandler } from './month-expansion-records-handler.js';
 
-const INPUTS_BUTTON_SELECTOR = '#ContentUsersPage_TabMenu1_LinkButton0';
+const INPUTS_BUTTON_SELECTOR = '#LinkButton0';
 
+/** תשומות */
 export class MonthInputsHandler {
   private config: Config;
   private prompt: UserPrompt;

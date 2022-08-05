@@ -16,6 +16,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
     page = await newHomePage(config.visibleBrowser, config.logger);
     config.logger.log('Logged in');
 
+     /* get available years */ 
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', config.logger);
     const taxYears = await page.evaluate(getSelectOptions, 'select#ContentUsersPage_DdlTkufa > option');
 

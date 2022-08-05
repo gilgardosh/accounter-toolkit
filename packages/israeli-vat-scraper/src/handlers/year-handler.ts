@@ -58,6 +58,7 @@ export class YearHandler {
     }
   };
 
+  /** Get year's basic info */
   private getBasicReport = async (logger: Logger): Promise<ReportCommon[]> => {
     try {
       this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
