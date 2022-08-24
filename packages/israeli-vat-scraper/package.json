@@ -19,9 +19,9 @@
   "author": "gilgardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
-    "start": "tsc && node --experimental-json-modules dist/index.js",
     "prestart": "yarn build",
+    "start": "node --experimental-json-modules dist/index.js",
+    "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
     "build": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
