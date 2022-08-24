@@ -1274,10 +1274,10 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz#0c8b74c50f29ee44f423f7416829c0bf8bb5eb27"
   integrity sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==
 
-"@theguild/eslint-config@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@theguild/eslint-config/-/eslint-config-0.0.1.tgz#5741f30792e898299bb6898229eddb6fc3c4204c"
-  integrity sha512-VnvXqU+xqPI9UXNR4T3Ii/EHYc49Ltk4vExPd726hAsQIXcJlLtVMOxGqJXaUcZgiiaqMVCH6B7Ns6+lp5fa7A==
+"@theguild/eslint-config@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@theguild/eslint-config/-/eslint-config-0.0.2.tgz#b2ceb3eb019431321bebafd147587ae2ff1eb730"
+  integrity sha512-15NlaDxtdBQm+gax6fvNQcZtsOdjUZHOreKhxrbcHpv76xKH9PVFtGJQRVKMFKutX1M4Ph6N3NZRNDrR1EYADw==
   dependencies:
     "@rushstack/eslint-patch" "^1.1.3"
     "@typescript-eslint/eslint-plugin" "^5.23.0"
@@ -1285,7 +1285,7 @@
     eslint-config-prettier "^8.5.0"
     eslint-plugin-import "^2.26.0"
     eslint-plugin-promise "^6.0.0"
-    eslint-plugin-sonarjs "^0.13.0"
+    eslint-plugin-sonarjs "^0.15.0"
     eslint-plugin-unicorn "^42.0.0"
   optionalDependencies:
     eslint-plugin-jsx-a11y "^6.5.1"
@@ -2498,10 +2498,10 @@ eslint-plugin-simple-import-sort@7.0.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-7.0.0.tgz#a1dad262f46d2184a90095a60c66fef74727f0f8"
   integrity sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==
 
-eslint-plugin-sonarjs@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.13.0.tgz#c34d140cc90abaaed38f5a5201a2ccdebe398862"
-  integrity sha512-t3m7ta0EspzDxSOZh3cEOJIJVZgN/TlJYaBGnQlK6W/PZNbWep8q4RQskkJkA7/zwNpX0BaoEOSUUrqaADVoqA==
+eslint-plugin-sonarjs@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.15.0.tgz#f9c904f143f4e2336f2923be08399b32b5bd2781"
+  integrity sha512-LuxHdAe6VqSbi1phsUvNjbmXLuvlobmryQJJNyQYbdubCfz6K8tmgoqNiJPnz0pP2AbYDbtuPm0ajOMgMrC+dQ==
 
 eslint-plugin-unicorn@^42.0.0:
   version "42.0.0"
