@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.0.1",
-    "@theguild/prettier-config": "0.0.2",
+    "@theguild/prettier-config": "0.0.3",
     "@types/node": "18.0.0",
     "concurrently": "7.3.0",
     "eslint": "8.20.0",
