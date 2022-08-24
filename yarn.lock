@@ -3818,10 +3818,10 @@ node-releases@^2.0.6:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.6.tgz#8a7088c63a55e493845683ebf3c828d8c51c5503"
   integrity sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==
 
-node-sql-parser@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/node-sql-parser/-/node-sql-parser-4.3.0.tgz#3f2ca92d259f58d343104cf4a7b8f11af20dffc9"
-  integrity sha512-tuRljwmeG93Xl4+Vv/L8StNSDc4HbUkXy70XSB+hgOtxHIF2QXmZnxiL9o/RHSfmuxVye0t78On8aww5KZqPrg==
+node-sql-parser@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/node-sql-parser/-/node-sql-parser-4.4.0.tgz#80aadf88e1c30a2e6826bc3121036a29f16f65b1"
+  integrity sha512-c5J7oxQk4XWnNWPaGZ4CS0HFSDJex/QjoCNUuUJ84PX0ehAHFfPPkpjChQ3uySmHKHiwiVKMDFmPsFlq1gSXFQ==
   dependencies:
     big-integer "^1.6.48"
 
@@ -4157,13 +4157,14 @@ prettier-plugin-sh@^0.11.0:
   dependencies:
     mvdan-sh "^0.10.1"
 
-prettier-plugin-sql@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-sql/-/prettier-plugin-sql-0.9.0.tgz#acc3a19911fc08ff73e86565237851289a7f2d75"
-  integrity sha512-lS6uq+PN49WXHKguU2CjN6vr3Vhr0OYPJtHiZ54MfRMoT/Cl5ahEjZNZo79OVp3RrOKc0V9lvRPS1/Cedr8uiA==
+prettier-plugin-sql@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sql/-/prettier-plugin-sql-0.11.0.tgz#c5a7f0ecd6b591aba897602a0ecad2cb29536e8b"
+  integrity sha512-m4ktfaTAW2Ze48yyOfJSZmdVclRut3wbJ7tXyGhU2bSr2afi16a5czsBGsy/1x+0i7U3Iz7TBr2niDPd18tIDg==
   dependencies:
-    node-sql-parser "^4.3.0"
-    sql-formatter "^8.0.1"
+    node-sql-parser "^4.4.0"
+    sql-formatter "^9.2.0"
+    tslib "^2.4.0"
 
 prettier@2.7.1:
   version "2.7.1"
@@ -4667,10 +4668,10 @@ sponge-case@^1.0.1:
   dependencies:
     tslib "^2.0.3"
 
-sql-formatter@^8.0.1:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/sql-formatter/-/sql-formatter-8.2.0.tgz#2b664f02bb6b7bb6fcad1346e850b8f583303469"
-  integrity sha512-5hQOSOk8jfhPkNgUmpm+9Fn2aaLWcf4vKL/dIvUN5q9rsamKHSyN/gL79xpkETNOyL+Zv5BMQfA7z9Rmz/DJJg==
+sql-formatter@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/sql-formatter/-/sql-formatter-9.2.0.tgz#18a398ae71436dc1936a45e6f230236b4347231b"
+  integrity sha512-Dn4lEpUeAhfNDR2LnEs9Uaq92TSHjhcNrzhllPuMnp188P4sLU7UcdcB9UqIfMfcN62gWXJlJ3KocaAf/SOzXQ==
   dependencies:
     argparse "^2.0.1"
 
