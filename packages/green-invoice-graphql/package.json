@@ -39,7 +39,7 @@
     "@graphql-mesh/json-schema": "0.30.3",
     "@graphql-mesh/transform-resolvers-composition": "0.12.69",
     "graphql": "16.6.0",
-    "node-fetch": "2.6.7",
+    "node-fetch": "3.2.10",
     "path": "0.12.7"
   },
   "devDependencies": {
