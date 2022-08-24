@@ -40,11 +40,3 @@ export const vatScraper = async (
     throw new Error(`VatScraper - ${(e as Error)?.message || e}`);
   }
 };
-
-const testRun = async () => {
-  vatScraper(undefined, { years: [[2020, [5]]], visibleBrowser: true });
-};
-
-testRun().catch(() => {
-  process.exit(1);
-});
