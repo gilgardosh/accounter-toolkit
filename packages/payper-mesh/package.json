@@ -36,15 +36,16 @@
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@graphql-mesh/cli": "0.75.1",
-    "@graphql-mesh/json-schema": "0.30.3",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.69",
+    "@graphql-mesh/cli": "0.76.2",
+    "@graphql-mesh/json-schema": "0.34.1",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.78",
     "graphql": "16.6.0",
     "path": "0.12.7"
   },
   "devDependencies": {
+    "@types/node": "18.7.13",
     "dotenv": "16.0.1",
-    "ts-node": "10.7.0"
+    "ts-node": "10.9.1"
   },
   "keywords": [
     "payper",

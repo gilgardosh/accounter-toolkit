@@ -31,7 +31,7 @@ export class MonthSalesHandler {
       await waitAndClick(this.page, SALES_BUTTON_SELECTOR, logger);
 
       const salesTable = await waitForSelectorPlus(this.page, '#tblSikum', logger);
-      const salesData = await this.page.evaluate(getReportExpansionSales, salesTable);
+      const salesData = await salesTable?.evaluate(getReportExpansionSales);
 
       // get income records
       for (const key in salesData) {

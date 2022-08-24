@@ -7,8 +7,9 @@ import type { Config, Logger, ReportInputs } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { monthExpansionRecordsHandler } from './month-expansion-records-handler.js';
 
-const INPUTS_BUTTON_SELECTOR = '#ContentUsersPage_TabMenu1_LinkButton0';
+const INPUTS_BUTTON_SELECTOR = '#LinkButton0';
 
+/** תשומות */
 export class MonthInputsHandler {
   private config: Config;
   private prompt: UserPrompt;
@@ -31,7 +32,7 @@ export class MonthInputsHandler {
       await waitAndClick(this.page, INPUTS_BUTTON_SELECTOR, logger);
 
       const inputsTable = await waitForSelectorPlus(this.page, '#tblSikum', logger);
-      const inputsData = await this.page.evaluate(getReportExpansionInputs, inputsTable);
+      const inputsData = await inputsTable?.evaluate(getReportExpansionInputs);
 
       // gt income records
       for (const key in inputsData) {

@@ -2,7 +2,8 @@ import type { Page } from 'puppeteer';
 
 import { newHomePage } from '../utils/browser-util.js';
 import { parseDate } from '../utils/dates.js';
-import { getSelectOptions, waitForSelectorPlus } from '../utils/page-util.js';
+import { getSelectOptions } from '../utils/evaluation-functions.js';
+import { waitForSelectorPlus } from '../utils/page-util.js';
 import type { Config, Report } from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { YearHandler } from './year-handler.js';
@@ -15,8 +16,9 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
     page = await newHomePage(config.visibleBrowser, config.logger);
     config.logger.log('Logged in');
 
+     /* get available years */ 
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', config.logger);
-    const taxYears = await getSelectOptions(page, 'select#ContentUsersPage_DdlTkufa > option');
+    const taxYears = await page.evaluate(getSelectOptions, 'select#ContentUsersPage_DdlTkufa > option');
 
     const reports: Report[] = [];
 

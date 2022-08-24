@@ -1,10 +1,10 @@
 import { config } from 'dotenv';
 import { createRequire } from 'module';
 
-import { getEnvCredentials, updateCredentials } from './handlers/login-handler.js';
-import { homePageHandler } from './handlers/main-page-handler.js';
-import { validateSchema } from './utils/schema-validator.js';
-import type { Config, Report, UserCredentials } from './utils/types.js';
+import { getEnvCredentials, updateCredentials } from './src/handlers/login-handler.js';
+import { homePageHandler } from './src/handlers/main-page-handler.js';
+import { validateSchema } from './src/utils/schema-validator.js';
+import type { Config, Report, UserCredentials } from './src/utils/types.js';
 
 config();
 
@@ -30,7 +30,7 @@ export const vatScraper = async (
 
     if (config.validate) {
       const requireFile = createRequire(import.meta.url); // construct the require method
-      const schema = requireFile('./vatSchema.json'); // use the require method
+      const schema = requireFile('./src/vatSchema.json'); // use the require method
       const validation = await validateSchema(schema, reports);
       config.logger.log(validation);
     }

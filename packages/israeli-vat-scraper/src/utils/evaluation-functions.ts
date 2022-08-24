@@ -1,5 +1,5 @@
 import type {
-  Report,
+  ReportCommon,
   ReportDetails,
   ReportExpansion,
   ReportFixedInvoice,
@@ -11,8 +11,25 @@ import type {
   ReportSales,
 } from './types.js';
 
-export const getReportsTable = (table: HTMLTableElement): Report[] => {
-  const tableData: Report[] = [];
+export function getSelectOptions(optionSelector: string) {
+  return Array.from(document.querySelectorAll<HTMLOptionElement>(optionSelector))
+    .filter(o => o.value)
+    .map(o => {
+      return {
+        name: o.text,
+        value: o.value,
+      };
+    });
+}
+
+export const getReportsTable = (element: Element | null): ReportCommon[] => {
+  const tableData: ReportCommon[] = [];
+
+  if (!element) {
+    return tableData;
+  }
+
+  const table = element as HTMLTableElement;
 
   const getFloat = (raw: string) => {
     return parseFloat(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
@@ -20,7 +37,7 @@ export const getReportsTable = (table: HTMLTableElement): Report[] => {
 
   for (let i = 1; i < table.rows.length; i++) {
     const tableRow = table.rows[i];
-    const rowData: Report = {
+    const rowData: ReportCommon = {
       reportMonth: tableRow.cells[0].innerText,
       reportType: tableRow.cells[1].innerText,
       corectness: tableRow.cells[2].innerText,
@@ -36,7 +53,10 @@ export const getReportsTable = (table: HTMLTableElement): Report[] => {
   return tableData;
 };
 
-export const getReportDetails = (table: HTMLTableElement): ReportDetails => {
+export const getReportDetails = (table: Element): ReportDetails | undefined => {
+  if (!(table instanceof HTMLTableElement)) {
+    return undefined;
+  }
   const getInnerData = (rowNum: number) => {
     return table.rows[rowNum].cells[1].innerText;
   };
@@ -65,7 +85,11 @@ export const getReportDetails = (table: HTMLTableElement): ReportDetails => {
   return details;
 };
 
-export const getReportExpansionTitle = (table: HTMLTableElement): ReportExpansion => {
+export const getReportExpansionTitle = (table: Element): ReportExpansion | undefined => {
+  if (!(table instanceof HTMLTableElement)) {
+    return undefined;
+  }
+
   const getInt = (raw: string) => {
     return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
   };
@@ -85,7 +109,11 @@ export const getReportExpansionTitle = (table: HTMLTableElement): ReportExpansio
   return tableData;
 };
 
-export const getReportExpansionInputs = (table: HTMLTableElement): ReportInputs => {
+export const getReportExpansionInputs = (table: Element): ReportInputs | undefined => {
+  if (!(table instanceof HTMLTableElement)) {
+    return undefined;
+  }
+
   const getCategoryData = (row: HTMLTableRowElement, index: number): ReportRecordColumns => {
     const getInt = (raw: string) => {
       return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
@@ -119,8 +147,12 @@ export const getReportExpansionInputs = (table: HTMLTableElement): ReportInputs 
   return inputsData;
 };
 
-export const getReportExpansionInputRecords = (table: HTMLTableElement): ReportInputRecord[] => {
+export const getReportExpansionInputRecords = (table: Element): ReportInputRecord[] => {
   const recordsData: ReportInputRecord[] = [];
+
+  if (!(table instanceof HTMLTableElement)) {
+    return recordsData;
+  }
 
   const getInt = (raw: string) => {
     return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
@@ -144,7 +176,11 @@ export const getReportExpansionInputRecords = (table: HTMLTableElement): ReportI
   return recordsData;
 };
 
-export const getReportExpansionInputRecordDetails = (table: HTMLTableElement): ReportInputRecordDetails => {
+export const getReportExpansionInputRecordDetails = (table: Element): ReportInputRecordDetails | undefined => {
+  if (!(table instanceof HTMLTableElement)) {
+    return undefined;
+  }
+
   const getInt = (raw: string) => {
     return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
   };
@@ -162,7 +198,11 @@ export const getReportExpansionInputRecordDetails = (table: HTMLTableElement): R
   return tableData;
 };
 
-export const getReportExpansionSales = (table: HTMLTableElement): ReportSales => {
+export const getReportExpansionSales = (table: Element): ReportSales | undefined => {
+  if (!(table instanceof HTMLTableElement)) {
+    return undefined;
+  }
+
   const getCategoryData = (row: HTMLTableRowElement, index: number): ReportRecordColumns => {
     const getInt = (raw: string) => {
       return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);
@@ -198,8 +238,12 @@ export const getReportExpansionSales = (table: HTMLTableElement): ReportSales =>
   return inputsData;
 };
 
-export const getReportExpansionFixes = (table: HTMLTableElement): ReportFixedInvoice[] => {
+export const getReportExpansionFixes = (table: Element): ReportFixedInvoice[] => {
   const fixesData: ReportFixedInvoice[] = [];
+
+  if (!(table instanceof HTMLTableElement)) {
+    return fixesData;
+  }
 
   const getInt = (raw: string) => {
     return parseInt(raw.replace(/\D/g, '')) * (raw.includes('-') ? -1 : 1);

@@ -45,15 +45,15 @@ export class monthExpansionRecordsHandler {
         logger
       );
 
-      const recordsTable = await waitForSelectorPlus(this.page, '#ContentUsersPage_dgHeshboniot', logger);
-      const records = await this.page.evaluate(getReportExpansionInputRecords, recordsTable);
+      const recordsTable = await waitForSelectorPlus(this.page, '#dgHeshboniot', logger);
+      const records = (await recordsTable?.evaluate(getReportExpansionInputRecords)) ?? [];
 
       this.prompt.update(this.location, 'Fetching details', logger);
       for (let i = 0; i < records.length; i++) {
         records[i].details = await this.getRecordDetails(i, logger);
       }
 
-      await waitAndClick(this.page, '#ContentUsersPage_btnGoBack', logger);
+      await waitAndClick(this.page, '#btnGoBack', logger);
       this.prompt.update(this.location, 'Done', logger);
       return records;
     } catch (e) {
@@ -88,7 +88,7 @@ export class monthExpansionRecordsHandler {
         logger
       );
 
-      const details = await this.page.evaluate(getReportExpansionInputRecordDetails, detailsTable);
+      const details = await detailsTable?.evaluate(getReportExpansionInputRecordDetails);
 
       await waitAndClick(this.page, '#BtnCloseDlgPrtNsf', logger);
       return details;
