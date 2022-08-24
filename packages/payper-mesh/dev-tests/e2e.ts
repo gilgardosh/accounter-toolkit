@@ -8,7 +8,7 @@ const testRun = async () => {
   const userName = process.env.PAYPER_MESH_USER_NAME as string;
   const app = await init(authToken, userName);
 
-  const data = await app.sdk.getExpenses_query({ input: {} });
+  const data = await app.sdk.getExpenses_query();
   if (!data.getExpenses?.expenses) {
     throw new Error(data.getExpenses?.description);
   }

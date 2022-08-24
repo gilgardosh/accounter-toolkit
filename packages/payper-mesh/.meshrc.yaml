@@ -4,7 +4,7 @@ sources:
       jsonSchema:
         baseUrl: 'https://payper.co.il/app/api'
         operationHeaders:
-          API_KEY: '{env.PAYPER_MESH_AUTH_TOKEN}'
+          API_KEY: '{context.authToken}'
           Content-Type: application/json
           Accept: application/json
         operations:
