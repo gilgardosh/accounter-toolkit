@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": ["object", "null"],
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "batchIdMin": {
+      "type": "integer"
+    },
+    "batchIdMax": {
+      "type": "integer"
+    },
+    "creditorIdMin": {
+      "type": "string"
+    },
+    "creditorIdMax": {
+      "type": "string"
+    },
+    "debtorIdMin": {
+      "type": "string"
+    },
+    "debtorIdMax": {
+      "type": "string"
+    },
+    "dueDateMin": {
+      "type": "string"
+    },
+    "dueDateMax": {
+      "type": "string"
+    },
+    "idMin": {
+      "type": "integer"
+    },
+    "idMax": {
+      "type": "integer"
+    },
+    "shekelSumMin": {
+      "type": "number"
+    },
+    "shekelSumMax": {
+      "type": "number"
+    },
+    "valueDateMin": {
+      "type": "string"
+    },
+    "valueDateMax": {
+      "type": "string"
+    }
+  }
+}

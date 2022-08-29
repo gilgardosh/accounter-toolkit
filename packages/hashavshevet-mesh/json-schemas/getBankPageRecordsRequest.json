@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "idMin": {
+      "type": "integer"
+    },
+    "idMax": {
+      "type": "integer"
+    },
+    "bankPageIdMin": {
+      "type": "integer"
+    },
+    "bankPageIdMax": {
+      "type": "integer"
+    },
+    "dateMin": {
+      "type": "string"
+    },
+    "dateMax": {
+      "type": "string"
+    }
+  }
+}

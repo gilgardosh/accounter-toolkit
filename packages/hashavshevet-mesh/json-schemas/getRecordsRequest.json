@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": ["object", "null"],
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "idMin": {
+      "type": "integer"
+    },
+    "idMax": {
+      "type": "integer"
+    }, 
+    "transactionIdMin": {
+      "type": "number"
+    },
+    "transactionIdMax": {
+      "type": "number"
+    },
+    "accountIdMin": {
+      "type": "string"
+    },
+    "accountIdMax": {
+      "type": "string"
+    },
+    "ounterAccountIdMin": {
+      "type": "string"
+    },
+    "ounterAccountIdMax": {
+      "type": "string"
+    },
+    "debitOrCreditNumberMin": {
+      "type": "number"
+    },
+    "debitOrCreditNumberMax": {
+      "type": "number"
+    }
+  }
+}
