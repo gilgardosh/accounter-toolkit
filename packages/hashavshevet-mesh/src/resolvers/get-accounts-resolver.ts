@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import { getAccountsResponse, queryInput_getAccounts_Input } from '../../.mesh';
+import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh';
 import { accountsDataFile } from './data-files';
 
-const handleAccountsParameters = (args: queryInput_getAccounts_Input = {}) => {
+const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',

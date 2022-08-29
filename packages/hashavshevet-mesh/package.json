@@ -30,20 +30,21 @@
     "generate": "yarn mesh:build",
     "dev": "ts-node ./index.ts",
     "start": "node ./dist",
+    "pretest": "yarn build",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },
   "engines": {
     "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.75.1",
-    "@graphql-mesh/json-schema": "0.30.3",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.69",
-    "graphql": "16.5.0"
+    "@graphql-mesh/cli": "0.76.2",
+    "@graphql-mesh/json-schema": "0.34.1",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.78",
+    "graphql": "16.6.0"
   },
   "devDependencies": {
     "dotenv": "16.0.1",
-    "ts-node": "10.7.0"
+    "ts-node": "10.9.1"
   },
   "keywords": [
     "hashavshevet",

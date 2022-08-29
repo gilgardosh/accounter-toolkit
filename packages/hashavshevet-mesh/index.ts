@@ -9,15 +9,14 @@ export const init = async (
   hashavshevetCompanyKey: string,
   hashavshevetUrl: string,
 ): Promise<{ sdk: Sdk; execute: Awaited<ReturnType<typeof getBuiltMesh>>['execute'] }> => {
-  process.env.HASHAVSHEVET_MESH_URL = hashavshevetUrl;
-  process.env.HASHAVSHEVET_MESH_AUTH_TOKEN = (await login(
+  const authToken = (await login(
     hashavshevetPersonalToken,
     hashavshevetCompanyKey,
     hashavshevetUrl,
   )) as string;
 
   const { execute } = await getBuiltMesh();
-  const sdk = await getMeshSDK();
+  const sdk = await getMeshSDK({authToken, hashavshevetUrl});
 
   return { sdk, execute };
 };

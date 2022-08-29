@@ -2,10 +2,12 @@ sources:
   - name: Hashavshevet
     handler:
       jsonSchema:
-        baseUrl: 'https://{env.HASHAVSHEVET_MESH_URL}/'
+        baseUrl: 'https://{context.hashavshevetUrl}/'
+        queryStringOptions:
+          indices: true
         operationHeaders:
-          Authorization: 'Bearer {env.HASHAVSHEVET_MESH_AUTH_TOKEN}'
-          host: '{env.HASHAVSHEVET_MESH_URL}'
+          Authorization: 'Bearer {context.authToken}'
+          host: '{context.hashavshevetUrl}'
           Content-Type: application/x-www-form-urlencoded
           Accept: application/json
         operations:
