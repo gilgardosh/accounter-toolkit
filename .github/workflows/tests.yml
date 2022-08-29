@@ -1,0 +1,37 @@
+name: Testing
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    name: Linting Check
+    uses: the-guild-org/shared-config/.github/workflows/lint.yml@main
+    with:
+      script: yarn ci:lint
+    secrets:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  prettier-check:
+    name: 🧹 Prettier Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v3
+      - name: Setup env
+        uses: the-guild-org/shared-config/setup@main
+        with:
+          nodeVersion: 18
+      - name: Prettier Check
+        run: yarn prettier:check
+
+  build:
+    name: Build and Type Check
+    uses: the-guild-org/shared-config/.github/workflows/ci.yml@main
+    with:
+      script: yarn build
