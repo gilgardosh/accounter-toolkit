@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh';
 import { accountsDataFile } from './data-files';
 

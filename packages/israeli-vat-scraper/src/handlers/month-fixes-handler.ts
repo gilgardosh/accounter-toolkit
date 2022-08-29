@@ -31,7 +31,7 @@ export class MonthFixesHandler {
 
       if (!button) {
         this.prompt.update(this.location, 'Done - no data found', logger);
-        return;
+        return undefined;
       }
 
       await button.click();
@@ -47,7 +47,7 @@ export class MonthFixesHandler {
     } catch (e) {
       this.prompt.addError(this.location, (e as Error)?.message || e, logger);
       this.page?.browser().close();
-      return;
+      return undefined;
     }
   };
 }

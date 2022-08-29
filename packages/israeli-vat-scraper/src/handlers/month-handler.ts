@@ -54,7 +54,7 @@ export class MonthHandler {
       return this.report;
     } catch (e) {
       this.prompt.addError(this.location, (e as Error)?.message || e, logger);
-      return;
+      return undefined;
     }
   };
 
@@ -117,13 +117,13 @@ export class MonthHandler {
       page.browser().close();
 
       if (!reportExpansion) {
-        return;
+        return undefined;
       }
 
       return reportExpansion;
     } catch (e) {
       this.prompt.addError([...this.location, 'Expansions'], (e as Error)?.message || e, logger);
-      return;
+      return undefined;
     }
   };
 

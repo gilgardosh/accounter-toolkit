@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh';
 import { transactionsDataFile } from './data-files';
 

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getBankPageRecordsResponse, queryInput_getBankPageRecords_input_Input } from '../../.mesh';
 import { bankPageRecordsDataFile } from './data-files';
 

@@ -54,7 +54,7 @@ export const headerBuilder = (header: Header): string => {
 export const transactionBuilder = (transaction: Transaction): string => {
   const { entryType, vatId, invoiceDate, refGroup, refNumber, totalVat, invoiceSum } = transaction;
 
-  const entryTypeLetter = entryType.valueOf();
+  const entryTypeLetter = entryType.valueOf()[0];
 
   const totalVatString = addLeadingZeros(totalVat, 9);
 

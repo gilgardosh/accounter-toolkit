@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh';
 import { batchDataFile } from './data-files';
 

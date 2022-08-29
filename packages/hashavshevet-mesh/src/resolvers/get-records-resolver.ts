@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh';
 import { recordsDataFile } from './data-files';
 
