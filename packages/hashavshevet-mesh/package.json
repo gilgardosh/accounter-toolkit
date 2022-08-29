@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/hashavshevet-mesh#readme",
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "prebuild": "yarn generate",
     "build": "tsc",
