@@ -5,9 +5,23 @@
     "packages/*"
   ],
   "type": "module",
+  "license": "MIT",
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  },
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
-    "prettier": "prettier --ignore-path .gitignore --write --list-different ."
+    "prettier": "prettier --ignore-path .gitignore --write --list-different .",
+    "prebuild": "yarn lint && yarn prettier",
+    "release": "yarn build && changeset publish"
+  },
+  "engines": {
+    "node": "18.7.0"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "2.24.3"
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.0.2",
@@ -19,9 +33,5 @@
     "prettier": "2.7.1",
     "prettier-plugin-sql": "0.11.0",
     "typescript": "4.8.2"
-  },
-  "engines": {
-    "node": "18.7.0"
-  },
-  "license": "MIT"
+  }
 }
