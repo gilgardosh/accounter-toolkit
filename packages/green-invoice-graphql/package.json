@@ -1,26 +1,42 @@
 {
   "name": "@accounter-toolkit/green-invoice-graphql",
   "version": "0.0.0",
-  "description": "Graphql server for wrapping payper API",
-  "main": "dist/index.js",
-  "exports": "./dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  "description": "Graphql proxy for Green Invoice API",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/typings/index.d.cts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "default": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typings": "dist/typings/index.d.ts",
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gilgardosh/green-invoice-graphql.git"
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
+    "repository": "packages/green-invoice-graphql"
   },
-  "author": "Gil Gardosh",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gilgardosh/green-invoice-graphql/issues"
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
   },
-  "homepage": "https://github.com/gilgardosh/green-invoice-graphql#readme",
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/green-invoice-graphql#readme",
+  "author": "Gil Gardosh <gilgardosh@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "prebuild": "yarn generate",
     "build": "tsc",
@@ -33,6 +49,9 @@
     "dev": "ts-node ./index.ts",
     "start": "node ./dist",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "dependencies": {
     "@graphql-mesh/cli": "0.76.2",
@@ -54,5 +73,9 @@
     "accounter",
     "graphql",
     "mesh"
-  ]
+  ],
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  }
 }

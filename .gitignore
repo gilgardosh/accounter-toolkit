@@ -2,6 +2,7 @@ node_modules/
 .idea/
 dist/
 .env
+.bob/
 **/__generated__/
 **/generated-types/
 **/.mesh

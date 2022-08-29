@@ -13,7 +13,8 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "prettier": "prettier --ignore-path .gitignore --write --list-different .",
-    "prebuild": "yarn lint && yarn prettier",
+    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier",
+    "build": "bob build",
     "release": "yarn build && changeset publish"
   },
   "engines": {
@@ -27,6 +28,7 @@
     "@theguild/eslint-config": "0.0.2",
     "@theguild/prettier-config": "0.0.3",
     "@types/node": "18.7.13",
+    "bob-the-bundler": "4.0.0",
     "concurrently": "7.3.0",
     "eslint": "8.23.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
