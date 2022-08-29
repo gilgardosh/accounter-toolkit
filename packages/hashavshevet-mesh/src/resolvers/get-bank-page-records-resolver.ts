@@ -62,7 +62,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   const parameters = handleBankPageRecordsParameters(args.input);
   args.input = {
     parameters,

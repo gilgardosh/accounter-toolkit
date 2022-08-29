@@ -135,7 +135,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   const parameters = handleTransactionsFilterParameters(args.input);
   args.input = {
     parameters,

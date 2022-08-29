@@ -62,7 +62,7 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   if (!args.input) {
     args.input = {};
   }

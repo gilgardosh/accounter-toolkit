@@ -98,7 +98,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   const parameters = handleRecordsFilterParameters(args.input);
   args.input = {
     parameters,

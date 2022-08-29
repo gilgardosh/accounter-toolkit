@@ -9,7 +9,7 @@
     },
     "idMax": {
       "type": "integer"
-    }, 
+    },
     "transactionIdMin": {
       "type": "number"
     },
