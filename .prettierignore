@@ -1,4 +1,7 @@
-node_modules
-.prettierrc.yml
-package.json
-.bob
+node_modules/
+.changeset/*.md
+dist/
+.husky/_/
+**/.mesh
+.bob/
+CHANGELOG.md

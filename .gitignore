@@ -1,5 +1,10 @@
-node_modules/
 .idea/
+.npmrc
+.yarn
+.yarnclean
+.DS_Store
+*.log
+node_modules/
 dist/
 .env
 .bob/
