@@ -15,8 +15,9 @@
     "ci:lint": "eslint --output-file eslint_report.json --format json",
     "prettier": "prettier --ignore-path .gitignore --write --list-different .",
     "prettier:check": "prettier --check .",
-    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier",
+    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
     "build": "bob build",
+    "postbuild": "yarn workspaces run postbuild",
     "release": "yarn build && changeset publish"
   },
   "engines": {

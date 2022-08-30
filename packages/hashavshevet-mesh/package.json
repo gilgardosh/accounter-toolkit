@@ -2,7 +2,6 @@
   "name": "@accounter-toolkit/hashavshevet-mesh",
   "version": "0.0.0",
   "description": "Graphql proxy for Hashavshevet API",
-  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -38,16 +37,14 @@
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "generate": "mesh build",
+    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
+    "dev": "ts-node ./index.ts",
+    "start": "node ./dist",
     "prebuild": "yarn generate",
     "build": "tsc",
     "postbuild": "yarn copy-files",
-    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
     "prepublish": "yarn build",
-    "mesh:serve": "mesh serve",
-    "mesh:build": "mesh build",
-    "generate": "yarn mesh:build",
-    "dev": "ts-node ./index.ts",
-    "start": "node ./dist",
     "pretest": "yarn build",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },

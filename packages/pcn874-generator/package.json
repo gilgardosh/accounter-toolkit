@@ -41,6 +41,7 @@
     "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
     "prebuild": "yarn lint",
     "build": "tsc",
+    "postbuild": "yarn -v",
     "prepublish": "yarn build",
     "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
     "start": "node ./dist"
