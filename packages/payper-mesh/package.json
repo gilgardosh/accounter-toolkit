@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/payper-mesh",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Graphql proxy for Payper API",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

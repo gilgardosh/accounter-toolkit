@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/israeli-vat-scraper",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Scraper app for fetching Israeli VAT data",
   "type": "module",
   "main": "dist/cjs/index.js",
