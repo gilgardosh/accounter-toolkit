@@ -1,13 +1,30 @@
 {
   "name": "@accounter-toolkit/hashavshevet-mesh",
   "version": "0.0.0",
-  "description": "Graphql server for wrapping Hashavshevet API",
-  "main": "dist/index.js",
-  "exports": "./dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "description": "Graphql proxy for Hashavshevet API",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/typings/index.d.cts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "default": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typings": "dist/typings/index.d.ts",
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gilgardosh/accounter-toolkit.git",
@@ -18,18 +35,16 @@
   },
   "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/hashavshevet-mesh#readme",
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
+    "generate": "mesh build",
+    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
+    "dev": "ts-node ./index.ts",
+    "start": "node ./dist",
     "prebuild": "yarn generate",
     "build": "tsc",
     "postbuild": "yarn copy-files",
-    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
     "prepublish": "yarn build",
-    "mesh:serve": "mesh serve",
-    "mesh:build": "mesh build",
-    "generate": "yarn mesh:build",
-    "dev": "ts-node ./index.ts",
-    "start": "node ./dist",
     "pretest": "yarn build",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
   },

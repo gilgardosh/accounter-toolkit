@@ -75,7 +75,7 @@ export class monthExpansionRecordsHandler {
           logger
         );
         if (!button) {
-          return;
+          return undefined;
         }
         await button.click();
       }
@@ -94,7 +94,7 @@ export class monthExpansionRecordsHandler {
       return details;
     } catch (e) {
       this.prompt.addError([...this.location, 'Details'], (e as Error)?.message || e, logger);
-      return;
+      return undefined;
     }
   };
 }

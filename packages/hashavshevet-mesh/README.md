@@ -1,7 +1,7 @@
 # hashavshevet-mesh
 
-
 # Errors and bugs
+
 - getBatches: Can only fetch one at a time, due to errors on Hashavshevet's side. If filters applied (...and if not), only the first batch that matches it is returned. Note that creating a pdf report on UI does work for the exact same form. Current the only way to make it partially work is to ask for one batch each request. An alternative is to create form based on transactions, and filter response for unique items.
 - getAccounts: same issue exactly.
 - getBatches: adding issueDate filter makes temporary batches (with no issue date) impossible to fetch, since filters are mandatory and not optional.
@@ -16,7 +16,8 @@
 - getRecords: The form in Hashavshevet on which this request is built, is derived from accounts catalogue. So if a transaction is imported with fault account ID, it will not appear on records requests.
 
 # TODOs
+
 - rename fields according to our convention
 - complete missing calls commented on .meshrc.ymal
 - after mesh fix, add "type": "module" to package,json (and can use node-fetch LTS for authToken req)
-- find fix for "errors" attribute conflict  between Mesh and hashavshevet
+- find fix for "errors" attribute conflict between Mesh and hashavshevet

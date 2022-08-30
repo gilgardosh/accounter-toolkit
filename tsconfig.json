@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "packages",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "target": "es2018",
+    "lib": ["es6", "esnext", "es2015", "dom"],
+    "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/index.ts"],
+      "@accounter-toolkit/hashavshevet-mesh": ["packages/hashavshevet-mesh/index.ts"],
+      "@accounter-toolkit/israeli-vat-scraper": ["packages/israeli-vat-scraper/index.ts"],
+      "@accounter-toolkit/payper-mesh": ["packages/payper-mesh/index.ts"],
+      "@accounter-toolkit/pcn874-generator": ["packages/pcn874-generator/src/index.ts"]
+    }
+  },
+  "include": ["packages"],
+  "exclude": ["**/dist", "**/temp", ".bob"]
+}

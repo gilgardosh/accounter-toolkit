@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh';
 import { transactionsDataFile } from './data-files';
 
@@ -135,7 +134,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   const parameters = handleTransactionsFilterParameters(args.input);
   args.input = {
     parameters,

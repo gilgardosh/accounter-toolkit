@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh';
 import { accountsDataFile } from './data-files';
 
@@ -62,7 +61,7 @@ const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {})
 
   return parametersArray;
 };
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   const parameters = handleAccountsParameters(args.input);
   args.input = {
     parameters,

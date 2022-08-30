@@ -170,14 +170,14 @@ export const enum EntryType {
    * identified commercial customer
    * עסקה רגילה - מזוהה
    * */
-  SALE_REGULAR = 'S',
+  SALE_REGULAR = 'S1',
 
   /**
    * Sales – "Zero Value/Exempt" sale
    * not export
    * עסקה אפס - מזוהה
    * */
-  SALE_ZERO_OR_EXEMPT = 'S',
+  SALE_ZERO_OR_EXEMPT = 'S2',
 
   /**
    * Sales – for unidentified (private) customer
@@ -185,14 +185,14 @@ export const enum EntryType {
    * register aggregation etc
    * עסקה רגילה - לא מזוהה
    * */
-  SALE_UNIDENTIFIED_CUSTOMER = 'L',
+  SALE_UNIDENTIFIED_CUSTOMER = 'L1',
 
   /**
    * Sales – for unidentified Zero Value/Exempt
    * private customer – aggregated
    * עסקה אפס - לא מזוהה
    * */
-  SALE_UNIDENTIFIED_ZERO_OR_EXEMPT = 'L',
+  SALE_UNIDENTIFIED_ZERO_OR_EXEMPT = 'L2',
 
   /**
    * Sales – self invoice

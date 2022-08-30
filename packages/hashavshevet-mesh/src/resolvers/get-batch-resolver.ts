@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh';
 import { batchDataFile } from './data-files';
 
@@ -62,7 +61,7 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   return parametersArray;
 };
 
-module.exports = (next) => async (root, args, context, info) => {
+module.exports = next => async (root, args, context, info) => {
   if (!args.input) {
     args.input = {};
   }

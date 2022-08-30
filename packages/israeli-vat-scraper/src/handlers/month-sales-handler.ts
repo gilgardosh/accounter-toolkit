@@ -123,7 +123,7 @@ export class MonthSalesHandler {
     } catch (e) {
       this.prompt.addError(this.location, (e as Error)?.message || e, logger);
       this.page?.browser().close();
-      return;
+      return undefined;
     }
   };
 }
