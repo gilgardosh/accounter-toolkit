@@ -1,5 +1,6 @@
 {
   "name": "@accounter-toolkit/modern-israeli-bank-scrapers",
+  "bob": false,
   "version": "0.4.4",
   "description": "",
   "type": "module",
@@ -40,29 +41,22 @@
   "scripts": {
     "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js",
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
-    "build": "json2ts -i src/schemas -o dist/generatedTypes && tsc",
-    "format": "prettier \"**/*.ts\" --write",
+    "prebuild": "json2ts -i src/schemas -o dist/generatedTypes",
+    "build": "tsc",
     "json2ts": "json2ts -i src/schemas -o src/generatedTypes"
   },
   "dependencies": {
     "ajv": "8.11.0",
     "ajv-formats": "2.1.1",
     "inquirer": "9.1.1",
-    "node-fetch": "3.2.10",
     "puppeteer": "17.1.0",
     "uuid": "8.3.2"
   },
   "devDependencies": {
     "@types/inquirer": "9.0.1",
-    "@types/node": "18.6.2",
-    "@types/node-fetch": "3.0.3",
     "@types/uuid": "8.3.4",
-    "concurrently": "7.3.0",
-    "husky": "8.0.1",
     "json-schema-to-typescript": "11.0.2",
-    "nodemon": "2.0.19",
-    "prettier": "2.7.1",
-    "typescript": "4.8.2"
+    "nodemon": "2.0.19"
   },
   "engines": {
     "node": "18.8.0"

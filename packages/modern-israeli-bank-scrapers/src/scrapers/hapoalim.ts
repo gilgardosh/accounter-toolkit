@@ -1,27 +1,24 @@
-import type puppeteer from 'puppeteer';
 import inquirer from 'inquirer';
+import type puppeteer from 'puppeteer';
 
-import { fetchPoalimXSRFWithinPage, fetchGetWithinPage } from '../utils/fetch';
+import type { AccountDataSchema } from '../generated-types/accountDataSchema';
+import { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
+import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';
+import type { ILSCheckingTransactionsDataSchema } from '../generated-types/ILSCheckingTransactionsDataSchema';
 import accountDataSchemaFile from '../schemas/accountDataSchema.json' assert { type: 'json' };
-import ILSCheckingTransactionsDataSchemaFile from '../schemas/ILSCheckingTransactionsDataSchema.json' assert { type: 'json' };
 import foreignTransactionsBusinessSchema from '../schemas/foreignTransactionsBusinessSchema.json' assert { type: 'json' };
-// import foreignTransactionsPersonalSchema from '../schemas/foreignTransactionsPersonalSchema.json' assert { type: 'json' };
 import depositsSchema from '../schemas/hapoalimDepositsSchema.json' assert { type: 'json' };
-import type { AccountDataSchema } from '../generatedTypes/accountDataSchema';
-import type { ILSCheckingTransactionsDataSchema } from '../generatedTypes/ILSCheckingTransactionsDataSchema';
-import type { HapoalimDepositsSchema } from '../generatedTypes/hapoalimDepositsSchema';
-import { validateSchema } from '../utils/validateSchema';
-import { ForeignTransactionsBusinessSchema } from '../generatedTypes/foreignTransactionsBusinessSchema';
+import ILSCheckingTransactionsDataSchemaFile from '../schemas/ILSCheckingTransactionsDataSchema.json' assert { type: 'json' };
+// import foreignTransactionsPersonalSchema from '../schemas/foreignTransactionsPersonalSchema.json' assert { type: 'json' };
+import { fetchGetWithinPage, fetchPoalimXSRFWithinPage } from '../utils/fetch';
+import { validateSchema } from '../utils/validate-schema';
 // import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema';
 
 declare namespace window {
   const bnhpApp: any;
 }
 
-async function businessLogin(
-  credentials: hapoalimCredentials,
-  page: puppeteer.Page
-) {
+async function businessLogin(credentials: hapoalimCredentials, page: puppeteer.Page) {
   const BASE_URL = 'https://biz2.bankhapoalim.co.il/authenticate/logon/main';
   await page.goto(BASE_URL);
 
@@ -42,17 +39,10 @@ async function businessLogin(
 
   await page.type('#codeForOtp', answers.SMSPassword);
 
-  await Promise.all([
-    page.waitForNavigation(),
-    page.keyboard.press('Enter'),
-    page.click('#buttonNo'),
-  ]);
+  await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter'), page.click('#buttonNo')]);
 }
 
-async function personalLogin(
-  credentials: hapoalimCredentials,
-  page: puppeteer.Page
-) {
+async function personalLogin(credentials: hapoalimCredentials, page: puppeteer.Page) {
   const BASE_URL = 'https://login.bankhapoalim.co.il/ng-portals/auth/he/';
   await page.goto(BASE_URL);
 
@@ -70,10 +60,7 @@ async function personalLogin(
   return 0;
 }
 
-async function replacePassword(
-  previousCredentials: hapoalimCredentials,
-  page: puppeteer.Page
-) {
+async function replacePassword(previousCredentials: hapoalimCredentials, page: puppeteer.Page) {
   await page.waitForSelector('#buttonAction');
 
   const answers = await inquirer.prompt([
@@ -91,30 +78,19 @@ async function replacePassword(
   await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter')]);
 
   await page.waitForSelector('#linkToHomePage');
-  await Promise.all([
-    page.waitForNavigation(),
-    page.keyboard.press('Enter'),
-    page.click('#linkToHomePage'),
-  ]);
+  await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter'), page.click('#linkToHomePage')]);
 
   return 0;
 }
 
-export async function hapoalim(
-  page: puppeteer.Page,
-  credentials: hapoalimCredentials,
-  options?: hapoalimOptions
-) {
-  options?.isBusiness
-    ? await businessLogin(credentials, page)
-    : await personalLogin(credentials, page);
+export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCredentials, options?: hapoalimOptions) {
+  options?.isBusiness ? await businessLogin(credentials, page) : await personalLogin(credentials, page);
 
   const result = await page.evaluate(() => {
     if (window && window.bnhpApp && window.bnhpApp.restContext) {
       return window.bnhpApp.restContext;
-    } else {
-      return 'nothing';
     }
+    return 'nothing';
   });
 
   // Example replace password url:
@@ -124,34 +100,19 @@ export async function hapoalim(
   } else if (result == 'nothing') {
     return 'Unknown Error';
   }
-  const apiSiteUrl = `https://${
-    options?.isBusiness ? 'biz2' : 'login'
-  }.bankhapoalim.co.il/${result.slice(1)}`;
+  const apiSiteUrl = `https://${options?.isBusiness ? 'biz2' : 'login'}.bankhapoalim.co.il/${result.slice(1)}`;
 
   const now = new Date();
   const startMonth = options?.duration ?? 12;
-  const startDate = new Date(
-    now.getFullYear(),
-    now.getMonth() - startMonth,
-    now.getDate() + 1
-  );
-  const startDateString = startDate
-    .toISOString()
-    .substr(0, 10)
-    .replace(/-/g, '');
-  const endDateString = new Date()
-    .toISOString()
-    .substr(0, 10)
-    .replace(/-/g, '');
+  const startDate = new Date(now.getFullYear(), now.getMonth() - startMonth, now.getDate() + 1);
+  const startDateString = startDate.toISOString().substr(0, 10).replace(/-/g, '');
+  const endDateString = new Date().toISOString().substr(0, 10).replace(/-/g, '');
   // TODO: https://www.npmjs.com/package/node-fetch-cookies
 
   return {
     getAccountsData: async () => {
       const accountDataUrl = `${apiSiteUrl}/general/accounts`;
-      const getAccountsFunction = fetchGetWithinPage<AccountDataSchema>(
-        page,
-        accountDataUrl
-      );
+      const getAccountsFunction = fetchGetWithinPage<AccountDataSchema>(page, accountDataUrl);
       if (options?.validateSchema) {
         const data = await getAccountsFunction;
         const validation = await validateSchema(accountDataSchemaFile, data);
@@ -159,42 +120,28 @@ export async function hapoalim(
           data,
           ...validation,
         };
-      } else {
-        return { data: await getAccountsFunction };
       }
+      return { data: await getAccountsFunction };
     },
-    getILSTransactions: async (account: {
-      bankNumber: number;
-      branchNumber: number;
-      accountNumber: number;
-    }) => {
+    getILSTransactions: async (account: { bankNumber: number; branchNumber: number; accountNumber: number }) => {
       const fullAccountNumber = `${account.bankNumber}-${account.branchNumber}-${account.accountNumber}`;
       const ILSCheckingTransactionsUrl = `${apiSiteUrl}/current-account/transactions?accountId=${fullAccountNumber}&numItemsPerPage=200&retrievalEndDate=${endDateString}&retrievalStartDate=${startDateString}&sortCode=1`;
-      const getIlsTransactionsFunction =
-        fetchPoalimXSRFWithinPage<ILSCheckingTransactionsDataSchema>(
-          page,
-          ILSCheckingTransactionsUrl,
-          '/current-account/transactions'
-        );
+      const getIlsTransactionsFunction = fetchPoalimXSRFWithinPage<ILSCheckingTransactionsDataSchema>(
+        page,
+        ILSCheckingTransactionsUrl,
+        '/current-account/transactions'
+      );
       if (options?.validateSchema || options?.getTransactionsDetails) {
         const data = await getIlsTransactionsFunction;
 
         if (options?.getTransactionsDetails && data != null) {
-          for (let transaction of data?.transactions) {
-            if (!!transaction.pfmDetails) {
-              /* let a = */ await fetchPoalimXSRFWithinPage(
-                page,
-                ILSCheckingTransactionsUrl,
-                transaction.pfmDetails
-              );
+          for (const transaction of data.transactions) {
+            if (transaction.pfmDetails) {
+              /* let a = */ await fetchPoalimXSRFWithinPage(page, ILSCheckingTransactionsUrl, transaction.pfmDetails);
               // TODO: create schema and make this attribute string / object for inputing data
             }
-            if (!!transaction.details) {
-              /*let b = */ await fetchPoalimXSRFWithinPage(
-                page,
-                ILSCheckingTransactionsUrl,
-                transaction.details
-              );
+            if (transaction.details) {
+              /*let b = */ await fetchPoalimXSRFWithinPage(page, ILSCheckingTransactionsUrl, transaction.details);
               // TODO: create schema and make this attribute string / object for inputing data
             }
           }
@@ -203,17 +150,13 @@ export async function hapoalim(
           }
         }
 
-        const validation = await validateSchema(
-          ILSCheckingTransactionsDataSchemaFile,
-          data
-        );
+        const validation = await validateSchema(ILSCheckingTransactionsDataSchemaFile, data);
         return {
           data,
           ...validation,
         };
-      } else {
-        return { data: await getIlsTransactionsFunction };
       }
+      return { data: await getIlsTransactionsFunction };
     },
     getForeignTransactions: async (
       account: {
@@ -232,12 +175,11 @@ export async function hapoalim(
       const fullAccountNumber = `${account.bankNumber}-${account.branchNumber}-${account.accountNumber}`;
       // ${isBusiness ? 'type=business&' : ''}
       const foreignTransactionsUrl = `${apiSiteUrl}/foreign-currency/transactions?accountId=${fullAccountNumber}&type=business&view=details&retrievalEndDate=${endDateString}&retrievalStartDate=${startDateString}&currencyCodeList=19,27,100&detailedAccountTypeCodeList=142&lang=he`;
-      const getForeignTransactionsFunction =
-        fetchGetWithinPage<ForeignTransactionsBusinessSchema>(
-          //  | ForeignTransactionsPersonalSchema
-          page,
-          foreignTransactionsUrl
-        );
+      const getForeignTransactionsFunction = fetchGetWithinPage<ForeignTransactionsBusinessSchema>(
+        //  | ForeignTransactionsPersonalSchema
+        page,
+        foreignTransactionsUrl
+      );
       if (options?.validateSchema) {
         const data = await getForeignTransactionsFunction;
         if (
@@ -262,21 +204,13 @@ export async function hapoalim(
           data,
           ...validation,
         };
-      } else {
-        return { data: await getForeignTransactionsFunction };
       }
+      return { data: await getForeignTransactionsFunction };
     },
-    getDeposits: async (account: {
-      bankNumber: number;
-      branchNumber: number;
-      accountNumber: number;
-    }) => {
+    getDeposits: async (account: { bankNumber: number; branchNumber: number; accountNumber: number }) => {
       const fullAccountNumber = `${account.bankNumber}-${account.branchNumber}-${account.accountNumber}`;
       const depositsUrl = `${apiSiteUrl}/deposits-and-savings/deposits?accountId=${fullAccountNumber}&view=details&lang=he`;
-      const getDepositsFunction = fetchGetWithinPage<HapoalimDepositsSchema>(
-        page,
-        depositsUrl
-      );
+      const getDepositsFunction = fetchGetWithinPage<HapoalimDepositsSchema>(page, depositsUrl);
       if (options?.validateSchema) {
         const data = await getDepositsFunction;
         const validation = await validateSchema(depositsSchema, data);
@@ -284,9 +218,8 @@ export async function hapoalim(
           data,
           ...validation,
         };
-      } else {
-        return { data: await getDepositsFunction };
       }
+      return { data: await getDepositsFunction };
     },
   };
 }
@@ -299,12 +232,10 @@ export class hapoalimOptions {
 }
 
 class hapoalimPersonalCredentials {
-  userCode: string = '';
-  password: string = '';
+  userCode = '';
+  password = '';
 }
 
 class hapoalimBusinessCredentials extends hapoalimPersonalCredentials {}
 
-export type hapoalimCredentials =
-  | hapoalimPersonalCredentials
-  | hapoalimBusinessCredentials;
+export type hapoalimCredentials = hapoalimPersonalCredentials | hapoalimBusinessCredentials;

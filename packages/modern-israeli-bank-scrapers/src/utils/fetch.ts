@@ -1,6 +1,6 @@
+import type { IncomingHttpHeaders } from 'http';
 import type puppeteer from 'puppeteer';
 import { v4 as uuidv4 } from 'uuid';
-import type { IncomingHttpHeaders } from 'http';
 
 export async function fetchPostWithinPage<TResult>(
   page: puppeteer.Page,
@@ -18,14 +18,13 @@ export async function fetchPostWithinPage<TResult>(
           headers: new Headers(
             Object.assign(
               {
-                'Content-Type':
-                  'application/x-www-form-urlencoded; charset=UTF-8',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
               },
               extraHeaders
             )
           ),
         })
-          .then((result) => {
+          .then(result => {
             if (result.status === 204) {
               // No content response
               resolve(null);
@@ -33,7 +32,7 @@ export async function fetchPostWithinPage<TResult>(
               resolve(result.json());
             }
           })
-          .catch((e) => {
+          .catch(e => {
             reject(e);
           });
       });
@@ -44,21 +43,18 @@ export async function fetchPostWithinPage<TResult>(
   );
 }
 
-export async function fetchGetWithinPage<TResult>(
-  page: puppeteer.Page,
-  url: string
-): Promise<TResult | null> {
-  return page.evaluate((url) => {
+export async function fetchGetWithinPage<TResult>(page: puppeteer.Page, url: string): Promise<TResult | null> {
+  return page.evaluate(url => {
     return new Promise<TResult | null>((resolve, reject) => {
       fetch(url, { credentials: 'include' })
-        .then((result) => {
+        .then(result => {
           if (result.status === 204) {
             resolve(null);
           } else {
             resolve(result.json());
           }
         })
-        .catch((e) => {
+        .catch(e => {
           reject(e);
         });
     });
@@ -71,7 +67,7 @@ export async function fetchPoalimXSRFWithinPage<TResult>(
   pageUuid: string
 ): Promise<TResult | null> {
   const cookies = await page.cookies();
-  const XSRFCookie = cookies.find((cookie) => cookie.name === 'XSRF-TOKEN');
+  const XSRFCookie = cookies.find(cookie => cookie.name === 'XSRF-TOKEN');
   const headers: IncomingHttpHeaders = {};
   if (XSRFCookie != null) {
     headers['X-XSRF-TOKEN'] = XSRFCookie.value;
