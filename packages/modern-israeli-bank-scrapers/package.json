@@ -59,7 +59,7 @@
     "nodemon": "2.0.19"
   },
   "engines": {
-    "node": "18.8.0"
+    "node": "^16.17.0 || >=18.0.0"
   },
   "keywords": [
     "accountancy",
