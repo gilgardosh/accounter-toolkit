@@ -104,22 +104,66 @@ sources:
             # crmActivities
             # crmActivitiesTest
 
-    transforms:
-      - resolversComposition:
-          mode: bare
-          compositions:
-            - resolver: Query.getRecords
-              composer: src/resolvers/get-records-resolver
-            - resolver: Query.getTransactions
-              composer: src/resolvers/get-transactions-resolver
-            - resolver: Query.getBatch
-              composer: src/resolvers/get-batch-resolver
-            - resolver: Query.getAccounts
-              composer: src/resolvers/get-accounts-resolver
-            - resolver: Query.getBankPageRecords
-              composer: src/resolvers/get-bank-page-records-resolver
-            - resolver: Mutation.importAccounts
-              composer: src/resolvers/import-accounts-resolver
+transforms:
+  - resolversComposition:
+      mode: bare
+      compositions:
+        - resolver: Query.getRecords
+          composer: src/resolvers/get-records-resolver
+        - resolver: Query.getTransactions
+          composer: src/resolvers/get-transactions-resolver
+        - resolver: Query.getBatch
+          composer: src/resolvers/get-batch-resolver
+        - resolver: Query.getAccounts
+          composer: src/resolvers/get-accounts-resolver
+        - resolver: Query.getBankPageRecords
+          composer: src/resolvers/get-bank-page-records-resolver
+        - resolver: Mutation.importAccounts
+          composer: src/resolvers/import-accounts-resolver
+  - replace-field:
+      replacements:
+        - from:
+            type: Query
+            field: getCompanies
+          to:
+            type: getCompaniesResopnse
+            field: repdata
+        - from:
+            type: Query
+            field: getRecords
+          to:
+            type: getRecordsResponse
+            field: repdata
+        - from:
+            type: Query
+            field: getTransactions
+          to:
+            type: getTransactionsResponse
+            field: repdata
+        - from:
+            type: Query
+            field: getBatch
+          to:
+            type: getBatchResponse
+            field: repdata
+        - from:
+            type: Query
+            field: checkBatch
+          to:
+            type: checkBatchResponse
+            field: batch_check
+        - from:
+            type: Query
+            field: getAccounts
+          to:
+            type: getAccountsResponse
+            field: repdata
+        - from:
+            type: Query
+            field: getBankPageRecords
+          to:
+            type: getBankPageRecordsResponse
+            field: repdata
 serve:
   browser: false
 
