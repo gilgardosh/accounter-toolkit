@@ -1,4 +1,4 @@
-import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh';
+import { queryInput_getRecords_input_Input, RecordType } from '../../.mesh';
 import { recordsDataFile } from './data-files';
 
 const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input = {}) => {
@@ -103,8 +103,8 @@ module.exports = next => async (root, args, context, info) => {
     parameters,
     datafile: recordsDataFile,
   };
-  return next(root, args, context, info).then((data: getRecordsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+  return next(root, args, context, info).then((data: [RecordType]) => {
+    if (data?.length && !data?.[0].id) {
       return null;
     }
     return data;

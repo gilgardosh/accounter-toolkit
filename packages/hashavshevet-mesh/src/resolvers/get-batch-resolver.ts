@@ -1,4 +1,4 @@
-import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh';
+import { Batch, queryInput_getBatch_input_Input } from '../../.mesh';
 import { batchDataFile } from './data-files';
 
 const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
@@ -70,8 +70,8 @@ module.exports = next => async (root, args, context, info) => {
     parameters,
     datafile: batchDataFile,
   };
-  return next(root, args, context, info).then((data: getBatchResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+  return next(root, args, context, info).then((data: [Batch]) => {
+    if (data?.length && !data?.[0].id) {
       return null;
     }
     return data;

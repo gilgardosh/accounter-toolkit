@@ -1,4 +1,4 @@
-import { getBankPageRecordsResponse, queryInput_getBankPageRecords_input_Input } from '../../.mesh';
+import { BankPageRecord, queryInput_getBankPageRecords_input_Input } from '../../.mesh';
 import { bankPageRecordsDataFile } from './data-files';
 
 const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_input_Input = {}) => {
@@ -67,8 +67,8 @@ module.exports = next => async (root, args, context, info) => {
     parameters,
     datafile: bankPageRecordsDataFile,
   };
-  return next(root, args, context, info).then((data: getBankPageRecordsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+  return next(root, args, context, info).then((data: [BankPageRecord]) => {
+    if (data?.length && !data?.[0].id) {
       return null;
     }
     return data;

@@ -1,4 +1,4 @@
-import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh';
+import { Account, queryInput_getAccounts_input_Input } from '../../.mesh';
 import { accountsDataFile } from './data-files';
 
 const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {}) => {
@@ -67,8 +67,8 @@ module.exports = next => async (root, args, context, info) => {
     parameters,
     datafile: accountsDataFile,
   };
-  return next(root, args, context, info).then((data: getAccountsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+  return next(root, args, context, info).then((data: [Account]) => {
+    if (data?.length && !data?.[0].id) {
       return null;
     }
     return data;

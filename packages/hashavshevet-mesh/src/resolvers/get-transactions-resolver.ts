@@ -1,4 +1,4 @@
-import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh';
+import { queryInput_getTransactions_input_Input, Transaction } from '../../.mesh';
 import { transactionsDataFile } from './data-files';
 
 const handleTransactionsFilterParameters = (args: queryInput_getTransactions_input_Input = {}) => {
@@ -140,8 +140,8 @@ module.exports = next => async (root, args, context, info) => {
     parameters,
     datafile: transactionsDataFile,
   };
-  return next(root, args, context, info).then((data: getTransactionsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+  return next(root, args, context, info).then((data: [Transaction]) => {
+    if (data?.length && !data?.[0].id) {
       return null;
     }
     return data;
