@@ -34,7 +34,7 @@
     "bob-the-bundler": "4.0.0",
     "concurrently": "7.3.0",
     "eslint": "8.23.0",
-    "eslint-plugin-simple-import-sort": "7.0.0",
+    "eslint-plugin-simple-import-sort": "8.0.0",
     "prettier": "2.7.1",
     "prettier-plugin-sql": "0.11.0",
     "typescript": "4.8.2"
