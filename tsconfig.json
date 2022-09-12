@@ -39,5 +39,5 @@
     }
   },
   "include": ["packages"],
-  "exclude": ["**/dist", "**/temp", "**/.bob/**.*", "**/dev-tests"]
+  "exclude": ["**/dist", "**/temp", ".bob", "**/node_modules", "**/generated-types"]
 }

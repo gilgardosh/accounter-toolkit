@@ -44,5 +44,9 @@
   },
   "lint-staged": {
     "*.--write": "prettier --write"
+  },
+  "resolutions": {
+    "**/execa": "5.0.0",
+    "lint-staged/execa": "6.1.0"
   }
 }

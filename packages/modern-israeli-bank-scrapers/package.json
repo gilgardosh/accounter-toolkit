@@ -41,9 +41,10 @@
   "scripts": {
     "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js",
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
-    "prebuild": "json2ts -i src/schemas -o dist/generatedTypes",
+    "prebuild": "yarn json2ts && json2ts -i src/schemas -o dist/generated-types",
     "build": "tsc",
-    "json2ts": "json2ts -i src/schemas -o src/generatedTypes"
+    "postbuild": "yarn -v",
+    "json2ts": "json2ts -i src/schemas -o src/generated-types"
   },
   "dependencies": {
     "ajv": "8.11.0",
