@@ -1,0 +1,81 @@
+{
+  "name": "@accounter-toolkit/modern-israeli-bank-scrapers",
+  "version": "0.4.4",
+  "description": "",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/typings/index.d.cts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "default": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers.git",
+    "repository": "packages/hashavshevet-mesh"
+  },
+  "bugs": {
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/issues"
+  },
+  "homepage": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/packages/hashavshevet-mesh#readme",
+  "author": "Uri Goldsthein <urigo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
+    "build": "json2ts -i src/schemas -o dist/generatedTypes && tsc",
+    "format": "prettier \"**/*.ts\" --write",
+    "json2ts": "json2ts -i src/schemas -o src/generatedTypes"
+  },
+  "dependencies": {
+    "ajv": "8.11.0",
+    "ajv-formats": "2.1.1",
+    "inquirer": "9.1.1",
+    "node-fetch": "3.2.10",
+    "puppeteer": "17.1.0",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "9.0.1",
+    "@types/node": "18.6.2",
+    "@types/node-fetch": "3.0.3",
+    "@types/uuid": "8.3.4",
+    "concurrently": "7.3.0",
+    "husky": "8.0.1",
+    "json-schema-to-typescript": "11.0.2",
+    "nodemon": "2.0.19",
+    "prettier": "2.7.1",
+    "typescript": "4.8.2"
+  },
+  "engines": {
+    "node": "18.8.0"
+  },
+  "keywords": [
+    "accountancy",
+    "accountant",
+    "accounter",
+    "poalim",
+    "isracard"
+  ],
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  }
+}
