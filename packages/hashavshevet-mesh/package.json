@@ -52,13 +52,13 @@
     "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.76.2",
-    "@graphql-mesh/json-schema": "0.34.1",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.78",
+    "@graphql-mesh/cli": "0.78.10",
+    "@graphql-mesh/json-schema": "0.35.10",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.88",
     "graphql": "16.6.0"
   },
   "devDependencies": {
-    "dotenv": "16.0.1",
+    "dotenv": "16.0.2",
     "ts-node": "10.9.1"
   },
   "keywords": [
