@@ -1,4 +1,4 @@
-import { getMeshSDK, Sdk } from './.mesh';
+import { getMeshSDK, Sdk } from '../.mesh';
 
 export const init = async (id: string, secret: string): Promise<{ sdk: Sdk }> => {
   const authParams = {
@@ -13,11 +13,9 @@ export const init = async (id: string, secret: string): Promise<{ sdk: Sdk }> =>
     .then(res => res.json())
     .then((res: { token: string }) => res.token);
 
-  process.env.GREEN_INVOICE_AUTH_TOKEN = greenInvoiceToken;
-
-  const sdk = await getMeshSDK();
+  const sdk = await getMeshSDK({ authToken: greenInvoiceToken });
 
   return { sdk };
 };
 
-export * from './.mesh';
+export * from '../.mesh';

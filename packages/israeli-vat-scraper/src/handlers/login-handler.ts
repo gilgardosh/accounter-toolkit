@@ -11,9 +11,9 @@ const _creds: UserCredentials = {
 
 export const getEnvCredentials = (): UserCredentials => {
   return {
-    vatNumber: process.env.VAT_NUM as string,
-    userCode: process.env.USER_CODE as string,
-    userPass: process.env.USER_PASS as string,
+    vatNumber: process.env['VAT_NUM'] as string,
+    userCode: process.env['USER_CODE'] as string,
+    userPass: process.env['USER_PASS'] as string,
   };
 };
 

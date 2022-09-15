@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 
-import { init } from '../';
+import { init } from '../src';
 
 config();
 

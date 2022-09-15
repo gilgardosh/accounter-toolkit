@@ -9,7 +9,7 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "target": "es2018",
+    "target": "es2022",
     "lib": ["es6", "esnext", "es2015", "dom"],
     "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
@@ -22,14 +22,22 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedParameters": true,
+    "checkJs": true,
+    // "strict": true,
     "paths": {
-      "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/index.ts"],
-      "@accounter-toolkit/hashavshevet-mesh": ["packages/hashavshevet-mesh/index.ts"],
+      "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/src/index.ts"],
+      "@accounter-toolkit/hashavshevet-mesh": ["packages/hashavshevet-mesh/src/index.ts"],
       "@accounter-toolkit/israeli-vat-scraper": ["packages/israeli-vat-scraper/index.ts"],
-      "@accounter-toolkit/payper-mesh": ["packages/payper-mesh/index.ts"],
+      "@accounter-toolkit/payper-mesh": ["packages/payper-mesh/src/index.ts"],
       "@accounter-toolkit/pcn874-generator": ["packages/pcn874-generator/src/index.ts"]
     }
   },
   "include": ["packages"],
-  "exclude": ["**/dist", "**/temp", ".bob"]
+  "exclude": ["**/dist", "**/temp", "**/.bob/**.*", "**/dev-tests"]
 }

@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import fs from 'fs';
 import { lookup } from 'mime-types';
 
-import { init } from '..';
+import { init } from '../src';
 
 config();
 
