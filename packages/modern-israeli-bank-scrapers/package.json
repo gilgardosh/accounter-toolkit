@@ -1,0 +1,76 @@
+{
+  "name": "@accounter-toolkit/modern-israeli-bank-scrapers",
+  "bob": false,
+  "version": "0.4.4",
+  "description": "",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/typings/index.d.cts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "default": {
+        "types": "./dist/typings/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers.git",
+    "repository": "packages/hashavshevet-mesh"
+  },
+  "bugs": {
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/issues"
+  },
+  "homepage": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/packages/hashavshevet-mesh#readme",
+  "author": "Uri Goldsthein <urigo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
+    "prebuild": "yarn json2ts && json2ts -i src/schemas -o dist/generated-types",
+    "build": "tsc",
+    "postbuild": "yarn -v",
+    "json2ts": "json2ts -i src/schemas -o src/generated-types"
+  },
+  "dependencies": {
+    "ajv": "8.11.0",
+    "ajv-formats": "2.1.1",
+    "inquirer": "9.1.1",
+    "puppeteer": "17.1.0",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "9.0.1",
+    "@types/uuid": "8.3.4",
+    "json-schema-to-typescript": "11.0.2",
+    "nodemon": "2.0.19"
+  },
+  "engines": {
+    "node": "^16.17.0 || >=18.0.0"
+  },
+  "keywords": [
+    "accountancy",
+    "accountant",
+    "accounter",
+    "poalim",
+    "isracard"
+  ],
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  }
+}

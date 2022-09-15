@@ -29,6 +29,10 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedParameters": true,
     "checkJs": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    // "exactOptionalPropertyTypes": true,
+    // "strictNullChecks": true,
     // "strict": true,
     "paths": {
       "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/src/index.ts"],
@@ -39,5 +43,5 @@
     }
   },
   "include": ["packages"],
-  "exclude": ["**/dist", "**/temp", "**/.bob/**.*", "**/dev-tests"]
+  "exclude": ["**/dist", "**/temp", ".bob", "**/node_modules", "**/generated-types", ".changeset/*.md"]
 }

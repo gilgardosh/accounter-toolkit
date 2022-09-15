@@ -18,7 +18,8 @@
     "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
     "build": "bob build",
     "postbuild": "yarn workspaces run postbuild",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "pre-commit": "lint-staged"
   },
   "engines": {
     "node": "18.9.0"
@@ -35,8 +36,17 @@
     "concurrently": "7.4.0",
     "eslint": "8.23.1",
     "eslint-plugin-simple-import-sort": "8.0.0",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "prettier-plugin-sql": "0.12.1",
     "typescript": "4.8.3"
+  },
+  "lint-staged": {
+    "*.--write": "prettier --write"
+  },
+  "resolutions": {
+    "**/execa": "5.0.0",
+    "lint-staged/execa": "6.1.0"
   }
 }
