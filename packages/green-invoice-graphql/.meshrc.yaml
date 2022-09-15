@@ -4,7 +4,7 @@ sources:
       jsonSchema:
         baseUrl: 'https://api.greeninvoice.co.il/api/v1'
         operationHeaders:
-          Authorization: Bearer {env.GREEN_INVOICE_AUTH_TOKEN}
+          Authorization: Bearer {context.authToken}
           Content-Type: application/json
         operations:
           - type: Mutation
