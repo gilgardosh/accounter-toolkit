@@ -16,8 +16,8 @@ const getBase64Prefix = (path: string) => {
 };
 
 const testRun = async () => {
-  const id = process.env.GREEN_INVOICE_ID as string;
-  const secret = process.env.GREEN_INVOICE_SECRET as string;
+  const id = process.env['GREEN_INVOICE_ID'] as string;
+  const secret = process.env['GREEN_INVOICE_SECRET'] as string;
   const app = await init(id, secret);
 
   /* add draft file */

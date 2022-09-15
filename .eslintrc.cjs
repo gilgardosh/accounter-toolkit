@@ -11,5 +11,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['**/dev-tests/', '**/dist/', '**/node_modules/', '.bob/', '**/generated-types/'],
+  ignorePatterns: ['**/dev-tests/', '**/dist/', '**/node_modules/', '.bob/', '**/generated-types/', '.changeset/*.md'],
 };
