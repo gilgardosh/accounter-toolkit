@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { vatScraper } from '..';
+import { vatScraper } from '../src';
 
 config();
 

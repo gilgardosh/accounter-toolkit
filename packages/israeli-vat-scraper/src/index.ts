@@ -1,10 +1,10 @@
 import { config } from 'dotenv';
 import { createRequire } from 'module';
 
-import { getEnvCredentials, updateCredentials } from './src/handlers/login-handler.js';
-import { homePageHandler } from './src/handlers/main-page-handler.js';
-import { validateSchema } from './src/utils/schema-validator.js';
-import type { Config, Report, UserCredentials } from './src/utils/types.js';
+import { getEnvCredentials, updateCredentials } from './handlers/login-handler.js';
+import { homePageHandler } from './handlers/main-page-handler.js';
+import { validateSchema } from './utils/schema-validator.js';
+import type { Config, Report, UserCredentials } from './utils/types.js';
 
 config();
 
