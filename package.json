@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "ci:lint": "eslint --output-file eslint_report.json --format json",
-    "prettier": "prettier --ignore-path .gitignore --write --list-different .",
+    "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --check .",
     "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
     "build": "bob build",

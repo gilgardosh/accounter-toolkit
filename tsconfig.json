@@ -31,8 +31,8 @@
     "checkJs": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    // "exactOptionalPropertyTypes": true,
-    // "strictNullChecks": true,
+    "exactOptionalPropertyTypes": true,
+    "strictNullChecks": true,
     // "strict": true,
     "paths": {
       "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/src/index.ts"],
