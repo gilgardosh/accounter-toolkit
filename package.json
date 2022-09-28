@@ -22,7 +22,7 @@
     "pre-commit": "lint-staged"
   },
   "engines": {
-    "node": "18.9.0"
+    "node": "18.9.1"
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.6",
