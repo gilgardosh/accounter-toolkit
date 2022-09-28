@@ -1,6 +1,5 @@
 {
   "name": "@accounter-toolkit/modern-israeli-bank-scrapers",
-  "bob": false,
   "version": "0.4.4",
   "description": "",
   "type": "module",
@@ -23,7 +22,7 @@
     },
     "./package.json": "./package.json"
   },
-  "types": "dist/index.d.ts",
+  "typings": "dist/typings/index.d.ts",
   "typescript": {
     "definition": "dist/typings/index.d.ts"
   },
