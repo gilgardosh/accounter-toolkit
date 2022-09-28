@@ -70,7 +70,7 @@ module.exports = next => (root, args, context, info) => {
     datafile: batchDataFile,
   };
   return next(root, args, context, info).then((data: getBatchResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
+    if (data?.repdata?.[0] && !data.repdata[0].id) {
       return null;
     }
     return data;
