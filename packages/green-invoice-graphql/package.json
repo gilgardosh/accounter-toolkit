@@ -52,9 +52,9 @@
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.78.16",
-    "@graphql-mesh/json-schema": "0.35.12",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.90",
+    "@graphql-mesh/cli": "0.78.25",
+    "@graphql-mesh/json-schema": "0.35.19",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.95",
     "graphql": "16.6.0",
     "path": "0.12.7"
   },
