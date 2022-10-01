@@ -52,14 +52,14 @@
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "dependencies": {
-    "@graphql-mesh/cli": "0.78.25",
-    "@graphql-mesh/json-schema": "0.35.19",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.95",
+    "@graphql-mesh/cli": "0.78.26",
+    "@graphql-mesh/json-schema": "0.35.20",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.96",
     "graphql": "16.6.0",
     "path": "0.12.7"
   },
   "devDependencies": {
-    "dotenv": "16.0.2",
+    "dotenv": "16.0.3",
     "mime-types": "2.1.35",
     "ts-node": "10.9.1"
   },
