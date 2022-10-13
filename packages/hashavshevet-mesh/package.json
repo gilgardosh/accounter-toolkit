@@ -38,7 +38,6 @@
   "license": "MIT",
   "scripts": {
     "generate": "rimraf src/.mesh/ && mesh build --dir ./src",
-    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
     "dev": "ts-node ./index.ts",
     "start": "node ./dist",
     "prebuild": "yarn generate",
