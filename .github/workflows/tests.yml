@@ -15,7 +15,7 @@ jobs:
     with:
       script: yarn ci:lint
     secrets:
-      githubToken: ${{ secrets.GITHUB_TOKEN }}
+      githubToken: ${{ secrets.GUILD_BOT_TOKEN }}
 
   prettier-check:
     name: 🧹 Prettier Check
