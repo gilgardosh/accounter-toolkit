@@ -11,5 +11,5 @@ jobs:
       releaseScript: release # script to run as part of publish command
       nodeVersion: 18 # you can change if needed
     secrets:
-      githubToken: ${{ secrets.GUILD_BOT_TOKEN }}
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
       npmToken: ${{ secrets.NPM_TOKEN }}
