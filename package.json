@@ -25,16 +25,16 @@
     "node": "18.9.1"
   },
   "dependencies": {
-    "@changesets/changelog-github": "0.4.6",
-    "@changesets/cli": "2.24.4"
+    "@changesets/changelog-github": "0.4.7",
+    "@changesets/cli": "2.25.0"
   },
   "devDependencies": {
-    "@theguild/eslint-config": "0.1.0",
-    "@theguild/prettier-config": "0.1.0",
-    "@types/node": "18.7.13",
+    "@theguild/eslint-config": "0.1.2",
+    "@theguild/prettier-config": "0.1.1",
+    "@types/node": "18.8.5",
     "bob-the-bundler": "4.0.0",
     "concurrently": "7.4.0",
-    "eslint": "8.24.0",
+    "eslint": "8.25.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
