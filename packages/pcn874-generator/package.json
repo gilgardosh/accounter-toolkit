@@ -38,7 +38,7 @@
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
     "prebuild": "yarn lint",
     "build": "tsc",
     "postbuild": "yarn -v",
