@@ -37,13 +37,12 @@
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "generate": "mesh build",
-    "copy-files": "cp -a .mesh/ dist/.mesh/",
+    "generate": "rimraf src/.mesh/ && mesh build --dir ./src",
     "dev": "ts-node ./index.ts",
     "start": "node ./dist",
     "prebuild": "yarn generate",
     "build": "tsc",
-    "postbuild": "yarn copy-files",
+    "postbuild": "yarn -v",
     "prepublish": "yarn build",
     "pretest": "yarn build",
     "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
