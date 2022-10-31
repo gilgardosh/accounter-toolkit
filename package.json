@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.7",
-    "@changesets/cli": "2.25.0"
+    "@changesets/cli": "2.25.2"
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.1.2",
