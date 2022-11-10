@@ -6,7 +6,7 @@ import {
   QueryResolvers,
   ResolverFn,
   ResolversParentTypes,
-} from '../../.mesh';
+} from '../../.mesh/index.js';
 
 module.exports =
   (
@@ -22,7 +22,7 @@ module.exports =
       args.input = {};
     }
     if ('userName' in context && !args.input.api_user) {
-      args.input.api_user = context['userName'];
+      args.input.api_user = context['userName'] as string;
     }
     return next(root, args, context, info).then(res => {
       // fix for Payper returning Null in cases currency is "ILS"
