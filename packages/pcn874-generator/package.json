@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/pcn874-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fully typed application that generates PCN874 text file",
   "type": "module",
   "main": "dist/cjs/index.js",

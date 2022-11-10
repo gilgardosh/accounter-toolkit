@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/hashavshevet-mesh",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Graphql proxy for Hashavshevet API",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
