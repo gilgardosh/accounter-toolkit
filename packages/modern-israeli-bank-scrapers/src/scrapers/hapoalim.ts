@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import type puppeteer from 'puppeteer';
 
 import type { AccountDataSchema } from '../generated-types/accountDataSchema';
-import { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
+import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
 import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';
 import type { ILSCheckingTransactionsDataSchema } from '../generated-types/ILSCheckingTransactionsDataSchema';
 import accountDataSchemaFile from '../schemas/accountDataSchema.json';
@@ -10,8 +10,8 @@ import foreignTransactionsBusinessSchema from '../schemas/foreignTransactionsBus
 import depositsSchema from '../schemas/hapoalimDepositsSchema.json';
 import ILSCheckingTransactionsDataSchemaFile from '../schemas/ILSCheckingTransactionsDataSchema.json';
 // import foreignTransactionsPersonalSchema from '../schemas/foreignTransactionsPersonalSchema.json';
-import { fetchGetWithinPage, fetchPoalimXSRFWithinPage } from '../utils/fetch';
-import { validateSchema } from '../utils/validate-schema';
+import { fetchGetWithinPage, fetchPoalimXSRFWithinPage } from '../utils/fetch.js';
+import { validateSchema } from '../utils/validate-schema.js';
 // import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema';
 
 declare namespace window {

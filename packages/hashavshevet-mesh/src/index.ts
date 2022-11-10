@@ -1,6 +1,6 @@
 import https from 'https';
 
-import { getBuiltMesh, getMeshSDK, Sdk } from '../.mesh';
+import { getBuiltMesh, getMeshSDK, Sdk } from '../.mesh/index.js';
 
 type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 
@@ -56,4 +56,4 @@ const login = (hashavshevetKey: string, company: string, hashavshevetUrl: string
   return p;
 };
 
-export * from '../.mesh';
+export * from '../.mesh/index.js';

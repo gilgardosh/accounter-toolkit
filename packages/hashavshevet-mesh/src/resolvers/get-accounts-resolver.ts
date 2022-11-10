@@ -1,5 +1,5 @@
-import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh';
-import { accountsDataFile } from './data-files';
+import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh/index.js';
+import { accountsDataFile } from './data-files.js';
 
 const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {}) => {
   const parametersArray = [

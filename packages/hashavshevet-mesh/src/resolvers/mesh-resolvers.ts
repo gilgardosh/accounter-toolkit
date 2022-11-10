@@ -1,4 +1,4 @@
-import { getRecordsResponse, getTransactionsResponse, RecordType, Resolvers, Transaction } from '../../.mesh';
+import { getRecordsResponse, getTransactionsResponse, RecordType, Resolvers, Transaction } from '../../.mesh/index.js';
 
 const resolvers: Resolvers = {
   RecordType: {

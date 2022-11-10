@@ -1,5 +1,5 @@
-import { getBankPageRecordsResponse, queryInput_getBankPageRecords_input_Input } from '../../.mesh';
-import { bankPageRecordsDataFile } from './data-files';
+import { getBankPageRecordsResponse, queryInput_getBankPageRecords_input_Input } from '../../.mesh/index.js';
+import { bankPageRecordsDataFile } from './data-files.js';
 
 const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_input_Input = {}) => {
   const parametersArray = [

@@ -7,8 +7,8 @@ import {
   isracard,
   isracardCredentials,
   isracardOptions,
-} from './scrapers/scrapers-index';
-import { newPage } from './utils/browser-util';
+} from './scrapers/scrapers-index.js';
+import { newPage } from './utils/browser-util.js';
 
 export async function init() {
   /* this initiates browser and returns every scraper as function */

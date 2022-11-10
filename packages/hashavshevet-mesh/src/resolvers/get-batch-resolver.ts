@@ -1,5 +1,5 @@
-import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh';
-import { batchDataFile } from './data-files';
+import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh/index.js';
+import { batchDataFile } from './data-files.js';
 
 const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   const parametersArray = [

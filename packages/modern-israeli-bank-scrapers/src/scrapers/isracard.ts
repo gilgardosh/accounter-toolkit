@@ -4,8 +4,8 @@ import type { IsracardCardsTransactionsList } from '../generated-types/isracardC
 import type { IsracardDashboardMonth } from '../generated-types/isracardDashboardMonth';
 import isracardCardsTransactionsList from '../schemas/isracardCardsTransactionsList.json';
 import isracardDashboardMonth from '../schemas/isracardDashboardMonth.json';
-import { fetchGetWithinPage, fetchPostWithinPage } from '../utils/fetch';
-import { validateSchema } from '../utils/validate-schema';
+import { fetchGetWithinPage, fetchPostWithinPage } from '../utils/fetch.js';
+import { validateSchema } from '../utils/validate-schema.js';
 
 const SERVICE_URL = 'https://digital.isracard.co.il/services/ProxyRequestHandler.ashx';
 

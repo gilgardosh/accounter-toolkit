@@ -1,5 +1,5 @@
-import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh';
-import { recordsDataFile } from './data-files';
+import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh/index.js';
+import { recordsDataFile } from './data-files.js';
 
 const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input = {}) => {
   const parametersArray = [

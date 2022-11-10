@@ -1,5 +1,5 @@
-import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh';
-import { transactionsDataFile } from './data-files';
+import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh/index.js';
+import { transactionsDataFile } from './data-files.js';
 
 const handleTransactionsFilterParameters = (args: queryInput_getTransactions_input_Input = {}) => {
   const parametersArray = [
