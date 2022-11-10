@@ -1,5 +1,6 @@
 import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh/index.js';
-import { batchDataFile } from './data-files.js';
+// eslint-disable-next-line import/extensions
+import { batchDataFile } from './data-files';
 
 const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   const parametersArray = [

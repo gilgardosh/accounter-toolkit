@@ -1,5 +1,6 @@
 import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh/index.js';
-import { accountsDataFile } from './data-files.js';
+// eslint-disable-next-line import/extensions
+import { accountsDataFile } from './data-files';
 
 const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {}) => {
   const parametersArray = [

@@ -1,5 +1,6 @@
 import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh/index.js';
-import { recordsDataFile } from './data-files.js';
+// eslint-disable-next-line import/extensions
+import { recordsDataFile } from './data-files';
 
 const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input = {}) => {
   const parametersArray = [

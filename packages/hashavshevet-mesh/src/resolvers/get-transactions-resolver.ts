@@ -1,5 +1,6 @@
 import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh/index.js';
-import { transactionsDataFile } from './data-files.js';
+// eslint-disable-next-line import/extensions
+import { transactionsDataFile } from './data-files';
 
 const handleTransactionsFilterParameters = (args: queryInput_getTransactions_input_Input = {}) => {
   const parametersArray = [

@@ -1,5 +1,6 @@
 import { getBankPageRecordsResponse, queryInput_getBankPageRecords_input_Input } from '../../.mesh/index.js';
-import { bankPageRecordsDataFile } from './data-files.js';
+// eslint-disable-next-line import/extensions
+import { bankPageRecordsDataFile } from './data-files';
 
 const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_input_Input = {}) => {
   const parametersArray = [
