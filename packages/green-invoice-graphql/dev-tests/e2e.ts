@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import fs from 'fs';
 import { lookup } from 'mime-types';
 
-import { init } from '../src';
+import { init } from '../src/index.js';
 
 config();
 
@@ -12,7 +12,7 @@ const base64Encode = (path: string) => {
 
 const getBase64Prefix = (path: string) => {
   const mimeType = lookup(path);
-  return mimeType ? `data:${lookup(path)};base64,` : '';
+  return mimeType ? `data:${mimeType};base64,` : '';
 };
 
 const testRun = async () => {
@@ -34,7 +34,6 @@ const testRun = async () => {
   /* get expense by id */
   const data2 = await app.sdk.getExpense_query({
     id: 'dbfb61b2-579c-42d0-b1ba-a3637e20eb6c',
-    input: { id: 'dbfb61b2-579c-42d0-b1ba-a3637e20eb6c' },
   });
   console.log(data2);
 

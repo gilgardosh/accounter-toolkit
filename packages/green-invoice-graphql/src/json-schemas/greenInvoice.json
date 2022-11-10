@@ -702,7 +702,7 @@
           "enum": [20, 305, 320, 330, 400, 405]
         },
         "number": {
-          "type": "string",
+          "type": ["string", "null"],
           "description": "Number of the expense"
         },
         "description": {

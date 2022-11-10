@@ -18,7 +18,10 @@ sources:
             field: getExpense
             path: /expenses/{args.id}
             method: GET
-            requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseRequest
+            argTypeMap:
+              id:
+                type: string
+                nullable: false
             responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/getExpenseResponse
 
           - type: Query
