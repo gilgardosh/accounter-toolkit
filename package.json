@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": "18.12.0"
+    "node": "18.12.1"
   },
   "scripts": {
     "build": "bob build",
