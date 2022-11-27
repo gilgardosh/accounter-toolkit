@@ -1,5 +1,15 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.0.3
+
+### Patch Changes
+
+- [#97](https://github.com/gilgardosh/accounter-toolkit/pull/97)
+  [`685e751`](https://github.com/gilgardosh/accounter-toolkit/commit/685e751eabfc584ddf0d96c96ee1203a3a5f84b5)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+  - Updated dependency [`ajv@8.11.2` ↗︎](https://www.npmjs.com/package/ajv/v/8.11.2) (from `8.11.0`,
+    in `dependencies`)
+
 ## 0.0.2
 
 ### Patch Changes

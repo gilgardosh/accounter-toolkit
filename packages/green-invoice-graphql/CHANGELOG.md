@@ -1,5 +1,28 @@
 # @accounter-toolkit/green-invoice-graphql
 
+## 0.1.0
+
+### Minor Changes
+
+- [#97](https://github.com/gilgardosh/accounter-toolkit/pull/97)
+  [`685e751`](https://github.com/gilgardosh/accounter-toolkit/commit/685e751eabfc584ddf0d96c96ee1203a3a5f84b5)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - ESM compatibility
+
+### Patch Changes
+
+- [#97](https://github.com/gilgardosh/accounter-toolkit/pull/97)
+  [`685e751`](https://github.com/gilgardosh/accounter-toolkit/commit/685e751eabfc584ddf0d96c96ee1203a3a5f84b5)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+  - Updated dependency
+    [`@graphql-mesh/cli@0.80.1` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.80.1) (from
+    `0.79.3`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.35.37` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.35.37)
+    (from `0.35.33`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.12.110` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.12.110)
+    (from `0.12.108`, in `dependencies`)
+
 ## 0.0.2
 
 ### Patch Changes
