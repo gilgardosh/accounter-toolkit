@@ -1,7 +1,22 @@
 {
   "name": "@accounter-toolkit/green-invoice-graphql",
   "version": "0.0.2",
+  "type": "module",
   "description": "Graphql proxy for Green Invoice API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
+    "repository": "packages/green-invoice-graphql"
+  },
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/green-invoice-graphql#readme",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
+  },
+  "author": "Gil Gardosh <gilgardosh@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -22,47 +37,6 @@
     "./package.json": "./package.json"
   },
   "typings": "dist/typings/index.d.ts",
-  "typescript": {
-    "definition": "dist/typings/index.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
-    "repository": "packages/green-invoice-graphql"
-  },
-  "bugs": {
-    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
-  },
-  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/green-invoice-graphql#readme",
-  "author": "Gil Gardosh <gilgardosh@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "generate": "mesh build",
-    "copy-files": "cp -a .mesh/ dist/.mesh/",
-    "dev": "ts-node ./index.ts",
-    "start": "node ./dist",
-    "prebuild": "yarn generate",
-    "build": "tsc",
-    "postbuild": "yarn copy-files",
-    "prepublish": "yarn build",
-    "pretest": "yarn build",
-    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
-  },
-  "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
-  },
-  "dependencies": {
-    "@graphql-mesh/cli": "0.79.3",
-    "@graphql-mesh/json-schema": "0.35.33",
-    "@graphql-mesh/transform-resolvers-composition": "0.12.108",
-    "graphql": "16.6.0",
-    "path": "0.12.7"
-  },
-  "devDependencies": {
-    "dotenv": "16.0.3",
-    "mime-types": "2.1.35",
-    "ts-node": "10.9.1"
-  },
   "keywords": [
     "green invoice",
     "greeninvoice",
@@ -72,8 +46,35 @@
     "graphql",
     "mesh"
   ],
+  "scripts": {
+    "build": "tsc",
+    "copy-files": "cp -a .mesh/ dist/.mesh/",
+    "dev": "ts-node ./src/index.ts",
+    "generate": "mesh build --fileType js",
+    "postbuild": "yarn copy-files",
+    "prebuild": "yarn generate",
+    "prepublish": "yarn build",
+    "pretest": "yarn build",
+    "start": "node ./dist",
+    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "0.80.1",
+    "@graphql-mesh/json-schema": "0.35.37",
+    "@graphql-mesh/transform-resolvers-composition": "0.12.110",
+    "graphql": "16.6.0",
+    "path": "0.12.7"
+  },
+  "devDependencies": {
+    "dotenv": "16.0.3",
+    "mime-types": "2.1.35",
+    "ts-node": "10.9.1"
+  },
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
   }
 }

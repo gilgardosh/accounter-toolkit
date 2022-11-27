@@ -1,8 +1,22 @@
 {
   "name": "@accounter-toolkit/pcn874-generator",
   "version": "0.0.2",
-  "description": "Fully typed application that generates PCN874 text file",
   "type": "module",
+  "description": "Fully typed application that generates PCN874 text file",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
+    "repository": "packages/pcn874-generator"
+  },
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/pcn874-generator#readme",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
+  },
+  "author": "Gil Gardosh <gilgardosh@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -23,35 +37,6 @@
     "./package.json": "./package.json"
   },
   "typings": "dist/typings/index.d.ts",
-  "typescript": {
-    "definition": "dist/typings/index.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
-    "repository": "packages/pcn874-generator"
-  },
-  "bugs": {
-    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
-  },
-  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/pcn874-generator#readme",
-  "author": "Gil Gardosh <gilgardosh@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
-    "prebuild": "yarn lint",
-    "build": "tsc",
-    "postbuild": "yarn -v",
-    "prepublish": "yarn build",
-    "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
-    "start": "node ./dist"
-  },
-  "engines": {
-    "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
-  },
-  "devDependencies": {
-    "ts-node": "10.9.1"
-  },
   "keywords": [
     "pcn",
     "pcn874",
@@ -59,8 +44,23 @@
     "accountant",
     "accounter"
   ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
+    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
+    "postbuild": "yarn -v",
+    "prebuild": "yarn lint",
+    "prepublish": "yarn build",
+    "start": "node ./dist"
+  },
+  "devDependencies": {
+    "ts-node": "10.9.1"
+  },
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
   }
 }

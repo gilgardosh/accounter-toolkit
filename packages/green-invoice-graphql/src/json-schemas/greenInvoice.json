@@ -28,6 +28,18 @@
     "addExpenseDraftByFileResponse": {
       "$ref": "#/definitions/GetExpenseDraft"
     },
+    "generalErrorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "errorCode:": {
+          "type": "integer"
+        },
+        "errorMessage": {
+          "type": ["string", "null"]
+        }
+      }
+    },
     "getExpenseRequest": {
       "type": "object",
       "additionalProperties": false,

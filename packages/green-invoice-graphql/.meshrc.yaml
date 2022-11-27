@@ -43,14 +43,24 @@ sources:
             path: /expenses/file
             method: POST
             requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileRequest
-            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
+            responseByStatusCode:
+              201:
+                responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
+              400:
+                responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/generalErrorResponse
+              404:
+                responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/generalErrorResponse
 
           - type: Query
             field: searchExpenseDrafts
             path: /expenses/drafts/search
             method: POST
             requestSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsRequest
-            responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
+            responseByStatusCode:
+              201:
+                responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
+              404:
+                responseSchema: ./src/json-schemas/greenInvoice.json#/definitions/generalErrorResponse
 
 serve:
   browser: false
