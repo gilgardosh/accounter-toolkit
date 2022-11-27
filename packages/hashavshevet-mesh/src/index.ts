@@ -7,9 +7,13 @@ type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 export const init = async (
   hashavshevetPersonalToken: string,
   hashavshevetCompanyKey: string,
-  hashavshevetUrl: string
+  hashavshevetUrl: string,
 ): Promise<{ sdk: Sdk; execute: Awaited<ReturnType<typeof getBuiltMesh>>['execute'] }> => {
-  const authToken = (await login(hashavshevetPersonalToken, hashavshevetCompanyKey, hashavshevetUrl)) as string;
+  const authToken = (await login(
+    hashavshevetPersonalToken,
+    hashavshevetCompanyKey,
+    hashavshevetUrl,
+  )) as string;
 
   const { execute } = await getBuiltMesh();
   const sdk = await getMeshSDK({ authToken, hashavshevetUrl });
@@ -44,7 +48,7 @@ const login = (hashavshevetKey: string, company: string, hashavshevetUrl: string
           }
           resolve(data);
         });
-      }
+      },
     );
 
     req.on('error', error => {

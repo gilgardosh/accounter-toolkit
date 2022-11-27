@@ -14,7 +14,12 @@ export class YearHandler {
   private months: number[] | null = null;
   private page: Page | null = null;
 
-  constructor(config: Config, prompt: UserPrompt, location: string[], months: number[] | null = null) {
+  constructor(
+    config: Config,
+    prompt: UserPrompt,
+    location: string[],
+    months: number[] | null = null,
+  ) {
     this.config = config;
     this.prompt = prompt;
     this.location = location;
@@ -37,12 +42,21 @@ export class YearHandler {
       await Promise.all(
         baseYearReports
           .map((report, index): { info: ReportCommon; index: number } => ({ info: report, index }))
-          .filter(item => !this.months || this.months.includes(parseInt(item.info.reportMonth.substring(0, 2))))
+          .filter(
+            item =>
+              !this.months || this.months.includes(parseInt(item.info.reportMonth.substring(0, 2))),
+          )
           .map(async item => {
-            const monthHandler = new MonthHandler(this.config, this.prompt, this.location, item.info, item.index);
+            const monthHandler = new MonthHandler(
+              this.config,
+              this.prompt,
+              this.location,
+              item.info,
+              item.index,
+            );
 
             return monthHandler.handle(logger).then(res => res || item.info);
-          })
+          }),
       )
         .then(reportsList => reportsList.filter(report => report))
         .then(reportsList => {

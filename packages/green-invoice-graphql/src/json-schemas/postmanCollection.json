@@ -103,7 +103,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -177,11 +182,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "27cc7ad3-f950-4ec5-b358-7a7c96ab8a51", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "27cc7ad3-f950-4ec5-b358-7a7c96ab8a51",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "b0d22605-f3e2-4b33-a563-202ff38810b0", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "b0d22605-f3e2-4b33-a563-202ff38810b0",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -221,17 +234,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Tue, 23 Jan 2018 11:46:33 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Tue, 23 Jan 2018 11:46:33 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -290,14 +323,24 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 22 Feb 2018 09:31:30 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 22 Feb 2018 09:31:30 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
                 {
                   "key": "Set-Cookie",
@@ -305,7 +348,12 @@
                   "name": "Set-Cookie",
                   "description": ""
                 },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "X-Authorization-Bearer",
                   "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.REV3Wm4yemg4ZzF5OWxHUW0wY1EtZw.NVaEKF8n-ToDDnkBn9J3iQ.OiALovml-QfB2pZKwXSJoHYr_BMOAaTXaRmlk8wlinpfUR7pb4QF0tA5c7N_ojn80zqN9ydlJAgGnWfj-2ddYWroWjxLXeN8FN5NAHB10m4hPXtJBZZL3b7NZD2aNbNjPVXnm505oRPFlKVxn6r_NJPRK_1LcG5FPQ5pVkTXlb2ulp2XbcOfy9V9v8uUz7B2sPhqbgkshpGxhA2FIDrSkWv5YE-NXoRcmZndDSBpUJnrZMGCCwkdx8aRdgwuVYdDn1NoqDSpCUwESI8QRpve3PP4G433hvQ20nMjaNVZa9h2TH0-3wV2s73hq2wF2CYK.y8uaeCKFVGa73UBY7HTfXw",
@@ -374,17 +422,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 07:40:50 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 07:40:50 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -541,17 +609,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 10:54:49 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 10:54:49 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -640,17 +728,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Thu, 31 Aug 2017 07:36:13 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Thu, 31 Aug 2017 07:36:13 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -750,17 +858,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 07:54:49 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 07:54:49 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -935,17 +1063,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Tue, 19 Dec 2017 12:58:43 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Tue, 19 Dec 2017 12:58:43 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -990,17 +1138,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 13:31:30 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 13:31:30 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -1112,17 +1280,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 07:52:22 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 07:52:22 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -1264,17 +1452,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 07:52:22 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 07:52:22 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -1399,11 +1607,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "4a615f54-b2f7-4ecd-bb3b-1e990d69aa62", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "4a615f54-b2f7-4ecd-bb3b-1e990d69aa62",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "41af0985-2c3b-40b0-99b7-b5887cdcb106", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "41af0985-2c3b-40b0-99b7-b5887cdcb106",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -1455,14 +1671,24 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 22 Feb 2018 10:12:55 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 22 Feb 2018 10:12:55 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
                 {
                   "key": "Set-Cookie",
@@ -1470,7 +1696,12 @@
                   "name": "Set-Cookie",
                   "description": ""
                 },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" }
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -1528,15 +1759,30 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 22 Feb 2018 10:14:51 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 22 Feb 2018 10:14:51 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
                 {
                   "key": "Set-Cookie",
@@ -1544,7 +1790,12 @@
                   "name": "Set-Cookie",
                   "description": ""
                 },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -1580,7 +1831,10 @@
               { "key": "Authorization", "value": "Bearer {{token}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "body": { "mode": "raw", "raw": "{\n    \"category\": 6,\n    \"subCategory\": 601\n}" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"category\": 6,\n    \"subCategory\": 601\n}"
+            },
             "url": "{{URL}}/api/v1/clients/aa05aa9a-a670-4330-902b-5b0e51ef2e4a"
           },
           "response": [
@@ -1596,7 +1850,10 @@
                   },
                   { "key": "Content-Type", "value": "application/json" }
                 ],
-                "body": { "mode": "raw", "raw": "{\n    \"category\": 6,\n    \"subCategory\": 601\n}" },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"category\": 6,\n    \"subCategory\": 601\n}"
+                },
                 "url": "{{URL}}/api/v1/clients/aa05aa9a-a670-4330-902b-5b0e51ef2e4a"
               },
               "status": "OK",
@@ -1609,15 +1866,30 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 22 Feb 2018 11:06:44 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 22 Feb 2018 11:06:44 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
                 {
                   "key": "Set-Cookie",
@@ -1625,7 +1897,12 @@
                   "name": "Set-Cookie",
                   "description": ""
                 },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -1734,7 +2011,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -1780,7 +2062,10 @@
               { "key": "Authorization", "value": "Bearer {{token}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "body": { "mode": "raw", "raw": "{\n  \"mergeId\": \"4ed9685d-a03a-49e3-9524-56a5253042a5\"\n}" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mergeId\": \"4ed9685d-a03a-49e3-9524-56a5253042a5\"\n}"
+            },
             "url": "{{URL}}/api/v1/clients/87903a3c-cc68-447f-95a6-f0292a9f5b69/merge",
             "description": "**Note**: In-order to merge clients, one of them must be inactive. Once merged - the inactive client will be deleted and all his documents will be added to the merged client."
           },
@@ -1806,11 +2091,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "d8eaa347-3edb-495d-9bf7-41a40a5369db", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "d8eaa347-3edb-495d-9bf7-41a40a5369db",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "c3bd5b7b-ce27-42af-ab11-89a622c0d30a", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "c3bd5b7b-ce27-42af-ab11-89a622c0d30a",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -1892,7 +2185,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -1993,7 +2291,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -2109,7 +2412,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -2239,7 +2547,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -2286,7 +2599,10 @@
               { "key": "Authorization", "value": "Bearer {{token}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "body": { "mode": "raw", "raw": "{\n  \"mergeId\": \"3f417a25-d66f-4e53-b55a-3f5d556e3acb\"\n}" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mergeId\": \"3f417a25-d66f-4e53-b55a-3f5d556e3acb\"\n}"
+            },
             "url": "{{URL}}/api/v1/suppliers/5486106b-6747-40cb-abf7-9226883b5143/merge",
             "description": "**Note**: In-order to merge suppliers, one of them must be inactive. Once merged - the inactive supplier will be deleted and all his documents will be added to the merged supplier."
           },
@@ -2304,7 +2620,10 @@
                   },
                   { "key": "Content-Type", "value": "application/json", "disabled": false }
                 ],
-                "body": { "mode": "raw", "raw": "{\n  \"mergeId\": \"3f417a25-d66f-4e53-b55a-3f5d556e3acb\"\n}" },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mergeId\": \"3f417a25-d66f-4e53-b55a-3f5d556e3acb\"\n}"
+                },
                 "url": "{{URL}}/api/v1/suppliers/5486106b-6747-40cb-abf7-9226883b5143/merge"
               },
               "status": "OK",
@@ -2353,7 +2672,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -2397,11 +2721,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "d8eaa347-3edb-495d-9bf7-41a40a5369db", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "d8eaa347-3edb-495d-9bf7-41a40a5369db",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "c3bd5b7b-ce27-42af-ab11-89a622c0d30a", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "c3bd5b7b-ce27-42af-ab11-89a622c0d30a",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -2490,11 +2822,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "0e5156e0-20ba-4815-8640-553a4a619a5b", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "0e5156e0-20ba-4815-8640-553a4a619a5b",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "f56369f9-e887-4570-a1de-5039ae2196c2", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "f56369f9-e887-4570-a1de-5039ae2196c2",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -2546,16 +2886,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Mon, 11 Sep 2017 07:19:17 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Mon, 11 Sep 2017 07:19:17 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -2688,16 +3043,31 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Sun, 19 Nov 2017 08:59:15 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Nov 2017 08:59:15 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" }
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                }
               ],
               "cookie": [],
               "body": "{\"id\":\"8bd369e2-7429-4661-9bdc-7186318951a3\",\"documentId\":61712,\"number\":61712,\"type\":320,\"signed\":true,\"lang\":\"en\",\"url\":{\"origin\":\"https://local.greeninvoice.co.il/api/v1/documents/download?d=zAZeHKAQCb1DZkQ0yMWPfXbz827o8WnJwTXCKR0o65UOyOz%2BCz3vmnSYUBsbTwif9Q1lw%2FPkkqkLP%2FleYFD%2FMCULZne%2B2V6EWU7RP8KqW74H23nRafYW%2BVgXJ8xEJcr9uOkvVC73tROJfV9yU00v5FeDgC5UsbGmjv24Zb6m6cxJ\",\"he\":\"https://local.greeninvoice.co.il/api/v1/documents/download?d=zAZeHKAQCb1AZkQ0yMWPfXbz827o8WnJwTXCKR0o65UOyOz%2BCz3vmnSYUBsbTwif9Q1lw%2FPkkqkLP%2FleYFD%2FMCULZne%2B2V6EWU7RP8KqW74H23nRafYW%2BVgXJ8xEJcr9uOkvVC73tROJfV9yU00v5FeDgC5UsbGmjv24Ybul4cJJ\",\"en\":\"https://local.greeninvoice.co.il/api/v1/documents/download?d=zAZeHKAQCb1BZkQ0yMWPfXbz827o8WnJwTXCKR0o65UOyOz%2BCz3vmnSYUBsbTwif9Q1lw%2FPkkqkLP%2FleYFD%2FMCULZne%2B2V6EWU7RP8KqW74H23nRafYW%2BVgXJ8xEJcr9uOkvVC73tROJfV9yU00v5FeDgC5UsbGmjv24Y76m6MdJ\"}}"
@@ -2730,16 +3100,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Mon, 02 Oct 2017 07:25:13 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Mon, 02 Oct 2017 07:25:13 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -2828,16 +3213,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Tue, 24 Oct 2017 07:56:55 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Tue, 24 Oct 2017 07:56:55 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -2915,16 +3315,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Thu, 07 Sep 2017 11:52:01 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Thu, 07 Sep 2017 11:52:01 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -3068,16 +3483,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Sun, 24 Sep 2017 08:06:07 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Sun, 24 Sep 2017 08:06:07 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -3155,16 +3585,31 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 04 Jan 2018 08:19:36 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 04 Jan 2018 08:19:36 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" }
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                }
               ],
               "cookie": [],
               "body": "{\"id\":\"4467a7c7-9eca-4e8f-aa2a-3acb9920e166\",\"documentId\":80002,\"number\":80002,\"type\":400,\"signed\":true,\"lang\":\"he\",\"url\":{\"origin\":\"https://www.greeninvoice.co.il/api/v1/documents/download?d=zAZeHKAQCb1DZkQ0yMWPfXbz827o%2FmnIwTXDJB0o65UKyOz8Dj3vmnSYUBsbTwif%2BVs3x6TqlKwLMagPOFD%2FYytcZi%2B9j1yEXR6Ka8iiUbdX2y7UafYW%2BVgXJ8xEJcr9uOkhVSn2tROJfV9yU00v4FeOgi5WsrGmjv24ZbWj4cRJ\",\"he\":\"https://www.greeninvoice.co.il/api/v1/documents/download?d=zAZeHKAQCb1AZkQ0yMWPfXbz827o%2FmnIwTXDJB0o65UKyOz8Dj3vmnSYUBsbTwif%2BVs3x6TqlKwLMagPOFD%2FYytcZi%2B9j1yEXR6Ka8iiUbdX2y7UafYW%2BVgXJ8xEJcr9uOkhVSn2tROJfV9yU00v4FeOgi5WsrGmjv24Zbqv78xJ\"}}"
@@ -3197,16 +3642,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Tue, 03 Oct 2017 08:42:26 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Tue, 03 Oct 2017 08:42:26 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -3295,16 +3755,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Thu, 14 Sep 2017 13:48:52 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Thu, 14 Sep 2017 13:48:52 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -3466,7 +3941,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Set-Cookie",
                   "value": "GCSRFToken=zAZaF%2BZPCbRFL1A1ytTTcnq3pW308nTKkTWSIA0o9pYPxuSrWiyljyLDAnBTT0af9140wfzowKsWMPkR; path=/; domain=.local.greeninvoice.co.il",
@@ -3530,16 +4010,31 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Sun, 29 Oct 2017 13:24:34 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Sun, 29 Oct 2017 13:24:34 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" }
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                }
               ],
               "cookie": [
                 {
@@ -3715,7 +4210,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -3770,17 +4270,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 14 Dec 2017 08:19:37 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 14 Dec 2017 08:19:37 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -3810,17 +4330,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 14 Dec 2017 13:27:33 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 14 Dec 2017 13:27:33 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -3893,7 +4433,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Set-Cookie",
                   "value": "GCSRFToken=zAZaF%2BZPCbRFL1A1ytTTcnq3pW308nTKkTWSIA0o9pYPxuSrWiyljyLDAnBTT0af9140wfzowKsUPf0R; path=/; domain=.local.greeninvoice.co.il",
@@ -3983,17 +4528,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Tue, 17 Oct 2017 15:33:16 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Tue, 17 Oct 2017 15:33:16 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -4151,17 +4716,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 30 Oct 2017 15:56:14 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 30 Oct 2017 15:56:14 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -4252,7 +4837,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Set-Cookie",
                   "value": "CSRFToken=zAZaF%2BZPCeZEcgJgm9fecnvk9Gr08neawzXKKVgq9pgOyOSpAyf1iCfAAHBTT0af9140wvfvw64RPf4R; path=/; domain=.local.greeninvoice.co.il",
@@ -4370,7 +4960,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Set-Cookie",
                   "value": "CSRFToken=zAZaF%2BZPCeZEcgJgm9fecnvk9Gr08neawzXKKVgq9pgOyOSpAyf1iCfAAHBTT0af9140wvfvw64RO%2FkR; path=/; domain=.local.greeninvoice.co.il",
@@ -4483,7 +5078,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4563,7 +5163,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4628,7 +5233,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4708,7 +5318,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4773,7 +5388,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4836,12 +5456,18 @@
                 { "key": "Connection", "value": "keep-alive" },
                 { "key": "Vary", "value": "Accept-Encoding" },
                 { "key": "Access-Control-Allow-Origin", "value": "*" },
-                { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS,PUT,DELETE,HEAD" },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET,POST,OPTIONS,PUT,DELETE,HEAD"
+                },
                 {
                   "key": "Access-Control-Allow-Headers",
                   "value": "Origin,Content-Type,Accept,Authorization,X-Requested-With"
                 },
-                { "key": "Access-Control-Expose-Headers", "value": "X-Authorization-Bearer,X-User-Id" },
+                {
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "X-Authorization-Bearer,X-User-Id"
+                },
                 { "key": "Content-Encoding", "value": "gzip" }
               ],
               "cookie": [],
@@ -4862,7 +5488,11 @@
             {
               "id": "c81e3e05-c23f-414f-9203-c1de401abfbb",
               "name": "Get Document Templates",
-              "originalRequest": { "method": "GET", "header": [], "url": "{{URL}}/api/v1/documents/templates" },
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/api/v1/documents/templates"
+              },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
@@ -4873,17 +5503,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 14 Dec 2017 12:32:52 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 14 Dec 2017 12:32:52 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -4923,7 +5573,11 @@
             {
               "id": "70e0e233-ce05-4525-81df-88793a5ddf0f",
               "name": "Get Document Types",
-              "originalRequest": { "method": "GET", "header": [], "url": "{{URL}}/api/v1/documents/types" },
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/api/v1/documents/types"
+              },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
@@ -4958,7 +5612,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -4990,7 +5649,11 @@
             {
               "id": "a994a821-3163-4362-bd1e-485eb09a2504",
               "name": "Get Document Statuses",
-              "originalRequest": { "method": "GET", "header": [], "url": "{{URL}}/api/v1/documents/statuses" },
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/api/v1/documents/statuses"
+              },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
@@ -5025,7 +5688,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5050,11 +5718,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "e12e021e-2943-4ab5-ba9c-3b7d279af86a", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "e12e021e-2943-4ab5-ba9c-3b7d279af86a",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "7edd3423-dce4-4278-8a24-a8333550955b", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "7edd3423-dce4-4278-8a24-a8333550955b",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -5106,7 +5782,10 @@
                 { "key": "Transfer-Encoding", "value": "chunked" },
                 { "key": "Connection", "value": "keep-alive" },
                 { "key": "Access-Control-Allow-Origin", "value": "*" },
-                { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS,PUT,DELETE,HEAD" },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET,POST,OPTIONS,PUT,DELETE,HEAD"
+                },
                 {
                   "key": "Access-Control-Allow-Headers",
                   "value": "Origin,Content-Type,Accept,Authorization,X-Requested-With"
@@ -5190,7 +5869,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5237,7 +5921,10 @@
               { "key": "Authorization", "value": "Bearer {{token}}" },
               { "key": "Content-Type", "value": "application/json" }
             ],
-            "body": { "mode": "raw", "raw": "{\n  \"paymentType\": 2,\n  \"description\": \"sdsd\"\n}" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentType\": 2,\n  \"description\": \"sdsd\"\n}"
+            },
             "url": "{{URL}}/api/v1/expenses/0100f32a-07ef-4348-98c6-2aaeca566631"
           },
           "response": [
@@ -5253,7 +5940,10 @@
                   },
                   { "key": "Content-Type", "value": "application/json" }
                 ],
-                "body": { "mode": "raw", "raw": "{\n  \"paymentType\": 2,\n  \"description\": \"sdsd\"\n}" },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentType\": 2,\n  \"description\": \"sdsd\"\n}"
+                },
                 "url": "{{URL}}/api/v1/expenses/0100f32a-07ef-4348-98c6-2aaeca566631"
               },
               "status": "OK",
@@ -5302,7 +5992,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5412,7 +6107,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5531,7 +6231,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5643,7 +6348,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5764,7 +6474,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5875,7 +6590,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -5919,11 +6639,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "e12e021e-2943-4ab5-ba9c-3b7d279af86a", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "e12e021e-2943-4ab5-ba9c-3b7d279af86a",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "7edd3423-dce4-4278-8a24-a8333550955b", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "7edd3423-dce4-4278-8a24-a8333550955b",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -5968,17 +6696,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Wed, 13 Dec 2017 13:22:37 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Wed, 13 Dec 2017 13:22:37 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -6012,17 +6760,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Wed, 13 Dec 2017 13:22:53 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Wed, 13 Dec 2017 13:22:53 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -6105,7 +6873,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Set-Cookie",
                   "value": "CSRFToken=zAZaF%2BZPCbcWK1Izy4HTci7o%2BTr08neekzWSKF8p9p0Dxrf2CCr22nWVCnBTT0af9140w%2FXpxKMTPvwR; path=/; domain=.qa.d.greeninvoice.co.il",
@@ -6188,11 +6961,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "f7886e1e-66cd-44f6-873f-db52622ccd38", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "f7886e1e-66cd-44f6-873f-db52622ccd38",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "67d41d26-e363-401e-9ebe-ccfd14361dd7", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "67d41d26-e363-401e-9ebe-ccfd14361dd7",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     },
@@ -6244,16 +7025,31 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Sun, 19 Nov 2017 15:16:42 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Nov 2017 15:16:42 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "X-Authorization-Bearer",
                   "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.WVF2VngxM3JScXA5dFUzaVdKajRHUQ.ygYTtHonCq3ZGgvlNAxnxg.ljLUbYbYG4VJW7Rh5nOZk7dxnZX0q_UjznkLWmsVxC8M8yAcG5Gr-qM2Ol1rMEDVob2apvYoa8SDJoXb2x-JUAIJ-uZ83YqFBvjaOCXKL3YTQt6S6olODU0JXok_f4LgghDdp6j7rwEgrGgfYL_DniLXhOrfwBTpH1oVRXMaq43RQ_cqTYd0-40nxZOjYjBw0rU0dxgiUViw8Cf3yIi8-VwrkXbOi1EllCREjiFwiBtYdyCh2RSXVGdV8VeCw8X1dBfiA49KsKAI1lCqFLvksaJ_O6Xn06IgiQ-uLSOPhPGIdKpaWWMcU1WoKlXeYUj5QZb0PNBhRMOS7DacBPbWBg.TbN6NO_eAvMvTgM0UgExEw",
@@ -6311,17 +7107,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 11 Dec 2017 08:49:39 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 11 Dec 2017 08:49:39 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -6394,17 +7210,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 20 Nov 2017 09:10:33 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Nov 2017 09:10:33 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -6488,7 +7324,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -6587,17 +7428,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Wed, 20 Dec 2017 08:25:36 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Wed, 20 Dec 2017 08:25:36 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [],
@@ -6639,17 +7500,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 09:47:34 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 09:47:34 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -6749,17 +7630,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Wed, 30 Aug 2017 09:47:13 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Wed, 30 Aug 2017 09:47:13 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -6820,7 +7721,11 @@
             {
               "id": "35b57288-08e7-4664-8ef7-f72109965e34",
               "name": "Get Categories",
-              "originalRequest": { "method": "GET", "header": [], "url": "{{URL}}/api/v1/articles/categories" },
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/api/v1/articles/categories"
+              },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
@@ -6831,17 +7736,37 @@
                   "name": "access-control-allow-origin",
                   "description": ""
                 },
-                { "key": "connection", "value": "keep-alive", "name": "connection", "description": "" },
-                { "key": "content-encoding", "value": "gzip", "name": "content-encoding", "description": "" },
+                {
+                  "key": "connection",
+                  "value": "keep-alive",
+                  "name": "connection",
+                  "description": ""
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "gzip",
+                  "name": "content-encoding",
+                  "description": ""
+                },
                 {
                   "key": "content-type",
                   "value": "application/json; charset=utf-8",
                   "name": "content-type",
                   "description": ""
                 },
-                { "key": "date", "value": "Tue, 29 Aug 2017 15:36:38 GMT", "name": "date", "description": "" },
+                {
+                  "key": "date",
+                  "value": "Tue, 29 Aug 2017 15:36:38 GMT",
+                  "name": "date",
+                  "description": ""
+                },
                 { "key": "server", "value": "nginx", "name": "server", "description": "" },
-                { "key": "transfer-encoding", "value": "chunked", "name": "transfer-encoding", "description": "" },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "name": "transfer-encoding",
+                  "description": ""
+                },
                 { "key": "vary", "value": "Accept-Encoding", "name": "vary", "description": "" }
               ],
               "cookie": [
@@ -7027,17 +7952,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:53:21 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:53:21 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7085,17 +8030,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:42:58 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:42:58 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7159,17 +8124,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:52:40 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:52:40 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7217,17 +8202,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:53:05 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:53:05 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7291,17 +8296,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:54:19 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:54:19 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7349,17 +8374,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:54:08 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:54:08 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7455,7 +8500,12 @@
                   "name": "Date",
                   "description": "The date and time that the message was sent"
                 },
-                { "key": "Server", "value": "nginx", "name": "Server", "description": "A name for the server" },
+                {
+                  "key": "Server",
+                  "value": "nginx",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
                 {
                   "key": "Transfer-Encoding",
                   "value": "chunked",
@@ -7514,17 +8564,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Mon, 18 Dec 2017 09:54:40 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 Dec 2017 09:54:40 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7564,7 +8634,11 @@
             {
               "id": "e364ca88-a3a2-4c97-a7d1-7e63c19c8229",
               "name": "Get Supported Business Categories",
-              "originalRequest": { "method": "GET", "header": [], "url": "{{URL}}/api/v1/tools/business_categories" },
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{URL}}/api/v1/tools/business_categories"
+              },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
@@ -7575,17 +8649,37 @@
                   "name": "Access-Control-Allow-Origin",
                   "description": ""
                 },
-                { "key": "Connection", "value": "keep-alive", "name": "Connection", "description": "" },
-                { "key": "Content-Encoding", "value": "gzip", "name": "Content-Encoding", "description": "" },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": ""
+                },
                 {
                   "key": "Content-Type",
                   "value": "application/json; charset=utf-8",
                   "name": "Content-Type",
                   "description": ""
                 },
-                { "key": "Date", "value": "Thu, 22 Feb 2018 08:26:51 GMT", "name": "Date", "description": "" },
+                {
+                  "key": "Date",
+                  "value": "Thu, 22 Feb 2018 08:26:51 GMT",
+                  "name": "Date",
+                  "description": ""
+                },
                 { "key": "Server", "value": "nginx", "name": "Server", "description": "" },
-                { "key": "Transfer-Encoding", "value": "chunked", "name": "Transfer-Encoding", "description": "" },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": ""
+                },
                 { "key": "Vary", "value": "Accept-Encoding", "name": "Vary", "description": "" }
               ],
               "cookie": [
@@ -7618,11 +8712,19 @@
       "event": [
         {
           "listen": "prerequest",
-          "script": { "id": "4dee81d7-ff87-4bc1-91cb-e8731743243a", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "4dee81d7-ff87-4bc1-91cb-e8731743243a",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         },
         {
           "listen": "test",
-          "script": { "id": "8aa0aab8-1cc0-4e98-a067-d86ded8d1e51", "type": "text/javascript", "exec": [""] }
+          "script": {
+            "id": "8aa0aab8-1cc0-4e98-a067-d86ded8d1e51",
+            "type": "text/javascript",
+            "exec": [""]
+          }
         }
       ]
     }
@@ -7630,11 +8732,19 @@
   "event": [
     {
       "listen": "prerequest",
-      "script": { "id": "5592ad71-28e8-4e53-9e7e-b75791199c03", "type": "text/javascript", "exec": [""] }
+      "script": {
+        "id": "5592ad71-28e8-4e53-9e7e-b75791199c03",
+        "type": "text/javascript",
+        "exec": [""]
+      }
     },
     {
       "listen": "test",
-      "script": { "id": "f14388c0-c0e8-483c-937b-c52a094b89ad", "type": "text/javascript", "exec": [""] }
+      "script": {
+        "id": "f14388c0-c0e8-483c-937b-c52a094b89ad",
+        "type": "text/javascript",
+        "exec": [""]
+      }
     }
   ]
 }

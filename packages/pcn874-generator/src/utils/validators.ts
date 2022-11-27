@@ -83,16 +83,22 @@ const dateValidator = (value: string): boolean => {
 
 export const headerValidator = (header: Header): Header => {
   if (!idValidator(header.licensedDealerId, 9)) {
-    throw new Error(`Expected licensedDealerId to be 9 digits, received "${header.licensedDealerId}"`);
+    throw new Error(
+      `Expected licensedDealerId to be 9 digits, received "${header.licensedDealerId}"`,
+    );
   }
 
   if (!yearMonthValidator(header.reportMonth)) {
-    throw new Error(`Expected reportMonth to be legit date formed as YYYYMM, received "${header.reportMonth}"`);
+    throw new Error(
+      `Expected reportMonth to be legit date formed as YYYYMM, received "${header.reportMonth}"`,
+    );
   }
 
   header.generationDate = header.generationDate || getDateString();
   if (!dateValidator(header.generationDate)) {
-    throw new Error(`Expected generationDate to be legit date formed as YYYYMMDD, received "${header.generationDate}"`);
+    throw new Error(
+      `Expected generationDate to be legit date formed as YYYYMMDD, received "${header.generationDate}"`,
+    );
   }
 
   if (header.salesRecordCount < 0) {
@@ -118,7 +124,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       if (transaction.totalVat && transaction.totalVat !== 0) {
         if (options.strict) {
           throw new Error(
-            `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
+            `Transactions of entry type "SALE_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`,
           );
         }
         transaction.totalVat = 0;
@@ -132,7 +138,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     case EntryType.SALE_UNIDENTIFIED_CUSTOMER: {
       if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
         throw new Error(
-          `Transactions of entry type "SALE_UNIDENTIFIED_CUSTOMER" should not include vatId, received "${transaction.vatId}".`
+          `Transactions of entry type "SALE_UNIDENTIFIED_CUSTOMER" should not include vatId, received "${transaction.vatId}".`,
         );
       }
       break;
@@ -140,14 +146,14 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     case EntryType.SALE_UNIDENTIFIED_ZERO_OR_EXEMPT: {
       if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
         throw new Error(
-          `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" should not include vatId, received "${transaction.vatId}".`
+          `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" should not include vatId, received "${transaction.vatId}".`,
         );
       }
 
       if (transaction.totalVat && transaction.totalVat !== 0) {
         if (options.strict) {
           throw new Error(
-            `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`
+            `Transactions of entry type "SALE_UNIDENTIFIED_ZERO_OR_EXEMPT" VAT should be 0, received "${transaction.totalVat}". Replacing with 0`,
           );
         }
         transaction.totalVat = 0;
@@ -158,7 +164,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       transaction.vatId = transaction.vatId || '999999999';
       if (transaction.totalVat && transaction.totalVat !== 0) {
         throw new Error(
-          `Transactions of entry type "SALE_EXPORT" should not include totalVat, received "${transaction.totalVat}"`
+          `Transactions of entry type "SALE_EXPORT" should not include totalVat, received "${transaction.totalVat}"`,
         );
       }
       break;
@@ -166,14 +172,14 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     case EntryType.INPUT_PETTY_CASH: {
       if (transaction.vatId && transaction.vatId !== '000000000' && options.strict) {
         throw new Error(
-          `Transactions of entry type "INPUT_PETTY_CASH" should not include vatId, received "${transaction.vatId}".`
+          `Transactions of entry type "INPUT_PETTY_CASH" should not include vatId, received "${transaction.vatId}".`,
         );
       }
 
       const invoicesNum = transaction.refNumber ? parseInt(transaction.refNumber) : 0;
       if (isNaN(invoicesNum) || invoicesNum === 0) {
         throw new Error(
-          `On transactions of entry type "INPUT_PETTY_CASH", refNumber should reflect the number of invoices in the entry (hence > 0), received "${transaction.refNumber}"`
+          `On transactions of entry type "INPUT_PETTY_CASH", refNumber should reflect the number of invoices in the entry (hence > 0), received "${transaction.refNumber}"`,
         );
       }
       break;
@@ -181,7 +187,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     case EntryType.INPUT_IMPORT: {
       if (transaction.refNumber && transaction.refNumber !== '000000000' && options.strict) {
         throw new Error(
-          `Transactions of entry type "INPUT_IMPORT" should not include refNumber, received "${transaction.refNumber}".`
+          `Transactions of entry type "INPUT_IMPORT" should not include refNumber, received "${transaction.refNumber}".`,
         );
       }
       break;
@@ -197,7 +203,9 @@ export const transactionValidator = (transaction: Transaction, options: Options)
   }
 
   if (!dateValidator(transaction.invoiceDate)) {
-    throw new Error(`Expected invoiceDate to be legit date formed as YYYYMMDD, received "${transaction.invoiceDate}"`);
+    throw new Error(
+      `Expected invoiceDate to be legit date formed as YYYYMMDD, received "${transaction.invoiceDate}"`,
+    );
   }
 
   transaction.refGroup = transaction.refGroup || '0000';
@@ -210,11 +218,15 @@ export const transactionValidator = (transaction: Transaction, options: Options)
   }
 
   if (!!transaction.totalVat && transaction.totalVat < 0) {
-    throw new Error(`Expected totalVat to be a positive number, received "${transaction.totalVat}"`);
+    throw new Error(
+      `Expected totalVat to be a positive number, received "${transaction.totalVat}"`,
+    );
   }
 
   if (transaction.invoiceSum <= 0) {
-    throw new Error(`Expected invoiceSum to be a negative number, received "${transaction.invoiceSum}"`);
+    throw new Error(
+      `Expected invoiceSum to be a negative number, received "${transaction.invoiceSum}"`,
+    );
   }
 
   return transaction;

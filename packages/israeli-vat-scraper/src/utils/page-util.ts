@@ -19,7 +19,7 @@ export const waitAndClick = async (page: Page, selector: string, logger: Logger)
 export const waitForSelectorPlus = async (
   page: Page,
   selector: string,
-  logger: Logger
+  logger: Logger,
 ): Promise<ElementHandle<Element> | null> => {
   return await page.waitForSelector(selector).catch(async () => {
     logger.debug(`Activating safety net for selector ${selector}`);

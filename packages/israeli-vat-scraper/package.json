@@ -1,8 +1,22 @@
 {
   "name": "@accounter-toolkit/israeli-vat-scraper",
   "version": "0.0.2",
-  "description": "Scraper app for fetching Israeli VAT data",
   "type": "module",
+  "description": "Scraper app for fetching Israeli VAT data",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
+    "repository": "packages/israeli-vat-scraper"
+  },
+  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/israeli-vat-scraper#readme",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
+  },
+  "author": "gilgardosh <gilgardosh@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -23,37 +37,27 @@
     "./package.json": "./package.json"
   },
   "typings": "dist/typings/index.d.ts",
-  "typescript": {
-    "definition": "dist/typings/index.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gilgardosh/accounter-toolkit.git",
-    "repository": "packages/israeli-vat-scraper"
-  },
-  "bugs": {
-    "url": "https://github.com/gilgardosh/accounter-toolkit/issues"
-  },
-  "homepage": "https://github.com/gilgardosh/accounter-toolkit/packages/israeli-vat-scraper#readme",
-  "author": "gilgardosh <gilgardosh@gmail.com>",
-  "license": "MIT",
+  "keywords": [
+    "israel",
+    "vat",
+    "accountancy",
+    "accountant",
+    "accounter"
+  ],
   "scripts": {
-    "prestart": "yarn build",
-    "start": "node --experimental-json-modules dist/index.js",
-    "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
-    "prebuild": "yarn -v",
     "build": "tsc",
-    "postbuild": "yarn -v",
+    "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "node dist/dev-tests/e2e.js",
-    "prepublish": "yarn build"
-  },
-  "engines": {
-    "node": "^14.20.0 || ^16.16.0 || >=18.0.0"
+    "postbuild": "yarn -v",
+    "prebuild": "yarn -v",
+    "prepublish": "yarn build",
+    "prestart": "yarn build",
+    "start": "node --experimental-json-modules dist/index.js",
+    "test": "node dist/dev-tests/e2e.js"
   },
   "dependencies": {
-    "ajv": "8.11.0",
+    "ajv": "8.11.2",
     "dotenv": "16.0.3",
     "puppeteer": "18.2.1"
   },
@@ -62,15 +66,11 @@
     "nodemon": "2.0.20",
     "pino-pretty": "9.1.1"
   },
-  "keywords": [
-    "israel",
-    "vat",
-    "accountancy",
-    "accountant",
-    "accounter"
-  ],
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
   }
 }

@@ -20,7 +20,7 @@ const defaultConfig: Config = {
 
 export const vatScraper = async (
   credentials?: UserCredentials,
-  userConfig: Partial<Config> = {}
+  userConfig: Partial<Config> = {},
 ): Promise<Report[]> => {
   try {
     updateCredentials(credentials || getEnvCredentials());

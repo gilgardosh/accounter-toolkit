@@ -1,7 +1,17 @@
 import type { Header, Options, Transaction } from './types';
-import { footerBuilder, headerBuilder, headerHandler, transactionBuilder, transactionHandler } from './utils/index.js';
+import {
+  footerBuilder,
+  headerBuilder,
+  headerHandler,
+  transactionBuilder,
+  transactionHandler,
+} from './utils/index.js';
 
-export const pcnGenerator = (header: Header, transactions: Transaction[], options: Options = {}): string => {
+export const pcnGenerator = (
+  header: Header,
+  transactions: Transaction[],
+  options: Options = {},
+): string => {
   let textFile = '';
 
   // handle header

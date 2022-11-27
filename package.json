@@ -1,28 +1,24 @@
 {
   "name": "accounter-toolkit",
+  "type": "module",
+  "license": "MIT",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "type": "module",
-  "license": "MIT",
-  "publishConfig": {
-    "directory": "dist",
-    "access": "public"
+  "engines": {
+    "node": "18.12.1"
   },
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore .",
+    "build": "bob build",
     "ci:lint": "eslint --output-file eslint_report.json --format json",
+    "lint": "eslint --ignore-path .gitignore .",
+    "postbuild": "yarn workspaces run postbuild",
+    "pre-commit": "lint-staged",
+    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
     "prettier": "prettier --ignore-path .gitignore --write --list-different .",
     "prettier:check": "prettier --check .",
-    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
-    "build": "bob build",
-    "postbuild": "yarn workspaces run postbuild",
-    "release": "yarn build && changeset publish",
-    "pre-commit": "lint-staged"
-  },
-  "engines": {
-    "node": "18.12.0"
+    "release": "yarn build && changeset publish"
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.7",
@@ -30,23 +26,27 @@
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.2.0",
-    "@theguild/prettier-config": "0.1.1",
+    "@theguild/prettier-config": "1.0.0",
     "@types/node": "18.11.9",
     "bob-the-bundler": "4.0.0",
-    "concurrently": "7.5.0",
-    "eslint": "8.27.0",
+    "concurrently": "7.6.0",
+    "eslint": "8.28.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
     "husky": "8.0.2",
-    "lint-staged": "13.0.3",
-    "prettier": "2.7.1",
+    "lint-staged": "13.0.4",
+    "prettier": "2.8.0",
     "prettier-plugin-sql": "0.12.1",
-    "typescript": "4.8.4"
-  },
-  "lint-staged": {
-    "*.--write": "prettier --write"
+    "typescript": "4.9.3"
   },
   "resolutions": {
     "**/execa": "5.1.1",
     "lint-staged/execa": "6.1.0"
+  },
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  },
+  "lint-staged": {
+    "*.--write": "prettier --write"
   }
 }

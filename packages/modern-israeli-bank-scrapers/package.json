@@ -1,8 +1,22 @@
 {
   "name": "@accounter-toolkit/modern-israeli-bank-scrapers",
   "version": "0.4.5",
-  "description": "",
   "type": "module",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers.git",
+    "repository": "packages/hashavshevet-mesh"
+  },
+  "homepage": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/packages/hashavshevet-mesh#readme",
+  "bugs": {
+    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/issues"
+  },
+  "author": "Uri Goldsthein <urigo@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^16.17.0 || >=18.0.0"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -23,30 +37,23 @@
     "./package.json": "./package.json"
   },
   "typings": "dist/typings/index.d.ts",
-  "typescript": {
-    "definition": "dist/typings/index.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers.git",
-    "repository": "packages/hashavshevet-mesh"
-  },
-  "bugs": {
-    "url": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/issues"
-  },
-  "homepage": "https://github.com/gilgardosh/modern-israeli-bank-scrapers/packages/hashavshevet-mesh#readme",
-  "author": "Uri Goldsthein <urigo@gmail.com>",
-  "license": "MIT",
+  "keywords": [
+    "accountancy",
+    "accountant",
+    "accounter",
+    "poalim",
+    "isracard"
+  ],
   "scripts": {
-    "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js",
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
-    "prebuild": "yarn json2ts && json2ts -i src/schemas -o dist/generated-types",
     "build": "tsc",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon --experimental-specifier-resolution=node --experimental-json-modules dist/index.js\"",
+    "json2ts": "json2ts -i src/schemas -o src/generated-types",
     "postbuild": "yarn -v",
-    "json2ts": "json2ts -i src/schemas -o src/generated-types"
+    "prebuild": "yarn json2ts && json2ts -i src/schemas -o dist/generated-types",
+    "start": "node --experimental-specifier-resolution=node --experimental-json-modules dist/index.js"
   },
   "dependencies": {
-    "ajv": "8.11.0",
+    "ajv": "^8.0.0",
     "ajv-formats": "2.1.1",
     "inquirer": "9.1.4",
     "puppeteer": "18.2.1",
@@ -58,18 +65,11 @@
     "json-schema-to-typescript": "11.0.2",
     "nodemon": "2.0.20"
   },
-  "engines": {
-    "node": "^16.17.0 || >=18.0.0"
-  },
-  "keywords": [
-    "accountancy",
-    "accountant",
-    "accounter",
-    "poalim",
-    "isracard"
-  ],
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "typescript": {
+    "definition": "dist/typings/index.d.ts"
   }
 }

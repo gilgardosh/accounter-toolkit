@@ -18,7 +18,10 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
 
     /* get available years */
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', config.logger);
-    const taxYears = await page.evaluate(getSelectOptions, 'select#ContentUsersPage_DdlTkufa > option');
+    const taxYears = await page.evaluate(
+      getSelectOptions,
+      'select#ContentUsersPage_DdlTkufa > option',
+    );
 
     const reports: Report[] = [];
 
@@ -43,7 +46,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
           return await reportsYearHandler.handle(config.logger);
         }
         return [];
-      })
+      }),
     ).then(reportsLists => {
       reportsLists.forEach(list => {
         reports.push(...list);
@@ -56,7 +59,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
       (a, b) =>
         (config.sortDescending
           ? parseDate(a.reportMonth) < parseDate(b.reportMonth) && 1
-          : parseDate(a.reportMonth) > parseDate(b.reportMonth) && 1) || -1
+          : parseDate(a.reportMonth) > parseDate(b.reportMonth) && 1) || -1,
     );
 
     if (config.printErrors) {

@@ -38,7 +38,11 @@ async function getMonthDashboard(page: puppeteer.Page, monthDate: Date, options?
   return { data: await getDashboardFunction };
 }
 
-async function getMonthTransactions(page: puppeteer.Page, monthDate: Date, options?: isracardOptions) {
+async function getMonthTransactions(
+  page: puppeteer.Page,
+  monthDate: Date,
+  options?: isracardOptions,
+) {
   /* get transactions data */
   const monthStr = ('0' + (monthDate.getMonth() + 1)).slice(-2);
   const transUrl = `${SERVICE_URL}?reqName=CardsTransactionsList&month=${monthStr}&year=${monthDate.getFullYear()}&requiredDate=N`;
@@ -58,7 +62,9 @@ async function getMonthTransactions(page: puppeteer.Page, monthDate: Date, optio
 const getMonthsList = (options: isracardOptions): Date[] => {
   const now = new Date();
   const monthStart = () => new Date(now.getFullYear(), now.getMonth(), 1);
-  let firstMonth = new Date(monthStart().setMonth(monthStart().getMonth() - (options.duration ?? 30)));
+  let firstMonth = new Date(
+    monthStart().setMonth(monthStart().getMonth() - (options.duration ?? 30)),
+  );
   const finalMonth = new Date(monthStart().setMonth(monthStart().getMonth()));
   const monthsList: Date[] = [];
   while (firstMonth <= finalMonth) {
@@ -71,7 +77,7 @@ const getMonthsList = (options: isracardOptions): Date[] => {
 export async function isracard(
   page: puppeteer.Page,
   credentials: isracardCredentials,
-  options: isracardOptions = new isracardOptions()
+  options: isracardOptions = new isracardOptions(),
 ) {
   const BASE_URL = 'https://digital.isracard.co.il';
   await page.goto(`${BASE_URL}/personalarea/Login`, {
@@ -90,7 +96,7 @@ export async function isracard(
         /* get monthly results */
         getMonthsList(options).map(async monthDate => {
           return getMonthDashboard(page, monthDate, options);
-        })
+        }),
       );
     },
     getMonthTransactions: async (RequestedMonthDate: Date) => {
@@ -101,7 +107,7 @@ export async function isracard(
         /* get monthly results */
         getMonthsList(options).map(async monthDate => {
           return getMonthTransactions(page, monthDate, options);
-        })
+        }),
       );
     },
   };

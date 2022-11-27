@@ -4,7 +4,11 @@ import { login } from '../handlers/login-handler.js';
 import { waitAndClick, waitForSelectorPlus } from './page-util.js';
 import type { Logger } from './types.js';
 
-const nevigateYearToMonth = async (page: Page, monthIndex: number, logger: Logger): Promise<void> => {
+const nevigateYearToMonth = async (
+  page: Page,
+  monthIndex: number,
+  logger: Logger,
+): Promise<void> => {
   try {
     const selector = `#dgDuchot > tbody > tr:nth-child(${monthIndex + 2}) > td:nth-child(1) > a`;
 
@@ -20,7 +24,7 @@ export const newPageByMonth = async (
   showBrowser: boolean,
   year: string,
   monthIndex: number,
-  logger: Logger
+  logger: Logger,
 ): Promise<Page> => {
   try {
     const page = await newPageByYear(showBrowser, year, logger);
@@ -33,7 +37,11 @@ export const newPageByMonth = async (
   }
 };
 
-export const navigateHomeToYear = async (page: Page, year: string, logger: Logger): Promise<void> => {
+export const navigateHomeToYear = async (
+  page: Page,
+  year: string,
+  logger: Logger,
+): Promise<void> => {
   try {
     await waitForSelectorPlus(page, '#ContentUsersPage_DdlTkufa', logger);
 
@@ -45,7 +53,11 @@ export const navigateHomeToYear = async (page: Page, year: string, logger: Logge
   }
 };
 
-export const newPageByYear = async (showBrowser: boolean, year: string, logger: Logger): Promise<Page> => {
+export const newPageByYear = async (
+  showBrowser: boolean,
+  year: string,
+  logger: Logger,
+): Promise<Page> => {
   try {
     const page = await newHomePage(showBrowser, logger);
 
@@ -64,7 +76,7 @@ export const newHomePage = async (showBrowser: boolean, logger: Logger): Promise
     });
     const page = (await browser.pages())[0];
     await page.setUserAgent(
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36'
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36',
     );
 
     await login(page, logger);

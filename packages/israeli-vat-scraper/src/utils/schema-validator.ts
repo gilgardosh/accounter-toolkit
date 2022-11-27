@@ -4,7 +4,7 @@ import type { Report } from './types.js';
 
 export const validateSchema = async (
   jsonSchema: Record<string, unknown>,
-  data: Report[]
+  data: Report[],
 ): Promise<{ isValid: boolean; errors?: ErrorObject[] | null }> => {
   const ajv = new Ajv({
     verbose: true,
