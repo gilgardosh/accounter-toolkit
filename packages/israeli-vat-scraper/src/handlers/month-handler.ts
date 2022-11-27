@@ -3,7 +3,14 @@ import type { Page } from 'puppeteer';
 import { newPageByMonth, newPageByYear } from '../utils/browser-util.js';
 import { getReportDetails, getReportExpansionTitle } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
-import type { Config, Logger, Report, ReportCommon, ReportDetails, ReportExpansion } from '../utils/types.js';
+import type {
+  Config,
+  Logger,
+  Report,
+  ReportCommon,
+  ReportDetails,
+  ReportExpansion,
+} from '../utils/types.js';
 import { UserPrompt } from '../utils/user-prompt.js';
 import { MonthFixesHandler } from './month-fixes-handler.js';
 import { MonthInputsHandler } from './month-inputs-handler.js';
@@ -23,7 +30,7 @@ export class MonthHandler {
     location: string[],
     report: ReportCommon,
     index: number,
-    page?: Page
+    page?: Page,
   ) {
     this.config = config;
     this.prompt = prompt;
@@ -43,7 +50,9 @@ export class MonthHandler {
         return undefined;
       });
 
-      const reportExpansionPromise = this.config.expandData ? this.getExpansions(logger) : undefined;
+      const reportExpansionPromise = this.config.expandData
+        ? this.getExpansions(logger)
+        : undefined;
 
       await Promise.all([additionalDetailsPromise, reportExpansionPromise]).then(res => {
         this.report.additionalDetails = res[0];
@@ -58,7 +67,9 @@ export class MonthHandler {
     }
   };
 
-  private getReportAdditionalDetails = async (logger: Logger): Promise<ReportDetails | undefined> => {
+  private getReportAdditionalDetails = async (
+    logger: Logger,
+  ): Promise<ReportDetails | undefined> => {
     if (!this.page) {
       this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
     }
@@ -71,7 +82,7 @@ export class MonthHandler {
     const detailsTable = await waitForSelectorPlus(
       this.page,
       '#ContentUsersPage_ucPratimNosafimDuchot1_TblPerutDoch',
-      logger
+      logger,
     );
 
     const additionalDetails = await detailsTable?.evaluate(getReportDetails);
@@ -85,17 +96,35 @@ export class MonthHandler {
     try {
       this.prompt.update(this.location, 'Fetching expansion', logger);
 
-      const page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index, logger);
+      const page = await newPageByMonth(
+        this.config.visibleBrowser,
+        this.location[0],
+        this.index,
+        logger,
+      );
 
       const expansionCorePromise = this.getReportExpansion(page, logger);
 
-      const inputsPromise = new MonthInputsHandler(this.config, this.prompt, this.location, this.index).handle(logger);
+      const inputsPromise = new MonthInputsHandler(
+        this.config,
+        this.prompt,
+        this.location,
+        this.index,
+      ).handle(logger);
 
-      const salesPromise = new MonthSalesHandler(this.config, this.prompt, this.location, this.index).handle(logger);
+      const salesPromise = new MonthSalesHandler(
+        this.config,
+        this.prompt,
+        this.location,
+        this.index,
+      ).handle(logger);
 
-      const fixedInvoicesPromise = new MonthFixesHandler(this.config, this.prompt, this.location, this.index).handle(
-        logger
-      );
+      const fixedInvoicesPromise = new MonthFixesHandler(
+        this.config,
+        this.prompt,
+        this.location,
+        this.index,
+      ).handle(logger);
 
       const reportExpansion: ReportExpansion | undefined = await Promise.all([
         expansionCorePromise,
@@ -127,7 +156,10 @@ export class MonthHandler {
     }
   };
 
-  private getReportExpansion = async (page: Page, logger: Logger): Promise<ReportExpansion | undefined> => {
+  private getReportExpansion = async (
+    page: Page,
+    logger: Logger,
+  ): Promise<ReportExpansion | undefined> => {
     const location = [...this.location, 'Title'];
     try {
       // get title
@@ -137,7 +169,7 @@ export class MonthHandler {
       const titleTable = await waitForSelectorPlus(
         page,
         '#shaamcontent > table > tbody > tr:nth-child(2) > td > table',
-        logger
+        logger,
       );
       if (!titleTable) {
         this.prompt.addError(location, 'Error fetching title', logger);

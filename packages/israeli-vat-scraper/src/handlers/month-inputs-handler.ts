@@ -27,7 +27,12 @@ export class MonthInputsHandler {
   public handle = async (logger: Logger): Promise<ReportInputs | undefined> => {
     this.prompt.update(this.location, 'Fetching...', logger);
     try {
-      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index, logger);
+      this.page = await newPageByMonth(
+        this.config.visibleBrowser,
+        this.location[0],
+        this.index,
+        logger,
+      );
 
       await waitAndClick(this.page, INPUTS_BUTTON_SELECTOR, logger);
 
@@ -67,9 +72,11 @@ export class MonthInputsHandler {
               this.location,
               INPUTS_BUTTON_SELECTOR,
               index,
-              secondaryIndex
+              secondaryIndex,
             );
-            inputsData[key as keyof ReportInputs].received.records = await recordsHandler.handle(logger);
+            inputsData[key as keyof ReportInputs].received.records = await recordsHandler.handle(
+              logger,
+            );
             [];
           }
         }
@@ -102,9 +109,11 @@ export class MonthInputsHandler {
               this.location,
               INPUTS_BUTTON_SELECTOR,
               index,
-              secondaryIndex
+              secondaryIndex,
             );
-            inputsData[key as keyof ReportInputs].incorrect.records = await recordsHandler.handle(logger);
+            inputsData[key as keyof ReportInputs].incorrect.records = await recordsHandler.handle(
+              logger,
+            );
             [];
           }
         }

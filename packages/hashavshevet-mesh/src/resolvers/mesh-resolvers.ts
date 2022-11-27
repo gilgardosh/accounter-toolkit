@@ -1,4 +1,10 @@
-import { getRecordsResponse, getTransactionsResponse, RecordType, Resolvers, Transaction } from '../../.mesh/index.js';
+import {
+  getRecordsResponse,
+  getTransactionsResponse,
+  RecordType,
+  Resolvers,
+  Transaction,
+} from '../../.mesh/index.js';
 
 const resolvers: Resolvers = {
   RecordType: {
@@ -62,9 +68,14 @@ const resolvers: Resolvers = {
               idMax: Math.max.apply(null, transactionIds),
             },
           }),
-          valuesFromResults: (transactionsList: getTransactionsResponse, transactionIds: number[]) =>
+          valuesFromResults: (
+            transactionsList: getTransactionsResponse,
+            transactionIds: number[],
+          ) =>
             transactionIds.map(transactionId => {
-              return transactionsList.repdata?.find((transaction: Transaction) => transaction.id === transactionId);
+              return transactionsList.repdata?.find(
+                (transaction: Transaction) => transaction.id === transactionId,
+              );
             }),
         });
       },
@@ -197,7 +208,9 @@ const resolvers: Resolvers = {
           }),
           valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
             batchIds.map(transactionId => {
-              return recordsList.repdata?.filter((record: RecordType) => record.transactionId === transactionId);
+              return recordsList.repdata?.filter(
+                (record: RecordType) => record.transactionId === transactionId,
+              );
             }),
         });
       },
@@ -298,7 +311,9 @@ const resolvers: Resolvers = {
           }),
           valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
             batchIds.map(batchId => {
-              return recordsList.repdata?.filter((record: RecordType) => record.batchId === batchId);
+              return recordsList.repdata?.filter(
+                (record: RecordType) => record.batchId === batchId,
+              );
             }),
         });
       },

@@ -39,7 +39,11 @@ async function businessLogin(credentials: hapoalimCredentials, page: puppeteer.P
 
   await page.type('#codeForOtp', answers.SMSPassword);
 
-  await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter'), page.click('#buttonNo')]);
+  await Promise.all([
+    page.waitForNavigation(),
+    page.keyboard.press('Enter'),
+    page.click('#buttonNo'),
+  ]);
 }
 
 async function personalLogin(credentials: hapoalimCredentials, page: puppeteer.Page) {
@@ -78,13 +82,23 @@ async function replacePassword(previousCredentials: hapoalimCredentials, page: p
   await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter')]);
 
   await page.waitForSelector('#linkToHomePage');
-  await Promise.all([page.waitForNavigation(), page.keyboard.press('Enter'), page.click('#linkToHomePage')]);
+  await Promise.all([
+    page.waitForNavigation(),
+    page.keyboard.press('Enter'),
+    page.click('#linkToHomePage'),
+  ]);
 
   return 0;
 }
 
-export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCredentials, options?: hapoalimOptions) {
-  options?.isBusiness ? await businessLogin(credentials, page) : await personalLogin(credentials, page);
+export async function hapoalim(
+  page: puppeteer.Page,
+  credentials: hapoalimCredentials,
+  options?: hapoalimOptions,
+) {
+  options?.isBusiness
+    ? await businessLogin(credentials, page)
+    : await personalLogin(credentials, page);
 
   const result = await page.evaluate(() => {
     if (window && window.bnhpApp && window.bnhpApp.restContext) {
@@ -100,7 +114,9 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
   } else if (result == 'nothing') {
     return 'Unknown Error';
   }
-  const apiSiteUrl = `https://${options?.isBusiness ? 'biz2' : 'login'}.bankhapoalim.co.il/${result.slice(1)}`;
+  const apiSiteUrl = `https://${
+    options?.isBusiness ? 'biz2' : 'login'
+  }.bankhapoalim.co.il/${result.slice(1)}`;
 
   const now = new Date();
   const startMonth = options?.duration ?? 12;
@@ -123,25 +139,38 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
       }
       return { data: await getAccountsFunction };
     },
-    getILSTransactions: async (account: { bankNumber: number; branchNumber: number; accountNumber: number }) => {
+    getILSTransactions: async (account: {
+      bankNumber: number;
+      branchNumber: number;
+      accountNumber: number;
+    }) => {
       const fullAccountNumber = `${account.bankNumber}-${account.branchNumber}-${account.accountNumber}`;
       const ILSCheckingTransactionsUrl = `${apiSiteUrl}/current-account/transactions?accountId=${fullAccountNumber}&numItemsPerPage=200&retrievalEndDate=${endDateString}&retrievalStartDate=${startDateString}&sortCode=1`;
-      const getIlsTransactionsFunction = fetchPoalimXSRFWithinPage<ILSCheckingTransactionsDataSchema>(
-        page,
-        ILSCheckingTransactionsUrl,
-        '/current-account/transactions'
-      );
+      const getIlsTransactionsFunction =
+        fetchPoalimXSRFWithinPage<ILSCheckingTransactionsDataSchema>(
+          page,
+          ILSCheckingTransactionsUrl,
+          '/current-account/transactions',
+        );
       if (options?.validateSchema || options?.getTransactionsDetails) {
         const data = await getIlsTransactionsFunction;
 
         if (options?.getTransactionsDetails && data != null) {
           for (const transaction of data.transactions) {
             if (transaction.pfmDetails) {
-              /* let a = */ await fetchPoalimXSRFWithinPage(page, ILSCheckingTransactionsUrl, transaction.pfmDetails);
+              /* let a = */ await fetchPoalimXSRFWithinPage(
+                page,
+                ILSCheckingTransactionsUrl,
+                transaction.pfmDetails,
+              );
               // TODO: create schema and make this attribute string / object for inputing data
             }
             if (transaction.details) {
-              /*let b = */ await fetchPoalimXSRFWithinPage(page, ILSCheckingTransactionsUrl, transaction.details);
+              /*let b = */ await fetchPoalimXSRFWithinPage(
+                page,
+                ILSCheckingTransactionsUrl,
+                transaction.details,
+              );
               // TODO: create schema and make this attribute string / object for inputing data
             }
           }
@@ -163,7 +192,7 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
         bankNumber: number;
         branchNumber: number;
         accountNumber: number;
-      }
+      },
       // isBusiness = true
     ) => {
       /**
@@ -178,7 +207,7 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
       const getForeignTransactionsFunction = fetchGetWithinPage<ForeignTransactionsBusinessSchema>(
         //  | ForeignTransactionsPersonalSchema
         page,
-        foreignTransactionsUrl
+        foreignTransactionsUrl,
       );
       if (options?.validateSchema) {
         const data = await getForeignTransactionsFunction;
@@ -198,7 +227,7 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
           //   ? foreignTransactionsBusinessSchema
           //   : foreignTransactionsPersonalSchema,
           foreignTransactionsBusinessSchema,
-          data
+          data,
         );
         return {
           data,
@@ -207,7 +236,11 @@ export async function hapoalim(page: puppeteer.Page, credentials: hapoalimCreden
       }
       return { data: await getForeignTransactionsFunction };
     },
-    getDeposits: async (account: { bankNumber: number; branchNumber: number; accountNumber: number }) => {
+    getDeposits: async (account: {
+      bankNumber: number;
+      branchNumber: number;
+      accountNumber: number;
+    }) => {
       const fullAccountNumber = `${account.bankNumber}-${account.branchNumber}-${account.accountNumber}`;
       const depositsUrl = `${apiSiteUrl}/deposits-and-savings/deposits?accountId=${fullAccountNumber}&view=details&lang=he`;
       const getDepositsFunction = fetchGetWithinPage<HapoalimDepositsSchema>(page, depositsUrl);

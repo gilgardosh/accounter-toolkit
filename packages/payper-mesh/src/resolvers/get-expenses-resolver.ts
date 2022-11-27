@@ -15,7 +15,7 @@ module.exports =
       ResolversParentTypes['Query'],
       MeshContext,
       Partial<QuerygetExpensesArgs>
-    >
+    >,
   ): QueryResolvers['getExpenses'] =>
   (root, args, context, info) => {
     if (!args.input) {

@@ -1,4 +1,7 @@
-import { getTransactionsResponse, queryInput_getTransactions_input_Input } from '../../.mesh/index.js';
+import {
+  getTransactionsResponse,
+  queryInput_getTransactions_input_Input,
+} from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { transactionsDataFile } from './data-files';
 

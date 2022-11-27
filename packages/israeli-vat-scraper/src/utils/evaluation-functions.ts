@@ -176,7 +176,9 @@ export const getReportExpansionInputRecords = (table: Element): ReportInputRecor
   return recordsData;
 };
 
-export const getReportExpansionInputRecordDetails = (table: Element): ReportInputRecordDetails | undefined => {
+export const getReportExpansionInputRecordDetails = (
+  table: Element,
+): ReportInputRecordDetails | undefined => {
   if (!(table instanceof HTMLTableElement)) {
     return undefined;
   }

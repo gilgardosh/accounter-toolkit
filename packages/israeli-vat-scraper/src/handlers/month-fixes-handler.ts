@@ -23,11 +23,18 @@ export class MonthFixesHandler {
   public handle = async (logger: Logger): Promise<ReportFixedInvoice[] | undefined> => {
     this.prompt.update(this.location, 'Fetching...', logger);
     try {
-      this.page = await newPageByMonth(this.config.visibleBrowser, this.location[0], this.index, logger);
+      this.page = await newPageByMonth(
+        this.config.visibleBrowser,
+        this.location[0],
+        this.index,
+        logger,
+      );
 
-      const button = await this.page.waitForSelector('#ContentUsersPage_lnkHeshboniotBeforeTikun').catch(() => {
-        return;
-      });
+      const button = await this.page
+        .waitForSelector('#ContentUsersPage_lnkHeshboniotBeforeTikun')
+        .catch(() => {
+          return;
+        });
 
       if (!button) {
         this.prompt.update(this.location, 'Done - no data found', logger);
@@ -37,7 +44,11 @@ export class MonthFixesHandler {
       await button.click();
 
       // get fixes
-      const fixesTable = await waitForSelectorPlus(this.page, '#ContentUsersPage_DgIskNosfu', logger);
+      const fixesTable = await waitForSelectorPlus(
+        this.page,
+        '#ContentUsersPage_DgIskNosfu',
+        logger,
+      );
       const fixes = (await fixesTable?.evaluate(getReportExpansionFixes)) ?? [];
 
       this.page.browser().close();
