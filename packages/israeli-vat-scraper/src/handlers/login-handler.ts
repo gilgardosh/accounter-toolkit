@@ -1,5 +1,4 @@
 import type { Page } from 'puppeteer';
-
 import { waitForSelectorPlus } from '../utils/page-util.js';
 import type { Logger, UserCredentials } from '../utils/types.js';
 

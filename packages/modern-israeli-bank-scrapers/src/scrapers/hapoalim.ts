@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import type puppeteer from 'puppeteer';
-
 import type { AccountDataSchema } from '../generated-types/accountDataSchema';
 import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
 import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';
@@ -15,6 +14,7 @@ import { validateSchema } from '../utils/validate-schema.js';
 // import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema';
 
 declare namespace window {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const bnhpApp: any;
 }
 

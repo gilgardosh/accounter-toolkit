@@ -4,7 +4,7 @@ type PromprTree = Record<string, [string, PromprTree]>;
 
 export class UserPrompt {
   private _status: PromprTree = {};
-  private errors: [string, any][] = [];
+  private errors: [string, unknown][] = [];
   constructor() {
     return;
   }
@@ -46,7 +46,7 @@ export class UserPrompt {
     logger.log(message);
   };
 
-  public addError = (location: string[], error: any, logger: Logger): void => {
+  public addError = (location: string[], error: unknown, logger: Logger): void => {
     this.update(location, 'Error', logger);
     this.errors.push([location.join('-'), error]);
   };

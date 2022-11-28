@@ -9,7 +9,7 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
       id: '0',
       type: 'long',
       name: 'id',
-      defVal: args.idMin || -999999999,
+      defVal: args.idMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -18,7 +18,7 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
       id: '500',
       type: 'long',
       name: 'id1',
-      defVal: args.idMax || 999999999,
+      defVal: args.idMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -62,7 +62,7 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   return parametersArray;
 };
 
-module.exports = next => async (root, args, context, info) => {
+module.exports = next => (root, args, context, info) => {
   if (!args.input) {
     args.input = {};
   }

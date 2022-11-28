@@ -48,7 +48,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '2',
       type: 'float',
       name: 'shekelSum',
-      defVal: args.shekelSumMin || -999999999,
+      defVal: args.shekelSumMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -57,7 +57,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '502',
       type: 'float',
       name: 'shekelSum1',
-      defVal: args.shekelSumMax || 999999999,
+      defVal: args.shekelSumMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -102,7 +102,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '5',
       type: 'long',
       name: 'id',
-      defVal: args.idMin || -999999999,
+      defVal: args.idMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -111,7 +111,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '505',
       type: 'long',
       name: 'id1',
-      defVal: args.idMax || 999999999,
+      defVal: args.idMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -120,7 +120,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '6',
       type: 'long',
       name: 'batchId',
-      defVal: args.batchIdMin || -999999999,
+      defVal: args.batchIdMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -129,7 +129,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
       id: '506',
       type: 'long',
       name: 'batchId1',
-      defVal: args.batchIdMax || 999999999,
+      defVal: args.batchIdMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -138,7 +138,7 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
   return parametersArray;
 };
 
-module.exports = next => async (root, args, context, info) => {
+module.exports = next => (root, args, context, info) => {
   const parameters = handleTransactionsFilterParameters(args.input);
   args.input = {
     parameters,

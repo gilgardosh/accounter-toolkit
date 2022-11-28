@@ -1,5 +1,4 @@
 import type { Page } from 'puppeteer';
-
 import { newPageByMonth } from '../utils/browser-util.js';
 import {
   getReportExpansionInputRecordDetails,
