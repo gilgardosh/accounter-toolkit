@@ -11,3 +11,4 @@ dist/
 **/__generated__/
 **/generated-types/
 **/.mesh
+**/mesh-artifacts
