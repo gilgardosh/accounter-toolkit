@@ -1,5 +1,4 @@
 import puppeteer, { Page } from 'puppeteer';
-
 import { login } from '../handlers/login-handler.js';
 import { waitAndClick, waitForSelectorPlus } from './page-util.js';
 import type { Logger } from './types.js';

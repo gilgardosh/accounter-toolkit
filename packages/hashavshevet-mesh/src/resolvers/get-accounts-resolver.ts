@@ -62,7 +62,7 @@ const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {})
 
   return parametersArray;
 };
-module.exports = next => async (root, args, context, info) => {
+module.exports = next => (root, args, context, info) => {
   const parameters = handleAccountsParameters(args.input);
   args.input = {
     parameters,

@@ -1,5 +1,4 @@
 import type puppeteer from 'puppeteer';
-
 import type { IsracardCardsTransactionsList } from '../generated-types/isracardCardsTransactionsList';
 import type { IsracardDashboardMonth } from '../generated-types/isracardDashboardMonth';
 import isracardCardsTransactionsList from '../schemas/isracardCardsTransactionsList.json';

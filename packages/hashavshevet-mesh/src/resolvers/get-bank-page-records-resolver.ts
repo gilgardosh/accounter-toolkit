@@ -12,7 +12,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
       id: '0',
       type: 'long',
       name: 'id',
-      defVal: args.idMin || -999999999,
+      defVal: args.idMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -21,7 +21,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
       id: '500',
       type: 'long',
       name: 'id1',
-      defVal: args.idMax || 999999999,
+      defVal: args.idMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -30,7 +30,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
       id: '1',
       type: 'long',
       name: 'bankPageId',
-      defVal: args.bankPageIdMin || -999999999,
+      defVal: args.bankPageIdMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -39,7 +39,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
       id: '501',
       type: 'long',
       name: 'bankPageId1',
-      defVal: args.bankPageIdMax || 999999999,
+      defVal: args.bankPageIdMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -65,7 +65,7 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
   return parametersArray;
 };
 
-module.exports = next => async (root, args, context, info) => {
+module.exports = next => (root, args, context, info) => {
   const parameters = handleBankPageRecordsParameters(args.input);
   args.input = {
     parameters,

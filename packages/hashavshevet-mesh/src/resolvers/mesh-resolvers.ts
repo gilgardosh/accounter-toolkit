@@ -25,7 +25,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -58,7 +58,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'transaction')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -97,7 +97,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'account')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -129,7 +129,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'counterAccount')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -163,7 +163,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -196,7 +196,7 @@ const resolvers: Resolvers = {
               transactionId
               ${info.fieldNodes
                 .find(n => n.name.value === 'records')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -232,7 +232,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'creditor')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -264,7 +264,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'debtor')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -299,7 +299,7 @@ const resolvers: Resolvers = {
               batchId
               ${info.fieldNodes
                 .find(n => n.name.value === 'transactions')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -337,7 +337,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'account')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
@@ -371,7 +371,7 @@ const resolvers: Resolvers = {
               id
               ${info.fieldNodes
                 .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map((s: any) => s.name?.value || '')
+                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,

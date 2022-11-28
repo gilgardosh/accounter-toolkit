@@ -1,5 +1,4 @@
 import type { Page } from 'puppeteer';
-
 import { newHomePage } from '../utils/browser-util.js';
 import { parseDate } from '../utils/dates.js';
 import { getSelectOptions } from '../utils/evaluation-functions.js';
@@ -43,7 +42,7 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
           const months = years[numYear]?.length ? years[numYear] : null;
 
           const reportsYearHandler = new YearHandler(config, prompt, [year.value], months);
-          return await reportsYearHandler.handle(config.logger);
+          return reportsYearHandler.handle(config.logger);
         }
         return [];
       }),

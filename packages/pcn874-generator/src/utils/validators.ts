@@ -2,7 +2,7 @@ import type { Header, Options, Transaction } from '../types';
 import { EntryType } from '../types.js';
 
 const onlyDigitsValidator = (value: string): boolean => {
-  return !!value && /^\d+$/.test(value);
+  return Boolean(value) && /^\d+$/.test(value);
 };
 
 const idValidator = (value: string, length: number): boolean => {
@@ -213,11 +213,11 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     throw new Error(`Expected refGroup to be 4 chars long, received "${transaction.refGroup}"`);
   }
 
-  if (!!transaction.refNumber && !idValidator(transaction.refNumber, 9)) {
+  if (Boolean(transaction.refNumber) && !idValidator(transaction.refNumber, 9)) {
     throw new Error(`Expected refNumber to be 9 digits, received "${transaction.refNumber}"`);
   }
 
-  if (!!transaction.totalVat && transaction.totalVat < 0) {
+  if (Boolean(transaction.totalVat) && transaction.totalVat < 0) {
     throw new Error(
       `Expected totalVat to be a positive number, received "${transaction.totalVat}"`,
     );

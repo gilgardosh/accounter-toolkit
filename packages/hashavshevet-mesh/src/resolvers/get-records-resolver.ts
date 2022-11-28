@@ -9,7 +9,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '0',
       type: 'long',
       name: 'id',
-      defVal: args.idMin || -999999999,
+      defVal: args.idMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -18,7 +18,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '500',
       type: 'long',
       name: 'id1',
-      defVal: args.idMax || 999999999,
+      defVal: args.idMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -27,7 +27,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '1',
       type: 'long',
       name: 'transactionId',
-      defVal: args.transactionIdMin || -999999999,
+      defVal: args.transactionIdMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -36,7 +36,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '501',
       type: 'long',
       name: 'transactionId1',
-      defVal: args.transactionIdMax || 999999999,
+      defVal: args.transactionIdMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -81,7 +81,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '4',
       type: 'long',
       name: 'debitOrCreditNumber',
-      defVal: args.debitOrCreditNumberMin || -999999999,
+      defVal: args.debitOrCreditNumberMin || -999_999_999,
       opName: 'מ..עד',
       opOrigin: 'from',
     },
@@ -90,7 +90,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
       id: '504',
       type: 'long',
       name: 'debitOrCreditNumber1',
-      defVal: args.debitOrCreditNumberMax || 999999999,
+      defVal: args.debitOrCreditNumberMax || 999_999_999,
       opName: 'מ..עד',
       opOrigin: 'to',
     },
@@ -98,7 +98,7 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
   return parametersArray;
 };
 
-module.exports = next => async (root, args, context, info) => {
+module.exports = next => (root, args, context, info) => {
   const parameters = handleRecordsFilterParameters(args.input);
   args.input = {
     parameters,

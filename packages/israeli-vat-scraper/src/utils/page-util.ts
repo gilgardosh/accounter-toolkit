@@ -1,5 +1,4 @@
 import { ElementHandle, Page } from 'puppeteer';
-
 import type { Logger } from './types.js';
 
 export const sleep = (ms: number): Promise<void> => {
@@ -21,9 +20,9 @@ export const waitForSelectorPlus = async (
   selector: string,
   logger: Logger,
 ): Promise<ElementHandle<Element> | null> => {
-  return await page.waitForSelector(selector).catch(async () => {
+  return page.waitForSelector(selector).catch(async () => {
     logger.debug(`Activating safety net for selector ${selector}`);
     await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] });
-    return await page.waitForSelector(selector);
+    return page.waitForSelector(selector);
   });
 };

@@ -1,11 +1,10 @@
 import Ajv, { ErrorObject } from 'ajv';
-
 import type { Report } from './types.js';
 
-export const validateSchema = async (
+export const validateSchema = (
   jsonSchema: Record<string, unknown>,
   data: Report[],
-): Promise<{ isValid: boolean; errors?: ErrorObject[] | null }> => {
+): { isValid: boolean; errors?: ErrorObject[] | null } => {
   const ajv = new Ajv({
     verbose: true,
     allowMatchingProperties: true,
