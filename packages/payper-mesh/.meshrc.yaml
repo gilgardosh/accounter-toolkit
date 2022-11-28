@@ -31,6 +31,3 @@ serve:
 sdk:
   generateOperations:
     selectionSetDepth: 2
-
-require:
-  - ts-node/register/transpile-only

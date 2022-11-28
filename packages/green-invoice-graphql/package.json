@@ -50,7 +50,7 @@
     "build": "tsc",
     "copy-files": "cp -a .mesh/ dist/.mesh/",
     "dev": "ts-node ./src/index.ts",
-    "generate": "mesh build --fileType js",
+    "generate": "NODE_OPTIONS=\"--loader ts-node/esm\" mesh build",
     "postbuild": "yarn copy-files",
     "prebuild": "yarn generate",
     "prepublish": "yarn build",
