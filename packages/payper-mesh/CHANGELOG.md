@@ -1,5 +1,13 @@
 # @accounter-toolkit/payper-mesh
 
+## 0.0.4
+
+### Patch Changes
+
+- [#100](https://github.com/gilgardosh/accounter-toolkit/pull/100)
+  [`e5a62eb`](https://github.com/gilgardosh/accounter-toolkit/commit/e5a62eb08312845c88d0ac7c35e25795aab6f36f)
+  Thanks [@ardatan](https://github.com/ardatan)! - ESM compatability fix
+
 ## 0.0.3
 
 ### Patch Changes

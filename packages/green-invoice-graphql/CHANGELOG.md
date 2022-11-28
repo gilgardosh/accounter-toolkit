@@ -1,5 +1,24 @@
 # @accounter-toolkit/green-invoice-graphql
 
+## 0.2.0
+
+### Minor Changes
+
+- [#100](https://github.com/gilgardosh/accounter-toolkit/pull/100)
+  [`e5a62eb`](https://github.com/gilgardosh/accounter-toolkit/commit/e5a62eb08312845c88d0ac7c35e25795aab6f36f)
+  Thanks [@ardatan](https://github.com/ardatan)! - ESM compatability fix
+
+### Patch Changes
+
+- [#102](https://github.com/gilgardosh/accounter-toolkit/pull/102)
+  [`ae5b4f8`](https://github.com/gilgardosh/accounter-toolkit/commit/ae5b4f81e1d78caa4b18d226f835130e753f80f0)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - ESLint fixes
+
+- [#99](https://github.com/gilgardosh/accounter-toolkit/pull/99)
+  [`e885781`](https://github.com/gilgardosh/accounter-toolkit/commit/e88578101745c3495127c084f6e616c834e8807a)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Make Expense fields over draft response
+  optional
+
 ## 0.1.0
 
 ### Minor Changes
