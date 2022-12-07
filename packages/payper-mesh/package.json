@@ -1,6 +1,7 @@
 {
   "name": "@accounter-toolkit/payper-mesh",
   "version": "0.0.3",
+  "type": "module",
   "description": "Graphql proxy for Payper API",
   "repository": {
     "type": "git",
@@ -47,7 +48,7 @@
     "build": "tsc",
     "copy-files": "cp -a .mesh/ dist/.mesh/",
     "dev": "ts-node ./index.ts",
-    "generate": "mesh build",
+    "generate": "NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && rimraf src/mesh-artifacts && mv .mesh src/mesh-artifacts",
     "postbuild": "yarn copy-files",
     "prebuild": "yarn generate",
     "prepublish": "yarn build",
