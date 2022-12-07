@@ -1,11 +1,11 @@
-import {
-  getTransactionsResponse,
-  queryInput_getTransactions_input_Input,
-} from '../../.mesh/index.js';
-// eslint-disable-next-line import/extensions
-import { transactionsDataFile } from './data-files';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getTransactionsResponse,
+//   queryInput_getTransactions_input_Input,
+// } from '../../.mesh/index.js';
+import { transactionsDataFile } from './data-files.js';
 
-const handleTransactionsFilterParameters = (args: queryInput_getTransactions_input_Input = {}) => {
+const handleTransactionsFilterParameters = (args: any = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -138,16 +138,19 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleTransactionsFilterParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: transactionsDataFile,
+// eslint-disable-next-line import/no-default-export
+export default function (next) {
+  return (root, args, context, info) => {
+    const parameters = handleTransactionsFilterParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: transactionsDataFile,
+    };
+    return next(root, args, context, info).then((data: any) => {
+      if (data.repdata?.length && !data.repdata?.[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getTransactionsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
-};
+}
