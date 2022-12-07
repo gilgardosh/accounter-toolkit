@@ -1,23 +1,26 @@
-import {
-  getExpensesResponse,
-  Maybe,
-  MeshContext,
-  QuerygetExpensesArgs,
-  QueryResolvers,
-  ResolverFn,
-  ResolversParentTypes,
-} from '../../.mesh/index.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getExpensesResponse,
+//   Maybe,
+//   MeshContext,
+//   QuerygetExpensesArgs,
+//   QueryResolvers,
+//   ResolverFn,
+//   ResolversParentTypes,
+// } from '../../.mesh/index.js';
 
-module.exports =
-  (
-    next: ResolverFn<
-      Maybe<Promise<getExpensesResponse>>,
-      ResolversParentTypes['Query'],
-      MeshContext,
-      Partial<QuerygetExpensesArgs>
-    >,
-  ): QueryResolvers['getExpenses'] =>
-  (root, args, context, info) => {
+// eslint-disable-next-line import/no-default-export
+export default function (
+  // next: ResolverFn<
+  //   Maybe<Promise<getExpensesResponse>>,
+  //   ResolversParentTypes['Query'],
+  //   MeshContext,
+  //   Partial<QuerygetExpensesArgs>
+  // >,
+  next: any,
+  // ): QueryResolvers['getExpenses'] =>
+): any {
+  return (root, args, context, info) => {
     if (!args.input) {
       args.input = {};
     }
@@ -30,3 +33,4 @@ module.exports =
       return res;
     });
   };
+}

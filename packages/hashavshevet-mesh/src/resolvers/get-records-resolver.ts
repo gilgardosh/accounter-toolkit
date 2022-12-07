@@ -1,8 +1,11 @@
-import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh/index.js';
-// eslint-disable-next-line import/extensions
-import { recordsDataFile } from './data-files';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getRecordsResponse,
+//   queryInput_getRecords_input_Input,
+// } from '../mesh-artifacts/index.js';
+import { recordsDataFile } from './data-files.js';
 
-const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input = {}) => {
+const handleRecordsFilterParameters = (args: any = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -98,16 +101,19 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleRecordsFilterParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: recordsDataFile,
+// eslint-disable-next-line import/no-default-export
+export default function (next) {
+  return (root, args, context, info) => {
+    const parameters = handleRecordsFilterParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: recordsDataFile,
+    };
+    return next(root, args, context, info).then((data: any) => {
+      if (data.repdata?.length && !data.repdata?.[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getRecordsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
-};
+}

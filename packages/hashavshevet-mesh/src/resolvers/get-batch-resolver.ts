@@ -1,8 +1,8 @@
-import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh/index.js';
-// eslint-disable-next-line import/extensions
-import { batchDataFile } from './data-files';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type { getBatchResponse, queryInput_getBatch_input_Input } from '../mesh-artifacts/index.js';
+import { batchDataFile } from './data-files.js';
 
-const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
+const handleBatchParameters = (args: any = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -62,19 +62,22 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  if (!args.input) {
-    args.input = {};
-  }
-  const parameters = handleBatchParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: batchDataFile,
-  };
-  return next(root, args, context, info).then((data: getBatchResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
+// eslint-disable-next-line import/no-default-export
+export default function (next) {
+  return (root, args, context, info) => {
+    if (!args.input) {
+      args.input = {};
     }
-    return data;
-  });
-};
+    const parameters = handleBatchParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: batchDataFile,
+    };
+    return next(root, args, context, info).then((data: any) => {
+      if (data.repdata?.length && !data.repdata?.[0].id) {
+        return null;
+      }
+      return data;
+    });
+  };
+}

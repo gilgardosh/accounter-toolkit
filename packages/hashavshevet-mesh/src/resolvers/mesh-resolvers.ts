@@ -1,12 +1,14 @@
-import {
-  getRecordsResponse,
-  getTransactionsResponse,
-  RecordType,
-  Resolvers,
-  Transaction,
-} from '../../.mesh/index.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getRecordsResponse,
+//   getTransactionsResponse,
+//   RecordType,
+//   Resolvers,
+//   Transaction,
+// } from '../mesh-artifacts/index.js';
 
-const resolvers: Resolvers = {
+// eslint-disable-next-line import/no-default-export
+export default {
   RecordType: {
     batch: {
       selectionSet: `{
@@ -68,13 +70,10 @@ const resolvers: Resolvers = {
               idMax: Math.max.apply(null, transactionIds),
             },
           }),
-          valuesFromResults: (
-            transactionsList: getTransactionsResponse,
-            transactionIds: number[],
-          ) =>
+          valuesFromResults: (transactionsList: any, transactionIds: number[]) =>
             transactionIds.map(transactionId => {
               return transactionsList.repdata?.find(
-                (transaction: Transaction) => transaction.id === transactionId,
+                (transaction: any) => transaction.id === transactionId,
               );
             }),
         });
@@ -206,10 +205,10 @@ const resolvers: Resolvers = {
               transactionIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
+          valuesFromResults: (recordsList: any, batchIds: number[]) =>
             batchIds.map(transactionId => {
               return recordsList.repdata?.filter(
-                (record: RecordType) => record.transactionId === transactionId,
+                (record: any) => record.transactionId === transactionId,
               );
             }),
         });
@@ -309,11 +308,9 @@ const resolvers: Resolvers = {
               batchIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
+          valuesFromResults: (recordsList: any, batchIds: number[]) =>
             batchIds.map(batchId => {
-              return recordsList.repdata?.filter(
-                (record: RecordType) => record.batchId === batchId,
-              );
+              return recordsList.repdata?.filter((record: any) => record.batchId === batchId);
             }),
         });
       },
@@ -388,5 +385,3 @@ const resolvers: Resolvers = {
     },
   },
 };
-
-module.exports = resolvers;
