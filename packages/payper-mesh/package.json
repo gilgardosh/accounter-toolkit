@@ -46,10 +46,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "copy-files": "cp -a .mesh/ dist/.mesh/",
     "dev": "ts-node ./index.ts",
     "generate": "NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && rimraf src/mesh-artifacts && mv .mesh src/mesh-artifacts",
-    "postbuild": "yarn copy-files",
+    "postbuild": "exit 0",
     "prebuild": "yarn generate",
     "prepublish": "yarn build",
     "pretest": "yarn build",

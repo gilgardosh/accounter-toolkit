@@ -1,4 +1,4 @@
-import { getMeshSDK, Sdk } from '../.mesh/index.js';
+import { getMeshSDK, Sdk } from './mesh-artifacts/index.js';
 
 const init = async (authToken: string, userName: string): Promise<{ sdk: Sdk }> => {
   const sdk = await getMeshSDK({
@@ -9,5 +9,5 @@ const init = async (authToken: string, userName: string): Promise<{ sdk: Sdk }> 
   return { sdk };
 };
 
-export * from '../.mesh/index.js';
+export * from './mesh-artifacts/index.js';
 export { init };
