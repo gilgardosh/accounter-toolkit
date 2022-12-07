@@ -1,9 +1,9 @@
 import inquirer from 'inquirer';
 import type puppeteer from 'puppeteer';
-import type { AccountDataSchema } from '../generated-types/accountDataSchema';
-import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
-import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';
-import type { ILSCheckingTransactionsDataSchema } from '../generated-types/ILSCheckingTransactionsDataSchema';
+import type { AccountDataSchema } from '../generated-types/accountDataSchema.js';
+import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema.js';
+import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema.js';
+import type { ILSCheckingTransactionsDataSchema } from '../generated-types/ILSCheckingTransactionsDataSchema.js';
 import accountDataSchemaFile from '../schemas/accountDataSchema.json';
 import foreignTransactionsBusinessSchema from '../schemas/foreignTransactionsBusinessSchema.json';
 import depositsSchema from '../schemas/hapoalimDepositsSchema.json';
@@ -11,7 +11,7 @@ import ILSCheckingTransactionsDataSchemaFile from '../schemas/ILSCheckingTransac
 // import foreignTransactionsPersonalSchema from '../schemas/foreignTransactionsPersonalSchema.json';
 import { fetchGetWithinPage, fetchPoalimXSRFWithinPage } from '../utils/fetch.js';
 import { validateSchema } from '../utils/validate-schema.js';
-// import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema';
+// import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema.js';
 
 declare namespace window {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
