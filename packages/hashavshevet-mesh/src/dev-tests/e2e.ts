@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 
-import { init } from '../src/index.js';
+import { init } from '../index.js';
 
 config();
 
@@ -27,7 +27,7 @@ const test = async () => {
 
   // console.log(temp);
 
-  const res = await sdk.getCompanies_query();
+  const res = await sdk.getTransactions_query();
 
   console.log(JSON.stringify(res, null, 2));
 
