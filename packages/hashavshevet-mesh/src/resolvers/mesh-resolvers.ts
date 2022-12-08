@@ -8,7 +8,7 @@
 // } from '../mesh-artifacts/index.js';
 
 // eslint-disable-next-line import/no-default-export
-export default {
+const resolvers = {
   RecordType: {
     batch: {
       selectionSet: `{
@@ -385,3 +385,8 @@ export default {
     },
   },
 };
+
+// eslint-disable-next-line import/no-default-export
+export default resolvers;
+
+export { resolvers };
