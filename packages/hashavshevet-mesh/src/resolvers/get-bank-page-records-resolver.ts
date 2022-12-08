@@ -1,11 +1,11 @@
-import {
-  getBankPageRecordsResponse,
-  queryInput_getBankPageRecords_input_Input,
-} from '../../.mesh/index.js';
-// eslint-disable-next-line import/extensions
-import { bankPageRecordsDataFile } from './data-files';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getBankPageRecordsResponse,
+//   queryInput_getBankPageRecords_input_Input,
+// } from '../mesh-artifacts/index.js';
+import { bankPageRecordsDataFile } from './data-files.js';
 
-const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_input_Input = {}) => {
+const handleBankPageRecordsParameters = (args: any = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -65,16 +65,19 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleBankPageRecordsParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: bankPageRecordsDataFile,
+// eslint-disable-next-line import/no-default-export
+export default function (next) {
+  return (root, args, context, info) => {
+    const parameters = handleBankPageRecordsParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: bankPageRecordsDataFile,
+    };
+    return next(root, args, context, info).then((data: any) => {
+      if (data.repdata?.length && !data.repdata?.[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getBankPageRecordsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
-};
+}

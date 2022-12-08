@@ -1,6 +1,6 @@
 import type puppeteer from 'puppeteer';
-import type { IsracardCardsTransactionsList } from '../generated-types/isracardCardsTransactionsList';
-import type { IsracardDashboardMonth } from '../generated-types/isracardDashboardMonth';
+import type { IsracardCardsTransactionsList } from '../generated-types/isracardCardsTransactionsList.js';
+import type { IsracardDashboardMonth } from '../generated-types/isracardDashboardMonth.js';
 import isracardCardsTransactionsList from '../schemas/isracardCardsTransactionsList.json';
 import isracardDashboardMonth from '../schemas/isracardDashboardMonth.json';
 import { fetchGetWithinPage, fetchPostWithinPage } from '../utils/fetch.js';

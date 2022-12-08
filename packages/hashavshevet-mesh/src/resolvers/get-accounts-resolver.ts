@@ -1,8 +1,11 @@
-import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh/index.js';
-// eslint-disable-next-line import/extensions
-import { accountsDataFile } from './data-files';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import type {
+//   getAccountsResponse,
+//   queryInput_getAccounts_input_Input,
+// } from '../mesh-artifacts/index.js';
+import { accountsDataFile } from './data-files.js';
 
-const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {}) => {
+const handleAccountsParameters = (args: any = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -62,16 +65,20 @@ const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {})
 
   return parametersArray;
 };
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleAccountsParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: accountsDataFile,
+
+// eslint-disable-next-line import/no-default-export
+export default function (next) {
+  return (root, args, context, info) => {
+    const parameters = handleAccountsParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: accountsDataFile,
+    };
+    return next(root, args, context, info).then((data: any) => {
+      if (data.repdata?.length && !data.repdata?.[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getAccountsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
-};
+}
