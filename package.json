@@ -28,7 +28,7 @@
   "devDependencies": {
     "@theguild/eslint-config": "0.3.1",
     "@theguild/prettier-config": "1.0.0",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.17",
     "bob-the-bundler": "4.0.0",
     "concurrently": "7.6.0",
     "eslint": "8.28.0",
