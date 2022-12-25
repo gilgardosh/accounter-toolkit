@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "getSessionResopnse": {
+    "getSessionResponse": {
       "type": "object",
       "additionalProperties": false,
       "required": ["data", "session"],
@@ -43,7 +43,7 @@
       }
     },
 
-    "getCompaniesResopnse": {
+    "getCompaniesResponse": {
       "type": "object",
       "additionalProperties": false,
       "required": ["repdata"],

@@ -15,12 +15,12 @@ sources:
             field: getSession
             path: /api/napi
             method: POST
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSessionResopnse
+            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSessionResponse
           - type: Query
             field: getCompanies
             path: /CompanyListToTokenApi/TokenCompanies
             method: POST
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getCompaniesResopnse
+            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getCompaniesResponse
 
           - type: Query
             field: getRecords
