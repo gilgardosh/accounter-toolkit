@@ -1,8 +1,12 @@
 import {
+  Account,
+  getAccountsResponse,
   getRecordsResponse,
+  getSortCodesResponse,
   getTransactionsResponse,
   RecordType,
   Resolvers,
+  SortCode,
   Transaction,
 } from '../mesh-artifacts/index.js';
 
@@ -419,6 +423,88 @@ const resolvers: Resolvers = {
           return res.status?.repdata && res.status.repdata.length > 0
             ? res.status.repdata[0]
             : null;
+        });
+      },
+    },
+  },
+  Account: {
+    sortCode: {
+      selectionSet: `{
+        sortCodeId
+      }`,
+      resolve: async (root, _args, context, info) => {
+        if (!root.sortCodeId) {
+          return null;
+        }
+        return context.Hashavshevet.Query.getSortCodes({
+          root,
+          context,
+          info,
+          key: root.sortCodeId,
+          selectionSet: `{
+            status {
+              repdata {
+                code
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'sortCode')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
+            }
+          }`,
+          argsFromKeys: (sortCodeIds: number[]) => ({
+            input: {
+              idMin: Math.min.apply(null, sortCodeIds),
+              idMax: Math.max.apply(null, sortCodeIds),
+            },
+          }),
+          valuesFromResults: (transactionsList: getSortCodesResponse, sortCodeIds: number[]) =>
+            sortCodeIds.map(sortCodeId => {
+              return transactionsList.status?.repdata?.find(
+                (sortCode: SortCode) => sortCode.code === sortCodeId,
+              );
+            }),
+        });
+      },
+    },
+  },
+  SortCode: {
+    accounts: {
+      selectionSet: `{
+        code
+      }`,
+      resolve: async (root, _args, context, info) => {
+        if (!root.code) {
+          return [];
+        }
+        return context.Hashavshevet.Query.getAccounts({
+          root,
+          context,
+          info,
+          key: root.code,
+          selectionSet: `{
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'accounts')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
+            }
+          }`,
+          argsFromKeys: (sortCodes: number[]) => ({
+            input: {
+              sortCodeMin: Math.min.apply(null, sortCodes),
+              sortCodeMax: Math.max.apply(null, sortCodes),
+            },
+          }),
+          valuesFromResults: (recordsList: getAccountsResponse, sortCodes: number[]) =>
+            sortCodes.map(sortCode => {
+              return recordsList.status?.repdata?.filter(
+                (account: Account) => account.sortCodeId === sortCode,
+              );
+            }),
         });
       },
     },

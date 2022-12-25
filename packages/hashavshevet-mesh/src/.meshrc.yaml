@@ -104,6 +104,12 @@ sources:
             # crmActivities
             # crmActivitiesTest
 
+          - type: Query
+            field: getSortCodes
+            path: /ExportDataApi/exportData
+            method: POST
+            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSortCodesResponse
+
     transforms:
       - resolversComposition:
           mode: bare
@@ -118,6 +124,8 @@ sources:
               composer: resolvers/get-accounts-resolver
             - resolver: Query.getBankPageRecords
               composer: resolvers/get-bank-page-records-resolver
+            - resolver: Query.getSortCodes
+              composer: resolvers/get-sort-codes-resolver
             - resolver: Mutation.importAccounts
               composer: resolvers/import-accounts-resolver
 serve:
@@ -125,7 +133,7 @@ serve:
 
 sdk:
   generateOperations:
-    selectionSetDepth: 2
+    selectionSetDepth: 5
 
 additionalTypeDefs: |
   extend type Transaction {
@@ -148,6 +156,11 @@ additionalTypeDefs: |
   }
   extend type importTransactionsToBatchResponse {
     batch: Batch
+  }  extend type SortCode {
+    accounts: [Account]
+  }
+  extend type Account {
+    sortCode: SortCode
   }
 
 additionalResolvers:
