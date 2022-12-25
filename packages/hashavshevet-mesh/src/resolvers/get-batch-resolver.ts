@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import type { getBatchResponse, queryInput_getBatch_input_Input } from '../mesh-artifacts/index.js';
-import { batchDataFile } from './data-files.js';
+import { batchDataFile } from './data-files/index.js';
 
 const handleBatchParameters = (args: any = {}) => {
   const parametersArray = [

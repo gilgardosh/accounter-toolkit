@@ -3,7 +3,7 @@
 //   getBankPageRecordsResponse,
 //   queryInput_getBankPageRecords_input_Input,
 // } from '../mesh-artifacts/index.js';
-import { bankPageRecordsDataFile } from './data-files.js';
+import { bankPageRecordsDataFile } from './data-files/index.js';
 
 const handleBankPageRecordsParameters = (args: any = {}) => {
   const parametersArray = [

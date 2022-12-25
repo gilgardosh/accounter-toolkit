@@ -3,7 +3,7 @@
 //   getAccountsResponse,
 //   queryInput_getAccounts_input_Input,
 // } from '../mesh-artifacts/index.js';
-import { accountsDataFile } from './data-files.js';
+import { accountsDataFile } from './data-files/index.js';
 
 const handleAccountsParameters = (args: any = {}) => {
   const parametersArray = [

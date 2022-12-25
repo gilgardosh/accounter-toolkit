@@ -3,7 +3,7 @@
 //   getTransactionsResponse,
 //   queryInput_getTransactions_input_Input,
 // } from '../../.mesh/index.js';
-import { transactionsDataFile } from './data-files.js';
+import { transactionsDataFile } from './data-files/index.js';
 
 const handleTransactionsFilterParameters = (args: any = {}) => {
   const parametersArray = [

@@ -3,7 +3,7 @@
 //   getRecordsResponse,
 //   queryInput_getRecords_input_Input,
 // } from '../mesh-artifacts/index.js';
-import { recordsDataFile } from './data-files.js';
+import { recordsDataFile } from './data-files/index.js';
 
 const handleRecordsFilterParameters = (args: any = {}) => {
   const parametersArray = [
