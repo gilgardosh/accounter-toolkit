@@ -2,7 +2,7 @@ sources:
   - name: Hashavshevet
     handler:
       jsonSchema:
-        baseUrl: 'https://{context.hashavshevetUrl}/'
+        endpoint: 'https://{context.hashavshevetUrl}/'
         queryStringOptions:
           indices: true
         operationHeaders:

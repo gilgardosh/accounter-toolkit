@@ -2,7 +2,7 @@ sources:
   - name: GreenInvoice
     handler:
       jsonSchema:
-        baseUrl: 'https://api.greeninvoice.co.il/api/v1'
+        endpoint: 'https://api.greeninvoice.co.il/api/v1'
         operationHeaders:
           Authorization: Bearer {context.authToken}
           Content-Type: application/json
