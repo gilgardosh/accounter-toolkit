@@ -10,11 +10,11 @@
     "idMax": {
       "type": "string"
     },
-    "isActiveMin": {
-      "type": "string"
+    "sortCodeMin": {
+      "type": "integer"
     },
-    "isActiveMax": {
-      "type": "string"
+    "sortCodeMax": {
+      "type": "integer"
     },
     "nameMin": {
       "type": "string"
