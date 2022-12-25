@@ -110,7 +110,7 @@ export default function (next) {
       datafile: recordsDataFile,
     };
     return next(root, args, context, info).then((data: any) => {
-      if (data.repdata?.length && !data.repdata?.[0].id) {
+      if (data.status?.repdata?.length && !data.status.repdata[0].id) {
         return null;
       }
       return data;

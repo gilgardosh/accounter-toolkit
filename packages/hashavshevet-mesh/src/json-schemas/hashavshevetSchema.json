@@ -46,27 +46,41 @@
     "getCompaniesResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["repdata"],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["Comp_Vatnum", "Company_File_Name", "Company_Name"],
-            "properties": {
-              "Comp_Vatnum": {
-                "type": "string"
-              },
-              "Company_File_Name": {
-                "type": "string"
-              },
-              "Company_Name": {
-                "type": "string"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repdata"],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Comp_Vatnum", "Company_File_Name", "Company_Name"],
+                "properties": {
+                  "Comp_Vatnum": {
+                    "type": "string"
+                  },
+                  "Company_File_Name": {
+                    "type": "string"
+                  },
+                  "Company_Name": {
+                    "type": "string"
+                  }
+                }
               }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
             }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -74,14 +88,28 @@
     "getRecordsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/RecordType"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/RecordType"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -89,14 +117,28 @@
     "getTransactionsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Transaction"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Transaction"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -191,14 +233,28 @@
     "getBatchResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Batch"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Batch"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -219,14 +275,28 @@
     "getBankPageRecordsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/BankPageRecord"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/BankPageRecord"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -269,14 +339,28 @@
     "getAccountsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Account"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -577,8 +661,8 @@
           "description": "Credit / Debit"
         },
         "debitOrCreditNumber": {
-          "type": "string",
-          "enum": ["-1", "1"],
+          "type": ["string", "integer"],
+          "enum": ["-1", "1", -1, 1],
           "description": "Credit (-1) / Debit (1)"
         },
         "estimatedSum": {

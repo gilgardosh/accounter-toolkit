@@ -1,14 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// import type {
-//   getRecordsResponse,
-//   getTransactionsResponse,
-//   RecordType,
-//   Resolvers,
-//   Transaction,
-// } from '../mesh-artifacts/index.js';
+import {
+  getRecordsResponse,
+  getTransactionsResponse,
+  RecordType,
+  Resolvers,
+  Transaction,
+} from '../mesh-artifacts/index.js';
 
-// eslint-disable-next-line import/no-default-export
-const resolvers = {
+const resolvers: Resolvers = {
   RecordType: {
     batch: {
       selectionSet: `{
@@ -23,12 +21,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'batch')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -38,7 +38,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -56,12 +58,14 @@ const resolvers = {
           info,
           key: root.transactionId,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'transaction')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'transaction')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           argsFromKeys: (transactionIds: number[]) => ({
@@ -70,10 +74,13 @@ const resolvers = {
               idMax: Math.max.apply(null, transactionIds),
             },
           }),
-          valuesFromResults: (transactionsList: any, transactionIds: number[]) =>
+          valuesFromResults: (
+            transactionsList: getTransactionsResponse,
+            transactionIds: number[],
+          ) =>
             transactionIds.map(transactionId => {
-              return transactionsList.repdata?.find(
-                (transaction: any) => transaction.id === transactionId,
+              return transactionsList.status?.repdata?.find(
+                (transaction: Transaction) => transaction.id === transactionId,
               );
             }),
         });
@@ -92,12 +99,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'account')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'account')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -107,7 +116,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -124,12 +135,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'counterAccount')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'counterAccount')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -139,7 +152,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -158,12 +173,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'batch')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -173,7 +190,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -191,12 +210,14 @@ const resolvers = {
           info,
           key: root.id,
           selectionSet: `{
-            repdata {
-              transactionId
-              ${info.fieldNodes
-                .find(n => n.name.value === 'records')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                transactionId
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'records')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           argsFromKeys: (batchIds: number[]) => ({
@@ -205,10 +226,10 @@ const resolvers = {
               transactionIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: any, batchIds: number[]) =>
+          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
             batchIds.map(transactionId => {
-              return recordsList.repdata?.filter(
-                (record: any) => record.transactionId === transactionId,
+              return recordsList.status?.repdata?.filter(
+                (record: RecordType) => record.transactionId === transactionId,
               );
             }),
         });
@@ -227,12 +248,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'creditor')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'creditor')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -242,7 +265,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -259,12 +284,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'debtor')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'debtor')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -274,7 +301,7 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status.repdata && res.status.repdata.length > 0 ? res.status.repdata[0] : null;
         });
       },
     },
@@ -294,12 +321,14 @@ const resolvers = {
           info,
           key: root.id,
           selectionSet: `{
-            repdata {
-              batchId
-              ${info.fieldNodes
-                .find(n => n.name.value === 'transactions')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                batchId
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'transactions')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           argsFromKeys: (batchIds: number[]) => ({
@@ -308,9 +337,11 @@ const resolvers = {
               batchIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: any, batchIds: number[]) =>
+          valuesFromResults: (recordsList: getTransactionsResponse, batchIds: number[]) =>
             batchIds.map(batchId => {
-              return recordsList.repdata?.filter((record: any) => record.batchId === batchId);
+              return recordsList.status?.repdata?.filter(
+                (record: RecordType) => record.batchId === batchId,
+              );
             }),
         });
       },
@@ -330,12 +361,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'account')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'account')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -345,7 +378,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
@@ -364,12 +399,14 @@ const resolvers = {
           context,
           info,
           selectionSet: `{
-            repdata {
-              id
-              ${info.fieldNodes
-                .find(n => n.name.value === 'batch')
-                .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
-                .join('\n')}
+            status {
+              repdata {
+                id
+                ${info.fieldNodes
+                  .find(n => n.name.value === 'batch')
+                  .selectionSet.selections.map(s => ('name' in s ? s.name.value : ''))
+                  .join('\n')}
+              }
             }
           }`,
           args: {
@@ -379,7 +416,9 @@ const resolvers = {
             },
           },
         }).then(res => {
-          return res.repdata && res.repdata.length > 0 ? res.repdata[0] : null;
+          return res.status?.repdata && res.status.repdata.length > 0
+            ? res.status.repdata[0]
+            : null;
         });
       },
     },
