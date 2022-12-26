@@ -10,7 +10,7 @@ import {
   SortCode,
   Transaction,
 } from '../mesh-artifacts/index.js';
-import { accountsDataFile, sortCodesDataFile } from './data-files/index.js';
+import { accountsDataFile, recordsDataFile, sortCodesDataFile } from './data-files/index.js';
 
 const adjustGetAccountsInputToRaw = (args: Record<string, any> = {}) => {
   const parametersArray = [
@@ -76,6 +76,105 @@ const adjustGetAccountsInputToRaw = (args: Record<string, any> = {}) => {
   };
 };
 
+const adjustGetRecordsInputToRaw = (args: Record<string, any> = {}) => {
+  const parametersArray = [
+    {
+      p_name: '__MUSTACH_P0__',
+      id: '0',
+      type: 'long',
+      name: 'id',
+      defVal: args['idMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P1__',
+      id: '500',
+      type: 'long',
+      name: 'id1',
+      defVal: args['idMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P2__',
+      id: '1',
+      type: 'long',
+      name: 'transactionId',
+      defVal: args['transactionIdMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P3__',
+      id: '501',
+      type: 'long',
+      name: 'transactionId1',
+      defVal: args['transactionIdMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P4__',
+      id: '2',
+      type: 'txt',
+      name: 'accountId',
+      defVal: `"${args['accountIdMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P5__',
+      id: '502',
+      type: 'txt',
+      name: 'accountId1',
+      defVal: `"${args['accountIdMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P6__',
+      id: '3',
+      type: 'txt',
+      name: 'counterAccountId',
+      defVal: `"${args['ounterAccountIdMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P7__',
+      id: '503',
+      type: 'txt',
+      name: 'counterAccountId1',
+      defVal: `"${args['ounterAccountIdMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P8__',
+      id: '4',
+      type: 'long',
+      name: 'debitOrCreditNumber',
+      defVal: args['debitOrCreditNumberMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P9__',
+      id: '504',
+      type: 'long',
+      name: 'debitOrCreditNumber1',
+      defVal: args['debitOrCreditNumberMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+  ];
+  return {
+    parameters: parametersArray,
+    datafile: recordsDataFile,
+  };
+};
+
 const resolvers: Resolvers = {
   Query: {
     getSortCodes: async (root, _, context, info) => {
@@ -92,6 +191,22 @@ const resolvers: Resolvers = {
         input: adjustGetAccountsInputToRaw(args),
       };
       return context.Hashavshevet.Query.getAccountsRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      }).then((data: any) => {
+        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
+          return null;
+        }
+        return data;
+      });
+    },
+    getRecords: async (root, args, context, info) => {
+      const adjustedArgs = {
+        input: adjustGetRecordsInputToRaw(args),
+      };
+      return context.Hashavshevet.Query.getRecordsRaw({
         root,
         context,
         info,
@@ -301,7 +416,7 @@ const resolvers: Resolvers = {
         if (!root.id) {
           return [];
         }
-        return context.Hashavshevet.Query.getRecords({
+        return context.Hashavshevet.Query.getRecordsRaw({
           root,
           context,
           info,
@@ -318,10 +433,10 @@ const resolvers: Resolvers = {
             }
           }`,
           argsFromKeys: (batchIds: number[]) => ({
-            input: {
+            input: adjustGetRecordsInputToRaw({
               transactionIdMin: Math.min.apply(null, batchIds),
               transactionIdMax: Math.max.apply(null, batchIds),
-            },
+            }),
           }),
           valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
             batchIds.map(transactionId => {

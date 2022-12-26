@@ -23,10 +23,10 @@ sources:
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getCompaniesResponse
 
           - type: Query
-            field: getRecords
+            field: getRecordsRaw
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getRecordsRequest.json
+            requestSchema: ./json-schemas/getRecordsRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getRecordsResponse
 
           - type: Query
@@ -115,8 +115,6 @@ sources:
       - resolversComposition:
           mode: bare
           compositions:
-            - resolver: Query.getRecords
-              composer: resolvers/get-records-resolver
             - resolver: Query.getTransactions
               composer: resolvers/get-transactions-resolver
             - resolver: Query.getBatch
@@ -163,6 +161,7 @@ additionalTypeDefs: |
   extend type Query {
     getSortCodes: getSortCodesResponse
     getAccounts(input: getAccountsInput): getAccountsResponse
+    getRecords(input: getRecordsInput): getRecordsResponse
   }
   input getAccountsInput {
     idMin: String
@@ -171,6 +170,18 @@ additionalTypeDefs: |
     sortCodeMax: Int
     nameMin: String
     nameMax: String
+  }
+  input getRecordsInput {
+    idMin: Int
+    idMax: Int
+    transactionIdMin: Float
+    transactionIdMax: Float
+    accountIdMin: String
+    accountIdMax: String
+    ounterAccountIdMin: String
+    ounterAccountIdMax: String
+    debitOrCreditNumberMin: Float
+    debitOrCreditNumberMax: Float
   }
 
 additionalResolvers:
