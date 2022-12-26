@@ -12,6 +12,7 @@ import {
 } from '../mesh-artifacts/index.js';
 import {
   accountsDataFile,
+  batchDataFile,
   recordsDataFile,
   sortCodesDataFile,
   transactionsDataFile,
@@ -313,6 +314,66 @@ const adjustGetTransactionsInputToRaw = (args: Record<string, any> = {}) => {
   return { parameters: parametersArray, datafile: transactionsDataFile };
 };
 
+const adjustGetBatchInputToRaw = (args: Record<string, any> = {}) => {
+  const parametersArray = [
+    {
+      p_name: '__MUSTACH_P0__',
+      id: '0',
+      type: 'long',
+      name: 'id',
+      defVal: args['idMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P1__',
+      id: '500',
+      type: 'long',
+      name: 'id1',
+      defVal: args['idMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P2__',
+      id: '1',
+      type: 'txt',
+      name: 'status',
+      defVal: `"${args['statusMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P3__',
+      id: '501',
+      type: 'txt',
+      name: 'status1',
+      defVal: `"${args['statusMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P4__',
+      id: '2',
+      type: 'date',
+      name: 'initDate',
+      defVal: `"${args['initDateMin'] || '1990/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P5__',
+      id: '502',
+      type: 'date',
+      name: 'initDate1',
+      defVal: `"${args['initDateMax'] || '2030/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+  ];
+  return { parameters: parametersArray, datafile: batchDataFile };
+};
+
 const resolvers: Resolvers = {
   Query: {
     getSortCodes: async (root, _, context, info) => {
@@ -372,6 +433,22 @@ const resolvers: Resolvers = {
         return data;
       });
     },
+    getBatch: async (root, args, context, info) => {
+      const adjustedArgs = {
+        input: adjustGetBatchInputToRaw(args),
+      };
+      return context.Hashavshevet.Query.getBatchRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      }).then((data: any) => {
+        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
+          return null;
+        }
+        return data;
+      });
+    },
   },
   RecordType: {
     batch: {
@@ -382,7 +459,7 @@ const resolvers: Resolvers = {
         if (!root.batchId) {
           return null;
         }
-        return context.Hashavshevet.Query.getBatch({
+        return context.Hashavshevet.Query.getBatchRaw({
           root,
           context,
           info,
@@ -398,10 +475,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: adjustGetBatchInputToRaw({
               idMin: root.batchId,
               idMax: root.batchId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -534,7 +611,7 @@ const resolvers: Resolvers = {
         if (!root.batchId) {
           return null;
         }
-        return context.Hashavshevet.Query.getBatch({
+        return context.Hashavshevet.Query.getBatchRaw({
           root,
           context,
           info,
@@ -550,10 +627,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: adjustGetBatchInputToRaw({
               idMin: root.batchId,
               idMax: root.batchId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -760,7 +837,7 @@ const resolvers: Resolvers = {
         if (!root.batchno) {
           return null;
         }
-        return context.Hashavshevet.Query.getBatch({
+        return context.Hashavshevet.Query.getBatchRaw({
           root,
           context,
           info,
@@ -776,10 +853,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: adjustGetBatchInputToRaw({
               idMin: root.batchno,
               idMax: root.batchno,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0

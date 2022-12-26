@@ -48,10 +48,10 @@ sources:
             method: POST
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/createBatch
           - type: Query
-            field: getBatch
+            field: getBatchRaw
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getBatchRequest.json
+            requestSchema: ./json-schemas/getBatchRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getBatchResponse
           - type: Query
             field: checkBatch
@@ -115,8 +115,6 @@ sources:
       - resolversComposition:
           mode: bare
           compositions:
-            - resolver: Query.getBatch
-              composer: resolvers/get-batch-resolver
             - resolver: Query.getBankPageRecords
               composer: resolvers/get-bank-page-records-resolver
             - resolver: Mutation.importAccounts
@@ -161,6 +159,7 @@ additionalTypeDefs: |
     getAccounts(input: getAccountsInput): getAccountsResponse
     getRecords(input: getRecordsInput): getRecordsResponse
     getTransactions(input: getTransactionsInput): getTransactionsResponse
+    getBatch(input: getBatchInput): getBatchResponse
   }
   input getAccountsInput {
     idMin: String
@@ -197,6 +196,14 @@ additionalTypeDefs: |
     shekelSumMax: Float
     valueDateMin: String
     valueDateMax: String
+  }
+  input getBatchInput {
+    idMin: Int
+    idMax: Int
+    statusMin: String
+    statusMax: String
+    initDateMin: String
+    initDateMax: String
   }
 
 additionalResolvers:
