@@ -1,0 +1,40 @@
+diff --git a/node_modules/bob-the-bundler/dist/commands/build.js b/node_modules/bob-the-bundler/dist/commands/build.js
+index 2ade5be..a8d3a1a 100644
+--- a/node_modules/bob-the-bundler/dist/commands/build.js
++++ b/node_modules/bob-the-bundler/dist/commands/build.js
+@@ -296,14 +296,32 @@ function validatePackageJson(pkg, includesCommonJS) {
+     }
+ }
+ exports.validatePackageJson = validatePackageJson;
++async function executeCopy(sourcePath, destPath) {
++    await (0, mkdirp_1.default)((0, path_1.dirname)(destPath));
++    await fse.copyFile(sourcePath, destPath);
++}
+ async function copyToDist(cwd, files, distDir) {
+     const allFiles = await (0, globby_1.default)(files, { cwd });
+     return Promise.all(allFiles.map(async (file) => {
+         if (await fse.pathExists((0, path_1.join)(cwd, file))) {
+             const sourcePath = (0, path_1.join)(cwd, file);
+-            const destPath = (0, path_1.join)(distDir, file.replace("src/", ""));
+-            await (0, mkdirp_1.default)((0, path_1.dirname)(destPath));
+-            await fse.copyFile(sourcePath, destPath);
++            if (file.includes('src/')) {
++                const allTypes = [];
++                if (await fse.pathExists((0, path_1.join)(distDir, 'esm'))) {
++                    allTypes.push('esm');
++                }
++                if (await fse.pathExists((0, path_1.join)(distDir, 'cjs'))) {
++                    allTypes.push('cjs');
++                }
++                const allTypesExec = [];
++                allTypes.forEach(type => {
++                    allTypesExec.push(executeCopy(sourcePath, (0, path_1.join)(distDir, file.replace('src/', `${type}/`))));
++                });
++                await Promise.all(allTypesExec);
++            } else {
++                const destPath = (0, path_1.join)(distDir, file);
++                executeCopy(sourcePath, destPath);
++            }
+         }
+     }));
+ }

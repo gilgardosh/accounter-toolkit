@@ -14,6 +14,7 @@
     "ci:lint": "eslint --output-file eslint_report.json --format json",
     "lint": "eslint --ignore-path .gitignore .",
     "postbuild": "yarn workspaces run postbuild",
+    "postinstall": "yarn patch-package",
     "pre-commit": "lint-staged",
     "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
     "prettier": "prettier --ignore-path .gitignore --write --list-different .",
@@ -34,6 +35,8 @@
     "eslint-plugin-simple-import-sort": "8.0.0",
     "husky": "8.0.2",
     "lint-staged": "13.0.4",
+    "patch-package": "6.5.0",
+    "postinstall-postinstall": "2.1.0",
     "prettier": "2.8.0",
     "prettier-plugin-sql": "0.12.1",
     "typescript": "4.9.3"
