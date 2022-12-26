@@ -30,10 +30,10 @@ sources:
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getRecordsResponse
 
           - type: Query
-            field: getTransactions
+            field: getTransactionsRaw
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getTransactionsRequest.json
+            requestSchema: ./json-schemas/getTransactionsRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getTransactionsResponse
           - type: Mutation
             field: importTransactionsToBatch
@@ -115,8 +115,6 @@ sources:
       - resolversComposition:
           mode: bare
           compositions:
-            - resolver: Query.getTransactions
-              composer: resolvers/get-transactions-resolver
             - resolver: Query.getBatch
               composer: resolvers/get-batch-resolver
             - resolver: Query.getBankPageRecords
@@ -162,6 +160,7 @@ additionalTypeDefs: |
     getSortCodes: getSortCodesResponse
     getAccounts(input: getAccountsInput): getAccountsResponse
     getRecords(input: getRecordsInput): getRecordsResponse
+    getTransactions(input: getTransactionsInput): getTransactionsResponse
   }
   input getAccountsInput {
     idMin: String
@@ -182,6 +181,22 @@ additionalTypeDefs: |
     ounterAccountIdMax: String
     debitOrCreditNumberMin: Float
     debitOrCreditNumberMax: Float
+  }
+  input getTransactionsInput {
+    batchIdMin: Int
+    batchIdMax: Int
+    creditorIdMin: String
+    creditorIdMax: String
+    debtorIdMin: String
+    debtorIdMax: String
+    dueDateMin: String
+    dueDateMax: String
+    idMin: Int
+    idMax: Int
+    shekelSumMin: Float
+    shekelSumMax: Float
+    valueDateMin: String
+    valueDateMax: String
   }
 
 additionalResolvers:

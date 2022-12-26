@@ -10,7 +10,12 @@ import {
   SortCode,
   Transaction,
 } from '../mesh-artifacts/index.js';
-import { accountsDataFile, recordsDataFile, sortCodesDataFile } from './data-files/index.js';
+import {
+  accountsDataFile,
+  recordsDataFile,
+  sortCodesDataFile,
+  transactionsDataFile,
+} from './data-files/index.js';
 
 const adjustGetAccountsInputToRaw = (args: Record<string, any> = {}) => {
   const parametersArray = [
@@ -175,6 +180,139 @@ const adjustGetRecordsInputToRaw = (args: Record<string, any> = {}) => {
   };
 };
 
+const adjustGetTransactionsInputToRaw = (args: Record<string, any> = {}) => {
+  const parametersArray = [
+    {
+      p_name: '__MUSTACH_P0__',
+      id: '0',
+      type: 'txt',
+      name: 'creditorId',
+      defVal: `"${args['creditorIdMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P1__',
+      id: '500',
+      type: 'txt',
+      name: 'creditorId1',
+      defVal: `"${args['creditorIdMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P2__',
+      id: '1',
+      type: 'txt',
+      name: 'debtorId',
+      defVal: `"${args['debtorIdMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P3__',
+      id: '501',
+      type: 'txt',
+      name: 'debtorId1',
+      defVal: `"${args['debtorIdMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P4__',
+      id: '2',
+      type: 'float',
+      name: 'shekelSum',
+      defVal: args['shekelSumMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P5__',
+      id: '502',
+      type: 'float',
+      name: 'shekelSum1',
+      defVal: args['shekelSumMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P8__',
+      id: '3',
+      type: 'date',
+      name: 'valueDate',
+      defVal: `"${args['valueDateMin'] || '2000/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P9__',
+      id: '503',
+      type: 'date',
+      name: 'valueDate1',
+      defVal: `"${args['valueDateMax'] || '2030/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P10__',
+      id: '4',
+      type: 'date',
+      name: 'dueDate',
+      defVal: `"${args['dueDateMin'] || '2000/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P11__',
+      id: '504',
+      type: 'date',
+      name: 'dueDate1',
+      defVal: `"${args['dueDateMax'] || '2030/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P12__',
+      id: '5',
+      type: 'long',
+      name: 'id',
+      defVal: args['idMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P13__',
+      id: '505',
+      type: 'long',
+      name: 'id1',
+      defVal: args['idMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P14__',
+      id: '6',
+      type: 'long',
+      name: 'batchId',
+      defVal: args['batchIdMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P15__',
+      id: '506',
+      type: 'long',
+      name: 'batchId1',
+      defVal: args['batchIdMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+  ];
+
+  return { parameters: parametersArray, datafile: transactionsDataFile };
+};
+
 const resolvers: Resolvers = {
   Query: {
     getSortCodes: async (root, _, context, info) => {
@@ -207,6 +345,22 @@ const resolvers: Resolvers = {
         input: adjustGetRecordsInputToRaw(args),
       };
       return context.Hashavshevet.Query.getRecordsRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      }).then((data: any) => {
+        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
+          return null;
+        }
+        return data;
+      });
+    },
+    getTransactions: async (root, args, context, info) => {
+      const adjustedArgs = {
+        input: adjustGetTransactionsInputToRaw(args),
+      };
+      return context.Hashavshevet.Query.getTransactionsRaw({
         root,
         context,
         info,
@@ -264,7 +418,7 @@ const resolvers: Resolvers = {
         if (!root.transactionId) {
           return null;
         }
-        return context.Hashavshevet.Query.getTransactions({
+        return context.Hashavshevet.Query.getTransactionsRaw({
           root,
           context,
           info,
@@ -281,10 +435,10 @@ const resolvers: Resolvers = {
             }
           }`,
           argsFromKeys: (transactionIds: number[]) => ({
-            input: {
+            input: adjustGetTransactionsInputToRaw({
               idMin: Math.min.apply(null, transactionIds),
               idMax: Math.max.apply(null, transactionIds),
-            },
+            }),
           }),
           valuesFromResults: (
             transactionsList: getTransactionsResponse,
@@ -527,7 +681,7 @@ const resolvers: Resolvers = {
         if (!root.id) {
           return [];
         }
-        return context.Hashavshevet.Query.getTransactions({
+        return context.Hashavshevet.Query.getTransactionsRaw({
           root,
           context,
           info,
@@ -544,10 +698,10 @@ const resolvers: Resolvers = {
             }
           }`,
           argsFromKeys: (batchIds: number[]) => ({
-            input: {
+            input: adjustGetTransactionsInputToRaw({
               batchIdMin: Math.min.apply(null, batchIds),
               batchIdMax: Math.max.apply(null, batchIds),
-            },
+            }),
           }),
           valuesFromResults: (recordsList: getTransactionsResponse, batchIds: number[]) =>
             batchIds.map(batchId => {
