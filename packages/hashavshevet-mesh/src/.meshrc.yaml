@@ -84,10 +84,10 @@ sources:
           # deleteItems (deleteIndexRecords)
 
           - type: Query
-            field: getBankPageRecords
+            field: getBankPageRecordsRaw
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getBankPageRecordsRequest.json
+            requestSchema: ./json-schemas/getBankPageRecordsRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getBankPageRecordsResponse
           - type: Mutation
             field: importBankPage
@@ -115,8 +115,6 @@ sources:
       - resolversComposition:
           mode: bare
           compositions:
-            - resolver: Query.getBankPageRecords
-              composer: resolvers/get-bank-page-records-resolver
             - resolver: Mutation.importAccounts
               composer: resolvers/import-accounts-resolver
 serve:
@@ -160,6 +158,7 @@ additionalTypeDefs: |
     getRecords(input: getRecordsInput): getRecordsResponse
     getTransactions(input: getTransactionsInput): getTransactionsResponse
     getBatch(input: getBatchInput): getBatchResponse
+    getBankPageRecords(input: getBankPageRecordsInput): getBankPageRecordsResponse
   }
   input getAccountsInput {
     idMin: String
@@ -204,6 +203,14 @@ additionalTypeDefs: |
     statusMax: String
     initDateMin: String
     initDateMax: String
+  }
+  input getBankPageRecordsInput {
+    idMin: Int
+    idMax: Int
+    bankPageIdMin: Int
+    bankPageIdMax: Int
+    dateMin: String
+    dateMax: String
   }
 
 additionalResolvers:

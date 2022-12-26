@@ -12,6 +12,7 @@ import {
 } from '../mesh-artifacts/index.js';
 import {
   accountsDataFile,
+  bankPageRecordsDataFile,
   batchDataFile,
   recordsDataFile,
   sortCodesDataFile,
@@ -374,6 +375,66 @@ const adjustGetBatchInputToRaw = (args: Record<string, any> = {}) => {
   return { parameters: parametersArray, datafile: batchDataFile };
 };
 
+const adjustGetBankPageRecordsInputToRaw = (args: Record<string, any> = {}) => {
+  const parametersArray = [
+    {
+      p_name: '__MUSTACH_P0__',
+      id: '0',
+      type: 'long',
+      name: 'id',
+      defVal: args['idMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P1__',
+      id: '500',
+      type: 'long',
+      name: 'id1',
+      defVal: args['idMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P2__',
+      id: '1',
+      type: 'long',
+      name: 'bankPageId',
+      defVal: args['bankPageIdMin'] || -999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P3__',
+      id: '501',
+      type: 'long',
+      name: 'bankPageId1',
+      defVal: args['bankPageIdMax'] || 999_999_999,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P4__',
+      id: '2',
+      type: 'date',
+      name: 'date',
+      defVal: `"${args['dateMin'] || '2000/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P5__',
+      id: '502',
+      type: 'date',
+      name: 'date1',
+      defVal: `"${args['dateMax'] || '2030/01/01'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+  ];
+  return { parameters: parametersArray, datafile: bankPageRecordsDataFile };
+};
+
 const resolvers: Resolvers = {
   Query: {
     getSortCodes: async (root, _, context, info) => {
@@ -438,6 +499,22 @@ const resolvers: Resolvers = {
         input: adjustGetBatchInputToRaw(args),
       };
       return context.Hashavshevet.Query.getBatchRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      }).then((data: any) => {
+        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
+          return null;
+        }
+        return data;
+      });
+    },
+    getBankPageRecords: async (root, args, context, info) => {
+      const adjustedArgs = {
+        input: adjustGetBankPageRecordsInputToRaw(args),
+      };
+      return context.Hashavshevet.Query.getBankPageRecordsRaw({
         root,
         context,
         info,
