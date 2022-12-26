@@ -527,6 +527,20 @@ const resolvers: Resolvers = {
       });
     },
   },
+  Mutation: {
+    importAccounts: async (root, args, context, info) => {
+      const adjustedArgs = {
+        ...args,
+        myindex: 'acc',
+      };
+      return context.Hashavshevet.Mutation.importAccountsRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      });
+    },
+  },
   RecordType: {
     batch: {
       selectionSet: `{

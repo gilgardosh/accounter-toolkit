@@ -364,7 +364,7 @@
         }
       }
     },
-    "importAccountsRequest": {
+    "importAccountsRawRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": ["insertnew", "rows"],
@@ -379,6 +379,10 @@
           "items": {
             "$ref": "#/definitions/AccountImport"
           }
+        },
+        "myindex": {
+          "type": "string",
+          "enum": ["acc"]
         }
       }
     },

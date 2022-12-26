@@ -73,10 +73,10 @@ sources:
             requestSchema: ./json-schemas/getAccountsRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getAccountsResponse
           - type: Mutation
-            field: importAccounts
+            field: importAccountsRaw
             path: /IndexApi/importIndex
             method: POST
-            requestSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importAccountsRequest
+            requestSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importAccountsRawRequest
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importAccountsResponse
           # deleteAccounts (deleteIndexRecords)
 
@@ -111,12 +111,6 @@ sources:
             requestSchema: ./json-schemas/getSortCodesRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSortCodesResponse
 
-    transforms:
-      - resolversComposition:
-          mode: bare
-          compositions:
-            - resolver: Mutation.importAccounts
-              composer: resolvers/import-accounts-resolver
 serve:
   browser: false
 
@@ -159,6 +153,9 @@ additionalTypeDefs: |
     getTransactions(input: getTransactionsInput): getTransactionsResponse
     getBatch(input: getBatchInput): getBatchResponse
     getBankPageRecords(input: getBankPageRecordsInput): getBankPageRecordsResponse
+  }
+  extend type Mutation {
+    importAccounts(input:importAccountsInput):importAccountsResponse
   }
   input getAccountsInput {
     idMin: String
@@ -211,6 +208,11 @@ additionalTypeDefs: |
     bankPageIdMax: Int
     dateMin: String
     dateMax: String
+  }
+  input importAccountsInput {
+    "Allow inserting new records. If false only update is allowed"
+    insertnew: Boolean!
+    rows: [AccountImport_Input]!
   }
 
 additionalResolvers:
