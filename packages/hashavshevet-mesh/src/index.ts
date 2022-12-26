@@ -1,5 +1,5 @@
 import https from 'node:https';
-import { getBuiltMesh, getMeshSDK, Sdk } from './mesh-artifacts/index.js';
+import { getBuiltMesh, getSdk, Sdk } from './mesh-artifacts/index.js';
 
 type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 
@@ -14,8 +14,9 @@ export const init = async (
     hashavshevetUrl,
   )) as string;
 
-  const { execute } = await getBuiltMesh();
-  const sdk = await getMeshSDK({ authToken, hashavshevetUrl });
+  const { execute, sdkRequesterFactory } = await getBuiltMesh();
+
+  const sdk = getSdk(sdkRequesterFactory({ authToken, hashavshevetUrl }));
 
   return { sdk, execute };
 };

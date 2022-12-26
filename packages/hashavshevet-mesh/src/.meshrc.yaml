@@ -105,9 +105,10 @@ sources:
             # crmActivitiesTest
 
           - type: Query
-            field: getSortCodes
+            field: getSortCodesRaw
             path: /ExportDataApi/exportData
             method: POST
+            requestSchema: ./json-schemas/getSortCodesRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSortCodesResponse
 
     transforms:
@@ -124,8 +125,6 @@ sources:
               composer: resolvers/get-accounts-resolver
             - resolver: Query.getBankPageRecords
               composer: resolvers/get-bank-page-records-resolver
-            - resolver: Query.getSortCodes
-              composer: resolvers/get-sort-codes-resolver
             - resolver: Mutation.importAccounts
               composer: resolvers/import-accounts-resolver
 serve:
@@ -161,6 +160,9 @@ additionalTypeDefs: |
   }
   extend type Account {
     sortCode: SortCode
+  }
+  extend type Query {
+    getSortCodes: getSortCodesResponse
   }
 
 additionalResolvers:

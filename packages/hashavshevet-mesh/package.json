@@ -51,7 +51,6 @@
     "generate": "NODE_OPTIONS=\"--loader ts-node/esm\" mesh build --dir src && rimraf src/mesh-artifacts && mv src/.mesh src/mesh-artifacts",
     "postbuild": "exit 0",
     "prebuild": "yarn generate",
-    "pretest": "yarn build",
     "start": "node ./dist",
     "test": "DEBUG=1 node ./dist/esm/dev-tests/e2e.js"
   },
@@ -68,6 +67,13 @@
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "bob": {
+    "build": {
+      "copy": [
+        "src/json-schemas"
+      ]
+    }
   },
   "typescript": {
     "definition": "dist/typings/index.d.ts"

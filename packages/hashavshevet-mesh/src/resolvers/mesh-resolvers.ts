@@ -9,8 +9,20 @@ import {
   SortCode,
   Transaction,
 } from '../mesh-artifacts/index.js';
+import { sortCodesDataFile } from './data-files/index.js';
 
 const resolvers: Resolvers = {
+  Query: {
+    getSortCodes: async (root, _, context, info) => {
+      const args = {
+        input: {
+          datafile: sortCodesDataFile,
+          parameters: [],
+        },
+      };
+      return context.Hashavshevet.Query.getSortCodesRaw({ root, context, info, args });
+    },
+  },
   RecordType: {
     batch: {
       selectionSet: `{
@@ -436,7 +448,7 @@ const resolvers: Resolvers = {
         if (!root.sortCodeId) {
           return null;
         }
-        return context.Hashavshevet.Query.getSortCodes({
+        return context.Hashavshevet.Query.getSortCodesRaw({
           root,
           context,
           info,
@@ -452,10 +464,13 @@ const resolvers: Resolvers = {
               }
             }
           }`,
-          argsFromKeys: (sortCodeIds: number[]) => ({
+          argsFromKeys: (_sortCodeIds: number[]) => ({
             input: {
-              idMin: Math.min.apply(null, sortCodeIds),
-              idMax: Math.max.apply(null, sortCodeIds),
+              datafile: sortCodesDataFile,
+              parameters: [],
+              // TODO: implement min/max filtering
+              // idMin: Math.min.apply(null, sortCodeIds),
+              // idMax: Math.max.apply(null, sortCodeIds),
             },
           }),
           valuesFromResults: (transactionsList: getSortCodesResponse, sortCodeIds: number[]) =>
