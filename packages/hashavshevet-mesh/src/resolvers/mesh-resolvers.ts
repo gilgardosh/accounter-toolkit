@@ -12,7 +12,7 @@ import {
 } from '../mesh-artifacts/index.js';
 import { accountsDataFile, sortCodesDataFile } from './data-files/index.js';
 
-const handleAccountsInput = (args: Record<string, any> = {}) => {
+const adjustGetAccountsInputToRaw = (args: Record<string, any> = {}) => {
   const parametersArray = [
     {
       p_name: '__MUSTACH_P0__',
@@ -89,7 +89,7 @@ const resolvers: Resolvers = {
     },
     getAccounts: async (root, args, context, info) => {
       const adjustedArgs = {
-        input: handleAccountsInput(args),
+        input: adjustGetAccountsInputToRaw(args),
       };
       return context.Hashavshevet.Query.getAccountsRaw({
         root,
@@ -207,7 +207,7 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               idMin: root.accountId,
               idMax: root.accountId,
             }),
@@ -243,7 +243,7 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               idMin: root.counterAccountId,
               idMax: root.counterAccountId,
             }),
@@ -356,7 +356,7 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               idMin: root.creditorId,
               idMax: root.creditorId,
             }),
@@ -392,7 +392,7 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               idMin: root.debtorId,
               idMax: root.debtorId,
             }),
@@ -469,7 +469,7 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               idMin: root.accountId,
               idMax: root.accountId,
             }),
@@ -590,7 +590,7 @@ const resolvers: Resolvers = {
             }
           }`,
           argsFromKeys: (sortCodes: number[]) => ({
-            input: handleAccountsInput({
+            input: adjustGetAccountsInputToRaw({
               sortCodeMin: Math.min.apply(null, sortCodes),
               sortCodeMax: Math.max.apply(null, sortCodes),
             }),
