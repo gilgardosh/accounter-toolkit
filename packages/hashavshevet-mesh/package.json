@@ -71,7 +71,8 @@
   "bob": {
     "build": {
       "copy": [
-        "src/json-schemas"
+        "src/json-schemas",
+        "src/additional-type-defs.graphql"
       ]
     }
   },
