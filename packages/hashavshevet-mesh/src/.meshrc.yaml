@@ -67,10 +67,10 @@ sources:
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/issueBatchResponse
 
           - type: Query
-            field: getAccounts
+            field: getAccountsRaw
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getAccountsRequest.json
+            requestSchema: ./json-schemas/getAccountsRawRequest.json
             responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getAccountsResponse
           - type: Mutation
             field: importAccounts
@@ -121,8 +121,6 @@ sources:
               composer: resolvers/get-transactions-resolver
             - resolver: Query.getBatch
               composer: resolvers/get-batch-resolver
-            - resolver: Query.getAccounts
-              composer: resolvers/get-accounts-resolver
             - resolver: Query.getBankPageRecords
               composer: resolvers/get-bank-page-records-resolver
             - resolver: Mutation.importAccounts
@@ -161,8 +159,18 @@ additionalTypeDefs: |
   extend type Account {
     sortCode: SortCode
   }
+
   extend type Query {
     getSortCodes: getSortCodesResponse
+    getAccounts(input: getAccountsInput): getAccountsResponse
+  }
+  input getAccountsInput {
+    idMin: String
+    idMax: String
+    sortCodeMin: Int
+    sortCodeMax: Int
+    nameMin: String
+    nameMax: String
   }
 
 additionalResolvers:

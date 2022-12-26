@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Account,
   getAccountsResponse,
@@ -9,7 +10,71 @@ import {
   SortCode,
   Transaction,
 } from '../mesh-artifacts/index.js';
-import { sortCodesDataFile } from './data-files/index.js';
+import { accountsDataFile, sortCodesDataFile } from './data-files/index.js';
+
+const handleAccountsInput = (args: Record<string, any> = {}) => {
+  const parametersArray = [
+    {
+      p_name: '__MUSTACH_P0__',
+      id: '0',
+      type: 'txt',
+      name: 'id',
+      defVal: `"${args['idMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P1__',
+      id: '500',
+      type: 'txt',
+      name: 'id1',
+      defVal: `"${args['idMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P2__',
+      id: '1',
+      type: 'txt',
+      name: 'name',
+      defVal: `"${args['nameMin'] || ''}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P3__',
+      id: '501',
+      type: 'txt',
+      name: 'name1',
+      defVal: `"${args['nameMax'] || 'תתתתתתתתתתתתתתת'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+    {
+      p_name: '__MUSTACH_P4__',
+      id: '2',
+      type: 'long',
+      name: 'sortCode',
+      defVal: `"${args['sortCodeMin'] || '-999999999'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'from',
+    },
+    {
+      p_name: '__MUSTACH_P5__',
+      id: '502',
+      type: 'long',
+      name: 'sortCode1',
+      defVal: `"${args['sortCodeMax'] || '999999999'}"`,
+      opName: 'מ..עד',
+      opOrigin: 'to',
+    },
+  ];
+
+  return {
+    parameters: parametersArray,
+    datafile: accountsDataFile,
+  };
+};
 
 const resolvers: Resolvers = {
   Query: {
@@ -21,6 +86,22 @@ const resolvers: Resolvers = {
         },
       };
       return context.Hashavshevet.Query.getSortCodesRaw({ root, context, info, args });
+    },
+    getAccounts: async (root, args, context, info) => {
+      const adjustedArgs = {
+        input: handleAccountsInput(args),
+      };
+      return context.Hashavshevet.Query.getAccountsRaw({
+        root,
+        context,
+        info,
+        args: adjustedArgs,
+      }).then((data: any) => {
+        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
+          return null;
+        }
+        return data;
+      });
     },
   },
   RecordType: {
@@ -110,7 +191,7 @@ const resolvers: Resolvers = {
         if (!root.accountId) {
           return null;
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -126,10 +207,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: handleAccountsInput({
               idMin: root.accountId,
               idMax: root.accountId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -146,7 +227,7 @@ const resolvers: Resolvers = {
         if (!root.counterAccountId) {
           return null;
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -162,10 +243,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: handleAccountsInput({
               idMin: root.counterAccountId,
               idMax: root.counterAccountId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -259,7 +340,7 @@ const resolvers: Resolvers = {
         if (!root.creditorId) {
           return null;
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -275,10 +356,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: handleAccountsInput({
               idMin: root.creditorId,
               idMax: root.creditorId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -295,7 +376,7 @@ const resolvers: Resolvers = {
         if (!root.debtorId) {
           return null;
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -311,10 +392,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: handleAccountsInput({
               idMin: root.debtorId,
               idMax: root.debtorId,
-            },
+            }),
           },
         }).then(res => {
           return res.status.repdata && res.status.repdata.length > 0 ? res.status.repdata[0] : null;
@@ -372,7 +453,7 @@ const resolvers: Resolvers = {
         if (!root.accountId) {
           return null;
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -388,10 +469,10 @@ const resolvers: Resolvers = {
             }
           }`,
           args: {
-            input: {
+            input: handleAccountsInput({
               idMin: root.accountId,
               idMax: root.accountId,
-            },
+            }),
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
@@ -492,7 +573,7 @@ const resolvers: Resolvers = {
         if (!root.code) {
           return [];
         }
-        return context.Hashavshevet.Query.getAccounts({
+        return context.Hashavshevet.Query.getAccountsRaw({
           root,
           context,
           info,
@@ -509,10 +590,10 @@ const resolvers: Resolvers = {
             }
           }`,
           argsFromKeys: (sortCodes: number[]) => ({
-            input: {
+            input: handleAccountsInput({
               sortCodeMin: Math.min.apply(null, sortCodes),
               sortCodeMax: Math.max.apply(null, sortCodes),
-            },
+            }),
           }),
           valuesFromResults: (recordsList: getAccountsResponse, sortCodes: number[]) =>
             sortCodes.map(sortCode => {
