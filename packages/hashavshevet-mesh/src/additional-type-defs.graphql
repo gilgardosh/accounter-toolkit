@@ -1,10 +1,10 @@
 extend type Query {
-  getSortCodes: getSortCodesResponse
-  getAccounts(input: getAccountsInput): getAccountsResponse
-  getRecords(input: getRecordsInput): getRecordsResponse
-  getTransactions(input: getTransactionsInput): getTransactionsResponse
-  getBatch(input: getBatchInput): getBatchResponse
-  getBankPageRecords(input: getBankPageRecordsInput): getBankPageRecordsResponse
+  getSortCodes: [SortCode!]!
+  getAccounts(input: getAccountsInput): [Account!]!
+  getRecords(input: getRecordsInput): [RecordType!]!
+  getTransactions(input: getTransactionsInput): [Transaction!]!
+  getBatch(input: getBatchInput): Batch
+  getBankPageRecords(input: getBankPageRecordsInput): [BankPageRecord!]!
 }
 
 extend type Mutation {

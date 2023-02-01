@@ -7,7 +7,6 @@
   on UI does work for the exact same form. Current the only way to make it partially work is to ask
   for one batch each request. An alternative is to create form based on transactions, and filter
   response for unique items.
-- getAccounts: same issue exactly.
 - getBatches: adding issueDate filter makes temporary batches (with no issue date) impossible to
   fetch, since filters are mandatory and not optional.
 - getBatches: the first batch (id=1) which existed on Hashavshevet account (initDate = 01/01/1990)
@@ -20,11 +19,11 @@
   the other on server.
 - Import: if a string contains the char '״' it gets server error (502). happens for sure on
   ImportTransactionsToBatch>Description.
-- Import quota limit: aperently there's a limit for items in a single import (at least, on
-  importBankPageMutation). need to check what is the limit.
+- Import quota limit: aperently there's a limit of 40 items in a single import (at least, on
+  importBankPageMutation).
 - Reference attribute limit: the Reference field (at least on bank pages) is limited to int32, any
   bigger num causes error.
-- Ghost responses: When fetching data from Hashavshevet with export form, and activating filter (e.g
+- Ghost responses:When fetching data from Hashavshevet with export form, and activating filter (e.g
   getting a transaction by specific ID), and no match exists, the response is an item with NULLs in
   all attributes
 - Updating data: currently there's no method for updating or deleting data via the API. Only

@@ -28,7 +28,9 @@ const resolvers: Resolvers = {
           parameters: [],
         },
       };
-      return context.Hashavshevet.Query.getSortCodesRaw({ root, context, info, args });
+      return context.Hashavshevet.Query.getSortCodesRaw({ root, context, info, args }).then(res =>
+        res.status?.repdata?.length > 0 ? res.status.repdata : null,
+      );
     },
     getAccounts: async (root, args, context, info) => {
       const adjustedArgs = {
@@ -39,12 +41,7 @@ const resolvers: Resolvers = {
         context,
         info,
         args: adjustedArgs,
-      }).then((data: any) => {
-        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
-          return null;
-        }
-        return data;
-      });
+      }).then(res => (res.status?.repdata?.length > 0 ? res.status.repdata : null));
     },
     getRecords: async (root, args, context, info) => {
       const adjustedArgs = {
@@ -55,12 +52,7 @@ const resolvers: Resolvers = {
         context,
         info,
         args: adjustedArgs,
-      }).then((data: any) => {
-        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
-          return null;
-        }
-        return data;
-      });
+      }).then(res => (res.status?.repdata?.length > 0 ? res.status.repdata : null));
     },
     getTransactions: async (root, args, context, info) => {
       const adjustedArgs = {
@@ -71,12 +63,7 @@ const resolvers: Resolvers = {
         context,
         info,
         args: adjustedArgs,
-      }).then((data: any) => {
-        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
-          return null;
-        }
-        return data;
-      });
+      }).then(res => (res.status?.repdata?.length > 0 ? res.status.repdata : null));
     },
     getBatch: async (root, args, context, info) => {
       const adjustedArgs = {
@@ -87,12 +74,7 @@ const resolvers: Resolvers = {
         context,
         info,
         args: adjustedArgs,
-      }).then((data: any) => {
-        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
-          return null;
-        }
-        return data;
-      });
+      }).then(res => (res.status?.repdata?.length > 0 ? res.status.repdata[0] : null));
     },
     getBankPageRecords: async (root, args, context, info) => {
       const adjustedArgs = {
@@ -103,12 +85,7 @@ const resolvers: Resolvers = {
         context,
         info,
         args: adjustedArgs,
-      }).then((data: any) => {
-        if (data.status?.repdata?.length && !data.status.repdata[0].id) {
-          return null;
-        }
-        return data;
-      });
+      }).then(res => (res.status?.repdata?.length > 0 ? res.status.repdata : null));
     },
   },
   Mutation: {
@@ -157,7 +134,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(batch => batch.id === root.batchId)
             : null;
         });
       },
@@ -235,7 +212,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(account => account.id === root.accountId)
             : null;
         });
       },
@@ -271,7 +248,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(account => account.id === root.counterAccountId)
             : null;
         });
       },
@@ -309,7 +286,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(batch => batch.id === root.batchId)
             : null;
         });
       },
@@ -338,14 +315,14 @@ const resolvers: Resolvers = {
               }
             }
           }`,
-          argsFromKeys: (batchIds: number[]) => ({
+          argsFromKeys: (transactionIds: number[]) => ({
             input: adjustGetRecordsInputToRaw({
-              transactionIdMin: Math.min.apply(null, batchIds),
-              transactionIdMax: Math.max.apply(null, batchIds),
+              transactionIdMin: Math.min.apply(null, transactionIds),
+              transactionIdMax: Math.max.apply(null, transactionIds),
             }),
           }),
-          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
-            batchIds.map(transactionId => {
+          valuesFromResults: (recordsList: getRecordsResponse, transactionIds: number[]) =>
+            transactionIds.map(transactionId => {
               return recordsList.status?.repdata?.filter(
                 (record: RecordType) => record.transactionId === transactionId,
               );
@@ -384,7 +361,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(account => account.id === root.creditorId)
             : null;
         });
       },
@@ -455,9 +432,9 @@ const resolvers: Resolvers = {
               batchIdMax: Math.max.apply(null, batchIds),
             }),
           }),
-          valuesFromResults: (recordsList: getTransactionsResponse, batchIds: number[]) =>
+          valuesFromResults: (transactionsRes: getTransactionsResponse, batchIds: number[]) =>
             batchIds.map(batchId => {
-              return recordsList.status?.repdata?.filter(
+              return transactionsRes.status?.repdata?.filter(
                 (record: RecordType) => record.batchId === batchId,
               );
             }),
@@ -497,7 +474,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(account => account.id === root.accountId)
             : null;
         });
       },
@@ -535,7 +512,7 @@ const resolvers: Resolvers = {
           },
         }).then(res => {
           return res.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0]
+            ? res.status.repdata.find(batch => batch.id === root.batchno)
             : null;
         });
       },
@@ -575,9 +552,9 @@ const resolvers: Resolvers = {
               // idMax: Math.max.apply(null, sortCodeIds),
             },
           }),
-          valuesFromResults: (transactionsList: getSortCodesResponse, sortCodeIds: number[]) =>
+          valuesFromResults: (sortCodesRes: getSortCodesResponse, sortCodeIds: number[]) =>
             sortCodeIds.map(sortCodeId => {
-              return transactionsList.status?.repdata?.find(
+              return sortCodesRes.status?.repdata?.find(
                 (sortCode: SortCode) => sortCode.code === sortCodeId,
               );
             }),
@@ -616,9 +593,9 @@ const resolvers: Resolvers = {
               sortCodeMax: Math.max.apply(null, sortCodes),
             }),
           }),
-          valuesFromResults: (recordsList: getAccountsResponse, sortCodes: number[]) =>
+          valuesFromResults: (accountsRes: getAccountsResponse, sortCodes: number[]) =>
             sortCodes.map(sortCode => {
-              return recordsList.status?.repdata?.filter(
+              return accountsRes.status?.repdata?.filter(
                 (account: Account) => account.sortCodeId === sortCode,
               );
             }),
