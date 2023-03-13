@@ -324,4 +324,9 @@ export interface Options {
    * default: false
    */
   strict?: boolean;
+  /**
+   * defines if generator will sort transactions (by entryType then invoiceDate)
+   * default: true
+   */
+  sort?: boolean;
 }

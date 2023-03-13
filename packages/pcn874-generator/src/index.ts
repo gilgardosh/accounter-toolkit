@@ -22,9 +22,21 @@ export const pcnGenerator = (
   }
   textFile += headerBuilder(header);
 
+  // sort transactions
+  const sortedTransactions = options.sort
+    ? transactions.sort((a, b) => {
+        if (a.entryType > b.entryType) {
+          return 1;
+        }
+        if (a.entryType < b.entryType) {
+          return -1;
+        }
+        return a.invoiceDate > b.invoiceDate ? 1 : -1;
+      })
+    : transactions;
   // handle transactions
-  for (let i = 0; i < transactions.length; i++) {
-    let transaction = transactions[i];
+  for (let i = 0; i < sortedTransactions.length; i++) {
+    let transaction = sortedTransactions[i];
     try {
       transaction = transactionHandler(transaction, options);
     } catch (e) {
