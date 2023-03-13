@@ -5,7 +5,9 @@ import type {
   QueryResolvers,
   ResolverFn,
   ResolversParentTypes,
-} from '../../.mesh/index.js';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+} from '../mesh-artifacts/index.js';
 
 module.exports = (
   next: ResolverFn<

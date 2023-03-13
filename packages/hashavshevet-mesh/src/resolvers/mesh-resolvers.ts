@@ -1,4 +1,6 @@
-import type { Resolvers } from '../../.mesh/index.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import type { Resolvers } from '../mesh-artifacts/index.js';
 
 const resolvers: Resolvers = {
   RecordType: {

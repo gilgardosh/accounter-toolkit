@@ -15,69 +15,69 @@ sources:
             field: getSession
             path: /api/napi
             method: POST
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getSessionResopnse
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getSessionResopnse
           - type: Query
             field: getCompanies
             path: /CompanyListToTokenApi/TokenCompanies
             method: POST
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getCompaniesResopnse
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getCompaniesResopnse
 
           - type: Query
             field: getRecords
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getRecordsRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getRecordsResponse
+            requestSchema: ./src/json-schemas/getRecordsRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getRecordsResponse
 
           - type: Query
             field: getTransactions
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getTransactionsRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getTransactionsResponse
+            requestSchema: ./src/json-schemas/getTransactionsRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getTransactionsResponse
           - type: Mutation
             field: importTransactionsToBatch
             path: /jtransApi/tmpBatch
             method: POST
-            requestSchema: ./json-schemas/importTransactionsToBatchRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importTransactionsToBatchResponse
+            requestSchema: ./src/json-schemas/importTransactionsToBatchRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/importTransactionsToBatchResponse
 
           - type: Mutation
             field: createBatch
             path: /jtransApi/newBatch
             method: POST
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/createBatch
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/createBatch
           - type: Query
             field: getBatch
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getBatchRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getBatchResponse
+            requestSchema: ./src/json-schemas/getBatchRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getBatchResponse
           - type: Query
             field: checkBatch
             path: /jtransApi/chkBatch
             method: POST
-            requestSchema: ./json-schemas/checkBatchRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/checkBatchResponse
+            requestSchema: ./src/json-schemas/checkBatchRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/checkBatchResponse
           - type: Mutation
             field: issueBatch
             path: /jtransApi/issueBatch
             method: POST
-            requestSchema: ./json-schemas/issueBatchRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/issueBatchResponse
+            requestSchema: ./src/json-schemas/issueBatchRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/issueBatchResponse
 
           - type: Query
             field: getAccounts
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getAccountsRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getAccountsResponse
+            requestSchema: ./src/json-schemas/getAccountsRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getAccountsResponse
           - type: Mutation
             field: importAccounts
             path: /IndexApi/importIndex
             method: POST
-            requestSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importAccountsRequest
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importAccountsResponse
+            requestSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/importAccountsRequest
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/importAccountsResponse
           # deleteAccounts (deleteIndexRecords)
 
           # importItems (importIndexRecords)
@@ -87,14 +87,14 @@ sources:
             field: getBankPageRecords
             path: /ExportDataApi/exportData
             method: POST
-            requestSchema: ./json-schemas/getBankPageRecordsRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/getBankPageRecordsResponse
+            requestSchema: ./src/json-schemas/getBankPageRecordsRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/getBankPageRecordsResponse
           - type: Mutation
             field: importBankPage
             path: /BankPagesApi/importBankPage
             method: POST
-            requestSchema: ./json-schemas/importBankPageRequest.json
-            responseSchema: ./json-schemas/hashavshevetSchema.json#/definitions/importBankPageResponse
+            requestSchema: ./src/json-schemas/importBankPageRequest.json
+            responseSchema: ./src/json-schemas/hashavshevetSchema.json#/definitions/importBankPageResponse
 
             # createDocument
             # showDocument

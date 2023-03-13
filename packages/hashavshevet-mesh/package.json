@@ -46,15 +46,13 @@
   ],
   "scripts": {
     "build": "tsc",
-    "copy-files": "cp -a .mesh/ dist/.mesh/ && cp -a json-schemas/ dist/json-schemas/",
     "dev": "ts-node ./index.ts",
-    "generate": "mesh build",
-    "postbuild": "yarn copy-files",
-    "prebuild": "yarn generate",
+    "mesh:generate": "rimraf .mesh src/.mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && mv .mesh src/.mesh",
+    "prebuild": "yarn mesh:generate",
     "prepublish": "yarn build",
-    "pretest": "yarn build",
+    "pretest": "exit 0",
     "start": "node ./dist",
-    "test": "DEBUG=1 ts-node ./dev-tests/e2e.ts"
+    "test": "DEBUG=1 ts-node ./dev-tests/e2e.mjs"
   },
   "dependencies": {
     "@graphql-mesh/cli": "0.82.25",
@@ -69,6 +67,13 @@
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "bob": {
+    "build": {
+      "copy": [
+        "src/json-schemas"
+      ]
+    }
   },
   "typescript": {
     "definition": "dist/typings/index.d.ts"

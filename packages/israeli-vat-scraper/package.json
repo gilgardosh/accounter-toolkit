@@ -49,7 +49,6 @@
     "dev": "nodemon --exec \"yarn start | pino-pretty\" --ignore dist --watch 'src/**/*' -e ts,tsx,mts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postbuild": "exit 0",
     "prebuild": "exit 0",
     "prepublish": "yarn build",
     "prestart": "yarn build",

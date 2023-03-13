@@ -49,9 +49,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node ./src/index.ts",
-    "generate": "rimraf .mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && mv .mesh src/mesh-artifacts",
-    "postbuild": "exit 0",
-    "prebuild": "yarn generate",
+    "mesh:generate": "rimraf .mesh src/.mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && mv .mesh src/.mesh",
+    "prebuild": "yarn mesh:generate",
     "prepublish": "yarn build",
     "pretest": "yarn build",
     "start": "node ./dist",
@@ -73,6 +72,13 @@
   "publishConfig": {
     "directory": "dist",
     "access": "public"
+  },
+  "bob": {
+    "build": {
+      "copy": [
+        "src/json-schemas"
+      ]
+    }
   },
   "typescript": {
     "definition": "dist/typings/index.d.ts"

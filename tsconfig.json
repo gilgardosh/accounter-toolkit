@@ -49,6 +49,8 @@
     ".bob",
     "**/node_modules",
     "**/generated-types",
-    ".changeset/*.md"
+    ".changeset/*.md",
+    "**/e2e",
+    "helpers"
   ]
 }

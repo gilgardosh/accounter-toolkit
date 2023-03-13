@@ -1,12 +1,13 @@
-import {
+import type {
   getBankPageRecordsResponse,
   MeshContext,
   QuerygetBankPageRecordsArgs,
   queryInput_getBankPageRecords_input_Input,
   QueryResolvers,
   ResolverFn,
-  ResolversParentTypes,
-} from '../../.mesh/index.js';
+  ResolversParentTypes, // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+} from '../mesh-artifacts/index.js';
 // eslint-disable-next-line import/extensions
 import { bankPageRecordsDataFile } from './data-files';
 
