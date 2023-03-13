@@ -76,7 +76,6 @@ export class MonthInputsHandler {
             inputsData[key as keyof ReportInputs].received.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
 
@@ -113,7 +112,6 @@ export class MonthInputsHandler {
             inputsData[key as keyof ReportInputs].incorrect.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
       }

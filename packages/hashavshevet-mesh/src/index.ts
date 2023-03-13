@@ -44,8 +44,9 @@ const login = (hashavshevetKey: string, company: string, hashavshevetUrl: string
         res.on('end', () => {
           if (data === 'iligal token') {
             reject(new Error('Illegal token'));
+          } else {
+            resolve(data);
           }
-          resolve(data);
         });
       },
     );

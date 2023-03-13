@@ -2,7 +2,7 @@ import type { Header, Options, Transaction } from '../types';
 import { EntryType } from '../types.js';
 
 const onlyDigitsValidator = (value: string): boolean => {
-  return Boolean(value) && /^\d+$/.test(value);
+  return !!value && /^\d+$/.test(value);
 };
 
 const idValidator = (value: string, length: number): boolean => {
@@ -94,7 +94,7 @@ export const headerValidator = (header: Header): Header => {
     );
   }
 
-  header.generationDate = header.generationDate || getDateString();
+  header.generationDate ??= getDateString();
   if (!dateValidator(header.generationDate)) {
     throw new Error(
       `Expected generationDate to be legit date formed as YYYYMMDD, received "${header.generationDate}"`,
@@ -116,7 +116,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
   switch (transaction.entryType) {
     case EntryType.SALE_REGULAR: {
       if (transaction.invoiceSum <= 5000) {
-        transaction.vatId = transaction.vatId || '000000000';
+        transaction.vatId ??= '000000000';
       }
       break;
     }
@@ -131,7 +131,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       }
 
       if (transaction.invoiceSum <= 5000) {
-        transaction.vatId = transaction.vatId || '000000000';
+        transaction.vatId ??= '000000000';
       }
       break;
     }
@@ -161,7 +161,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       break;
     }
     case EntryType.SALE_EXPORT: {
-      transaction.vatId = transaction.vatId || '999999999';
+      transaction.vatId ??= '999999999';
       if (transaction.totalVat && transaction.totalVat !== 0) {
         throw new Error(
           `Transactions of entry type "SALE_EXPORT" should not include totalVat, received "${transaction.totalVat}"`,
@@ -177,7 +177,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       }
 
       const invoicesNum = transaction.refNumber ? parseInt(transaction.refNumber) : 0;
-      if (isNaN(invoicesNum) || invoicesNum === 0) {
+      if (Number.isNaN(invoicesNum) || invoicesNum === 0) {
         throw new Error(
           `On transactions of entry type "INPUT_PETTY_CASH", refNumber should reflect the number of invoices in the entry (hence > 0), received "${transaction.refNumber}"`,
         );
@@ -193,7 +193,7 @@ export const transactionValidator = (transaction: Transaction, options: Options)
       break;
     }
     case EntryType.INPUT_SINGLE_DOC_BY_LAW: {
-      transaction.refNumber = transaction.refNumber || '000000000';
+      transaction.refNumber ??= '000000000';
       break;
     }
   }
@@ -208,16 +208,16 @@ export const transactionValidator = (transaction: Transaction, options: Options)
     );
   }
 
-  transaction.refGroup = transaction.refGroup || '0000';
+  transaction.refGroup ??= '0000';
   if (transaction.refGroup.length !== 4) {
     throw new Error(`Expected refGroup to be 4 chars long, received "${transaction.refGroup}"`);
   }
 
-  if (Boolean(transaction.refNumber) && !idValidator(transaction.refNumber, 9)) {
+  if (!!transaction.refNumber && !idValidator(transaction.refNumber, 9)) {
     throw new Error(`Expected refNumber to be 9 digits, received "${transaction.refNumber}"`);
   }
 
-  if (Boolean(transaction.totalVat) && transaction.totalVat < 0) {
+  if (!!transaction.totalVat && transaction.totalVat < 0) {
     throw new Error(
       `Expected totalVat to be a positive number, received "${transaction.totalVat}"`,
     );

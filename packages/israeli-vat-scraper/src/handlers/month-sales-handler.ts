@@ -79,7 +79,6 @@ export class MonthSalesHandler {
             salesData[key as keyof ReportSales].received.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
 
@@ -120,7 +119,6 @@ export class MonthSalesHandler {
             salesData[key as keyof ReportSales].incorrect.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
       }
