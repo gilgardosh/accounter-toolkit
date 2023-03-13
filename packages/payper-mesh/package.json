@@ -1,6 +1,6 @@
 {
   "name": "@accounter-toolkit/payper-mesh",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Graphql proxy for Payper API",
   "repository": {
     "type": "git",

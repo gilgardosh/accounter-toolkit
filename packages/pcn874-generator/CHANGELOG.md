@@ -1,5 +1,19 @@
 # @accounter-toolkit/pcn874-generator
 
+## 0.1.0
+
+### Minor Changes
+
+- [#110](https://github.com/gilgardosh/accounter-toolkit/pull/110)
+  [`636ae46`](https://github.com/gilgardosh/accounter-toolkit/commit/636ae46f6896ee6dcb2349778a368ac3c0cc040d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Add transaction sorting
+
+### Patch Changes
+
+- [#102](https://github.com/gilgardosh/accounter-toolkit/pull/102)
+  [`ae5b4f8`](https://github.com/gilgardosh/accounter-toolkit/commit/ae5b4f81e1d78caa4b18d226f835130e753f80f0)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - ESLint fixes
+
 ## 0.0.2
 
 ### Patch Changes
