@@ -64,7 +64,7 @@
   "devDependencies": {
     "@types/puppeteer": "5.4.7",
     "nodemon": "2.0.21",
-    "pino-pretty": "9.1.1"
+    "pino-pretty": "9.4.0"
   },
   "publishConfig": {
     "directory": "dist",
