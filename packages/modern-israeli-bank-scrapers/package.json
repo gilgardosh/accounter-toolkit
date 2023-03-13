@@ -63,7 +63,7 @@
     "@types/inquirer": "9.0.3",
     "@types/uuid": "8.3.4",
     "json-schema-to-typescript": "11.0.2",
-    "nodemon": "2.0.20"
+    "nodemon": "2.0.21"
   },
   "publishConfig": {
     "directory": "dist",
