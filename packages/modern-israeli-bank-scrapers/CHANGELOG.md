@@ -1,5 +1,13 @@
 # @accounter-toolkit/modern-israeli-bank-scrapers
 
+## 0.4.7
+
+### Patch Changes
+
+- [#102](https://github.com/gilgardosh/accounter-toolkit/pull/102)
+  [`ae5b4f8`](https://github.com/gilgardosh/accounter-toolkit/commit/ae5b4f81e1d78caa4b18d226f835130e753f80f0)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - ESLint fixes
+
 ## 0.4.6
 
 ### Patch Changes

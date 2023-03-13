@@ -1,5 +1,27 @@
 # @accounter-toolkit/payper-mesh
 
+## 0.0.4
+
+### Patch Changes
+
+- [#114](https://github.com/gilgardosh/accounter-toolkit/pull/114)
+  [`3faf888`](https://github.com/gilgardosh/accounter-toolkit/commit/3faf8888ef6921878c086490d6dd517e0d5230d3)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency
+    [`@graphql-mesh/cli@0.82.25` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.82.25)
+    (from `0.80.1`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.37.18` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.37.18)
+    (from `0.35.37`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.13.15` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.13.15)
+    (from `0.12.110`, in `dependencies`)
+
+- [#100](https://github.com/gilgardosh/accounter-toolkit/pull/100)
+  [`e5a62eb`](https://github.com/gilgardosh/accounter-toolkit/commit/e5a62eb08312845c88d0ac7c35e25795aab6f36f)
+  Thanks [@ardatan](https://github.com/ardatan)! - ESM compatability fix
+
 ## 0.0.3
 
 ### Patch Changes
