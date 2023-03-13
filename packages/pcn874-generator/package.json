@@ -47,8 +47,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "node --experimental-json-modules --loader ts-node/esm src/index.ts",
-    "lint": "eslint './src/*/**/*.{js,ts,tsx}' --quiet --fix",
-    "postbuild": "yarn -v",
+    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
+    "postbuild": "exit 0",
     "prebuild": "yarn lint",
     "prepublish": "yarn build",
     "start": "node ./dist"

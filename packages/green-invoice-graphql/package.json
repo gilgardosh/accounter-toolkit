@@ -49,7 +49,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node ./src/index.ts",
-    "generate": "NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && rimraf src/mesh-artifacts && mv .mesh src/mesh-artifacts",
+    "generate": "rimraf .mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && mv .mesh src/mesh-artifacts",
     "postbuild": "exit 0",
     "prebuild": "yarn generate",
     "prepublish": "yarn build",
