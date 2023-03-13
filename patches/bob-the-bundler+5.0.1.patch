@@ -1,0 +1,24 @@
+diff --git a/node_modules/bob-the-bundler/dist/commands/build.js b/node_modules/bob-the-bundler/dist/commands/build.js
+index 6702319..677ae28 100644
+--- a/node_modules/bob-the-bundler/dist/commands/build.js
++++ b/node_modules/bob-the-bundler/dist/commands/build.js
+@@ -1,5 +1,5 @@
+ import assert from 'assert';
+-import { execa } from 'execa';
++import execa from 'execa';
+ import fse from 'fs-extra';
+ import { globby } from 'globby';
+ import pLimit from 'p-limit';
+diff --git a/node_modules/bob-the-bundler/dist/commands/check.js b/node_modules/bob-the-bundler/dist/commands/check.js
+index 2ff385a..6a145a4 100644
+--- a/node_modules/bob-the-bundler/dist/commands/check.js
++++ b/node_modules/bob-the-bundler/dist/commands/check.js
+@@ -6,7 +6,7 @@ import { createCommand } from '../command.js';
+ import { presetFields } from './bootstrap.js';
+ import path from 'path';
+ import pLimit from 'p-limit';
+-import { execa } from 'execa';
++import execa from 'execa';
+ import { getRootPackageJSON } from '../utils/get-root-package-json.js';
+ import { getWorkspaces } from '../utils/get-workspaces.js';
+ import { getWorkspacePackagePaths } from '../utils/get-workspace-package-paths.js';
