@@ -2,7 +2,7 @@ sources:
   - name: Payper
     handler:
       jsonSchema:
-        baseUrl: 'https://payper.co.il/app/api'
+        endpoint: 'https://payper.co.il/app/api'
         operationHeaders:
           API_KEY: '{context.authToken}'
           Content-Type: application/json
