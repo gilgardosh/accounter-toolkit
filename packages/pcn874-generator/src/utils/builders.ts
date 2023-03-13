@@ -1,4 +1,5 @@
 import type { Header, Transaction } from '../types';
+
 const HEADER_REPORT_TYPE = 1;
 const HEADER_TAXABLE_DIFFERENT_RATE_SALES = '+00000000000';
 const HEADER_TAXABLE_DIFFERENT_RATE_SALES_VAT = '+000000000';

@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import type puppeteer from 'puppeteer';
-
 import type { AccountDataSchema } from '../generated-types/accountDataSchema';
 import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
 import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';

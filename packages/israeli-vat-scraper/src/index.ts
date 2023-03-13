@@ -1,7 +1,5 @@
 import { createRequire } from 'node:module';
-
 import { config } from 'dotenv';
-
 import { getEnvCredentials, updateCredentials } from './handlers/login-handler.js';
 import { homePageHandler } from './handlers/main-page-handler.js';
 import { validateSchema } from './utils/schema-validator.js';

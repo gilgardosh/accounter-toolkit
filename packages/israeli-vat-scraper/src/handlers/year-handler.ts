@@ -1,5 +1,4 @@
 import type { Page } from 'puppeteer';
-
 import { newPageByYear } from '../utils/browser-util.js';
 import { getReportsTable } from '../utils/evaluation-functions.js';
 import { waitForSelectorPlus } from '../utils/page-util.js';

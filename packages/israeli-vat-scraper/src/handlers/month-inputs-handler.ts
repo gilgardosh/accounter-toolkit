@@ -1,5 +1,4 @@
 import type { Page } from 'puppeteer';
-
 import { newPageByMonth } from '../utils/browser-util.js';
 import { getReportExpansionInputs } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';

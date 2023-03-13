@@ -1,5 +1,4 @@
 import Ajv, { ErrorObject } from 'ajv';
-
 import type { Report } from './types.js';
 
 export const validateSchema = (

@@ -1,5 +1,4 @@
 import https from 'node:https';
-
 import { getBuiltMesh, getMeshSDK, Sdk } from '../.mesh/index.js';
 
 type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
