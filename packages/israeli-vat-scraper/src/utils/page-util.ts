@@ -1,4 +1,5 @@
 import { ElementHandle, Page } from 'puppeteer';
+
 import type { Logger } from './types.js';
 
 export const sleep = (ms: number): Promise<void> => {

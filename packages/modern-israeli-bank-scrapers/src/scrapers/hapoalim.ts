@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import type puppeteer from 'puppeteer';
+
 import type { AccountDataSchema } from '../generated-types/accountDataSchema';
 import type { ForeignTransactionsBusinessSchema } from '../generated-types/foreignTransactionsBusinessSchema';
 import type { HapoalimDepositsSchema } from '../generated-types/hapoalimDepositsSchema';
@@ -11,6 +12,7 @@ import ILSCheckingTransactionsDataSchemaFile from '../schemas/ILSCheckingTransac
 // import foreignTransactionsPersonalSchema from '../schemas/foreignTransactionsPersonalSchema.json';
 import { fetchGetWithinPage, fetchPoalimXSRFWithinPage } from '../utils/fetch.js';
 import { validateSchema } from '../utils/validate-schema.js';
+
 // import { ForeignTransactionsPersonalSchema } from '../generatedTypes/foreignTransactionsPersonalSchema';
 
 declare namespace window {
@@ -96,12 +98,14 @@ export async function hapoalim(
   credentials: hapoalimCredentials,
   options?: hapoalimOptions,
 ) {
-  options?.isBusiness
-    ? await businessLogin(credentials, page)
-    : await personalLogin(credentials, page);
+  if (options?.isBusiness) {
+    await businessLogin(credentials, page);
+  } else {
+    await personalLogin(credentials, page);
+  }
 
   const result = await page.evaluate(() => {
-    if (window && window.bnhpApp && window.bnhpApp.restContext) {
+    if (window?.bnhpApp?.restContext) {
       return window.bnhpApp.restContext;
     }
     return 'nothing';

@@ -1,4 +1,5 @@
 import type { Page } from 'puppeteer';
+
 import { newHomePage } from '../utils/browser-util.js';
 import { parseDate } from '../utils/dates.js';
 import { getSelectOptions } from '../utils/evaluation-functions.js';

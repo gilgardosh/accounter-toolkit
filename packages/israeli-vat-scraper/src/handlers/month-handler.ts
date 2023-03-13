@@ -1,4 +1,5 @@
 import type { Page } from 'puppeteer';
+
 import { newPageByMonth, newPageByYear } from '../utils/browser-util.js';
 import { getReportDetails, getReportExpansionTitle } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
@@ -69,9 +70,7 @@ export class MonthHandler {
   private getReportAdditionalDetails = async (
     logger: Logger,
   ): Promise<ReportDetails | undefined> => {
-    if (!this.page) {
-      this.page = await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
-    }
+    this.page ||= await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
 
     const selector = `#dgDuchot > tbody > tr:nth-child(${
       this.index + 2

@@ -1,4 +1,5 @@
 import type puppeteer from 'puppeteer';
+
 import type { IsracardCardsTransactionsList } from '../generated-types/isracardCardsTransactionsList';
 import type { IsracardDashboardMonth } from '../generated-types/isracardDashboardMonth';
 import isracardCardsTransactionsList from '../schemas/isracardCardsTransactionsList.json';
@@ -26,7 +27,7 @@ async function getMonthDashboard(page: puppeteer.Page, monthDate: Date, options?
   const accountsUrl = `${SERVICE_URL}?reqName=DashboardMonth&actionCode=0&billingDate=${billingDate}&format=Json`;
   const getDashboardFunction = fetchGetWithinPage<IsracardDashboardMonth>(page, accountsUrl);
 
-  if (options && options.validateSchema) {
+  if (options?.validateSchema) {
     const data = await getDashboardFunction;
     const validation = await validateSchema(isracardDashboardMonth, data);
     return {
@@ -47,7 +48,7 @@ async function getMonthTransactions(
   const transUrl = `${SERVICE_URL}?reqName=CardsTransactionsList&month=${monthStr}&year=${monthDate.getFullYear()}&requiredDate=N`;
   const getTransactionsFunction = fetchGetWithinPage<IsracardCardsTransactionsList>(page, transUrl);
 
-  if (options && options.validateSchema) {
+  if (options?.validateSchema) {
     const data = await getTransactionsFunction;
     const validation = await validateSchema(isracardCardsTransactionsList, data);
     return {

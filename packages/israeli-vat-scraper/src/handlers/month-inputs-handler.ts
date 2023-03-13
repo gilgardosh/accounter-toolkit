@@ -1,4 +1,5 @@
 import type { Page } from 'puppeteer';
+
 import { newPageByMonth } from '../utils/browser-util.js';
 import { getReportExpansionInputs } from '../utils/evaluation-functions.js';
 import { waitAndClick, waitForSelectorPlus } from '../utils/page-util.js';
@@ -76,7 +77,6 @@ export class MonthInputsHandler {
             inputsData[key as keyof ReportInputs].received.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
 
@@ -113,7 +113,6 @@ export class MonthInputsHandler {
             inputsData[key as keyof ReportInputs].incorrect.records = await recordsHandler.handle(
               logger,
             );
-            [];
           }
         }
       }

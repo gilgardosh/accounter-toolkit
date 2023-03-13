@@ -12,9 +12,7 @@ export class UserPrompt {
   public update = (location: string[], status: string, logger: Logger): void => {
     let current = this._status;
     for (let i = 0; i < location.length; i++) {
-      if (!current[location[i]]) {
-        current[location[i]] = ['', {}];
-      }
+      current[location[i]] ??= ['', {}];
       if (i === location.length - 1) {
         if (current[location[i]][0] === 'Error') {
           break;

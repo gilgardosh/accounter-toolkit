@@ -1,4 +1,5 @@
 import https from 'node:https';
+
 import { getBuiltMesh, getMeshSDK, Sdk } from '../.mesh/index.js';
 
 type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
@@ -44,8 +45,9 @@ const login = (hashavshevetKey: string, company: string, hashavshevetUrl: string
         res.on('end', () => {
           if (data === 'iligal token') {
             reject(new Error('Illegal token'));
+          } else {
+            resolve(data);
           }
-          resolve(data);
         });
       },
     );
