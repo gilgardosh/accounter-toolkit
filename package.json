@@ -32,7 +32,6 @@
     "bob-the-bundler": "5.0.1",
     "concurrently": "7.6.0",
     "eslint": "8.36.0",
-    "eslint-plugin-simple-import-sort": "10.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.0",
     "patch-package": "^6.5.1",
