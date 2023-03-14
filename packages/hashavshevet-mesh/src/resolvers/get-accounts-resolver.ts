@@ -1,4 +1,12 @@
-import { getAccountsResponse, queryInput_getAccounts_input_Input } from '../../.mesh/index.js';
+import type {
+  getAccountsResponse,
+  MeshContext,
+  QuerygetAccountsArgs,
+  queryInput_getAccounts_input_Input,
+  QueryResolvers,
+  ResolverFn,
+  ResolversParentTypes,
+} from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { accountsDataFile } from './data-files';
 
@@ -62,16 +70,27 @@ const handleAccountsParameters = (args: queryInput_getAccounts_input_Input = {})
 
   return parametersArray;
 };
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleAccountsParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: accountsDataFile,
+module.exports = (
+  next: ResolverFn<
+    Promise<getAccountsResponse>,
+    ResolversParentTypes['Query'],
+    MeshContext,
+    Partial<QuerygetAccountsArgs>
+  >,
+) => {
+  const resolver: QueryResolvers['getAccounts'] = (root, args, context, info) => {
+    const parameters = handleAccountsParameters(args.input ?? {});
+    args.input = {
+      parameters,
+      datafile: accountsDataFile,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+    return next(root, args, context, info)?.then((data: getAccountsResponse) => {
+      if (data?.repdata?.[0] && !data.repdata[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getAccountsResponse) => {
-    if (data?.repdata?.[0] && !data.repdata[0].id) {
-      return null;
-    }
-    return data;
-  });
+  return resolver;
 };

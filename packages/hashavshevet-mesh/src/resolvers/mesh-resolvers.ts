@@ -1,10 +1,4 @@
-import {
-  getRecordsResponse,
-  getTransactionsResponse,
-  RecordType,
-  Resolvers,
-  Transaction,
-} from '../../.mesh/index.js';
+import type { Resolvers } from '../../.mesh/index.js';
 
 const resolvers: Resolvers = {
   RecordType: {
@@ -62,21 +56,17 @@ const resolvers: Resolvers = {
                 .join('\n')}
             }
           }`,
-          argsFromKeys: (transactionIds: number[]) => ({
+          argsFromKeys: transactionIds => ({
             input: {
               idMin: Math.min.apply(null, transactionIds),
               idMax: Math.max.apply(null, transactionIds),
             },
           }),
-          valuesFromResults: (
-            transactionsList: getTransactionsResponse,
-            transactionIds: number[],
-          ) =>
+          valuesFromResults: (transactionsList, transactionIds) =>
             transactionIds.map(transactionId => {
               return (
-                transactionsList.repdata?.find(
-                  (transaction: Transaction) => transaction.id === transactionId,
-                ) ?? null
+                transactionsList?.repdata?.find(transaction => transaction?.id === transactionId) ??
+                null
               );
             }),
         });
@@ -202,18 +192,17 @@ const resolvers: Resolvers = {
                 .join('\n')}
             }
           }`,
-          argsFromKeys: (batchIds: number[]) => ({
+          argsFromKeys: batchIds => ({
             input: {
               transactionIdMin: Math.min.apply(null, batchIds),
               transactionIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
+          valuesFromResults: (recordsList, batchIds) =>
             batchIds.map(transactionId => {
               return (
-                recordsList.repdata?.filter(
-                  (record: RecordType) => record.transactionId === transactionId,
-                ) ?? null
+                recordsList?.repdata?.filter(record => record?.transactionId === transactionId) ??
+                null
               );
             }),
         });
@@ -307,19 +296,19 @@ const resolvers: Resolvers = {
                 .join('\n')}
             }
           }`,
-          argsFromKeys: (batchIds: number[]) => ({
+          argsFromKeys: batchIds => ({
             input: {
               batchIdMin: Math.min.apply(null, batchIds),
               batchIdMax: Math.max.apply(null, batchIds),
             },
           }),
-          valuesFromResults: (recordsList: getRecordsResponse, batchIds: number[]) =>
-            batchIds.map(batchId => {
-              return (
-                recordsList.repdata?.filter((record: RecordType) => record.batchId === batchId) ??
-                null
-              );
-            }),
+          valuesFromResults: (transactionsList, batchIds) =>
+            batchIds.map(
+              batchId =>
+                transactionsList?.repdata?.filter(
+                  record => record?.batchId && record.batchId === batchId,
+                ) ?? null,
+            ),
         });
       },
     },

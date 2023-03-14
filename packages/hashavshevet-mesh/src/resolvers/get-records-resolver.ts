@@ -1,4 +1,12 @@
-import { getRecordsResponse, queryInput_getRecords_input_Input } from '../../.mesh/index.js';
+import type {
+  getRecordsResponse,
+  MeshContext,
+  QuerygetRecordsArgs,
+  queryInput_getRecords_input_Input,
+  QueryResolvers,
+  ResolverFn,
+  ResolversParentTypes,
+} from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { recordsDataFile } from './data-files';
 
@@ -98,16 +106,27 @@ const handleRecordsFilterParameters = (args: queryInput_getRecords_input_Input =
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleRecordsFilterParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: recordsDataFile,
+module.exports = (
+  next: ResolverFn<
+    Promise<getRecordsResponse>,
+    ResolversParentTypes['Query'],
+    MeshContext,
+    Partial<QuerygetRecordsArgs>
+  >,
+) => {
+  const resolver: QueryResolvers['getRecords'] = (root, args, context, info) => {
+    const parameters = handleRecordsFilterParameters(args.input ?? {});
+    args.input = {
+      parameters,
+      datafile: recordsDataFile,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+    return next(root, args, context, info).then((data: getRecordsResponse) => {
+      if (data?.repdata?.[0] && !data.repdata[0].id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getRecordsResponse) => {
-    if (data?.repdata?.[0] && !data.repdata[0].id) {
-      return null;
-    }
-    return data;
-  });
+  return resolver;
 };
