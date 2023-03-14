@@ -1,4 +1,4 @@
-import type { Header, Transaction } from '../types';
+import type { Header, Transaction } from '../types.js';
 
 const HEADER_REPORT_TYPE = 1;
 const HEADER_TAXABLE_DIFFERENT_RATE_SALES = '+00000000000';

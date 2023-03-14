@@ -8,7 +8,7 @@ import type {
   ResolversParentTypes, // @ts-ignore
 } from '../mesh-artifacts/index.js';
 
-module.exports = (
+const resolver = (
   next: ResolverFn<
     Promise<getExpensesResponse>,
     ResolversParentTypes['Query'],
@@ -37,3 +37,6 @@ module.exports = (
   };
   return resolver;
 };
+
+// eslint-disable-next-line import/no-default-export
+export default resolver;
