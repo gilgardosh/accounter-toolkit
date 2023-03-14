@@ -51,7 +51,9 @@ function replacePaths(path, newName) {
       }
 
       if (data.includes('.mesh')) {
-        const result = data.replace(/\.mesh/g, newName);
+        const result = data
+          .replace(/\.mesh/g, newName)
+          .replace(/\.\/src\/json-schemas/g, './json-schemas');
 
         fs.writeFile(path, result, 'utf8', err => {
           if (err) {
