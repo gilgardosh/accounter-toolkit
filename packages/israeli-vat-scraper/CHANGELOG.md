@@ -1,5 +1,13 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.1.0
+
+### Minor Changes
+
+- [#71](https://github.com/gilgardosh/accounter-toolkit/pull/71)
+  [`08f79c9`](https://github.com/gilgardosh/accounter-toolkit/commit/08f79c9e4f8bf4ed88e99cf499b1927c7416a30f)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Lint-related fixes
+
 ## 0.0.4
 
 ### Patch Changes
