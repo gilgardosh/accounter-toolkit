@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 /* eslint-disable no-console */
 import * as fs from 'node:fs';
 import { globSync } from 'glob';
@@ -55,8 +56,9 @@ function replacePaths(path, newName) {
         fs.writeFile(path, result, 'utf8', err => {
           if (err) {
             reject(err);
+          } else {
+            resolve(undefined);
           }
-          resolve(undefined);
         });
       } else {
         resolve(undefined);

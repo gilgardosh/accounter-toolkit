@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type {
   importAccountsResponse,
   MeshContext,
   MutationimportAccountsArgs,
   MutationResolvers,
   ResolverFn,
-  ResolversParentTypes,
-} from '../../.mesh/index.js';
+  ResolversParentTypes, // @ts-ignore
+} from '../mesh-artifacts/index.js';
 
 module.exports = (
   next: ResolverFn<
@@ -15,6 +16,7 @@ module.exports = (
     Partial<MutationimportAccountsArgs>
   >,
 ) => {
+  // @ts-ignore
   const resolver: MutationResolvers['importAccounts'] = (root, args, context, info) => {
     if (args.input) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

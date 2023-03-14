@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type {
   getBatchResponse,
   MeshContext,
@@ -5,8 +6,7 @@ import type {
   queryInput_getBatch_input_Input,
   QueryResolvers,
   ResolverFn,
-  ResolversParentTypes, // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  ResolversParentTypes, // @ts-ignore
 } from '../mesh-artifacts/index.js';
 // eslint-disable-next-line import/extensions
 import { batchDataFile } from './data-files';
@@ -79,6 +79,7 @@ module.exports = (
     Partial<QuerygetBatchArgs>
   >,
 ) => {
+  // @ts-ignore
   const resolver: QueryResolvers['getBatch'] = (root, args, context, info) => {
     args.input ||= {};
     const parameters = handleBatchParameters(args.input);
@@ -87,6 +88,7 @@ module.exports = (
       datafile: batchDataFile,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
+    // @ts-ignore
     return next(root, args, context, info).then(async data => {
       const datum = (await data).repdata?.[0];
       if (datum && !datum.id) {

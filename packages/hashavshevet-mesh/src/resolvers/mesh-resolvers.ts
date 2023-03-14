@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import type { Resolvers } from '../mesh-artifacts/index.js';
 
@@ -8,6 +8,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         batchId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.batchId) {
           return null;
@@ -20,7 +21,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'batch')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -31,6 +34,7 @@ const resolvers: Resolvers = {
               idMax: root.batchId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -40,6 +44,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         transactionId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.transactionId) {
           return null;
@@ -53,20 +58,26 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'transaction')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
+          // @ts-ignore
           argsFromKeys: transactionIds => ({
             input: {
               idMin: Math.min.apply(null, transactionIds),
               idMax: Math.max.apply(null, transactionIds),
             },
           }),
+          // @ts-ignore
           valuesFromResults: (transactionsList, transactionIds) =>
+            // @ts-ignore
             transactionIds.map(transactionId => {
               return (
+                // @ts-ignore
                 transactionsList?.repdata?.find(transaction => transaction?.id === transactionId) ??
                 null
               );
@@ -78,6 +89,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         accountId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.accountId) {
           return null;
@@ -90,7 +102,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'account')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -101,6 +115,7 @@ const resolvers: Resolvers = {
               idMax: root.accountId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -110,6 +125,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         counterAccountId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.counterAccountId) {
           return null;
@@ -122,7 +138,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'counterAccount')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -133,6 +151,7 @@ const resolvers: Resolvers = {
               idMax: root.counterAccountId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -144,6 +163,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         batchId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.batchId) {
           return null;
@@ -156,7 +176,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'batch')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -167,6 +189,7 @@ const resolvers: Resolvers = {
               idMax: root.batchId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -176,6 +199,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         id
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.id) {
           return [];
@@ -189,20 +213,26 @@ const resolvers: Resolvers = {
             repdata {
               transactionId
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'records')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
+          // @ts-ignore
           argsFromKeys: batchIds => ({
             input: {
               transactionIdMin: Math.min.apply(null, batchIds),
               transactionIdMax: Math.max.apply(null, batchIds),
             },
           }),
+          // @ts-ignore
           valuesFromResults: (recordsList, batchIds) =>
+            // @ts-ignore
             batchIds.map(transactionId => {
               return (
+                // @ts-ignores
                 recordsList?.repdata?.filter(record => record?.transactionId === transactionId) ??
                 null
               );
@@ -214,6 +244,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         creditorId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.creditorId) {
           return null;
@@ -226,7 +257,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'creditor')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -237,6 +270,7 @@ const resolvers: Resolvers = {
               idMax: root.creditorId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -246,6 +280,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         debtorId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.debtorId) {
           return null;
@@ -258,7 +293,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'debtor')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -269,6 +306,7 @@ const resolvers: Resolvers = {
               idMax: root.debtorId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -280,6 +318,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         id
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.id) {
           return [];
@@ -293,21 +332,27 @@ const resolvers: Resolvers = {
             repdata {
               batchId
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'transactions')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
           }`,
+          // @ts-ignore
           argsFromKeys: batchIds => ({
             input: {
               batchIdMin: Math.min.apply(null, batchIds),
               batchIdMax: Math.max.apply(null, batchIds),
             },
           }),
+          // @ts-ignore
           valuesFromResults: (transactionsList, batchIds) =>
             batchIds.map(
+              // @ts-ignore
               batchId =>
                 transactionsList?.repdata?.filter(
+                  // @ts-ignore
                   record => record?.batchId && record.batchId === batchId,
                 ) ?? null,
             ),
@@ -320,6 +365,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
         accountId
       }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.accountId) {
           return null;
@@ -332,7 +378,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'account')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -343,6 +391,7 @@ const resolvers: Resolvers = {
               idMax: root.accountId,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });
@@ -354,6 +403,7 @@ const resolvers: Resolvers = {
       selectionSet: `{
       batchno
     }`,
+      // @ts-ignore
       resolve: async (root, _args, context, info) => {
         if (!root.batchno) {
           return null;
@@ -366,7 +416,9 @@ const resolvers: Resolvers = {
             repdata {
               id
               ${info.fieldNodes
+                // @ts-ignore
                 .find(n => n.name.value === 'batch')
+                // @ts-ignore
                 ?.selectionSet?.selections.map(s => ('name' in s ? s.name.value : ''))
                 .join('\n')}
             }
@@ -377,6 +429,7 @@ const resolvers: Resolvers = {
               idMax: root.batchno,
             },
           },
+          // @ts-ignore
         }).then(res => {
           return res?.repdata && res.repdata.length > 0 ? res.repdata[0] ?? null : null;
         });

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type {
   getRecordsResponse,
   MeshContext,
@@ -5,8 +6,7 @@ import type {
   queryInput_getRecords_input_Input,
   QueryResolvers,
   ResolverFn,
-  ResolversParentTypes, // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  ResolversParentTypes, // @ts-ignore
 } from '../mesh-artifacts/index.js';
 // eslint-disable-next-line import/extensions
 import { recordsDataFile } from './data-files';
@@ -115,6 +115,7 @@ module.exports = (
     Partial<QuerygetRecordsArgs>
   >,
 ) => {
+  // @ts-ignore
   const resolver: QueryResolvers['getRecords'] = (root, args, context, info) => {
     const parameters = handleRecordsFilterParameters(args.input ?? {});
     args.input = {
@@ -122,6 +123,7 @@ module.exports = (
       datafile: recordsDataFile,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
+    // @ts-ignore
     return next(root, args, context, info).then(async data => {
       const datum = (await data).repdata?.[0];
       if (datum && !datum.id) {
