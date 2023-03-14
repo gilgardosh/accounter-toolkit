@@ -39,10 +39,7 @@
       "@accounter-toolkit/hashavshevet-mesh": ["packages/hashavshevet-mesh/src/index.ts"],
       "@accounter-toolkit/israeli-vat-scraper": ["packages/israeli-vat-scraper/index.ts"],
       "@accounter-toolkit/payper-mesh": ["packages/payper-mesh/src/index.ts"],
-      "@accounter-toolkit/pcn874-generator": ["packages/pcn874-generator/src/index.ts"],
-      "@accounter-toolkit/modern-israeli-bank-scrapers": [
-        "packages/modern-israeli-bank-scrapers/src/index.ts"
-      ]
+      "@accounter-toolkit/pcn874-generator": ["packages/pcn874-generator/src/index.ts"]
     }
   },
   "include": ["packages"],
