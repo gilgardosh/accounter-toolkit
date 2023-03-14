@@ -386,7 +386,7 @@ export interface Config {
    *   [ [2019, [1, 2]], [2020, [1, 2]] ]
    * default is null (no limitation, fetch all).
    */
-  years?: (number | [number, number[]])[];
+  years: (number | [number, number[]])[] | undefined;
   /**
    * Logger
    */

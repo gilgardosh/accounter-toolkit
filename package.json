@@ -17,7 +17,7 @@
     "postinstall": "patch-package",
     "pre-commit": "lint-staged",
     "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
-    "prettier": "prettier --ignore-path .gitignore --write --list-different .",
+    "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --check .",
     "release": "yarn build && changeset publish"
   },

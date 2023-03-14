@@ -1,6 +1,11 @@
 import {
   getBankPageRecordsResponse,
+  MeshContext,
+  QuerygetBankPageRecordsArgs,
   queryInput_getBankPageRecords_input_Input,
+  QueryResolvers,
+  ResolverFn,
+  ResolversParentTypes,
 } from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { bankPageRecordsDataFile } from './data-files';
@@ -65,16 +70,28 @@ const handleBankPageRecordsParameters = (args: queryInput_getBankPageRecords_inp
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleBankPageRecordsParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: bankPageRecordsDataFile,
+module.exports = (
+  next: ResolverFn<
+    Promise<getBankPageRecordsResponse>,
+    ResolversParentTypes['Query'],
+    MeshContext,
+    Partial<QuerygetBankPageRecordsArgs>
+  >,
+) => {
+  const resolver: QueryResolvers['getBankPageRecords'] = (root, args, context, info) => {
+    const parameters = handleBankPageRecordsParameters(args.input ?? {});
+    args.input = {
+      parameters,
+      datafile: bankPageRecordsDataFile,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+    return next(root, args, context, info).then(async data => {
+      const datum = (await data).repdata?.[0];
+      if (datum && !datum.id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getBankPageRecordsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
+  return resolver;
 };

@@ -1,6 +1,11 @@
-import {
+import type {
   getTransactionsResponse,
+  MeshContext,
+  QuerygetTransactionsArgs,
   queryInput_getTransactions_input_Input,
+  QueryResolvers,
+  ResolverFn,
+  ResolversParentTypes,
 } from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { transactionsDataFile } from './data-files';
@@ -138,16 +143,28 @@ const handleTransactionsFilterParameters = (args: queryInput_getTransactions_inp
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  const parameters = handleTransactionsFilterParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: transactionsDataFile,
+module.exports = (
+  next: ResolverFn<
+    Promise<getTransactionsResponse>,
+    ResolversParentTypes['Query'],
+    MeshContext,
+    Partial<QuerygetTransactionsArgs>
+  >,
+) => {
+  const resolver: QueryResolvers['getTransactions'] = (root, args, context, info) => {
+    const parameters = handleTransactionsFilterParameters(args.input ?? {});
+    args.input = {
+      parameters,
+      datafile: transactionsDataFile,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+    return next(root, args, context, info).then(async data => {
+      const datum = (await data).repdata?.[0];
+      if (datum && !datum.id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getTransactionsResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
+  return resolver;
 };

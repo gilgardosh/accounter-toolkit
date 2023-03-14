@@ -44,7 +44,7 @@ export class monthExpansionRecordsHandler {
 
       this.page = await newPageByMonth(
         this.config.visibleBrowser,
-        this.location[0],
+        this.location[0] as string,
         this.index,
         logger,
       );
@@ -62,7 +62,11 @@ export class monthExpansionRecordsHandler {
 
       this.prompt.update(this.location, 'Fetching details', logger);
       for (let i = 0; i < records.length; i++) {
-        records[i].details = await this.getRecordDetails(i, logger);
+        const details = await this.getRecordDetails(i, logger);
+        if (!details) {
+          throw new Error(`Failed to fetch details for record ${i + 1} of ${records.length}`);
+        }
+        records[i]!.details = details;
       }
 
       await waitAndClick(this.page, '#btnGoBack', logger);
@@ -82,7 +86,7 @@ export class monthExpansionRecordsHandler {
       if (!this.page) {
         this.page = await newPageByMonth(
           this.config.visibleBrowser,
-          this.location[0],
+          this.location[0] as string,
           this.index,
           logger,
         );

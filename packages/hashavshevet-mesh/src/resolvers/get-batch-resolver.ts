@@ -1,4 +1,12 @@
-import { getBatchResponse, queryInput_getBatch_input_Input } from '../../.mesh/index.js';
+import type {
+  getBatchResponse,
+  MeshContext,
+  QuerygetBatchArgs,
+  queryInput_getBatch_input_Input,
+  QueryResolvers,
+  ResolverFn,
+  ResolversParentTypes,
+} from '../../.mesh/index.js';
 // eslint-disable-next-line import/extensions
 import { batchDataFile } from './data-files';
 
@@ -62,17 +70,29 @@ const handleBatchParameters = (args: queryInput_getBatch_input_Input = {}) => {
   return parametersArray;
 };
 
-module.exports = next => (root, args, context, info) => {
-  args.input ||= {};
-  const parameters = handleBatchParameters(args.input);
-  args.input = {
-    parameters,
-    datafile: batchDataFile,
+module.exports = (
+  next: ResolverFn<
+    Promise<getBatchResponse>,
+    ResolversParentTypes['Query'],
+    MeshContext,
+    Partial<QuerygetBatchArgs>
+  >,
+) => {
+  const resolver: QueryResolvers['getBatch'] = (root, args, context, info) => {
+    args.input ||= {};
+    const parameters = handleBatchParameters(args.input);
+    args.input = {
+      parameters,
+      datafile: batchDataFile,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
+    return next(root, args, context, info).then(async data => {
+      const datum = (await data).repdata?.[0];
+      if (datum && !datum.id) {
+        return null;
+      }
+      return data;
+    });
   };
-  return next(root, args, context, info).then((data: getBatchResponse) => {
-    if (data.repdata?.length && !data.repdata?.[0].id) {
-      return null;
-    }
-    return data;
-  });
+  return resolver;
 };

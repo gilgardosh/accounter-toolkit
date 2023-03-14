@@ -35,15 +35,14 @@ export const pcnGenerator = (
       })
     : transactions;
   // handle transactions
-  for (let i = 0; i < sortedTransactions.length; i++) {
-    let transaction = sortedTransactions[i];
+  sortedTransactions.map((transaction, i) => {
     try {
       transaction = transactionHandler(transaction, options);
     } catch (e) {
       throw new Error(`Transaction index ${i} validation error: ${(e as Error).message}`);
     }
     textFile += transactionBuilder(transaction);
-  }
+  });
 
   // handle footer
   textFile += footerBuilder(header);

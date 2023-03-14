@@ -74,6 +74,9 @@ export const newHomePage = async (showBrowser: boolean, logger: Logger): Promise
       headless: !showBrowser,
     });
     const page = (await browser.pages())[0];
+    if (!page) {
+      throw new Error('Failed to get browser page');
+    }
     await page.setUserAgent(
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36',
     );

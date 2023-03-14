@@ -9,18 +9,19 @@ export class UserPrompt {
     return;
   }
 
-  public update = (location: string[], status: string, logger: Logger): void => {
+  public update = (locations: string[], status: string, logger: Logger): void => {
     let current = this._status;
-    for (let i = 0; i < location.length; i++) {
-      current[location[i]] ??= ['', {}];
-      if (i === location.length - 1) {
-        if (current[location[i]][0] === 'Error') {
+    for (let i = 0; i < locations.length; i++) {
+      const location = locations[i] as string;
+      current[location] ??= ['', {}];
+      if (i === locations.length - 1) {
+        if (current[location]![0] === 'Error') {
           break;
         }
-        current[location[i]][0] = status;
+        current[location]![0] = status;
         break;
       }
-      current = current[location[i]][1];
+      current = current[location]![1];
     }
     this.doLog(logger);
     return;
@@ -29,12 +30,12 @@ export class UserPrompt {
   public doLog = (logger: Logger): void => {
     let message = '';
     const recursivePrint = (data: PromprTree, prefix: string): void => {
-      const keys = Object.keys(data);
-      if (keys.length > 0) {
-        keys.sort((a, b) => (a > b ? 1 : -1));
-        keys.forEach(key => {
-          message += `${prefix}${key}: ${data[key][0]}\n`;
-          recursivePrint(data[key][1], prefix + '  ');
+      const entries = Object.entries(data);
+      if (entries.length > 0) {
+        entries.sort((a, b) => (a[0] > b[0] ? 1 : -1));
+        entries.forEach(([key, value]) => {
+          message += `${prefix}${key}: ${value[0]}\n`;
+          recursivePrint(value[1], prefix + '  ');
         });
       }
     };

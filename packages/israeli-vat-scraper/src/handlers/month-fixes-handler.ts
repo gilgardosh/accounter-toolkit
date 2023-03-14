@@ -24,7 +24,7 @@ export class MonthFixesHandler {
     try {
       this.page = await newPageByMonth(
         this.config.visibleBrowser,
-        this.location[0],
+        this.location[0] as string,
         this.index,
         logger,
       );

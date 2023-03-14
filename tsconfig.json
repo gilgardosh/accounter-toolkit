@@ -31,9 +31,9 @@
     "checkJs": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    // "exactOptionalPropertyTypes": true,
-    // "strictNullChecks": true,
-    // "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "strictNullChecks": true,
+    "strict": true,
     "paths": {
       "@accounter-toolkit/green-invoice-graphql": ["packages/green-invoice-graphql/src/index.ts"],
       "@accounter-toolkit/hashavshevet-mesh": ["packages/hashavshevet-mesh/src/index.ts"],
