@@ -158,8 +158,9 @@ module.exports = (
       datafile: transactionsDataFile,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
-    return next(root, args, context, info).then((data: getTransactionsResponse) => {
-      if (data?.repdata?.[0] && !data.repdata[0].id) {
+    return next(root, args, context, info).then(async data => {
+      const datum = (await data).repdata?.[0];
+      if (datum && !datum.id) {
         return null;
       }
       return data;

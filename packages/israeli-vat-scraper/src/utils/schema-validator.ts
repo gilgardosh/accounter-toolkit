@@ -4,7 +4,7 @@ import type { Report } from './types.js';
 export const validateSchema = (
   jsonSchema: Record<string, unknown>,
   data: Report[],
-): { isValid: boolean; errors?: ErrorObject[] | null } => {
+): { isValid: boolean; errors: ErrorObject[] | null | undefined } => {
   const ajv = new Ajv({
     verbose: true,
     allowMatchingProperties: true,

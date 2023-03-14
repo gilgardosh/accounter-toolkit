@@ -54,7 +54,13 @@ export class MonthHandler {
         : undefined;
 
       await Promise.all([additionalDetailsPromise, reportExpansionPromise]).then(res => {
+        if (!res[0]) {
+          throw new Error('Failed to fetch report additional details');
+        }
         this.report.additionalDetails = res[0];
+        if (!res[1]) {
+          throw new Error('Failed to fetch report expansion');
+        }
         this.report.reportExpansion = res[1];
       });
 
@@ -69,7 +75,11 @@ export class MonthHandler {
   private getReportAdditionalDetails = async (
     logger: Logger,
   ): Promise<ReportDetails | undefined> => {
-    this.page ||= await newPageByYear(this.config.visibleBrowser, this.location[0], logger);
+    this.page ||= await newPageByYear(
+      this.config.visibleBrowser,
+      this.location[0] as string,
+      logger,
+    );
 
     const selector = `#dgDuchot > tbody > tr:nth-child(${
       this.index + 2
@@ -95,7 +105,7 @@ export class MonthHandler {
 
       const page = await newPageByMonth(
         this.config.visibleBrowser,
-        this.location[0],
+        this.location[0] as string,
         this.index,
         logger,
       );
@@ -129,7 +139,7 @@ export class MonthHandler {
         salesPromise,
         fixedInvoicesPromise,
       ]).then(res => {
-        if (!res[0]) {
+        if (!res[0] || !res[1] || !res[2] || !res[3]) {
           return undefined;
         }
         return {
