@@ -1,4 +1,4 @@
-import type { Header, Options, Transaction } from './types';
+import type { Header, Options, Transaction } from './types.js';
 import {
   footerBuilder,
   headerBuilder,

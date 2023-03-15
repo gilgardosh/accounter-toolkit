@@ -12,8 +12,8 @@ sources:
             field: getExpenses
             path: /pull_expenses
             method: POST
-            requestSchema: ./json-schemas/payperSchema.json#/definitions/getExpensesRequest
-            responseSchema: ./json-schemas/payperSchema.json#/definitions/getExpensesResponse
+            requestSchema: ./src/json-schemas/payperSchema.json#/definitions/getExpensesRequest
+            responseSchema: ./src/json-schemas/payperSchema.json#/definitions/getExpensesResponse
 
           # getCustomerGeneralLedger
           # getListOfInventory

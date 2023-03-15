@@ -13,17 +13,18 @@
     "build": "bob build",
     "ci:lint": "eslint --output-file eslint_report.json --format json",
     "lint": "eslint --ignore-path .gitignore .",
-    "postbuild": "yarn workspaces run postbuild",
+    "mesh:artifacts-rename": "yarn ts-node ./helpers/mesh-artifacts-rename.mjs",
     "postinstall": "patch-package",
     "pre-commit": "lint-staged",
-    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild",
+    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild && yarn mesh:artifacts-rename",
     "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --check .",
     "release": "yarn build && changeset publish"
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.0"
+    "@changesets/cli": "2.26.0",
+    "glob": "9.2.1"
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.8.0",
