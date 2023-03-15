@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "getSessionResopnse": {
+    "getSessionResponse": {
       "type": "object",
       "additionalProperties": false,
       "required": ["data", "session"],
@@ -43,30 +43,44 @@
       }
     },
 
-    "getCompaniesResopnse": {
+    "getCompaniesResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["repdata"],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["Comp_Vatnum", "Company_File_Name", "Company_Name"],
-            "properties": {
-              "Comp_Vatnum": {
-                "type": "string"
-              },
-              "Company_File_Name": {
-                "type": "string"
-              },
-              "Company_Name": {
-                "type": "string"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repdata"],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["Comp_Vatnum", "Company_File_Name", "Company_Name"],
+                "properties": {
+                  "Comp_Vatnum": {
+                    "type": "string"
+                  },
+                  "Company_File_Name": {
+                    "type": "string"
+                  },
+                  "Company_Name": {
+                    "type": "string"
+                  }
+                }
               }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
             }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -74,14 +88,28 @@
     "getRecordsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/RecordType"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/RecordType"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -89,14 +117,28 @@
     "getTransactionsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Transaction"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Transaction"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -191,14 +233,28 @@
     "getBatchResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Batch"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Batch"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -219,14 +275,28 @@
     "getBankPageRecordsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/BankPageRecord"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/BankPageRecord"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -269,18 +339,32 @@
     "getAccountsResponse": {
       "type": "object",
       "additionalProperties": false,
-      "required": [],
+      "required": ["status"],
       "properties": {
-        "repdata": {
-          "type": ["array", "null"],
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/Account"
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
           }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
-    "importAccountsRequest": {
+    "importAccountsRawRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": ["insertnew", "rows"],
@@ -295,6 +379,10 @@
           "items": {
             "$ref": "#/definitions/AccountImport"
           }
+        },
+        "myindex": {
+          "type": "string",
+          "enum": ["acc"]
         }
       }
     },
@@ -330,6 +418,35 @@
               }
             }
           }
+        }
+      }
+    },
+
+    "getSortCodesResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "repdata": {
+              "type": ["array", "null"],
+              "additionalItems": false,
+              "items": {
+                "$ref": "#/definitions/SortCode"
+              }
+            },
+            "errors": {
+              "type": "string",
+              "enum": ["errors", "OK"]
+            }
+          }
+        },
+        "statusCode": {
+          "type": "integer"
         }
       }
     },
@@ -577,8 +694,8 @@
           "description": "Credit / Debit"
         },
         "debitOrCreditNumber": {
-          "type": "string",
-          "enum": ["-1", "1"],
+          "type": ["string", "integer"],
+          "enum": ["-1", "1", -1, 1],
           "description": "Credit (-1) / Debit (1)"
         },
         "estimatedSum": {
@@ -774,44 +891,22 @@
       "additionalProperties": false,
       "required": [],
       "properties": {
-        "accountantTransfer": {
-          "type": "string"
+        "accountingCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Accounting Code"
         },
         "address": {
           "type": "string",
           "description": "Address (max 50 characters)"
         },
-        "agent": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Salesperson"
-        },
-        "authorizedDealerNumber": {
-          "type": "string",
-          "description": "VAT registration number (max [20 or 9?] characters)"
-        },
         "balanceCode": {
           "type": "string",
           "description": "Code for the balance and profit and loss report"
         },
-        "bankAccountId": {
-          "type": "string",
-          "description": "Bank account # (max 20 characters)"
-        },
-        "bankBranchId": {
-          "type": "string",
-          "description": "Bank branch code (max 5 characters)"
-        },
-        "bankId": {
-          "type": "string",
-          "description": "Bank code (max 3 characters)"
-        },
         "cellphone": {
           "type": "string",
-          "description": "Callphone"
-        },
-        "centralAccount": {
-          "type": "string"
+          "description": "Cellphone"
         },
         "city": {
           "type": "string",
@@ -825,10 +920,6 @@
           "type": "string",
           "description": "Country (max 20 characters)"
         },
-        "details": {
-          "type": "string",
-          "description": "Remarks (max 50 characters)"
-        },
         "email": {
           "type": "string",
           "description": "Email"
@@ -841,86 +932,55 @@
           "type": "string",
           "description": "Filtering (5 characters)"
         },
-        "generalDiscountPercent": {
-          "type": "number",
-          "format": "float",
-          "description": "% customer discount"
-        },
         "id": {
           "type": "string",
           "description": "Account identifier (max 15 characters)"
         },
-        "incomeFileNumber": {
+        "idOrCompanyNum": {
           "type": "string",
-          "description": "Income file number (max 20 characters)"
+          "description": "Account identifier (max 15 characters)"
         },
         "initDate": {
           "type": "string",
-          "description": "Initiate date"
-        },
-        "isActive": {
-          "type": "string",
-          "description": "Active/inactive account"
+          "description": "Opening date of the account"
         },
         "mainAccount": {
           "type": "string",
           "description": "Code of the main account"
         },
-        "maxCredit": {
-          "type": "number",
-          "format": "float",
-          "description": "Credit limit"
-        },
-        "maxCreditCurrency": {
-          "type": "string",
-          "description": "Credit currency (max 5 characters)"
-        },
-        "maxObligo": {
-          "type": "number",
-          "format": "float",
-          "description": "Credit risk limit"
-        },
-        "maxObligoCurrency": {
-          "type": "string",
-          "description": "Credit risk currency (max 5 characters)"
+        "mainAccountCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Main account code"
         },
         "name": {
           "type": "string",
           "description": "Account name (max 50 characters)"
         },
-        "occupation": {
-          "type": "string",
-          "description": "Occupation (max 15 characters)"
-        },
         "phone": {
           "type": "string",
           "description": "Phone (max 30 characters)"
         },
-        "sortGroup": {
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code"
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Remarks (max 50 characters)"
+        },
+        "sortCodeId": {
           "type": "integer",
           "format": "int32",
-          "description": "Sorting code"
+          "description": "Sorting code ID"
         },
-        "type": {
+        "sortCodeName": {
           "type": "string",
-          "description": "Type of account"
+          "description": "Sorting code name"
         },
-        "vatExempt": {
+        "website": {
           "type": "string",
-          "description": "VAT exempt, 1/0"
-        },
-        "withholdingPercent": {
-          "type": "number",
-          "format": "float",
-          "description": "% withholding tax"
-        },
-        "withholdingValidity": {
-          "type": "string",
-          "description": "Validity date of the % withholding tax"
-        },
-        "zipcode": {
-          "type": "string",
-          "description": "Zip code (max 10 characters)"
+          "description": "website address"
         }
       }
     },
@@ -1109,6 +1169,23 @@
         "Zip": {
           "type": "string",
           "description": "[zipcode] Zip code (max 10 characters)"
+        }
+      }
+    },
+    "SortCode": {
+      "description": "A Single Sort Code",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Sorting code"
+        },
+        "name": {
+          "type": "string",
+          "description": "Sorting code name"
         }
       }
     }

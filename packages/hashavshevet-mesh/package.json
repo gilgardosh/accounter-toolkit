@@ -1,6 +1,7 @@
 {
   "name": "@accounter-toolkit/hashavshevet-mesh",
   "version": "0.0.4",
+  "type": "module",
   "description": "Graphql proxy for Hashavshevet API",
   "repository": {
     "type": "git",
@@ -47,12 +48,12 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node ./index.ts",
-    "mesh:generate": "rimraf .mesh src/.mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build && mv .mesh src/.mesh",
+    "mesh:generate": "rimraf .mesh src/.mesh src/mesh-artifacts && NODE_OPTIONS=\"--loader ts-node/esm\" mesh build --dir ./src",
     "prebuild": "yarn mesh:generate",
     "prepublish": "yarn build",
     "pretest": "exit 0",
     "start": "node ./dist",
-    "test": "DEBUG=1 ts-node ./dev-tests/e2e.mjs"
+    "test": "ts-node ./dist/esm/dev-tests/e2e.js"
   },
   "dependencies": {
     "@graphql-mesh/cli": "0.82.25",
