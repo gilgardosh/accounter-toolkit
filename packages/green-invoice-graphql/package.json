@@ -53,7 +53,7 @@
     "prebuild": "yarn mesh:generate",
     "prepublish": "yarn build",
     "start": "node ./dist",
-    "test": "DEBUG=1 ts-node ./dist/esm/dev-tests/e2e.js"
+    "test": "ts-node ./dist/esm/dev-tests/e2e.js"
   },
   "dependencies": {
     "@graphql-mesh/cli": "0.82.25",
