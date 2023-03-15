@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { config } from 'dotenv';
 import { lookup } from 'mime-types';
-import { init } from '../src/index.js';
+import { init } from '../index.js';
 
 config();
 
