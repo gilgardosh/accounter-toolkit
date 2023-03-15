@@ -52,8 +52,9 @@ function replacePaths(path, newName) {
 
       if (data.includes('.mesh')) {
         const result = data
-          .replace(/\.mesh/g, newName)
-          .replace(/\.\/src\/json-schemas/g, './json-schemas');
+          .replace(/\.mesh/g, newName) // rename mentions of artifacts folder
+          .replace(/fileType: "ts"/g, 'fileType: "js"') // for post-bundle fileType
+          .replace(/schemaWithAnnotations\.graphql/g, 'schemaWithAnnotations.graphql.js'); // for post-bundle fileType
 
         fs.writeFile(path, result, 'utf8', err => {
           if (err) {
