@@ -1,5 +1,20 @@
 # @accounter-toolkit/green-invoice-graphql
 
+## 0.3.0
+
+### Minor Changes
+
+- [#113](https://github.com/gilgardosh/accounter-toolkit/pull/113)
+  [`88871c9`](https://github.com/gilgardosh/accounter-toolkit/commit/88871c928457a136c3fcf255c78f216cc4f7d08d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Adjust to build as ES module. Enhance Mesh
+  build configuration
+
+### Patch Changes
+
+- [#113](https://github.com/gilgardosh/accounter-toolkit/pull/113)
+  [`88871c9`](https://github.com/gilgardosh/accounter-toolkit/commit/88871c928457a136c3fcf255c78f216cc4f7d08d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - minor build enhancements
+
 ## 0.2.0
 
 ### Minor Changes
