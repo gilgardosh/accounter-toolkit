@@ -72,7 +72,8 @@
   "bob": {
     "build": {
       "copy": [
-        "src/json-schemas"
+        "src/json-schemas",
+        "src/mesh-artifacts/**/*.graphql"
       ]
     }
   },
