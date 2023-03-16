@@ -1,5 +1,29 @@
 # @accounter-toolkit/hashavshevet-mesh
 
+## 0.1.0
+
+### Minor Changes
+
+- [#113](https://github.com/gilgardosh/accounter-toolkit/pull/113)
+  [`88871c9`](https://github.com/gilgardosh/accounter-toolkit/commit/88871c928457a136c3fcf255c78f216cc4f7d08d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Refactor resolvers, introducs
+  "getSortCodes", fix "getAccounts" function
+
+- [#113](https://github.com/gilgardosh/accounter-toolkit/pull/113)
+  [`88871c9`](https://github.com/gilgardosh/accounter-toolkit/commit/88871c928457a136c3fcf255c78f216cc4f7d08d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Adjust to build as ES module. Enhance Mesh
+  build configuration
+
+### Patch Changes
+
+- [#126](https://github.com/gilgardosh/accounter-toolkit/pull/126)
+  [`149e0ca`](https://github.com/gilgardosh/accounter-toolkit/commit/149e0ca31b796c63d4e08729cd931949bc666b50)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Include .graphql files in Mesh artifact
+
+- [#113](https://github.com/gilgardosh/accounter-toolkit/pull/113)
+  [`88871c9`](https://github.com/gilgardosh/accounter-toolkit/commit/88871c928457a136c3fcf255c78f216cc4f7d08d)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - minor build enhancements
+
 ## 0.0.4
 
 ### Patch Changes
