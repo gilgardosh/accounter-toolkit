@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@types/puppeteer": "7.0.4",
-    "nodemon": "2.0.21",
+    "nodemon": "2.0.22",
     "pino-pretty": "10.0.0"
   },
   "publishConfig": {
