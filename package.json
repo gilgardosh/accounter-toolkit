@@ -24,7 +24,7 @@
   "dependencies": {
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.0",
-    "glob": "9.2.1"
+    "glob": "9.3.5"
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.8.0",
