@@ -56,8 +56,8 @@
   },
   "dependencies": {
     "@graphql-mesh/cli": "0.82.25",
-    "@graphql-mesh/json-schema": "0.37.18",
-    "@graphql-mesh/transform-resolvers-composition": "0.13.15",
+    "@graphql-mesh/json-schema": "1.0.0",
+    "@graphql-mesh/transform-resolvers-composition": "1.0.0",
     "graphql": "16.6.0",
     "path": "0.12.7"
   },
