@@ -62,7 +62,7 @@
     "graphql": "16.6.0"
   },
   "devDependencies": {
-    "dotenv": "16.0.3",
+    "dotenv": "16.1.0",
     "ts-node": "10.9.1"
   },
   "publishConfig": {
