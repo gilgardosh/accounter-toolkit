@@ -33,10 +33,10 @@ export class UserPrompt {
       const entries = Object.entries(data);
       if (entries.length > 0) {
         entries.sort((a, b) => (a[0] > b[0] ? 1 : -1));
-        entries.forEach(([key, value]) => {
+        for (const [key, value] of entries) {
           message += `${prefix}${key}: ${value[0]}\n`;
           recursivePrint(value[1], prefix + '  ');
-        });
+        }
       }
     };
 

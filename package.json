@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": "18.16.1"
+    "node": "20.4.0"
   },
   "scripts": {
     "build": "bob build",
@@ -23,26 +23,22 @@
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.8",
-    "@changesets/cli": "2.26.0",
-    "glob": "9.2.1"
+    "@changesets/cli": "2.26.2",
+    "glob": "10.3.3"
   },
   "devDependencies": {
-    "@theguild/eslint-config": "0.8.0",
-    "@theguild/prettier-config": "1.1.2",
-    "@types/node": "18.15.1",
-    "bob-the-bundler": "5.0.1",
-    "concurrently": "7.6.0",
-    "eslint": "8.36.0",
+    "@theguild/eslint-config": "0.11.0",
+    "@theguild/prettier-config": "2.0.0",
+    "@types/node": "20.4.2",
+    "bob-the-bundler": "7.0.1",
+    "concurrently": "8.2.0",
+    "eslint": "8.45.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.0",
-    "patch-package": "^6.5.1",
-    "prettier": "2.8.4",
-    "prettier-plugin-sql": "0.13.0",
+    "lint-staged": "13.2.3",
+    "patch-package": "^7.0.2",
+    "prettier": "3.0.0",
+    "prettier-plugin-sql": "0.15.1",
     "typescript": "4.9.5"
-  },
-  "resolutions": {
-    "**/execa": "5.1.1",
-    "lint-staged/execa": "6.1.0"
   },
   "publishConfig": {
     "directory": "dist",
