@@ -9,11 +9,11 @@ const testRun = async () => {
   const app = await init(id, secret);
 
   /* search drafts */
-  const data = await app.sdk.searchExpenses_query();
-  if (!data.searchExpenses) {
+  const data = await app.sdk.searchDocuments_query();
+  if (!data.searchDocuments) {
     throw new Error('no response data');
   }
-  console.log(`Successfully searched, found ${data.searchExpenses.total} expensesJSON.`);
+  console.log(`Successfully searched, found ${data.searchDocuments.total} expensesJSON.`);
 };
 
 testRun().catch(e => {

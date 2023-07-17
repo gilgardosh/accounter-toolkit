@@ -330,6 +330,106 @@
         }
       }
     },
+    "searchDocumentsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "type": "number",
+          "description": "Page requested"
+        },
+        "pageSize": {
+          "type": "number",
+          "description": "Results per page"
+        },
+        "number": {
+          "type": "number",
+          "description": "Document number"
+        },
+        "type": {
+          "type": "array",
+          "description": "Document type",
+          "items": {
+            "type": "number",
+            "enum": [10, 100, 200, 210, 300, 305, 320, 330, 400, 405, 500, 600, 610]
+          }
+        },
+        "status": {
+          "type": "array",
+          "description": "Document status",
+          "items": {
+            "type": "number",
+            "enum": [0, 1, 2, 3, 4]
+          }
+        },
+        "paymentTypes": {
+          "type": "array",
+          "description": "Payment types used in this document",
+          "items": {
+            "type": "number",
+            "enum": [-1, 0, 1, 2, 3, 4, 5, 10, 11]
+          }
+        },
+        "fromDate": {
+          "type": "string",
+          "description": "Documents that were created after the specified date in the format YYYY-MM-DD",
+          "format": "YYYY-MM-DD"
+        },
+        "toDate": {
+          "type": "string",
+          "description": "Documents that were created until the specified date in the format YYYY-MM-DD",
+          "format": "YYYY-MM-DD"
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Client ID"
+        },
+        "clientName": {
+          "type": "string",
+          "description": "Client name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Document description"
+        },
+        "download": {
+          "type": "boolean",
+          "description": "Whether document was downloaded by client"
+        },
+        "sort": {
+          "enum": ["documentDate", "creationDate"]
+        }
+      },
+      "required": []
+    },
+    "searchDocumentsResponse": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "number",
+          "description": "The total length of the items that were retrieved"
+        },
+        "page": {
+          "type": "number",
+          "description": "The page that was requested to retrieve"
+        },
+        "pageSize": {
+          "type": "number",
+          "description": "The page size that was requested"
+        },
+        "pages": {
+          "type": "number",
+          "description": "The amount of pages that exist"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        }
+      },
+      "required": ["total", "page", "pageSize", "pages", "items"]
+    },
     "AccountingClassification": {
       "type": "object",
       "additionalProperties": false,
@@ -374,6 +474,129 @@
           "description": "The classification VAT"
         }
       }
+    },
+    "Business": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accountantDocsEmailSettings": {
+          "type": "number"
+        },
+        "accountantEmails": {
+          "type": "array"
+        },
+        "accountantReportEmailSettings": {
+          "type": "number"
+        },
+        "accountingType": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "advanceNationalInsuranceRate": {
+          "type": "number"
+        },
+        "advanceTaxRate": {
+          "type": "number"
+        },
+        "bankDisplay": {
+          "type": "boolean"
+        },
+        "bankDisplayEn": {
+          "type": "boolean"
+        },
+        "deductionRate": {
+          "type": "number"
+        },
+        "documentsEmailSettings": {
+          "type": "number"
+        },
+        "emailSubjectType": {
+          "type": "number"
+        },
+        "exemption": {
+          "type": "boolean",
+          "description": "Is the business exemption free or not",
+          "examples": [false]
+        },
+        "incomeReportEmailSettings": {
+          "type": "number"
+        },
+        "incomeReportFormatType": {
+          "type": "number"
+        },
+        "reportSendingDay": {
+          "type": "number"
+        },
+        "senderEmailSettings": {
+          "type": "number"
+        },
+        "type": {
+          "type": "number",
+          "description": "The business type ID",
+          "enum": [1, 2, 3, 4, 5, 6]
+        }
+      },
+      "required": [
+        "accountantDocsEmailSettings",
+        "accountantEmails",
+        "accountantReportEmailSettings",
+        "accountingType",
+        "active",
+        "advanceNationalInsuranceRate",
+        "advanceTaxRate",
+        "bankDisplay",
+        "bankDisplayEn",
+        "deductionRate",
+        "documentsEmailSettings",
+        "emailSubjectType",
+        "exemption",
+        "incomeReportEmailSettings",
+        "incomeReportFormatType",
+        "reportSendingDay",
+        "senderEmailSettings",
+        "type"
+      ]
+    },
+    "Client": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "The client ID",
+          "examples": ["8b338c95-095e-46d4-b2c6-331747508759"]
+        },
+        "name": {
+          "type": "string",
+          "description": "The client name",
+          "examples": ["לקוח אפ3"]
+        },
+        "phone": {
+          "type": "string"
+        },
+        "taxId": {
+          "type": "string",
+          "description": "The client tax ID",
+          "examples": ["0123456789"]
+        },
+        "self": {
+          "type": "boolean",
+          "description": "Whether the client is self",
+          "examples": [false]
+        }
+      },
+      "required": ["country", "emails", "id", "name", "phone", "self"]
     },
     "Country": {
       "type": "string",
@@ -664,6 +887,213 @@
         "HRK"
       ]
     },
+    "Document": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A Single Document",
+      "properties": {
+        "amount": {
+          "description": "Total amount, in requested currency (including the VAT, Discount & Rounding)",
+          "type": "number",
+          "examples": [354]
+        },
+        "amountDueVat": {
+          "description": "Amount due VAT - Amount before VAT, and before rounding & discount (if requested)",
+          "type": "number",
+          "examples": [100]
+        },
+        "amountExcludedVat": {
+          "description": "Amount excluded VAT - Amount that is excluded of VAT",
+          "type": "number",
+          "examples": [18]
+        },
+        "amountExemptVat": {
+          "description": "Amount exempt VAT - 0 unless there's one or more items that are excluded of VAT such as mixed documents (that have both VAT excluded & included items)",
+          "type": "number",
+          "examples": [18]
+        },
+        "amountLocal": {
+          "description": "Amount in local currency",
+          "type": "number",
+          "examples": [300]
+        },
+        "amountOpened": {
+          "description": "Amount that is still left to be paid, exists only in payment request documents",
+          "type": "number",
+          "examples": [300]
+        },
+        "business": {
+          "$ref": "#/definitions/Business"
+        },
+        "calculatedAmountLocal": {
+          "type": "number"
+        },
+        "calculatedAmountOpenedLocal": {
+          "type": "number"
+        },
+        "calculatedIncomeAmountExcludeLocal": {
+          "type": "number"
+        },
+        "calculatedIncomeAmountLocal": {
+          "type": "number"
+        },
+        "calculatedPaymentAmountLocal": {
+          "type": "number"
+        },
+        "cancellable": {
+          "type": "boolean"
+        },
+        "cancelType": {
+          "type": "number"
+        },
+        "client": {
+          "$ref": "#/definitions/Client"
+        },
+        "creationDate": {
+          "description": "Creation date timestamp",
+          "type": "string"
+        },
+        "currency": { "$ref": "#/definitions/Currency" },
+        "currencyRate": {
+          "type": "number",
+          "examples": [1]
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tags": {
+              "type": "array"
+            }
+          }
+        },
+        "description": {
+          "description": "The type of the document",
+          "type": "string"
+        },
+        "documentDate": {
+          "description": "Document reference date",
+          "type": "string"
+        },
+        "downloaded": {
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Document ID",
+          "type": "string"
+        },
+        "income": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Income"
+          }
+        },
+        "lang": {
+          "description": "Document language",
+          "type": "string",
+          "enum": ["en", "he"]
+        },
+        "number": {
+          "description": "Document tax number",
+          "type": "string"
+        },
+        "payment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Payment"
+          }
+        },
+        "ref": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "reverseCharge": {
+          "type": "boolean"
+        },
+        "rounding": {
+          "type": "boolean"
+        },
+        "signed": {
+          "type": "boolean"
+        },
+        "skinId": {
+          "type": "number"
+        },
+        "status": {
+          "description": "Document status",
+          "type": "number"
+        },
+        "templateId": {
+          "type": "number"
+        },
+        "type": {
+          "description": "Document type",
+          "type": "number",
+          "enum": [10, 100, 200, 210, 300, 305, 320, 330, 400, 405, 500, 600, 610]
+        },
+        "url": {
+          "$ref": "#/definitions/Url"
+        },
+        "vat": {
+          "description": "VAT amount",
+          "type": "number",
+          "examples": [54]
+        },
+        "vatRate": {
+          "type": "number"
+        },
+        "vatType": {
+          "description": "VAT type",
+          "type": "number",
+          "examples": [0]
+        }
+      },
+      "required": [
+        "amount",
+        "amountDueVat",
+        "amountExemptVat",
+        "amountLocal",
+        "amountOpened",
+        "business",
+        "calculatedAmountLocal",
+        "calculatedAmountOpenedLocal",
+        "calculatedIncomeAmountExcludeLocal",
+        "calculatedIncomeAmountLocal",
+        "calculatedPaymentAmountLocal",
+        "cancellable",
+        "client",
+        "creationDate",
+        "currency",
+        "currencyRate",
+        "data",
+        "description",
+        "documentDate",
+        "downloaded",
+        "id",
+        "income",
+        "lang",
+        "number",
+        "payment",
+        "ref",
+        "remarks",
+        "reverseCharge",
+        "rounding",
+        "signed",
+        "skinId",
+        "status",
+        "templateId",
+        "type",
+        "url",
+        "vat",
+        "vatRate",
+        "vatType"
+      ]
+    },
     "Expense": {
       "allOf": [
         { "$ref": "#/definitions/ExpensePartial" },
@@ -914,6 +1344,125 @@
         }
       }
     },
+    "Income": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Amount",
+          "examples": [354]
+        },
+        "amountTotal": {
+          "type": "number",
+          "description": "Total amount",
+          "examples": [354]
+        },
+        "catalogNum": {
+          "type": "string",
+          "description": "Catalog number",
+          "examples": ["MXDFSDD"]
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "currencyRate": {
+          "type": "number",
+          "description": "Currency rate relative to ILS",
+          "examples": [1]
+        },
+        "description": {
+          "type": "string",
+          "description": "Item description",
+          "examples": ["Item description"]
+        },
+        "itemId": {
+          "type": "string",
+          "description": "The ID of the item to attach as income",
+          "examples": ["8b338c95-095e-46d4-b2c6-331747508759"]
+        },
+        "price": {
+          "type": "number",
+          "description": "Item price",
+          "examples": [300]
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Quantity",
+          "examples": [1]
+        },
+        "vat": {
+          "type": "number",
+          "description": "VAT amount",
+          "examples": [54]
+        },
+        "vatRate": {
+          "type": "number",
+          "description": "VAT rate"
+        },
+        "vatType": {
+          "type": "number",
+          "description": "VAT type",
+          "examples": [0, 1, 2]
+        }
+      },
+      "required": ["description", "quantity", "price", "currency", "vatType"]
+    },
+    "Payment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "cancellable": {
+          "type": "boolean",
+          "description": "Is this document a cancellable document",
+          "examples": [false]
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "currencyRate": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "examples": ["העברה בנקאית"]
+        },
+        "price": {
+          "type": "number",
+          "description": "Sum paid",
+          "examples": [300]
+        },
+        "ref": {
+          "type": "array",
+          "description": "The referred documents types",
+          "items": {
+            "type": "number",
+            "enum": [10, 100, 200, 210, 300, 305, 320, 330, 400, 405, 500, 600, 610]
+          }
+        },
+        "type": {
+          "type": "number",
+          "description": "Payment method",
+          "enum": [-1, 0, 1, 2, 3, 4, 5, 10, 11]
+        },
+        "subType": {
+          "type": "number",
+          "description": "Other payment sub type",
+          "enum": [1, 2, 3, 4]
+        }
+      },
+      "required": ["type", "price"]
+    },
     "Supplier": {
       "type": "object",
       "additionalProperties": false,
@@ -1042,6 +1591,25 @@
           "type": "string"
         }
       }
+    },
+    "Url": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "he": {
+          "type": "string",
+          "description": "Copy in Hebrew"
+        },
+        "en": {
+          "type": "string",
+          "description": "Copy in English"
+        },
+        "origin": {
+          "type": "string",
+          "description": "Origin"
+        }
+      },
+      "required": ["he", "origin"]
     }
   }
 }

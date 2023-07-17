@@ -38,6 +38,13 @@ sources:
             requestSchema: ../json-schemas/greenInvoice.json#/definitions/searchExpensesRequest
             responseSchema: ../json-schemas/greenInvoice.json#/definitions/searchExpensesResponse
 
+          - type: Query
+            field: searchDocuments
+            path: /documents/search
+            method: POST
+            requestSchema: ../json-schemas/greenInvoice.json#/definitions/searchDocumentsRequest
+            responseSchema: ../json-schemas/greenInvoice.json#/definitions/searchDocumentsResponse
+
           - type: Mutation
             field: addExpenseDraftByFile
             path: /expenses/file
@@ -67,4 +74,4 @@ serve:
 
 sdk:
   generateOperations:
-    selectionSetDepth: 2
+    selectionSetDepth: 5
