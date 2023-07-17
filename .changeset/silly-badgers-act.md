@@ -2,4 +2,4 @@
 '@accounter-toolkit/green-invoice-graphql': minor
 ---
 
-Introduce searchDocuments endpoint
+Introduce searchDocuments endpoint to SDK
