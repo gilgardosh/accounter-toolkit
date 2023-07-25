@@ -1,5 +1,20 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.0.6
+
+### Patch Changes
+
+- [#151](https://github.com/gilgardosh/accounter-toolkit/pull/151)
+  [`5d90460`](https://github.com/gilgardosh/accounter-toolkit/commit/5d90460d610113c48d7461eea73a8e5e23e02edc)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency [`dotenv@16.3.1` ↗︎](https://www.npmjs.com/package/dotenv/v/16.3.1) (from
+    `16.0.3`, in `dependencies`)
+
+- [#151](https://github.com/gilgardosh/accounter-toolkit/pull/151)
+  [`5d90460`](https://github.com/gilgardosh/accounter-toolkit/commit/5d90460d610113c48d7461eea73a8e5e23e02edc)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Dependency upgrades
+
 ## 0.0.5
 
 ### Patch Changes
@@ -23,8 +38,8 @@
 - [#97](https://github.com/gilgardosh/accounter-toolkit/pull/97)
   [`685e751`](https://github.com/gilgardosh/accounter-toolkit/commit/685e751eabfc584ddf0d96c96ee1203a3a5f84b5)
   Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
-  - Updated dependency [`ajv@8.11.2` ↗︎](https://www.npmjs.com/package/ajv/v/8.11.2) (from `8.11.0`,
-    in `dependencies`)
+  - Updated dependency [`ajv@8.11.2` ↗︎](https://www.npmjs.com/package/ajv/v/8.11.2) (from
+    `8.11.0`, in `dependencies`)
 
 ## 0.0.2
 

@@ -1,5 +1,13 @@
 # @accounter-toolkit/pcn874-generator
 
+## 0.2.0
+
+### Minor Changes
+
+- [#133](https://github.com/gilgardosh/accounter-toolkit/pull/133)
+  [`da37ce6`](https://github.com/gilgardosh/accounter-toolkit/commit/da37ce6a65223115b51e5689a282696b5c9cf83a)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Enhance digit-only variables validation
+
 ## 0.1.1
 
 ### Patch Changes

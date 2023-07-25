@@ -1,5 +1,29 @@
 # @accounter-toolkit/hashavshevet-mesh
 
+## 0.1.1
+
+### Patch Changes
+
+- [#151](https://github.com/gilgardosh/accounter-toolkit/pull/151)
+  [`5d90460`](https://github.com/gilgardosh/accounter-toolkit/commit/5d90460d610113c48d7461eea73a8e5e23e02edc)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency
+    [`@graphql-mesh/cli@0.85.1` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.85.1) (from
+    `0.82.25`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.94.6` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.94.6)
+    (from `0.37.18`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.94.3` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.94.3)
+    (from `0.13.15`, in `dependencies`)
+  - Updated dependency [`graphql@16.7.1` ↗︎](https://www.npmjs.com/package/graphql/v/16.7.1) (from
+    `16.6.0`, in `dependencies`)
+
+- [#151](https://github.com/gilgardosh/accounter-toolkit/pull/151)
+  [`5d90460`](https://github.com/gilgardosh/accounter-toolkit/commit/5d90460d610113c48d7461eea73a8e5e23e02edc)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Dependency upgrades
+
 ## 0.1.0
 
 ### Minor Changes
