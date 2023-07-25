@@ -34,4 +34,5 @@ jobs:
     name: Build and Type Check
     uses: the-guild-org/shared-config/.github/workflows/ci.yml@main
     with:
+      nodeVersion: 18.17.0
       script: yarn build
