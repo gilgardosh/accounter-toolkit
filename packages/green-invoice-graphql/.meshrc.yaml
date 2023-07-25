@@ -24,7 +24,7 @@ sources:
                 nullable: false
             responseSchema: ../json-schemas/greenInvoice.json#/definitions/getExpenseResponse
 
-          - type: Query
+          - type: Mutation
             field: updateExpense
             path: /expenses/{args.id}
             method: PUT
