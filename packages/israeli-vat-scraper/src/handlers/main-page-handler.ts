@@ -26,13 +26,13 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
 
     const years: Record<number, number[]> = {};
     if (config.years) {
-      config.years.forEach(item => {
+      for (const item of config.years) {
         if (typeof item === 'number') {
           years[item] = [];
         } else {
           years[item[0]] = item[1];
         }
-      });
+      }
     }
 
     await Promise.all(
@@ -47,9 +47,9 @@ export const homePageHandler = async (config: Config): Promise<Report[]> => {
         return [];
       }),
     ).then(reportsLists => {
-      reportsLists.forEach(list => {
+      for (const list of reportsLists) {
         reports.push(...list);
-      });
+      }
     });
 
     page.browser().close();
