@@ -51,6 +51,8 @@ sources:
             method: POST
             requestSchema: ../json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileRequest
             responseByStatusCode:
+              200:
+                responseSchema: ../json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
               201:
                 responseSchema: ../json-schemas/greenInvoice.json#/definitions/addExpenseDraftByFileResponse
               400:
@@ -64,6 +66,8 @@ sources:
             method: POST
             requestSchema: ../json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsRequest
             responseByStatusCode:
+              200:
+                responseSchema: ../json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
               201:
                 responseSchema: ../json-schemas/greenInvoice.json#/definitions/searchExpenseDraftsResponse
               404:
