@@ -1486,8 +1486,7 @@
         },
         "paymentTerms": {
           "type": "number",
-          "description": "The supplier payment term, default is 0",
-          "enum": [-1, 0, 10, 15, 30, 45, 60, 75, 90, 120]
+          "description": "The supplier payment term, default is 0"
         },
         "bankName": {
           "type": "string",
