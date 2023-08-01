@@ -1,5 +1,62 @@
 # @accounter-toolkit/green-invoice-graphql
 
+## 0.5.0
+
+### Minor Changes
+
+- [#155](https://github.com/gilgardosh/accounter-toolkit/pull/155)
+  [`b830360`](https://github.com/gilgardosh/accounter-toolkit/commit/b83036050bae806fc6479c5f2410e98452bbab28)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Schema minor updates: define updateExpense
+  as mutation, workaround paymentTerms 0 value enum
+
+### Patch Changes
+
+- [#154](https://github.com/gilgardosh/accounter-toolkit/pull/154)
+  [`4ef4b01`](https://github.com/gilgardosh/accounter-toolkit/commit/4ef4b01a5c455a0f00a4f42e0bca30805c75f13b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency
+    [`@graphql-mesh/cli@0.85.5` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.85.5) (from
+    `0.85.1`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.94.8` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.94.8)
+    (from `0.94.6`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.94.5` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.94.5)
+    (from `0.94.3`, in `dependencies`)
+
+- [#159](https://github.com/gilgardosh/accounter-toolkit/pull/159)
+  [`651b366`](https://github.com/gilgardosh/accounter-toolkit/commit/651b366adcc284d8459cbc7f91c90bbf9c51c44b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency
+    [`@graphql-mesh/cli@0.85.6-alpha-20230726100518-2fdb88ed0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.85.6)
+    (from `0.85.5`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.94.9-alpha-20230726100518-2fdb88ed0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.94.9)
+    (from `0.94.8`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.94.6-alpha-20230726100518-2fdb88ed0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.94.6)
+    (from `0.94.5`, in `dependencies`)
+
+- [#163](https://github.com/gilgardosh/accounter-toolkit/pull/163)
+  [`b59d94f`](https://github.com/gilgardosh/accounter-toolkit/commit/b59d94fd07dc57063b0661d74da894954e0bc684)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Updated dependency
+    [`@graphql-mesh/cli@0.86.0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.86.0) (from
+    `0.85.6-alpha-20230726100518-2fdb88ed0`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/json-schema@0.95.0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/json-schema/v/0.95.0)
+    (from `0.94.9-alpha-20230726100518-2fdb88ed0`, in `dependencies`)
+  - Updated dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.95.0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.95.0)
+    (from `0.94.6-alpha-20230726100518-2fdb88ed0`, in `dependencies`)
+
+- [#159](https://github.com/gilgardosh/accounter-toolkit/pull/159)
+  [`651b366`](https://github.com/gilgardosh/accounter-toolkit/commit/651b366adcc284d8459cbc7f91c90bbf9c51c44b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Fix Mesh enums 0-value bug
+
 ## 0.4.0
 
 ### Minor Changes
