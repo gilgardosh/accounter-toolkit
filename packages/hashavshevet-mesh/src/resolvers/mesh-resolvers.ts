@@ -136,9 +136,7 @@ const resolvers: Resolvers = {
             }),
           },
         }).then(res => {
-          return res?.status?.repdata && res.status.repdata.length > 0
-            ? res.status.repdata[0] ?? null
-            : null;
+          return res?.status?.repdata?.[0] ?? null;
         });
       },
     },
