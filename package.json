@@ -16,7 +16,7 @@
     "mesh:artifacts-rename": "yarn ts-node ./helpers/mesh-artifacts-rename.mjs",
     "postinstall": "patch-package",
     "pre-commit": "lint-staged",
-    "prebuild": "rimraf dist/ .bob/ && yarn lint && yarn prettier && yarn workspaces run prebuild && yarn mesh:artifacts-rename",
+    "prebuild": "rimraf dist/ .bob/ && yarn lint --quiet && yarn prettier && yarn workspaces run prebuild && yarn mesh:artifacts-rename",
     "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --check .",
     "release": "yarn build && changeset publish"
@@ -28,17 +28,17 @@
   },
   "devDependencies": {
     "@theguild/eslint-config": "0.11.0",
-    "@theguild/prettier-config": "2.0.0",
-    "@types/node": "20.4.5",
+    "@theguild/prettier-config": "2.0.1",
+    "@types/node": "20.5.6",
     "bob-the-bundler": "7.0.1",
-    "concurrently": "8.2.0",
-    "eslint": "8.46.0",
+    "concurrently": "8.2.1",
+    "eslint": "8.48.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
     "patch-package": "^7.0.2",
-    "prettier": "3.0.0",
+    "prettier": "3.0.2",
     "prettier-plugin-sql": "0.15.1",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   },
   "publishConfig": {
     "directory": "dist",
