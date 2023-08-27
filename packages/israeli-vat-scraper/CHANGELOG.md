@@ -1,5 +1,15 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.0.7
+
+### Patch Changes
+
+- [#175](https://github.com/gilgardosh/accounter-toolkit/pull/175)
+  [`44b7d77`](https://github.com/gilgardosh/accounter-toolkit/commit/44b7d77049640e6eb11497914b459ec3cf319d9e)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+  - Updated dependency [`puppeteer@21.1.0` ↗︎](https://www.npmjs.com/package/puppeteer/v/21.1.0)
+    (from `18.2.1`, in `dependencies`)
+
 ## 0.0.6
 
 ### Patch Changes
