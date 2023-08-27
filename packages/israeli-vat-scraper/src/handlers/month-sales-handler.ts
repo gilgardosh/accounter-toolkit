@@ -76,9 +76,8 @@ export class MonthSalesHandler {
               index,
               secondaryIndex,
             );
-            salesData[key as keyof ReportSales].received.records = await recordsHandler.handle(
-              logger,
-            );
+            salesData[key as keyof ReportSales].received.records =
+              await recordsHandler.handle(logger);
           }
         }
 
@@ -116,9 +115,8 @@ export class MonthSalesHandler {
               index,
               secondaryIndex,
             );
-            salesData[key as keyof ReportSales].incorrect.records = await recordsHandler.handle(
-              logger,
-            );
+            salesData[key as keyof ReportSales].incorrect.records =
+              await recordsHandler.handle(logger);
           }
         }
       }

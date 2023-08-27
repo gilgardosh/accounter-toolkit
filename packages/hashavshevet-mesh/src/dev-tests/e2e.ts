@@ -13,9 +13,9 @@ const test = async () => {
 
   console.log(JSON.stringify(res, null, 2));
 
-  // const res2 = await sdk.getBankPageRecords_query();
+  const res2 = await sdk.getCompanies_query();
 
-  // console.log(JSON.stringify(res2, null, 2));
+  console.log(JSON.stringify(res2, null, 2));
 };
 
 test();

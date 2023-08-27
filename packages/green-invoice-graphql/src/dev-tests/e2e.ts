@@ -13,7 +13,12 @@ const testRun = async () => {
   if (!data.searchExpenseDrafts) {
     throw new Error('no response data');
   }
-  console.log(`Successfully searched, found ${data.searchExpenseDrafts} expensesJSON.`);
+  if (!('page' in data.searchExpenseDrafts)) {
+    throw new Error(`Got error response: ${data.searchExpenseDrafts.errorMessage ?? undefined}`);
+  }
+  console.log(
+    `Successfully searched, found ${data.searchExpenseDrafts.items?.length ?? 0} expenses.`,
+  );
 };
 
 testRun().catch(e => {
