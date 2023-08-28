@@ -39,6 +39,10 @@
     "prettier-plugin-sql": "0.15.1",
     "typescript": "5.2.2"
   },
+  "resolutions": {
+    "**/@ardatan/relay-compiler/**/yargs": ">=16.0.0",
+    "**/smartwrap/**/yargs": ">=16.0.0"
+  },
   "publishConfig": {
     "directory": "dist",
     "access": "public"
