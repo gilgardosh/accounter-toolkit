@@ -21,18 +21,17 @@
     "prettier:check": "prettier --check .",
     "release": "yarn build && changeset publish"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2",
-    "glob": "10.3.3"
-  },
-  "devDependencies": {
     "@theguild/eslint-config": "0.11.0",
     "@theguild/prettier-config": "2.0.1",
-    "@types/node": "20.5.6",
+    "@types/node": "20.5.7",
     "bob-the-bundler": "7.0.1",
     "concurrently": "8.2.1",
     "eslint": "8.48.0",
+    "glob": "10.3.3",
     "husky": "8.0.3",
     "lint-staged": "14.0.1",
     "patch-package": "^8.0.0",
