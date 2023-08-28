@@ -977,7 +977,7 @@
     uWebSockets.js uNetworking/uWebSockets.js#v20.31.0
     yargs "^17.7.1"
 
-"@graphql-mesh/config@^0.97.4":
+"@graphql-mesh/config@0.97.4", "@graphql-mesh/config@^0.97.4":
   version "0.97.4"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/config/-/config-0.97.4.tgz#8738988601eefb6db8c1688e7f781d5d16da835a"
   integrity sha512-ooAiboCfsr+droPiGzsbE31X9KgSIGHRsxguNCDfbjbgDTy5OgC+N+yLQpEyuR4ol9B3UJ8iQk/t7SWcvwV/dw==
@@ -995,7 +995,7 @@
     param-case "^3.0.4"
     pascal-case "^3.1.2"
 
-"@graphql-mesh/cross-helpers@^0.4.0":
+"@graphql-mesh/cross-helpers@0.4.0", "@graphql-mesh/cross-helpers@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/cross-helpers/-/cross-helpers-0.4.0.tgz#e27dd47c97de888bb2f152e251c6f641ece9e0dc"
   integrity sha512-NgcuwLQelrnl6YmJdXk8GWctY7MUtgyLKBfXsFj1bRhzC6BR/r6DieWKWWrLG8DQu0eNUMtVrI0j0qUrlw7LdQ==
@@ -1004,7 +1004,7 @@
     react-native-fs "2.20.0"
     react-native-path "0.0.5"
 
-"@graphql-mesh/http@^0.96.3":
+"@graphql-mesh/http@0.96.3", "@graphql-mesh/http@^0.96.3":
   version "0.96.3"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/http/-/http-0.96.3.tgz#ea084beec2e337c77fdb202dedca48117662fc35"
   integrity sha512-/GaxnF8OoQDwwOaN2rEEqYkPeZ1DWsLdteDh6SxA7bj3cgjAy15m6aatlcigFWukgqDXrqLjloe05Ckp9B+ALA==
@@ -1040,7 +1040,7 @@
     "@graphql-tools/schema" "^10.0.0"
     "@graphql-tools/stitch" "^9.0.0"
 
-"@graphql-mesh/runtime@^0.96.2":
+"@graphql-mesh/runtime@0.96.2", "@graphql-mesh/runtime@^0.96.2":
   version "0.96.2"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/runtime/-/runtime-0.96.2.tgz#069ad69ede10a3020dacd31665448efb33557dca"
   integrity sha512-LxyqM3GZAJOy5LLbAae8G2GE9U8vR5irZhPcwqT6GCp62a888gWPj7MyUsVtn+VeSx41I9wSjQaZwH07wwLxlA==
@@ -1053,7 +1053,7 @@
     "@graphql-tools/wrap" "^10.0.0"
     "@whatwg-node/fetch" "^0.9.0"
 
-"@graphql-mesh/store@^0.95.2":
+"@graphql-mesh/store@0.95.2", "@graphql-mesh/store@^0.95.2":
   version "0.95.2"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/store/-/store-0.95.2.tgz#52c6073b83c2a8c411d2efad888fde665942d1b4"
   integrity sha512-f7rkXue9lxJZmEroydwDcFKD3XBxBfrQP7hbVgL/kCgk9djTb1lcxTgZ4rP4paJbR5cboMM7FQiybdOSB2fN5Q==
@@ -1077,7 +1077,7 @@
     "@graphql-tools/resolvers-composition" "^7.0.0"
     "@graphql-tools/schema" "^10.0.0"
 
-"@graphql-mesh/types@^0.95.2":
+"@graphql-mesh/types@0.95.2", "@graphql-mesh/types@^0.95.2":
   version "0.95.2"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/types/-/types-0.95.2.tgz#83baff89898239b05f90db59276d6afbe754afe7"
   integrity sha512-VOdRDcwkmPULW4JHVmFICPwoFxNgSF5besS5ItatblaQ2Z9oUDUE9Kj9rU0N72TUefLpzhS+MxaG/Z3EGYJJ1A==
@@ -1086,7 +1086,7 @@
     "@graphql-tools/delegate" "^10.0.0"
     "@graphql-typed-document-node/core" "^3.2.0"
 
-"@graphql-mesh/utils@^0.95.2":
+"@graphql-mesh/utils@0.95.2", "@graphql-mesh/utils@^0.95.2":
   version "0.95.2"
   resolved "https://registry.yarnpkg.com/@graphql-mesh/utils/-/utils-0.95.2.tgz#3dc4a5f5c9c080d2b20e9b3fd0e85f35755af114"
   integrity sha512-8cF7pwn1nH4oCYMV3w+kJkbJgxZR7j1/HPaAfMctzz0ih0gvKzqOi9uWoZkbUPnRQj/KEOVtX8awA9X5BtmDhw==
