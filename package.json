@@ -27,7 +27,7 @@
     "@changesets/cli": "2.26.2",
     "@theguild/eslint-config": "0.11.0",
     "@theguild/prettier-config": "2.0.1",
-    "@types/node": "20.5.7",
+    "@types/node": "20.8.7",
     "bob-the-bundler": "7.0.1",
     "concurrently": "8.2.2",
     "eslint": "8.48.0",
