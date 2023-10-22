@@ -30,7 +30,7 @@
     "@types/node": "20.5.7",
     "bob-the-bundler": "7.0.1",
     "concurrently": "8.2.2",
-    "eslint": "8.48.0",
+    "eslint": "8.52.0",
     "glob": "10.3.3",
     "husky": "8.0.3",
     "lint-staged": "15.0.2",
