@@ -224,8 +224,9 @@ export const transactionValidator = (transaction: Transaction, options: Options)
   }
 
   if (transaction.invoiceSum <= 0) {
-    throw new Error(
-      `Expected invoiceSum to be a negative number, received "${transaction.invoiceSum}"`,
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Expected invoiceSum to be a positive number, received "${transaction.invoiceSum}"`,
     );
   }
 
