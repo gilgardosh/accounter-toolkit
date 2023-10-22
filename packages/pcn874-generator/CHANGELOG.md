@@ -1,5 +1,20 @@
 # @accounter-toolkit/pcn874-generator
 
+## 0.3.0
+
+### Minor Changes
+
+- [#193](https://github.com/gilgardosh/accounter-toolkit/pull/193)
+  [`d6460c3`](https://github.com/gilgardosh/accounter-toolkit/commit/d6460c31ad3ee440dc6cb41ac2f4675447a11076)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Handle credit invoices: warn (instead of
+  throw) on negative sum
+
+### Patch Changes
+
+- [#177](https://github.com/gilgardosh/accounter-toolkit/pull/177)
+  [`eb0746b`](https://github.com/gilgardosh/accounter-toolkit/commit/eb0746b23cf82668dfd3a7443a09de5a9d0be37b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Root dependencies reorder and cleanup
+
 ## 0.2.0
 
 ### Minor Changes
