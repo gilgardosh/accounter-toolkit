@@ -1,5 +1,65 @@
 # @accounter-toolkit/green-invoice-graphql
 
+## 0.5.2
+
+### Patch Changes
+
+- [#179](https://github.com/gilgardosh/accounter-toolkit/pull/179)
+  [`5dc7844`](https://github.com/gilgardosh/accounter-toolkit/commit/5dc7844d72b4ce9bfe45402852b5858373a381e6)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Removed dependency
+    [`@graphql-mesh/cli@0.87.3` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cli/v/0.87.3) (from
+    `dependencies`)
+
+- [#180](https://github.com/gilgardosh/accounter-toolkit/pull/180)
+  [`753a8c4`](https://github.com/gilgardosh/accounter-toolkit/commit/753a8c46436c7905b12edc4f9847da900a0b2792)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+
+  - Added dependency
+    [`@graphql-mesh/config@0.97.4` ↗︎](https://www.npmjs.com/package/@graphql-mesh/config/v/0.97.4)
+    (to `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/cross-helpers@0.4.0` ↗︎](https://www.npmjs.com/package/@graphql-mesh/cross-helpers/v/0.4.0)
+    (to `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/http@0.96.3` ↗︎](https://www.npmjs.com/package/@graphql-mesh/http/v/0.96.3) (to
+    `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/runtime@0.96.2` ↗︎](https://www.npmjs.com/package/@graphql-mesh/runtime/v/0.96.2)
+    (to `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/store@0.95.2` ↗︎](https://www.npmjs.com/package/@graphql-mesh/store/v/0.95.2)
+    (to `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/types@0.95.2` ↗︎](https://www.npmjs.com/package/@graphql-mesh/types/v/0.95.2)
+    (to `dependencies`)
+  - Added dependency
+    [`@graphql-mesh/utils@0.95.2` ↗︎](https://www.npmjs.com/package/@graphql-mesh/utils/v/0.95.2)
+    (to `dependencies`)
+  - Removed dependency
+    [`@graphql-mesh/transform-resolvers-composition@0.95.2` ↗︎](https://www.npmjs.com/package/@graphql-mesh/transform-resolvers-composition/v/0.95.2)
+    (from `dependencies`)
+
+- [#187](https://github.com/gilgardosh/accounter-toolkit/pull/187)
+  [`46e0b42`](https://github.com/gilgardosh/accounter-toolkit/commit/46e0b42b2bda020601601338d1ddc79d840eb115)
+  Thanks [@renovate](https://github.com/apps/renovate)! - dependencies updates:
+
+  - Updated dependency [`graphql@16.8.1` ↗︎](https://www.npmjs.com/package/graphql/v/16.8.1) (from
+    `16.8.0`, in `dependencies`)
+
+- [#179](https://github.com/gilgardosh/accounter-toolkit/pull/179)
+  [`5dc7844`](https://github.com/gilgardosh/accounter-toolkit/commit/5dc7844d72b4ce9bfe45402852b5858373a381e6)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Rearrange packages dependencies
+
+- [#180](https://github.com/gilgardosh/accounter-toolkit/pull/180)
+  [`753a8c4`](https://github.com/gilgardosh/accounter-toolkit/commit/753a8c46436c7905b12edc4f9847da900a0b2792)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Fix missing dependencies for Mesh artifacts
+
+- [#177](https://github.com/gilgardosh/accounter-toolkit/pull/177)
+  [`eb0746b`](https://github.com/gilgardosh/accounter-toolkit/commit/eb0746b23cf82668dfd3a7443a09de5a9d0be37b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Root dependencies reorder and cleanup
+
 ## 0.5.1
 
 ### Patch Changes

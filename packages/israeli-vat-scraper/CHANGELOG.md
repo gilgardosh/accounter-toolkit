@@ -1,5 +1,27 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.0.8
+
+### Patch Changes
+
+- [#181](https://github.com/gilgardosh/accounter-toolkit/pull/181)
+  [`1df0d03`](https://github.com/gilgardosh/accounter-toolkit/commit/1df0d03d3efaa302759416c9ca7f98b40306cce8)
+  Thanks [@renovate](https://github.com/apps/renovate)! - dependencies updates:
+
+  - Updated dependency [`puppeteer@21.1.1` ↗︎](https://www.npmjs.com/package/puppeteer/v/21.1.1)
+    (from `21.1.0`, in `dependencies`)
+
+- [#192](https://github.com/gilgardosh/accounter-toolkit/pull/192)
+  [`5f16cc4`](https://github.com/gilgardosh/accounter-toolkit/commit/5f16cc4a14a3f592023a80fca10f05e0fdc80c80)
+  Thanks [@renovate](https://github.com/apps/renovate)! - dependencies updates:
+
+  - Updated dependency [`puppeteer@21.4.0` ↗︎](https://www.npmjs.com/package/puppeteer/v/21.4.0)
+    (from `21.1.1`, in `dependencies`)
+
+- [#177](https://github.com/gilgardosh/accounter-toolkit/pull/177)
+  [`eb0746b`](https://github.com/gilgardosh/accounter-toolkit/commit/eb0746b23cf82668dfd3a7443a09de5a9d0be37b)
+  Thanks [@gilgardosh](https://github.com/gilgardosh)! - Root dependencies reorder and cleanup
+
 ## 0.0.7
 
 ### Patch Changes
