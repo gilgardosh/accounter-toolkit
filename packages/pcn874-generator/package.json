@@ -53,7 +53,7 @@
     "start": "node ./dist"
   },
   "devDependencies": {
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.2"
   },
   "publishConfig": {
     "directory": "dist",
