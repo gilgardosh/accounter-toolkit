@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "engines": {
-    "node": "20.0.0"
+    "node": "18.19.0"
   },
   "scripts": {
     "build": "bob build",

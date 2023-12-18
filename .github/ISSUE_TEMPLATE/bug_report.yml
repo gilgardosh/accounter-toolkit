@@ -77,7 +77,7 @@ body:
       label: Platform
       value: |
         - OS: [e.g. macOS, Windows, Linux]
-        - NodeJS: [e.g. 20.0.0]
+        - NodeJS: [e.g. 18.19.0]
         - `@graphql-yoga/*` version(s): [e.g. 2.5.1]
     validations:
       required: true
