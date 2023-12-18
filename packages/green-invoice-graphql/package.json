@@ -15,7 +15,7 @@
   "author": "Gil Gardosh <gilgardosh@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    "node": "^18.0.0 || >= 20"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
