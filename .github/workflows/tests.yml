@@ -26,7 +26,7 @@ jobs:
       - name: Setup env
         uses: the-guild-org/shared-config/setup@main
         with:
-          nodeVersion: '20.10.0'
+          nodeVersion: '20.0.0'
       - name: Prettier Check
         run: yarn prettier:check
 
