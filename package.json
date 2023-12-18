@@ -14,7 +14,6 @@
     "ci:lint": "eslint --output-file eslint_report.json --format json",
     "lint": "eslint --ignore-path .gitignore .",
     "mesh:artifacts-rename": "yarn ts-node ./helpers/mesh-artifacts-rename.mjs",
-    "postinstall": "patch-package",
     "pre-commit": "lint-staged",
     "prebuild": "rimraf dist/ .bob/ && yarn lint --quiet && yarn prettier && yarn workspaces run prebuild && yarn mesh:artifacts-rename",
     "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
@@ -34,7 +33,6 @@
     "glob": "10.3.10",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
-    "patch-package": "^8.0.0",
     "prettier": "3.0.3",
     "prettier-plugin-sql": "0.15.1",
     "typescript": "5.2.2"
