@@ -50,6 +50,7 @@
     "**/generated-types",
     ".changeset/*.md",
     "**/e2e",
-    "helpers"
+    "helpers",
+    ".eslintrc.cjs"
   ]
 }

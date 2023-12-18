@@ -1,6 +1,9 @@
 module.exports = {
   extends: ['@theguild'],
   plugins: [],
+  parserOptions: {
+    project: ['tsconfig.json'],
+  },
   rules: {
     '@typescript-eslint/no-namespace': [
       'error',
@@ -18,5 +21,8 @@ module.exports = {
     '.changeset/*.md',
     '*/**/.mesh/',
     '*/**/mesh-artifacts/',
+    '.eslintrc.cjs',
+    'prettier.config.cjs',
+    'helpers/*',
   ],
 };
