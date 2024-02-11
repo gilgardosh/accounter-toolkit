@@ -1,5 +1,15 @@
 # @accounter-toolkit/pcn874-generator
 
+## 0.4.0
+
+### Minor Changes
+
+- [#210](https://github.com/gilgardosh/accounter-toolkit/pull/210) [`c84416c`](https://github.com/gilgardosh/accounter-toolkit/commit/c84416cb9c9f501b5f53b039985f5d2b24ea93c2) Thanks [@gilgardosh](https://github.com/gilgardosh)! - Drop support for NPM <18
+
+### Patch Changes
+
+- [#222](https://github.com/gilgardosh/accounter-toolkit/pull/222) [`02f95ec`](https://github.com/gilgardosh/accounter-toolkit/commit/02f95ece06f2a3f6c4ed82acd3ffa772f382c2cf) Thanks [@gilgardosh](https://github.com/gilgardosh)! - Export EntryType enum
+
 ## 0.3.0
 
 ### Minor Changes
