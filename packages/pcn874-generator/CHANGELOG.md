@@ -1,5 +1,11 @@
 # @accounter-toolkit/pcn874-generator
 
+## 0.4.1
+
+### Patch Changes
+
+- [#223](https://github.com/gilgardosh/accounter-toolkit/pull/223) [`85f09d5`](https://github.com/gilgardosh/accounter-toolkit/commit/85f09d53793b1de36fc63d3caea2428236af2b61) Thanks [@gilgardosh](https://github.com/gilgardosh)! - Minor fix
+
 ## 0.4.0
 
 ### Minor Changes
