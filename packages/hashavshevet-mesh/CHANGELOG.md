@@ -1,5 +1,11 @@
 # @accounter-toolkit/hashavshevet-mesh
 
+## 0.2.0
+
+### Minor Changes
+
+- [#210](https://github.com/gilgardosh/accounter-toolkit/pull/210) [`c84416c`](https://github.com/gilgardosh/accounter-toolkit/commit/c84416cb9c9f501b5f53b039985f5d2b24ea93c2) Thanks [@gilgardosh](https://github.com/gilgardosh)! - Drop support for NPM <18
+
 ## 0.1.4
 
 ### Patch Changes
