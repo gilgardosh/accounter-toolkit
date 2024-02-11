@@ -1,5 +1,5 @@
+import { EntryType } from '../index.js';
 import type { Header, Options, Transaction } from '../types.js';
-import { EntryType } from '../types.js';
 
 const onlyDigitsValidator = (value: string): boolean => {
   return !!value && /^\d+$/.test(value);
