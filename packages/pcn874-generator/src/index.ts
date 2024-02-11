@@ -7,6 +7,8 @@ import {
   transactionHandler,
 } from './utils/index.js';
 
+export { EntryType } from './types.js';
+
 export const pcnGenerator = (
   header: Header,
   transactions: Transaction[],
