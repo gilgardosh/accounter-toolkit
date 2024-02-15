@@ -1,5 +1,12 @@
 # @accounter-toolkit/israeli-vat-scraper
 
+## 0.1.1
+
+### Patch Changes
+
+- [#226](https://github.com/gilgardosh/accounter-toolkit/pull/226) [`64af3b2`](https://github.com/gilgardosh/accounter-toolkit/commit/64af3b2c4057ac728392e137130b6ad6d923e088) Thanks [@gilgardosh](https://github.com/gilgardosh)! - dependencies updates:
+  - Removed dependency [`dotenv@16.3.1` ↗︎](https://www.npmjs.com/package/dotenv/v/16.3.1) (from `dependencies`)
+
 ## 0.1.0
 
 ### Minor Changes
