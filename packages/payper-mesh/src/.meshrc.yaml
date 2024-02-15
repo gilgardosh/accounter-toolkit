@@ -9,25 +9,25 @@ sources:
           Accept: application/json
         operations:
           - type: Query
-            field: getExpenses
+            field: getExpensesRaw
             path: /pull_expenses
             method: POST
-            requestSchema: ./src/json-schemas/payperSchema.json#/definitions/getExpensesRequest
-            responseSchema: ./src/json-schemas/payperSchema.json#/definitions/getExpensesResponse
+            requestSchema: ./json-schemas/payperSchema.json#/definitions/getExpensesRequest
+            responseSchema: ./json-schemas/payperSchema.json#/definitions/getExpensesResponse
 
           # getCustomerGeneralLedger
           # getListOfInventory
           # getQuantityForItem
 
-    transforms:
-      - resolversComposition:
-          mode: bare
-          compositions:
-            - resolver: Query.getExpenses
-              composer: src/resolvers/get-expenses-resolver
 serve:
   browser: false
 
 sdk:
   generateOperations:
     selectionSetDepth: 2
+
+additionalTypeDefs:
+  - ./additional-type-defs.graphql
+
+additionalResolvers:
+  - ./resolvers/get-expenses-resolver.js
