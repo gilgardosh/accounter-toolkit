@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
-import { init } from '../src/index.js';
+import { init } from '../index.js';
 
-config();
+config({ path: '../../.env' });
 
 const testRun = async () => {
   const authToken = process.env['PAYPER_MESH_AUTH_TOKEN'] as string;
