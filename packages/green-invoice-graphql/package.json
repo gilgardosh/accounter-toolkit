@@ -64,7 +64,7 @@
     "@graphql-mesh/store": "0.96.5",
     "@graphql-mesh/types": "0.96.5",
     "@graphql-mesh/utils": "0.96.5",
-    "graphql": "16.8.1",
+    "graphql": "16.8.2",
     "path": "0.12.7"
   },
   "devDependencies": {

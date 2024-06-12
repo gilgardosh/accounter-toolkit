@@ -65,7 +65,7 @@
     "@graphql-mesh/transform-resolvers-composition": "0.96.5",
     "@graphql-mesh/types": "0.96.5",
     "@graphql-mesh/utils": "0.96.5",
-    "graphql": "16.8.1"
+    "graphql": "16.8.2"
   },
   "devDependencies": {
     "@graphql-mesh/cli": "0.88.7",
