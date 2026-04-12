@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@graphql-mesh/cli": "0.88.7",
-    "dotenv": "16.4.4",
+    "dotenv": "17.4.2",
     "ts-node": "10.9.2"
   },
   "publishConfig": {
